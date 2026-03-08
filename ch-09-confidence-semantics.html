@@ -1,0 +1,1716 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>11&nbsp; Confidence Semantics – Blueprint_Extraction</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./ch-10-mapping-principles.html" rel="next">
+<link href="./ch-08-evidence-model.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-27c261d06b905028a18691de25d09dde.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-07-signal-taxonomy.html">Part II — Signal Taxonomy &amp; Evidence Model</a></li><li class="breadcrumb-item"><a href="./ch-09-confidence-semantics.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Confidence Semantics</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Blueprint_Extraction</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part 0 — Preface &amp; Contracts</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-01-why-extraction-is-difficult.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Why Extraction Is Hard: Repositories Are Facts, Blueprints Are Interpretations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-02-deliverables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Deliverables of This Volume</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-03-boundaries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Scope and Boundaries of This Volume</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part I — Extraction as Evidence-Driven Engineering</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-04-what-we-extract.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">What We Extract: Blueprint Kernel and Views</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-05-repo-not-system.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Repo ≠ System: The Missing Layers</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-06-hypothesis-workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hypothesis Workflow</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part II — Signal Taxonomy &amp; Evidence Model</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-07-signal-taxonomy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Signal Taxonomy: Where Structure Leaks Out</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-08-evidence-model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Evidence Object Model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-09-confidence-semantics.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Confidence Semantics</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part III — Ontology Mapping: From Repo to System Graph</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-10-mapping-principles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Mapping Principles and Canonicalization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-11-component-discovery.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Component Discovery</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-12-interface-contract-extraction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Interface and Contract Extraction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-13-data-model-ownership.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Data Model and Ownership Extraction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-14-workflow-control-plane.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Workflow and Control-Plane Extraction</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part IV — Blueprint Draft Generation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-15-kernel-slot-filling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Kernel Slot Filling Rules</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-16-views-generation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Views Generation (Projections)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-17-blueprint-pack-output.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Blueprint Pack Output Standard</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part V — Validation, Review, and Quality Gates</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-18-validation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Validation: Schema and Semantics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-19-review-protocol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Review Protocol (Human-in-the-Loop)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-20-quality-metrics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Extraction Quality Metrics</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part VI — Operating Blueprint Mining at Scale</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-21-mining-pipeline-operations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Mining Pipeline Operations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-22-normalization-deduplication.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Normalization and Deduplication</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-23-blueprints-to-patterns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">From Blueprints to Patterns</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Capstone — Blueprint Extraction Spec v0.1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-24-blueprint-extraction-spec.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Blueprint Extraction Specification v0.1</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-a-signal-taxonomy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Appendix A — Signal Taxonomy v0.1</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-b-evidence-schema.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Appendix B — Evidence Object Schema v0.1</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-c-confidence-semantics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix C — Confidence Semantics Spec v0.1</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-d-mapping-template.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Appendix D — Ontology Mapping Rules Template</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-e-report-template.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Appendix E — Extraction Report Template</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-f-extraction-cases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Appendix F — Five Complete Extraction Cases (with Evidence Trace)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-g-eml-scorecard.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Appendix G — Extraction Maturity Level (EML) Score Sheet</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#the-problem-of-uncertainty" id="toc-the-problem-of-uncertainty" class="nav-link active" data-scroll-target="#the-problem-of-uncertainty"><span class="header-section-number">11.1</span> The Problem of Uncertainty</a></li>
+  <li><a href="#confidence-object-structure" id="toc-confidence-object-structure" class="nav-link" data-scroll-target="#confidence-object-structure"><span class="header-section-number">11.2</span> Confidence Object Structure</a>
+  <ul class="collapse">
+  <li><a href="#state" id="toc-state" class="nav-link" data-scroll-target="#state"><span class="header-section-number">11.2.1</span> state</a></li>
+  <li><a href="#score" id="toc-score" class="nav-link" data-scroll-target="#score"><span class="header-section-number">11.2.2</span> score</a></li>
+  <li><a href="#evidence_refs" id="toc-evidence_refs" class="nav-link" data-scroll-target="#evidence_refs"><span class="header-section-number">11.2.3</span> evidence_refs</a></li>
+  <li><a href="#confidence_details" id="toc-confidence_details" class="nav-link" data-scroll-target="#confidence_details"><span class="header-section-number">11.2.4</span> confidence_details</a></li>
+  <li><a href="#assigned_by" id="toc-assigned_by" class="nav-link" data-scroll-target="#assigned_by"><span class="header-section-number">11.2.5</span> assigned_by</a></li>
+  </ul></li>
+  <li><a href="#confidence-states" id="toc-confidence-states" class="nav-link" data-scroll-target="#confidence-states"><span class="header-section-number">11.3</span> Confidence States</a>
+  <ul class="collapse">
+  <li><a href="#observed" id="toc-observed" class="nav-link" data-scroll-target="#observed"><span class="header-section-number">11.3.1</span> Observed</a></li>
+  <li><a href="#inferred" id="toc-inferred" class="nav-link" data-scroll-target="#inferred"><span class="header-section-number">11.3.2</span> Inferred</a></li>
+  <li><a href="#unknown" id="toc-unknown" class="nav-link" data-scroll-target="#unknown"><span class="header-section-number">11.3.3</span> Unknown</a></li>
+  </ul></li>
+  <li><a href="#confidence-derivation" id="toc-confidence-derivation" class="nav-link" data-scroll-target="#confidence-derivation"><span class="header-section-number">11.4</span> Confidence Derivation</a>
+  <ul class="collapse">
+  <li><a href="#evidence-strength" id="toc-evidence-strength" class="nav-link" data-scroll-target="#evidence-strength"><span class="header-section-number">11.4.1</span> Evidence Strength</a></li>
+  <li><a href="#evidence-quantity" id="toc-evidence-quantity" class="nav-link" data-scroll-target="#evidence-quantity"><span class="header-section-number">11.4.2</span> Evidence Quantity</a></li>
+  <li><a href="#evidence-consistency" id="toc-evidence-consistency" class="nav-link" data-scroll-target="#evidence-consistency"><span class="header-section-number">11.4.3</span> Evidence Consistency</a></li>
+  <li><a href="#pattern-alignment" id="toc-pattern-alignment" class="nav-link" data-scroll-target="#pattern-alignment"><span class="header-section-number">11.4.4</span> Pattern Alignment</a></li>
+  <li><a href="#confidence-calculation-formula" id="toc-confidence-calculation-formula" class="nav-link" data-scroll-target="#confidence-calculation-formula"><span class="header-section-number">11.4.5</span> Confidence Calculation Formula</a></li>
+  </ul></li>
+  <li><a href="#confidence-propagation" id="toc-confidence-propagation" class="nav-link" data-scroll-target="#confidence-propagation"><span class="header-section-number">11.5</span> Confidence Propagation</a></li>
+  <li><a href="#confidence-and-review-prioritization" id="toc-confidence-and-review-prioritization" class="nav-link" data-scroll-target="#confidence-and-review-prioritization"><span class="header-section-number">11.6</span> Confidence and Review Prioritization</a></li>
+  <li><a href="#dataset-level-confidence-metrics" id="toc-dataset-level-confidence-metrics" class="nav-link" data-scroll-target="#dataset-level-confidence-metrics"><span class="header-section-number">11.7</span> Dataset-Level Confidence Metrics</a></li>
+  <li><a href="#confidence-as-architectural-honesty" id="toc-confidence-as-architectural-honesty" class="nav-link" data-scroll-target="#confidence-as-architectural-honesty"><span class="header-section-number">11.8</span> Confidence as Architectural Honesty</a></li>
+  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">11.9</span> Chapter Summary</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-07-signal-taxonomy.html">Part II — Signal Taxonomy &amp; Evidence Model</a></li><li class="breadcrumb-item"><a href="./ch-09-confidence-semantics.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Confidence Semantics</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Confidence Semantics</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Blueprint extraction reconstructs architectural structure from indirect repository signals. Because repositories rarely encode architecture explicitly, extracted elements inevitably contain <strong>varying degrees of certainty</strong>.</p>
+<p>Confidence semantics provide a formal mechanism for representing this uncertainty. Rather than presenting extracted architecture as definitive truth, the extraction process attaches <strong>confidence annotations</strong> to every inferred element. These annotations communicate how strongly the available evidence supports the architectural interpretation.</p>
+<p>Confidence semantics therefore serve two critical roles:</p>
+<ul>
+<li><strong>Representing uncertainty</strong>: Making uncertainty explicit rather than hidden</li>
+<li><strong>Guiding review</strong>: Directing human attention to uncertain, high-impact elements</li>
+</ul>
+<p>Without confidence semantics, extraction would produce overconfident, unreliable architectural reconstructions. With confidence semantics, extraction produces honest, auditable representations that acknowledge the limits of available information.</p>
+<hr>
+<section id="the-problem-of-uncertainty" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="the-problem-of-uncertainty"><span class="header-section-number">11.1</span> The Problem of Uncertainty</h2>
+<p>Architectural reconstruction is inherently uncertain. Repositories provide incomplete, ambiguous, and sometimes contradictory signals about system structure. Extracting architecture from these signals inevitably involves interpretation, judgment, and inference—all of which introduce uncertainty.</p>
+<p><strong>Sources of uncertainty:</strong></p>
+<p><strong>1. Missing information</strong></p>
+<p>Some architectural elements exist only outside repositories:</p>
+<ul>
+<li><strong>Operational constraints</strong>: Runtime policies, scaling requirements</li>
+<li><strong>Runtime environments</strong>: Container orchestration, service discovery</li>
+<li><strong>Organizational ownership</strong>: Team responsibilities, governance structures</li>
+<li><strong>External integrations</strong>: Third-party services, API dependencies</li>
+</ul>
+<p>When information is missing, extraction must either: - Mark elements as unknown (honest representation) - Infer elements from partial signals (risky interpretation)</p>
+<p><strong>2. Implicit conventions</strong></p>
+<p>Architectural intent may be encoded indirectly:</p>
+<ul>
+<li><strong>Naming patterns</strong>: Directory names suggesting component boundaries</li>
+<li><strong>Framework conventions</strong>: Framework-specific structural patterns</li>
+<li><strong>Organizational standards</strong>: Team-specific conventions</li>
+</ul>
+<p>Implicit conventions are fragile and may: - Vary across teams and organizations - Be applied inconsistently - Evolve over time without documentation</p>
+<p><strong>3. Ambiguous evidence</strong></p>
+<p>A single artifact may admit multiple interpretations:</p>
+<ul>
+<li>Directory named <code>services/</code> could mean microservices or logical modules</li>
+<li>Queue dependency could indicate async processing or message transport</li>
+<li>Scheduler configuration could indicate workflows or maintenance tasks</li>
+</ul>
+<p>Ambiguity forces extraction to choose among plausible interpretations, introducing uncertainty.</p>
+<p><strong>4. Conflicting evidence</strong></p>
+<p>Different artifacts may suggest inconsistent architectures:</p>
+<ul>
+<li><strong>Outdated documentation</strong>: Describes components that no longer exist</li>
+<li><strong>Legacy configuration</strong>: References deprecated services</li>
+<li><strong>Evolutionary drift</strong>: Architecture evolved but artifacts not updated</li>
+</ul>
+<p>Conflicting evidence forces extraction to choose which sources to trust.</p>
+<p><strong>The cost of ignoring uncertainty:</strong></p>
+<p>If extraction ignores uncertainty and presents all interpretations as equally certain:</p>
+<ul>
+<li><strong>Overconfident decisions</strong>: Users may trust incorrect architectures</li>
+<li><strong>Misguided actions</strong>: Architecture decisions based on incorrect information</li>
+<li><strong>Wasted resources</strong>: Time spent investigating non-existent structures</li>
+<li><strong>Erosion of trust</strong>: Users lose confidence in extraction accuracy</li>
+</ul>
+<p><strong>The value of representing uncertainty:</strong></p>
+<p>By making uncertainty explicit, extraction becomes:</p>
+<ul>
+<li><strong>Honest</strong>: Acknowledges what is known versus unknown</li>
+<li><strong>Useful</strong>: Guides users to focus attention appropriately</li>
+<li><strong>Improvable</strong>: Identifies areas where methodology needs improvement</li>
+<li><strong>Trustworthy</strong>: Builds confidence through transparency</li>
+</ul>
+<p>Confidence semantics therefore transform uncertainty from a weakness into a feature—honest representation of knowledge limits.</p>
+<hr>
+</section>
+<section id="confidence-object-structure" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="confidence-object-structure"><span class="header-section-number">11.2</span> Confidence Object Structure</h2>
+<p>Confidence annotations are attached to architectural entities and fields. The minimal confidence representation ensures that uncertainty is captured consistently across the extraction pipeline.</p>
+<p><strong>Minimal confidence representation:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confidence</span><span class="kw">:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">state</span><span class="kw">:</span><span class="at"> &lt;observed | inferred | unknown&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">score</span><span class="kw">:</span><span class="at"> &lt;optional-numeric-value&gt;</span><span class="co">  # 0.0 to 1.0</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">evidence_refs</span><span class="kw">:</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;evidence-id&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;evidence-id&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">confidence_details</span><span class="kw">:</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">evidence_strength</span><span class="kw">:</span><span class="at"> &lt;strong | moderate | weak&gt;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">evidence_count</span><span class="kw">:</span><span class="at"> &lt;number&gt;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">evidence_consistency</span><span class="kw">:</span><span class="at"> &lt;high | medium | low&gt;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">pattern_alignment</span><span class="kw">:</span><span class="at"> &lt;strong | moderate | weak | none&gt;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">assigned_by</span><span class="kw">:</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">method</span><span class="kw">:</span><span class="at"> &lt;manual | calculated&gt;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">version</span><span class="kw">:</span><span class="at"> &lt;confidence-model-version&gt;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">timestamp</span><span class="kw">:</span><span class="at"> &lt;iso8601&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Field explanations:</strong></p>
+<section id="state" class="level3" data-number="11.2.1">
+<h3 data-number="11.2.1" class="anchored" data-anchor-id="state"><span class="header-section-number">11.2.1</span> state</h3>
+<p>The qualitative confidence state. Three canonical states are defined:</p>
+<ul>
+<li><strong>observed</strong>: Directly supported by explicit repository artifacts</li>
+<li><strong>inferred</strong>: Derived from indirect signals and interpretation</li>
+<li><strong>unknown</strong>: Insufficient evidence exists to determine presence or structure</li>
+</ul>
+</section>
+<section id="score" class="level3" data-number="11.2.2">
+<h3 data-number="11.2.2" class="anchored" data-anchor-id="score"><span class="header-section-number">11.2.2</span> score</h3>
+<p>An optional numeric confidence value between 0.0 (no confidence) and 1.0 (complete confidence). Numeric scores enable:</p>
+<ul>
+<li><strong>Granular comparison</strong>: Comparing confidence across elements</li>
+<li><strong>Thresholding</strong>: Filtering elements by confidence level</li>
+<li><strong>Aggregation</strong>: Calculating aggregate confidence for groups</li>
+<li><strong>Machine learning</strong>: Feeding confidence into ML models</li>
+</ul>
+</section>
+<section id="evidence_refs" class="level3" data-number="11.2.3">
+<h3 data-number="11.2.3" class="anchored" data-anchor-id="evidence_refs"><span class="header-section-number">11.2.3</span> evidence_refs</h3>
+<p>List of evidence object IDs supporting this confidence assignment. This linkage enables:</p>
+<ul>
+<li><strong>Traceability</strong>: Connecting confidence to supporting evidence</li>
+<li><strong>Validation</strong>: Verifying confidence is justified</li>
+<li><strong>Debugging</strong>: Identifying which evidence contributed to confidence</li>
+<li><strong>Review</strong>: Focusing review on relevant evidence</li>
+</ul>
+</section>
+<section id="confidence_details" class="level3" data-number="11.2.4">
+<h3 data-number="11.2.4" class="anchored" data-anchor-id="confidence_details"><span class="header-section-number">11.2.4</span> confidence_details</h3>
+<p>Detailed breakdown of factors contributing to confidence:</p>
+<ul>
+<li><strong>evidence_strength</strong>: Strongest evidence type (strong/moderate/weak)</li>
+<li><strong>evidence_count</strong>: Number of supporting evidence objects</li>
+<li><strong>evidence_consistency</strong>: How well evidence aligns (high/medium/low)</li>
+<li><strong>pattern_alignment</strong>: Alignment with known patterns (strong/moderate/weak/none)</li>
+</ul>
+<p>These details enable confidence calculation and explanation.</p>
+</section>
+<section id="assigned_by" class="level3" data-number="11.2.5">
+<h3 data-number="11.2.5" class="anchored" data-anchor-id="assigned_by"><span class="header-section-number">11.2.5</span> assigned_by</h3>
+<p>Metadata about how confidence was assigned:</p>
+<ul>
+<li><strong>method</strong>: Manual assignment by reviewer or calculated by pipeline</li>
+<li><strong>version</strong>: Confidence model version for reproducibility</li>
+<li><strong>timestamp</strong>: When confidence was assigned</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="confidence-states" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="confidence-states"><span class="header-section-number">11.3</span> Confidence States</h2>
+<p>Confidence Semantics v0.1 defines three canonical confidence states. These states represent increasing levels of uncertainty and guide review prioritization.</p>
+<section id="observed" class="level3" data-number="11.3.1">
+<h3 data-number="11.3.1" class="anchored" data-anchor-id="observed"><span class="header-section-number">11.3.1</span> Observed</h3>
+<p><strong>Definition</strong>: An element is classified as <strong>observed</strong> when its existence is directly supported by explicit repository artifacts.</p>
+<p><strong>Characteristics:</strong></p>
+<ul>
+<li><strong>Explicit encoding</strong>: Architecture is directly declared in artifacts</li>
+<li><strong>Strong evidence</strong>: Evidence objects with strong strength ratings</li>
+<li><strong>Unambiguous interpretation</strong>: Only one plausible interpretation exists</li>
+<li><strong>Verifiable</strong>: Can be validated by inspecting source artifacts</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<p><strong>Observed component</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">component</span><span class="kw">:</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">id</span><span class="kw">:</span><span class="at"> component.api_service</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> Service</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">confidence</span><span class="kw">:</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">state</span><span class="kw">:</span><span class="at"> observed</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">score</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.95</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">evidence_refs</span><span class="kw">:</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> evidence-001</span><span class="co">  # Server initialization code</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> evidence-002</span><span class="co">  # Deployment configuration</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> evidence-003</span><span class="co">  # API route definitions</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">confidence_details</span><span class="kw">:</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">evidence_strength</span><span class="kw">:</span><span class="at"> strong</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">evidence_count</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">evidence_consistency</span><span class="kw">:</span><span class="at"> high</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">pattern_alignment</span><span class="kw">:</span><span class="at"> strong</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Observed interface</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">interface</span><span class="kw">:</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">id</span><span class="kw">:</span><span class="at"> interface.http_api</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> API</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">confidence</span><span class="kw">:</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">state</span><span class="kw">:</span><span class="at"> observed</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">score</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.92</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">evidence_refs</span><span class="kw">:</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> evidence-004</span><span class="co">  # Route definitions</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> evidence-005</span><span class="co">  # OpenAPI specification</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> evidence-006</span><span class="co">  # Controller implementations</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Observed data entity</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span><span class="kw">:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">id</span><span class="kw">:</span><span class="at"> data.payments</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">confidence</span><span class="kw">:</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">state</span><span class="kw">:</span><span class="at"> observed</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">score</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.98</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">evidence_refs</span><span class="kw">:</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> evidence-007</span><span class="co">  # Schema migration</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> evidence-008</span><span class="co">  # ORM model</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> evidence-009</span><span class="co">  # Database DDL</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Confidence implications:</strong></p>
+<p>Observed elements generally have: - <strong>High confidence scores</strong> (0.8-1.0) - <strong>Minimal review requirements</strong> (spot checks sufficient) - <strong>High reliability</strong> for architectural analysis</p>
+<p>Observed elements represent the <strong>foundation of reliable extraction</strong>—the structures we can trust with high certainty.</p>
+</section>
+<section id="inferred" class="level3" data-number="11.3.2">
+<h3 data-number="11.3.2" class="anchored" data-anchor-id="inferred"><span class="header-section-number">11.3.2</span> Inferred</h3>
+<p><strong>Definition</strong>: An element is classified as <strong>inferred</strong> when it is derived from indirect signals rather than explicit artifacts.</p>
+<p><strong>Characteristics:</strong></p>
+<ul>
+<li><strong>Interpretive</strong>: Architecture is suggested rather than declared</li>
+<li><strong>Moderate evidence</strong>: Evidence objects with moderate strength ratings</li>
+<li><strong>Plausible but uncertain</strong>: Multiple interpretations may be possible</li>
+<li><strong>Validation required</strong>: Should be reviewed to confirm interpretation</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<p><strong>Inferred component</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">component</span><span class="kw">:</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">id</span><span class="kw">:</span><span class="at"> component.payment_worker</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> Worker</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">confidence</span><span class="kw">:</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">state</span><span class="kw">:</span><span class="at"> inferred</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">score</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.65</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">evidence_refs</span><span class="kw">:</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> evidence-010</span><span class="co">  # Queue dependency</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> evidence-011</span><span class="co">  # Worker directory</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> evidence-012</span><span class="co">  # Scheduler configuration</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">confidence_details</span><span class="kw">:</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">evidence_strength</span><span class="kw">:</span><span class="at"> moderate</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">evidence_count</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">evidence_consistency</span><span class="kw">:</span><span class="at"> medium</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">pattern_alignment</span><span class="kw">:</span><span class="at"> moderate</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Inferred capability</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">capability</span><span class="kw">:</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">id</span><span class="kw">:</span><span class="at"> capability.batch_processing</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">confidence</span><span class="kw">:</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">state</span><span class="kw">:</span><span class="at"> inferred</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">score</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.58</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">evidence_refs</span><span class="kw">:</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> evidence-013</span><span class="co">  # Scheduler configuration</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> evidence-014</span><span class="co">  # Workflow definitions</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">confidence_details</span><span class="kw">:</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">evidence_strength</span><span class="kw">:</span><span class="at"> moderate</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">evidence_count</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">evidence_consistency</span><span class="kw">:</span><span class="at"> medium</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">pattern_alignment</span><span class="kw">:</span><span class="at"> weak</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Inferred workflow</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">workflow</span><span class="kw">:</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">id</span><span class="kw">:</span><span class="at"> workflow.payment_processing</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">confidence</span><span class="kw">:</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">state</span><span class="kw">:</span><span class="at"> inferred</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">score</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.72</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">evidence_refs</span><span class="kw">:</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> evidence-015</span><span class="co">  # DAG definition</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> evidence-016</span><span class="co">  # Task implementations</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">confidence_details</span><span class="kw">:</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">evidence_strength</span><span class="kw">:</span><span class="at"> moderate</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">evidence_count</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">evidence_consistency</span><span class="kw">:</span><span class="at"> high</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">pattern_alignment</span><span class="kw">:</span><span class="at"> moderate</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Confidence implications:</strong></p>
+<p>Inferred elements generally have: - <strong>Medium confidence scores</strong> (0.4-0.8) - <strong>Moderate review requirements</strong> (validate interpretation) - <strong>Questionable reliability</strong> without human confirmation</p>
+<p>Inferred elements require human review to confirm that the interpretation is correct and to adjust confidence based on additional context.</p>
+</section>
+<section id="unknown" class="level3" data-number="11.3.3">
+<h3 data-number="11.3.3" class="anchored" data-anchor-id="unknown"><span class="header-section-number">11.3.3</span> Unknown</h3>
+<p><strong>Definition</strong>: An element is classified as <strong>unknown</strong> when insufficient evidence exists to determine its presence or structure.</p>
+<p><strong>Characteristics:</strong></p>
+<ul>
+<li><strong>Evidence absent</strong>: No or insufficient evidence available</li>
+<li><strong>Cannot be determined</strong>: Interpretation would be pure speculation</li>
+<li><strong>Honest representation</strong>: Explicitly acknowledges knowledge gap</li>
+<li><strong>Investigation opportunity</strong>: Indicates where additional information would be valuable</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<p><strong>Unknown constraint</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">constraint</span><span class="kw">:</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">id</span><span class="kw">:</span><span class="at"> constraint.performance_slo</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">confidence</span><span class="kw">:</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">state</span><span class="kw">:</span><span class="at"> unknown</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">score</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.0</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">evidence_refs</span><span class="kw">:</span><span class="at"> </span><span class="kw">[]</span><span class="co">  # No supporting evidence</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">confidence_details</span><span class="kw">:</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">evidence_strength</span><span class="kw">:</span><span class="at"> none</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">evidence_count</span><span class="kw">:</span><span class="at"> </span><span class="dv">0</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">evidence_consistency</span><span class="kw">:</span><span class="at"> none</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">pattern_alignment</span><span class="kw">:</span><span class="at"> none</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="fu">  notes</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    No performance requirements found in repository.</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    May exist in external documentation or organizational policies.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Unknown goal</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">goal</span><span class="kw">:</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">id</span><span class="kw">:</span><span class="at"> goal.system_purpose</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">confidence</span><span class="kw">:</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">state</span><span class="kw">:</span><span class="at"> unknown</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">score</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.15</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">evidence_refs</span><span class="kw">:</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> evidence-017</span><span class="co">  # Vague README mention</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">confidence_details</span><span class="kw">:</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">evidence_strength</span><span class="kw">:</span><span class="at"> weak</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">evidence_count</span><span class="kw">:</span><span class="at"> </span><span class="dv">1</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">evidence_consistency</span><span class="kw">:</span><span class="at"> low</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">pattern_alignment</span><span class="kw">:</span><span class="at"> none</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="fu">  notes</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    README mentions "payment processing" but lacks</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    comprehensive system description. Goal is partially</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    inferred from capabilities.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Unknown data ownership</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span><span class="kw">:</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">id</span><span class="kw">:</span><span class="at"> data.transaction_log</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">confidence</span><span class="kw">:</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">state</span><span class="kw">:</span><span class="at"> unknown</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">score</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.0</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">evidence_refs</span><span class="kw">:</span><span class="at"> </span><span class="kw">[]</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">confidence_details</span><span class="kw">:</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">evidence_strength</span><span class="kw">:</span><span class="at"> none</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">evidence_count</span><span class="kw">:</span><span class="at"> </span><span class="dv">0</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">evidence_consistency</span><span class="kw">:</span><span class="at"> none</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">pattern_alignment</span><span class="kw">:</span><span class="at"> none</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="fu">  notes</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    Transaction log table exists but ownership</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    cannot be determined from available artifacts.</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    Multiple services may write to this table.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Confidence implications:</strong></p>
+<p>Unknown elements generally have: - <strong>Low confidence scores</strong> (0.0-0.4) - <strong>High review requirements</strong> (investigation needed) - <strong>No reliability</strong> for architectural analysis without additional information</p>
+<p>Unknown elements represent <strong>knowledge gaps</strong> that should be investigated rather than speculated. They highlight areas where additional documentation, architecture review, or instrumentation would improve extraction accuracy.</p>
+<hr>
+</section>
+</section>
+<section id="confidence-derivation" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="confidence-derivation"><span class="header-section-number">11.4</span> Confidence Derivation</h2>
+<p>Confidence classifications are not arbitrary. They are determined by analyzing the evidence associated with an architectural element. Several factors influence confidence.</p>
+<section id="evidence-strength" class="level3" data-number="11.4.1">
+<h3 data-number="11.4.1" class="anchored" data-anchor-id="evidence-strength"><span class="header-section-number">11.4.1</span> Evidence Strength</h3>
+<p><strong>Definition</strong>: How directly artifacts express architectural structure.</p>
+<p><strong>Strength levels:</strong></p>
+<ul>
+<li><strong>Strong</strong>: Explicit encoding (schemas, routes, workflows, interfaces)</li>
+<li><strong>Moderate</strong>: Strong suggestions (dependencies, configuration, entrypoints)</li>
+<li><strong>Weak</strong>: Indirect hints (naming, structure, documentation)</li>
+</ul>
+<p><strong>Impact on confidence:</strong></p>
+<ul>
+<li>Strong evidence: Base confidence 0.7-0.9</li>
+<li>Moderate evidence: Base confidence 0.4-0.6</li>
+<li>Weak evidence: Base confidence 0.1-0.3</li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Strong evidence (schema definition)</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">evidence</span><span class="kw">:</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">strength</span><span class="kw">:</span><span class="at"> strong</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">excerpt</span><span class="kw">:</span><span class="at"> </span><span class="st">"CREATE TABLE payments (...)"</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># → Base confidence: 0.85</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Moderate evidence (dependency)</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="fu">evidence</span><span class="kw">:</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">strength</span><span class="kw">:</span><span class="at"> moderate</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">excerpt</span><span class="kw">:</span><span class="at"> </span><span class="st">"celery==5.3.0"</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co"># → Base confidence: 0.55</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Weak evidence (directory name)</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="fu">evidence</span><span class="kw">:</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">strength</span><span class="kw">:</span><span class="at"> weak</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">excerpt</span><span class="kw">:</span><span class="at"> </span><span class="st">"workers/"</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="co"># → Base confidence: 0.25</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="evidence-quantity" class="level3" data-number="11.4.2">
+<h3 data-number="11.4.2" class="anchored" data-anchor-id="evidence-quantity"><span class="header-section-number">11.4.2</span> Evidence Quantity</h3>
+<p><strong>Definition</strong>: Number of independent evidence objects supporting the same interpretation.</p>
+<p><strong>Impact on confidence:</strong></p>
+<p>More evidence increases confidence, but with diminishing returns:</p>
+<pre><code>confidence_boost = log(count(evidence))</code></pre>
+<p><strong>Examples:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Single evidence object</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">evidence_count</span><span class="kw">:</span><span class="at"> </span><span class="dv">1</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">confidence_boost</span><span class="kw">:</span><span class="at"> log(1) = 0.0</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Three evidence objects</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">evidence_count</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="fu">confidence_boost</span><span class="kw">:</span><span class="at"> log(3) = 0.48</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Ten evidence objects</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="fu">evidence_count</span><span class="kw">:</span><span class="at"> </span><span class="dv">10</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="fu">confidence_boost</span><span class="kw">:</span><span class="at"> log(10) = 1.0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="evidence-consistency" class="level3" data-number="11.4.3">
+<h3 data-number="11.4.3" class="anchored" data-anchor-id="evidence-consistency"><span class="header-section-number">11.4.3</span> Evidence Consistency</h3>
+<p><strong>Definition</strong>: Whether different evidence sources agree with each other.</p>
+<p><strong>Consistency levels:</strong></p>
+<ul>
+<li><strong>High</strong>: All evidence points to the same interpretation</li>
+<li><strong>Medium</strong>: Most evidence agrees, minor inconsistencies</li>
+<li><strong>Low</strong>: Significant disagreements or contradictions</li>
+</ul>
+<p><strong>Impact on confidence:</strong></p>
+<ul>
+<li>High consistency: No penalty</li>
+<li>Medium consistency: Small penalty (-0.1)</li>
+<li>Low consistency: Large penalty (-0.3)</li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># High consistency</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">evidence</span><span class="kw">:</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">schema</span><span class="kw">:</span><span class="at"> </span><span class="st">"CREATE TABLE payments (...)"</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">orm</span><span class="kw">:</span><span class="at"> </span><span class="st">"class Payment(db.Model): ..."</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">test</span><span class="kw">:</span><span class="at"> </span><span class="st">"def test_payment(): ..."</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="fu">consistency</span><span class="kw">:</span><span class="at"> high</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="fu">penalty</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.0</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Low consistency</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="fu">evidence</span><span class="kw">:</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">doc</span><span class="kw">:</span><span class="at"> </span><span class="st">"Payment service is standalone microservice"</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">code</span><span class="kw">:</span><span class="at"> </span><span class="st">"Payments processed inline with API"</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">config</span><span class="kw">:</span><span class="at"> </span><span class="st">"No payment service configuration"</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="fu">consistency</span><span class="kw">:</span><span class="at"> low</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="fu">penalty</span><span class="kw">:</span><span class="at"> </span><span class="fl">-0.3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="pattern-alignment" class="level3" data-number="11.4.4">
+<h3 data-number="11.4.4" class="anchored" data-anchor-id="pattern-alignment"><span class="header-section-number">11.4.4</span> Pattern Alignment</h3>
+<p><strong>Definition</strong>: Whether extracted structures match well-known architectural patterns.</p>
+<p><strong>Alignment levels:</strong></p>
+<ul>
+<li><strong>Strong</strong>: Exact match to well-known pattern</li>
+<li><strong>Moderate</strong>: Similar to known pattern with variations</li>
+<li><strong>Weak</strong>: Some similarity to patterns</li>
+<li><strong>None</strong>: No recognizable pattern</li>
+</ul>
+<p><strong>Impact on confidence:</strong></p>
+<ul>
+<li>Strong alignment: Small boost (+0.1)</li>
+<li>Moderate alignment: Tiny boost (+0.05)</li>
+<li>Weak alignment: No boost</li>
+<li>No alignment: No boost</li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Strong pattern alignment (typical 3-tier web app)</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">structure</span><span class="kw">:</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> API layer (HTTP routes)</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> Service layer (business logic)</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> Data layer (database)</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">alignment</span><span class="kw">:</span><span class="at"> strong</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="fu">boost</span><span class="kw">:</span><span class="at"> </span><span class="fl">+0.1</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co"># No pattern alignment (unusual architecture)</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="fu">structure</span><span class="kw">:</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> Mixed responsibilities</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> Unclear boundaries</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="fu">alignment</span><span class="kw">:</span><span class="at"> none</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="fu">boost</span><span class="kw">:</span><span class="at"> </span><span class="fl">+0.0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="confidence-calculation-formula" class="level3" data-number="11.4.5">
+<h3 data-number="11.4.5" class="anchored" data-anchor-id="confidence-calculation-formula"><span class="header-section-number">11.4.5</span> Confidence Calculation Formula</h3>
+<p>Combining all factors:</p>
+<pre><code>base_confidence = strength_to_confidence(strength)
+evidence_boost = log(count(evidence))
+consistency_penalty = consistency_to_penalty(consistency)
+pattern_boost = alignment_to_boost(alignment)
+
+final_confidence = base_confidence +
+                   evidence_boost +
+                   consistency_penalty +
+                   pattern_boost
+
+# Clamp to [0.0, 1.0]
+final_confidence = max(0.0, min(1.0, final_confidence))</code></pre>
+<p><strong>Confidence state mapping:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">final_confidence &gt;= 0.8  → state</span><span class="kw">:</span><span class="at"> observed</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">final_confidence &gt;= 0.4  → state</span><span class="kw">:</span><span class="at"> inferred</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">final_confidence &lt; 0.4   → state</span><span class="kw">:</span><span class="at"> unknown</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Example calculation:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Worker component inference</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">evidence</span><span class="kw">:</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">strength</span><span class="kw">:</span><span class="at"> moderate</span><span class="co">  # Base: 0.55</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">count</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span><span class="co">           # Boost: log(3) = 0.48</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">consistency</span><span class="kw">:</span><span class="at"> high</span><span class="co">   # Penalty: 0.0</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">alignment</span><span class="kw">:</span><span class="at"> moderate</span><span class="co"> # Boost: 0.05</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="at">final_confidence = 0.55 + 0.48 + 0.0 + 0.05 = 1.08</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Clamped: 1.0</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co"># State: observed</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+</section>
+<section id="confidence-propagation" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="confidence-propagation"><span class="header-section-number">11.5</span> Confidence Propagation</h2>
+<p>Confidence may propagate through relationships within the architecture graph. When one element has a certain confidence, related elements may inherit or derive confidence from that relationship.</p>
+<p><strong>Propagation scenarios:</strong></p>
+<p><strong>1. Interface to capability propagation:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">interface</span><span class="kw">:</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">id</span><span class="kw">:</span><span class="at"> interface.payment_api</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">confidence</span><span class="kw">:</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">state</span><span class="kw">:</span><span class="at"> observed</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">score</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.92</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="fu">capability</span><span class="kw">:</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">id</span><span class="kw">:</span><span class="at"> capability.create_payment</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">confidence</span><span class="kw">:</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">state</span><span class="kw">:</span><span class="at"> inferred</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">score</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.75</span><span class="co">  # Inherited partially from interface</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Rationale: If an interface is strongly observed, the capabilities it exposes can be inferred with moderate-high confidence.</p>
+<p><strong>2. Component to interface propagation:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">component</span><span class="kw">:</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">id</span><span class="kw">:</span><span class="at"> component.api_service</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">confidence</span><span class="kw">:</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">state</span><span class="kw">:</span><span class="at"> observed</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">score</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.95</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="fu">interface</span><span class="kw">:</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">id</span><span class="kw">:</span><span class="at"> interface.http_api</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">confidence</span><span class="kw">:</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">state</span><span class="kw">:</span><span class="at"> observed</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">score</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.90</span><span class="co">  # Derived from component</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Rationale: If a component is strongly observed, its interfaces can be inferred with high confidence.</p>
+<p><strong>3. Workflow to component propagation:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">workflow</span><span class="kw">:</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">id</span><span class="kw">:</span><span class="at"> workflow.payment_processing</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">confidence</span><span class="kw">:</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">state</span><span class="kw">:</span><span class="at"> inferred</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">score</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.65</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="fu">component</span><span class="kw">:</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">id</span><span class="kw">:</span><span class="at"> component.payment_worker</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">confidence</span><span class="kw">:</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">state</span><span class="kw">:</span><span class="at"> inferred</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">score</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.58</span><span class="co">  # Derived from workflow</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Rationale: If a workflow is inferred, the components implementing it can be inferred with similar confidence.</p>
+<p><strong>Propagation rules:</strong></p>
+<ol type="1">
+<li><strong>Directional</strong>: Confidence propagates from stronger to weaker elements</li>
+<li><strong>Attenuation</strong>: Propagated confidence is attenuated (reduced by 0.1-0.2)</li>
+<li><strong>Non-destructive</strong>: Propagation never reduces confidence below original evidence-based level</li>
+<li><strong>Explicit</strong>: Propagation should be documented in confidence metadata</li>
+</ol>
+<p><strong>Propagation formula:</strong></p>
+<pre><code>propagated_confidence = source_confidence - propagation_attenuation
+final_confidence = max(evidence_confidence, propagated_confidence)</code></pre>
+<p>Where <code>propagation_attenuation</code> is typically 0.1-0.2.</p>
+<p><strong>Propagation limitations:</strong></p>
+<ul>
+<li><strong>No upward propagation</strong>: Weak elements cannot strengthen strong elements</li>
+<li><strong>Evidence priority</strong>: Explicit evidence always takes precedence over propagation</li>
+<li><strong>Documented assumptions</strong>: Propagation assumptions must be documented</li>
+</ul>
+<hr>
+</section>
+<section id="confidence-and-review-prioritization" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="confidence-and-review-prioritization"><span class="header-section-number">11.6</span> Confidence and Review Prioritization</h2>
+<p>Confidence semantics guide the <strong>human review process</strong> by identifying where human attention should be focused. In large-scale extraction pipelines, manual review resources are limited, so prioritization is essential.</p>
+<p><strong>Review priority matrix:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Confidence</th>
+<th>Impact</th>
+<th>Review Priority</th>
+<th>Review Type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>High</td>
+<td>Critical</td>
+<td>High</td>
+<td>Validate key assumptions</td>
+</tr>
+<tr class="even">
+<td>High</td>
+<td>Non-critical</td>
+<td>Low</td>
+<td>Spot check</td>
+</tr>
+<tr class="odd">
+<td>Medium</td>
+<td>Critical</td>
+<td>Very High</td>
+<td>Careful validation</td>
+</tr>
+<tr class="even">
+<td>Medium</td>
+<td>Non-critical</td>
+<td>Medium</td>
+<td>Validate interpretation</td>
+</tr>
+<tr class="odd">
+<td>Low</td>
+<td>Critical</td>
+<td>Very High</td>
+<td>Investigate, possibly add evidence</td>
+</tr>
+<tr class="even">
+<td>Low</td>
+<td>Non-critical</td>
+<td>High</td>
+<td>Review if time permits</td>
+</tr>
+<tr class="odd">
+<td>Unknown</td>
+<td>Critical</td>
+<td>Mandatory</td>
+<td>Must resolve before use</td>
+</tr>
+<tr class="even">
+<td>Unknown</td>
+<td>Non-critical</td>
+<td>Medium</td>
+<td>Attempt to resolve</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Impact categories:</strong></p>
+<p><strong>Critical impact:</strong></p>
+<ul>
+<li>Core components (API services, data stores)</li>
+<li>Key interfaces (public APIs, event schemas)</li>
+<li>Essential workflows (payment processing, user authentication)</li>
+<li>Critical data (PII, financial data)</li>
+</ul>
+<p><strong>Non-critical impact:</strong></p>
+<ul>
+<li>Peripheral components (utility services, helper modules)</li>
+<li>Optional interfaces (debug endpoints, admin tools)</li>
+<li>Secondary workflows (reporting, maintenance)</li>
+<li>Non-critical data (logs, metrics)</li>
+</ul>
+<p><strong>Review workflows:</strong></p>
+<p><strong>High-priority review</strong> (unknown + critical impact):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">review_item</span><span class="kw">:</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">element</span><span class="kw">:</span><span class="at"> constraint.security_slo</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">confidence</span><span class="kw">:</span><span class="at"> unknown</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">impact</span><span class="kw">:</span><span class="at"> critical</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">priority</span><span class="kw">:</span><span class="at"> mandatory</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">action</span><span class="kw">:</span><span class="at"> </span><span class="st">"Must investigate security requirements before deployment"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Medium-priority review</strong> (inferred + moderate impact):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">review_item</span><span class="kw">:</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">element</span><span class="kw">:</span><span class="at"> component.notification_worker</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">confidence</span><span class="kw">:</span><span class="at"> inferred</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">impact</span><span class="kw">:</span><span class="at"> moderate</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">priority</span><span class="kw">:</span><span class="at"> high</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">action</span><span class="kw">:</span><span class="at"> </span><span class="st">"Validate that notification service is correctly inferred"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Low-priority review</strong> (observed + non-critical):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">review_item</span><span class="kw">:</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">element</span><span class="kw">:</span><span class="at"> component.logging_utility</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">confidence</span><span class="kw">:</span><span class="at"> observed</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">impact</span><span class="kw">:</span><span class="at"> low</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">priority</span><span class="kw">:</span><span class="at"> low</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">action</span><span class="kw">:</span><span class="at"> </span><span class="st">"Spot check to verify correctness"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Review effectiveness:</strong></p>
+<p>Confidence-based prioritization enables:</p>
+<ul>
+<li><strong>Efficient resource allocation</strong>: Human effort focused where most valuable</li>
+<li><strong>Risk reduction</strong>: High-risk, low-confidence elements receive attention</li>
+<li><strong>Quality improvement</strong>: Systematic review of uncertain elements</li>
+<li><strong>Scalability</strong>: Large-scale extraction remains practical</li>
+</ul>
+<hr>
+</section>
+<section id="dataset-level-confidence-metrics" class="level2" data-number="11.7">
+<h2 data-number="11.7" class="anchored" data-anchor-id="dataset-level-confidence-metrics"><span class="header-section-number">11.7</span> Dataset-Level Confidence Metrics</h2>
+<p>Confidence annotations also support <strong>dataset-level quality analysis</strong>. When analyzing entire blueprint datasets, confidence metrics provide insights into overall extraction quality.</p>
+<p><strong>Confidence distribution metrics:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dataset_metrics</span><span class="kw">:</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">total_elements</span><span class="kw">:</span><span class="at"> </span><span class="dv">15420</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">confidence_distribution</span><span class="kw">:</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">observed</span><span class="kw">:</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">count</span><span class="kw">:</span><span class="at"> </span><span class="dv">8234</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">percentage</span><span class="kw">:</span><span class="at"> </span><span class="fl">53.4</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">average_score</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.87</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">inferred</span><span class="kw">:</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">count</span><span class="kw">:</span><span class="at"> </span><span class="dv">5123</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">percentage</span><span class="kw">:</span><span class="at"> </span><span class="fl">33.2</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">average_score</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.62</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">unknown</span><span class="kw">:</span></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">count</span><span class="kw">:</span><span class="at"> </span><span class="dv">2063</span></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">percentage</span><span class="kw">:</span><span class="at"> </span><span class="fl">13.4</span></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">average_score</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.15</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Quality indicators:</strong></p>
+<p><strong>High-quality dataset:</strong></p>
+<ul>
+<li>Observed &gt; 50%</li>
+<li>Inferred ~30-40%</li>
+<li>Unknown &lt; 15%</li>
+<li>Average confidence &gt; 0.65</li>
+</ul>
+<p><strong>Medium-quality dataset:</strong></p>
+<ul>
+<li>Observed ~30-50%</li>
+<li>Inferred ~30-40%</li>
+<li>Unknown ~15-25%</li>
+<li>Average confidence ~0.55-0.65</li>
+</ul>
+<p><strong>Low-quality dataset:</strong></p>
+<ul>
+<li>Observed &lt; 30%</li>
+<li>Inferred ~30-40%</li>
+<li>Unknown &gt; 25%</li>
+<li>Average confidence &lt; 0.55</li>
+</ul>
+<p><strong>Trend analysis:</strong></p>
+<p>Tracking confidence metrics over time enables:</p>
+<ul>
+<li><strong>Improvement measurement</strong>: Is extraction getting more accurate?</li>
+<li><strong>Methodology validation</strong>: Are new techniques improving confidence?</li>
+<li><strong>Dataset comparison</strong>: Which repositories produce better extractions?</li>
+<li><strong>Issue identification</strong>: Where are extraction methods failing?</li>
+</ul>
+<p><strong>Example trend analysis:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confidence_trends</span><span class="kw">:</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">monthly</span><span class="kw">:</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">2026-01</span><span class="kw">:</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">observed_percentage</span><span class="kw">:</span><span class="at"> </span><span class="fl">48.2</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">average_confidence</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.62</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">2026-02</span><span class="kw">:</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">observed_percentage</span><span class="kw">:</span><span class="at"> </span><span class="fl">51.1</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">average_confidence</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.65</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">2026-03</span><span class="kw">:</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">observed_percentage</span><span class="kw">:</span><span class="at"> </span><span class="fl">53.4</span></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">average_confidence</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.67</span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="fu">  interpretation</span><span class="kw">: </span><span class="ch">&gt;</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>    Confidence has improved over the last three months.</span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>    This suggests that extraction methodology improvements</span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>    (better signal detection, improved evidence collection) are</span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>    effectively increasing extraction accuracy.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="confidence-as-architectural-honesty" class="level2" data-number="11.8">
+<h2 data-number="11.8" class="anchored" data-anchor-id="confidence-as-architectural-honesty"><span class="header-section-number">11.8</span> Confidence as Architectural Honesty</h2>
+<p>Confidence semantics represent a philosophical commitment to <strong>architectural honesty</strong>. Rather than presenting extraction results as definitively correct, confidence semantics acknowledge the limits of available information.</p>
+<p><strong>The honesty principle:</strong></p>
+<blockquote class="blockquote">
+<p><strong>Better to admit ignorance than to pretend knowledge.</strong></p>
+</blockquote>
+<p><strong>Applied to extraction:</strong></p>
+<ul>
+<li>Mark fields as unknown rather than guessing</li>
+<li>Assign low confidence to weak interpretations</li>
+<li>Document assumptions and uncertainties</li>
+<li>Invite human review of uncertain elements</li>
+</ul>
+<p><strong>Benefits of honesty:</strong></p>
+<p><strong>For users:</strong></p>
+<ul>
+<li><strong>Accurate understanding</strong>: Users know what is reliable versus uncertain</li>
+<li><strong>Informed decisions</strong>: Users can make appropriate decisions based on confidence</li>
+<li><strong>Risk awareness</strong>: Users understand where architectural understanding is weak</li>
+<li><strong>Trust building</strong>: Honesty builds trust in extraction accuracy</li>
+</ul>
+<p><strong>For extraction systems:</strong></p>
+<ul>
+<li><strong>Targeted improvement</strong>: Unknown fields identify methodology gaps</li>
+<li><strong>Quality metrics</strong>: Confidence distribution measures overall quality</li>
+<li><strong>Iterative refinement</strong>: Systems can focus on improving low-confidence areas</li>
+<li><strong>Feedback loops</strong>: Review results inform confidence calibration</li>
+</ul>
+<p><strong>For architectural datasets:</strong></p>
+<ul>
+<li><strong>Reliability</strong>: Datasets maintain quality by excluding speculation</li>
+<li><strong>Transparency</strong>: Users understand dataset limitations</li>
+<li><strong>Useability</strong>: Users can filter by confidence for appropriate use cases</li>
+<li><strong>Evolution</strong>: Datasets can be systematically improved over time</li>
+</ul>
+<p><strong>The alternative: false confidence</strong></p>
+<p>Without confidence semantics, extraction risks:</p>
+<ul>
+<li><strong>Misleading users</strong>: Presenting speculation as fact</li>
+<li><strong>Incorrect decisions</strong>: Actions based on incorrect information</li>
+<li><strong>Wasted effort</strong>: Time spent investigating non-existent structures</li>
+<li><strong>Erosion of trust</strong>: Users abandon extraction when it proves unreliable</li>
+</ul>
+<p>Confidence semantics prevent these problems by making uncertainty explicit and actionable.</p>
+<hr>
+</section>
+<section id="chapter-summary" class="level2" data-number="11.9">
+<h2 data-number="11.9" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">11.9</span> Chapter Summary</h2>
+<ul>
+<li>Architectural reconstruction is inherently uncertain due to missing information, implicit conventions, ambiguous evidence, and conflicts</li>
+<li>Confidence semantics provide a formal mechanism for representing uncertainty in extracted architectures</li>
+<li>Confidence objects include: state (observed/inferred/unknown), score, evidence references, and detailed metadata</li>
+<li>Three canonical confidence states: observed (explicit evidence), inferred (indirect signals), unknown (insufficient evidence)</li>
+<li>Confidence is derived from evidence strength, quantity, consistency, and pattern alignment</li>
+<li>Confidence calculation combines factors: base confidence + evidence boost - consistency penalty + pattern boost</li>
+<li>Confidence propagates through architectural relationships with attenuation</li>
+<li>Confidence guides review prioritization: low-confidence, high-impact elements receive highest priority</li>
+<li>Dataset-level confidence metrics measure overall extraction quality and trends</li>
+<li>Confidence represents architectural honesty: better to admit ignorance than pretend knowledge</li>
+<li>Honesty builds trust, enables targeted improvement, and prevents misleading conclusions</li>
+</ul>
+<p><strong>Next Chapter</strong>: Chapter 10 begins Part III by introducing Mapping Principles—the rules that translate repository-derived evidence into canonical system ontology entities. Mapping bridges the gap between implementation artifacts and architectural structures.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./ch-08-evidence-model.html" class="pagination-link" aria-label="Evidence Object Model">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Evidence Object Model</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./ch-10-mapping-principles.html" class="pagination-link" aria-label="Mapping Principles and Canonicalization">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Mapping Principles and Canonicalization</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

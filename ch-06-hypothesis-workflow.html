@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>8&nbsp; Hypothesis Workflow – Blueprint_Extraction</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./ch-07-signal-taxonomy.html" rel="next">
+<link href="./ch-05-repo-not-system.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-27c261d06b905028a18691de25d09dde.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-04-what-we-extract.html">Part I — Extraction as Evidence-Driven Engineering</a></li><li class="breadcrumb-item"><a href="./ch-06-hypothesis-workflow.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hypothesis Workflow</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Blueprint_Extraction</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part 0 — Preface &amp; Contracts</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-01-why-extraction-is-difficult.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Why Extraction Is Hard: Repositories Are Facts, Blueprints Are Interpretations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-02-deliverables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Deliverables of This Volume</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-03-boundaries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Scope and Boundaries of This Volume</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part I — Extraction as Evidence-Driven Engineering</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-04-what-we-extract.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">What We Extract: Blueprint Kernel and Views</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-05-repo-not-system.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Repo ≠ System: The Missing Layers</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-06-hypothesis-workflow.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hypothesis Workflow</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part II — Signal Taxonomy &amp; Evidence Model</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-07-signal-taxonomy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Signal Taxonomy: Where Structure Leaks Out</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-08-evidence-model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Evidence Object Model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-09-confidence-semantics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Confidence Semantics</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part III — Ontology Mapping: From Repo to System Graph</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-10-mapping-principles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Mapping Principles and Canonicalization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-11-component-discovery.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Component Discovery</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-12-interface-contract-extraction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Interface and Contract Extraction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-13-data-model-ownership.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Data Model and Ownership Extraction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-14-workflow-control-plane.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Workflow and Control-Plane Extraction</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part IV — Blueprint Draft Generation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-15-kernel-slot-filling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Kernel Slot Filling Rules</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-16-views-generation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Views Generation (Projections)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-17-blueprint-pack-output.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Blueprint Pack Output Standard</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part V — Validation, Review, and Quality Gates</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-18-validation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Validation: Schema and Semantics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-19-review-protocol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Review Protocol (Human-in-the-Loop)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-20-quality-metrics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Extraction Quality Metrics</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part VI — Operating Blueprint Mining at Scale</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-21-mining-pipeline-operations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Mining Pipeline Operations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-22-normalization-deduplication.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Normalization and Deduplication</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-23-blueprints-to-patterns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">From Blueprints to Patterns</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Capstone — Blueprint Extraction Spec v0.1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-24-blueprint-extraction-spec.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Blueprint Extraction Specification v0.1</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-a-signal-taxonomy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Appendix A — Signal Taxonomy v0.1</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-b-evidence-schema.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Appendix B — Evidence Object Schema v0.1</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-c-confidence-semantics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix C — Confidence Semantics Spec v0.1</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-d-mapping-template.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Appendix D — Ontology Mapping Rules Template</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-e-report-template.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Appendix E — Extraction Report Template</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-f-extraction-cases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Appendix F — Five Complete Extraction Cases (with Evidence Trace)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-g-eml-scorecard.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Appendix G — Extraction Maturity Level (EML) Score Sheet</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#signal-detection" id="toc-signal-detection" class="nav-link active" data-scroll-target="#signal-detection"><span class="header-section-number">8.1</span> Signal Detection</a></li>
+  <li><a href="#hypothesis-formation" id="toc-hypothesis-formation" class="nav-link" data-scroll-target="#hypothesis-formation"><span class="header-section-number">8.2</span> Hypothesis Formation</a></li>
+  <li><a href="#evidence-collection" id="toc-evidence-collection" class="nav-link" data-scroll-target="#evidence-collection"><span class="header-section-number">8.3</span> Evidence Collection</a></li>
+  <li><a href="#ontology-mapping" id="toc-ontology-mapping" class="nav-link" data-scroll-target="#ontology-mapping"><span class="header-section-number">8.4</span> Ontology Mapping</a></li>
+  <li><a href="#blueprint-draft-generation" id="toc-blueprint-draft-generation" class="nav-link" data-scroll-target="#blueprint-draft-generation"><span class="header-section-number">8.5</span> Blueprint Draft Generation</a></li>
+  <li><a href="#modeling-uncertainty" id="toc-modeling-uncertainty" class="nav-link" data-scroll-target="#modeling-uncertainty"><span class="header-section-number">8.6</span> Modeling Uncertainty</a>
+  <ul class="collapse">
+  <li><a href="#confidence" id="toc-confidence" class="nav-link" data-scroll-target="#confidence"><span class="header-section-number">8.6.1</span> Confidence</a></li>
+  <li><a href="#unknown-fields" id="toc-unknown-fields" class="nav-link" data-scroll-target="#unknown-fields"><span class="header-section-number">8.6.2</span> Unknown Fields</a></li>
+  </ul></li>
+  <li><a href="#human-in-the-loop" id="toc-human-in-the-loop" class="nav-link" data-scroll-target="#human-in-the-loop"><span class="header-section-number">8.7</span> Human-in-the-Loop</a></li>
+  <li><a href="#extraction-as-structured-interpretation" id="toc-extraction-as-structured-interpretation" class="nav-link" data-scroll-target="#extraction-as-structured-interpretation"><span class="header-section-number">8.8</span> Extraction as Structured Interpretation</a></li>
+  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">8.9</span> Chapter Summary</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-04-what-we-extract.html">Part I — Extraction as Evidence-Driven Engineering</a></li><li class="breadcrumb-item"><a href="./ch-06-hypothesis-workflow.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hypothesis Workflow</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hypothesis Workflow</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Blueprint extraction cannot operate as a purely deterministic transformation from repository artifacts to architectural structures. Repositories expose signals about system structure, but they rarely encode architecture explicitly. The connection between implementation artifacts and architectural meaning must be constructed through interpretation.</p>
+<p>Extraction must therefore proceed through <strong>hypothesis formation and validation</strong>. This workflow transforms raw repository observations into structured architectural knowledge through systematic stages of interpretation, evidence gathering, and validation.</p>
+<p>The process follows a structured workflow:</p>
+<pre><code>signal → hypothesis → evidence → mapping → blueprint draft → review</code></pre>
+<p>Each stage refines the interpretation of repository artifacts and progressively constructs the architectural representation. This workflow ensures that extraction remains evidence-driven, auditable, and improvable.</p>
+<hr>
+<section id="signal-detection" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="signal-detection"><span class="header-section-number">8.1</span> Signal Detection</h2>
+<p>The extraction process begins with <strong>signal detection</strong>—identifying observable artifacts within the repository that may indicate the presence of architectural structure.</p>
+<p><strong>What signals are:</strong></p>
+<p>Signals are observable artifacts that indicate the possible existence of architectural elements. They are the first layer of information extracted from repositories and the foundation for all subsequent interpretation.</p>
+<p><strong>Signal examples:</strong></p>
+<ul>
+<li><strong>Directory structures</strong>: <code>services/</code>, <code>workers/</code>, <code>pipelines/</code> suggesting component boundaries</li>
+<li><strong>Dependency manifests</strong>: <code>package.json</code>, <code>requirements.txt</code>, <code>go.mod</code> suggesting capabilities</li>
+<li><strong>Entrypoint files</strong>: <code>main.py</code>, <code>server.ts</code>, <code>cmd/root.go</code> suggesting component roles</li>
+<li><strong>Configuration files</strong>: <code>config.yaml</code>, <code>docker-compose.yml</code>, <code>k8s/*.yaml</code> suggesting operational structure</li>
+<li><strong>Route definitions</strong>: HTTP routes, API endpoints, handlers suggesting interfaces</li>
+<li><strong>Workflow definitions</strong>: DAG specs, pipeline configurations suggesting workflows</li>
+<li><strong>Migration files</strong>: Schema DDL, migration scripts suggesting data entities</li>
+</ul>
+<p><strong>Signal characteristics:</strong></p>
+<ul>
+<li><strong>Observable</strong>: Signals can be detected through automated scanning</li>
+<li><strong>Indirect</strong>: Signals do not directly define architecture—they hint at structure</li>
+<li><strong>Weak</strong>: No single signal is sufficient to determine architectural structure</li>
+<li><strong>Ambiguous</strong>: The same signal may support multiple architectural interpretations</li>
+<li><strong>Diverse</strong>: Signals originate from many types of repository artifacts</li>
+</ul>
+<p><strong>Signal function in extraction:</strong></p>
+<p>Signals function as <strong>architectural hints</strong>—observations that trigger hypothesis formation. For example:</p>
+<ul>
+<li>A directory named <code>workers/</code> signals that background processing components may exist</li>
+<li>Route definitions signal that API interfaces may exist</li>
+<li>Migration files signal that data entities may exist</li>
+<li>DAG specifications signal that workflows may exist</li>
+</ul>
+<p>Signal detection produces a catalog of observations about the repository. These observations serve as the input for hypothesis formation.</p>
+<hr>
+</section>
+<section id="hypothesis-formation" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="hypothesis-formation"><span class="header-section-number">8.2</span> Hypothesis Formation</h2>
+<p>Signals lead to the generation of <strong>architectural hypotheses</strong>. A hypothesis is a provisional interpretation of repository structure in terms of the system ontology.</p>
+<p><strong>What hypotheses are:</strong></p>
+<p>A hypothesis is a candidate architectural interpretation that proposes that a specific architectural element (component, interface, workflow, data entity) exists based on observed signals.</p>
+<p><strong>Hypothesis examples:</strong></p>
+<ul>
+<li><strong>Worker component hypothesis</strong>: Signals suggesting a directory named <code>workers/</code>, queue dependencies, and background task frameworks may lead to the hypothesis that a worker component exists</li>
+<li><strong>API interface hypothesis</strong>: Route definitions, controller implementations, and OpenAPI specs may lead to the hypothesis of an HTTP API interface</li>
+<li><strong>Data entity hypothesis</strong>: Migration files, ORM models, and schema definitions may lead to the hypothesis of a data entity</li>
+<li><strong>Workflow hypothesis</strong>: DAG specifications, pipeline configurations, and scheduler definitions may lead to the hypothesis of a workflow</li>
+</ul>
+<p><strong>Hypothesis characteristics:</strong></p>
+<ul>
+<li><strong>Provisional</strong>: Hypotheses are not yet confirmed as correct</li>
+<li><strong>Interpretive</strong>: Hypotheses represent architectural meaning, not just observations</li>
+<li><strong>Ontology-aligned</strong>: Hypotheses are expressed in terms of system ontology entities (components, interfaces, workflows, data)</li>
+<li><strong>Testable</strong>: Hypotheses can be validated or refuted through evidence collection</li>
+</ul>
+<p><strong>Hypothesis formation process:</strong></p>
+<p>Hypothesis formation involves:</p>
+<ol type="1">
+<li><strong>Pattern recognition</strong>: Identifying patterns in signals that suggest architectural structure</li>
+<li><strong>Interpretation</strong>: Translating patterns into architectural terms using the system ontology</li>
+<li><strong>Contextualization</strong>: Considering how hypotheses relate to each other and to the overall system</li>
+<li><strong>Scoring</strong>: Assessing the initial plausibility of each hypothesis based on signal strength</li>
+</ol>
+<p><strong>The role of hypotheses:</strong></p>
+<p>Hypotheses serve as the bridge between raw observations and validated architectural understanding. They focus the extraction process by identifying specific architectural questions that need to be answered through evidence collection.</p>
+<p>Without hypotheses, extraction would lack direction—collecting evidence without knowing what to look for. With hypotheses, extraction becomes a targeted investigation of specific architectural claims.</p>
+<hr>
+</section>
+<section id="evidence-collection" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="evidence-collection"><span class="header-section-number">8.3</span> Evidence Collection</h2>
+<p>Once a hypothesis is formed, the extraction process gathers <strong>evidence</strong> that supports or contradicts the hypothesis. Evidence consists of repository artifacts that directly demonstrate the presence of the architectural structure being proposed.</p>
+<p><strong>What evidence is:</strong></p>
+<p>Evidence is the traceable basis for architectural claims. Unlike signals, which are weak indicators, evidence provides verifiable justification for blueprint elements.</p>
+<p><strong>Evidence examples:</strong></p>
+<ul>
+<li><strong>Worker component evidence</strong>:
+<ul>
+<li>Code files implementing worker processes</li>
+<li>Configuration entries defining message queues</li>
+<li>OpenAPI specifications describing interface contracts</li>
+<li>Workflow definitions in scheduling systems</li>
+</ul></li>
+<li><strong>API interface evidence</strong>:
+<ul>
+<li>Route handler implementations</li>
+<li>Request/response schemas</li>
+<li>Integration tests verifying interface behavior</li>
+<li>Documentation describing API contracts</li>
+</ul></li>
+<li><strong>Data entity evidence</strong>:
+<ul>
+<li>Migration files defining table structures</li>
+<li>ORM models reflecting database schemas</li>
+<li>Schema validation rules</li>
+<li>Data access layer implementations</li>
+</ul></li>
+</ul>
+<p><strong>Evidence characteristics:</strong></p>
+<ul>
+<li><strong>Concrete</strong>: Evidence references specific, locatable repository artifacts</li>
+<li><strong>Traceable</strong>: Evidence can be followed back to its source</li>
+<li><strong>Verifiable</strong>: Evidence can be inspected and validated</li>
+<li><strong>Fragmentary</strong>: Evidence captures relevant portions of artifacts, not entire files</li>
+<li><strong>Multiple</strong>: Multiple evidence objects may support a single hypothesis</li>
+</ul>
+<p><strong>Evidence collection process:</strong></p>
+<p>Evidence collection involves:</p>
+<ol type="1">
+<li><strong>Artifact search</strong>: Locating repository artifacts that relate to the hypothesis</li>
+<li><strong>Fragment extraction</strong>: Extracting relevant portions of those artifacts</li>
+<li><strong>Classification</strong>: Categorizing evidence by type and strength</li>
+<li><strong>Association</strong>: Linking evidence to the hypotheses it supports or contradicts</li>
+</ol>
+<p><strong>Evidence outcomes:</strong></p>
+<p>Evidence collection can produce several outcomes:</p>
+<ul>
+<li><strong>Confirmation</strong>: Strong evidence confirms the hypothesis</li>
+<li><strong>Refutation</strong>: Contradictory evidence refutes the hypothesis</li>
+<li><strong>Ambiguity</strong>: Conflicting evidence makes the hypothesis uncertain</li>
+<li><strong>Insufficiency</strong>: Insufficient evidence prevents validation</li>
+</ul>
+<p>Evidence objects become the <strong>traceable basis</strong> for architectural claims and are included in the evidence bundle for review and auditability.</p>
+<hr>
+</section>
+<section id="ontology-mapping" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="ontology-mapping"><span class="header-section-number">8.4</span> Ontology Mapping</h2>
+<p>When sufficient evidence exists, the hypothesis can be translated into <strong>system ontology entities</strong>. This stage maps repository-derived structures to the canonical architectural vocabulary defined by the system ontology.</p>
+<p><strong>What ontology mapping is:</strong></p>
+<p>Mapping is the process of translating evidence-supported interpretations into standardized architectural entities and relationships. This translation ensures consistency across repositories and enables automated analysis.</p>
+<p><strong>Mapping examples:</strong></p>
+<ul>
+<li><strong>Worker implementation → Component entity</strong>: Code implementing worker processes maps to a Component entity of type “Worker”</li>
+<li><strong>Route definitions → Interface entity</strong>: HTTP route definitions map to an Interface entity of type “API”</li>
+<li><strong>Migration files → Data entity</strong>: Schema migrations map to a Data entity representing a table or collection</li>
+<li><strong>Pipeline definitions → Workflow entity</strong>: Pipeline configurations map to a Workflow entity representing orchestrated execution</li>
+</ul>
+<p><strong>Mapping characteristics:</strong></p>
+<ul>
+<li><strong>Canonical</strong>: Mapping produces standardized entity types defined in the system ontology</li>
+<li><strong>Interpretable</strong>: Mapping rules are explainable and reviewable</li>
+<li><strong>Deterministic</strong>: Where possible, the same input produces the same output</li>
+<li><strong>Evidence-linked</strong>: Mapped entities reference the evidence that supports them</li>
+</ul>
+<p><strong>Mapping process:</strong></p>
+<p>Ontology mapping involves:</p>
+<ol type="1">
+<li><strong>Entity identification</strong>: Determining what type of entity the evidence supports (component, interface, data, workflow)</li>
+<li><strong>Entity construction</strong>: Creating the entity with appropriate attributes and metadata</li>
+<li><strong>Relationship identification</strong>: Determining how the entity relates to other entities</li>
+<li><strong>Evidence association</strong>: Linking the entity to the evidence objects that support it</li>
+</ol>
+<p><strong>Mapping outputs:</strong></p>
+<p>Mapping produces two core structures:</p>
+<ul>
+<li><strong>Entity graph</strong>: Nodes representing architectural entities (components, interfaces, data, workflows)</li>
+<li><strong>Relation graph</strong>: Edges representing relationships between entities (exposes, owns, triggers, depends-on)</li>
+</ul>
+<p>These graphs form the structural foundation of the blueprint and enable further analysis, visualization, and pattern discovery.</p>
+<hr>
+</section>
+<section id="blueprint-draft-generation" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="blueprint-draft-generation"><span class="header-section-number">8.5</span> Blueprint Draft Generation</h2>
+<p>After mapping, the extracted entities are assembled into a <strong>blueprint draft</strong>. The draft populates the Blueprint Kernel slots with the identified entities and relationships.</p>
+<p><strong>What blueprint drafts are:</strong></p>
+<p>A blueprint draft is the initial architectural representation produced by the extraction pipeline. It represents the system’s architecture as interpreted from repository evidence, but has not yet undergone validation or review.</p>
+<p><strong>Draft population process:</strong></p>
+<p>Blueprint draft generation involves:</p>
+<ol type="1">
+<li><strong>Slot population</strong>: Populating each kernel slot (Goal, Capabilities, Components, Interfaces, Data, Workflows) with mapped entities</li>
+<li><strong>Relationship assembly</strong>: Connecting entities through relationships identified during mapping</li>
+<li><strong>Confidence assignment</strong>: Assigning confidence levels based on evidence strength and consistency</li>
+<li><strong>Gap identification</strong>: Marking kernel fields as unknown when evidence is insufficient</li>
+</ol>
+<p><strong>Draft characteristics:</strong></p>
+<ul>
+<li><strong>Structured</strong>: The draft follows the Blueprint Kernel structure</li>
+<li><strong>Evidence-backed</strong>: Every entity references supporting evidence</li>
+<li><strong>Confidence-annotated</strong>: Every field includes a confidence classification</li>
+<li><strong>Complete or partial</strong>: The draft may be fully populated or have unknown fields</li>
+</ul>
+<p><strong>Draft limitations:</strong></p>
+<p>At this stage, the blueprint draft is not yet considered authoritative because:</p>
+<ul>
+<li>Uncertainty may remain in low-confidence fields</li>
+<li>Additional validation is required to ensure structural correctness</li>
+<li>Human review is needed to validate interpretations and resolve ambiguities</li>
+</ul>
+<p>The blueprint draft represents a structured architectural interpretation of the repository, but requires validation and review before becoming a usable blueprint.</p>
+<hr>
+</section>
+<section id="modeling-uncertainty" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="modeling-uncertainty"><span class="header-section-number">8.6</span> Modeling Uncertainty</h2>
+<p>Architectural reconstruction inevitably involves uncertainty. Repositories rarely provide complete, unambiguous information about architecture. The extraction process must therefore explicitly represent uncertainty rather than conceal it.</p>
+<p><strong>Two mechanisms for representing uncertainty:</strong></p>
+<section id="confidence" class="level3" data-number="8.6.1">
+<h3 data-number="8.6.1" class="anchored" data-anchor-id="confidence"><span class="header-section-number">8.6.1</span> Confidence</h3>
+<p><strong>Confidence</strong> values estimate how strongly evidence supports an extracted architectural element.</p>
+<p><strong>Confidence sources:</strong></p>
+<ul>
+<li><strong>Evidence strength</strong>: How directly artifacts express architectural structure</li>
+<li><strong>Evidence quantity</strong>: Number of independent artifacts supporting the interpretation</li>
+<li><strong>Evidence consistency</strong>: Whether different artifacts support the same interpretation</li>
+<li><strong>Pattern alignment</strong>: Whether observed structure matches known architectural patterns</li>
+</ul>
+<p><strong>Confidence states:</strong></p>
+<ul>
+<li><strong>Observed</strong>: Directly supported by explicit repository artifacts</li>
+<li><strong>Inferred</strong>: Derived from indirect signals and interpretation</li>
+<li><strong>Unknown</strong>: Insufficient evidence exists to determine presence or structure</li>
+</ul>
+</section>
+<section id="unknown-fields" class="level3" data-number="8.6.2">
+<h3 data-number="8.6.2" class="anchored" data-anchor-id="unknown-fields"><span class="header-section-number">8.6.2</span> Unknown Fields</h3>
+<p><strong>Unknown fields</strong> represent architectural slots for which insufficient evidence exists.</p>
+<p><strong>When unknowns are appropriate:</strong></p>
+<ul>
+<li>Repository artifacts do not provide enough information</li>
+<li>Signals are too weak or ambiguous to support interpretation</li>
+<li>Architectural elements exist outside the repository (runtime, operations, constraints)</li>
+</ul>
+<p><strong>The importance of explicit unknowns:</strong></p>
+<p>Treating unknown values as legitimate outcomes prevents blueprint datasets from accumulating inaccurate assumptions. Unknown fields:</p>
+<ul>
+<li><strong>Maintain integrity</strong>: Blueprints remain honest about what is known versus unknown</li>
+<li><strong>Guide investigation</strong>: Unknown fields identify areas requiring additional research or documentation</li>
+<li><strong>Enable validation</strong>: Unknown fields can be filled later when additional evidence becomes available</li>
+<li><strong>Prevent overconfidence</strong>: Unknown fields prevent over-optimistic interpretations</li>
+</ul>
+<p><strong>Uncertainty as a feature, not a bug:</strong></p>
+<p>Explicit uncertainty representation is a strength, not a weakness, of the extraction methodology. It enables:</p>
+<ul>
+<li><strong>Honest representation</strong>: Blueprints accurately reflect knowledge gaps</li>
+<li><strong>Focused review</strong>: Review effort can be directed to uncertain, high-impact fields</li>
+<li><strong>Continuous improvement</strong>: Unknown fields identify opportunities to improve extraction</li>
+<li><strong>Quality assessment</strong>: Evidence ratios and unknown counts measure extraction quality</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="human-in-the-loop" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="human-in-the-loop"><span class="header-section-number">8.7</span> Human-in-the-Loop</h2>
+<p>Although extraction pipelines can automate many stages, architectural interpretation cannot be fully automated. Human review is therefore a <strong>formal component of the extraction pipeline</strong>, not an optional afterthought.</p>
+<p><strong>Why human review is necessary:</strong></p>
+<ul>
+<li><strong>Architectural judgment</strong>: Distinguishing correct from incorrect interpretations often requires domain knowledge</li>
+<li><strong>Ambiguity resolution</strong>: When evidence is conflicting or insufficient, human judgment is necessary</li>
+<li><strong>Contextual understanding</strong>: Humans can bring external knowledge about system intent, organizational structure, and operational context</li>
+<li><strong>Quality assurance</strong>: Human validation provides the final quality gate before blueprints enter production use</li>
+</ul>
+<p><strong>Human review activities:</strong></p>
+<p>Reviewers inspect the blueprint draft together with supporting materials:</p>
+<ul>
+<li><strong>Blueprint draft</strong>: The proposed architectural representation</li>
+<li><strong>Evidence bundle</strong>: All evidence objects supporting the draft</li>
+<li><strong>Extraction report</strong>: Diagnostics, gaps, conflicts, and confidence summaries</li>
+</ul>
+<p><strong>Review outcomes:</strong></p>
+<p>Reviewers may:</p>
+<ul>
+<li><strong>Confirm</strong> elements that accurately reflect the system</li>
+<li><strong>Adjust</strong> mappings that misinterpret artifacts</li>
+<li><strong>Add</strong> missing information not captured by automated extraction</li>
+<li><strong>Downgrade</strong> confidence for elements with insufficient support</li>
+<li><strong>Mark</strong> fields as unknown when evidence is absent</li>
+</ul>
+<p><strong>Critical review scenarios:</strong></p>
+<p>Human oversight is particularly important in cases where:</p>
+<ul>
+<li>Evidence is weak or ambiguous</li>
+<li>Repository conventions deviate from common patterns</li>
+<li>Architectural intent is not clearly expressed in artifacts</li>
+<li>Conflicting evidence requires judgment to resolve</li>
+<li>Unknown fields require investigation to determine if information exists elsewhere</li>
+</ul>
+<p><strong>Hybrid approach:</strong></p>
+<p>The extraction pipeline integrates human review as a <strong>first-class stage</strong> rather than an optional step. Automation performs:</p>
+<ul>
+<li>Signal detection</li>
+<li>Evidence aggregation</li>
+<li>Structural reconstruction</li>
+</ul>
+<p>Human reviewers perform:</p>
+<ul>
+<li>Interpretation validation</li>
+<li>Ambiguity resolution</li>
+<li>Architectural refinement</li>
+</ul>
+<p>This hybrid approach preserves both <strong>scalability and architectural accuracy</strong>.</p>
+<hr>
+</section>
+<section id="extraction-as-structured-interpretation" class="level2" data-number="8.8">
+<h2 data-number="8.8" class="anchored" data-anchor-id="extraction-as-structured-interpretation"><span class="header-section-number">8.8</span> Extraction as Structured Interpretation</h2>
+<p>The hypothesis workflow transforms blueprint extraction from ad-hoc reverse engineering into a disciplined engineering process.</p>
+<p><strong>The workflow in action:</strong></p>
+<ol type="1">
+<li><strong>Signals</strong> provide structural hints from repository artifacts</li>
+<li><strong>Hypotheses</strong> interpret those hints in architectural terms</li>
+<li><strong>Evidence</strong> validates or refutes interpretations</li>
+<li><strong>Mapping</strong> translates validated evidence into ontology structures</li>
+<li><strong>Drafts</strong> assemble structures into blueprints</li>
+<li><strong>Uncertainty modeling</strong> makes unknowns explicit rather than hidden</li>
+<li><strong>Human review</strong> validates interpretations and refines accuracy</li>
+</ol>
+<p><strong>The discipline payoff:</strong></p>
+<p>This structured approach ensures that extraction produces:</p>
+<ul>
+<li><strong>Evidence-backed architectures</strong>: Every claim supported by traceable artifacts</li>
+<li><strong>Auditable processes</strong>: Every step documented and reviewable</li>
+<li><strong>Reproducible results</strong>: Consistent methodology yields consistent outputs</li>
+<li><strong>Improvable systems</strong>: Each component can be enhanced independently</li>
+<li><strong>Honest representations</strong>: Uncertainty explicitly acknowledged rather than concealed</li>
+</ul>
+<p>The hypothesis workflow is therefore not merely a technical process but a methodological foundation for reliable architectural understanding at scale.</p>
+<hr>
+</section>
+<section id="chapter-summary" class="level2" data-number="8.9">
+<h2 data-number="8.9" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">8.9</span> Chapter Summary</h2>
+<ul>
+<li>Blueprint extraction requires hypothesis formation and validation rather than deterministic transformation</li>
+<li>The hypothesis workflow follows: signal → hypothesis → evidence → mapping → draft → review</li>
+<li>Signal detection identifies observable artifacts that may indicate architectural structure</li>
+<li>Hypothesis formation interprets signals as provisional architectural claims</li>
+<li>Evidence collection gathers concrete artifacts that support or refute hypotheses</li>
+<li>Ontology mapping translates evidence into canonical architectural entities and relationships</li>
+<li>Blueprint draft generation assembles entities into the kernel structure</li>
+<li>Uncertainty is modeled through confidence annotations and explicit unknown fields</li>
+<li>Human review is an essential stage for validation, ambiguity resolution, and quality assurance</li>
+<li>The structured workflow ensures evidence-backed, auditable, and reproducible extraction</li>
+</ul>
+<p><strong>Next Chapter</strong>: Chapter 7 begins Part II by introducing the Signal Taxonomy—the systematic classification of repository artifacts that leak architectural structure. The taxonomy provides the foundation for signal detection and hypothesis formation across diverse repositories and ecosystems.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./ch-05-repo-not-system.html" class="pagination-link" aria-label="Repo ≠ System: The Missing Layers">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Repo ≠ System: The Missing Layers</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./ch-07-signal-taxonomy.html" class="pagination-link" aria-label="Signal Taxonomy: Where Structure Leaks Out">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Signal Taxonomy: Where Structure Leaks Out</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

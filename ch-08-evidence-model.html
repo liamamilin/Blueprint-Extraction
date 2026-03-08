@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>10&nbsp; Evidence Object Model – Blueprint_Extraction</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./ch-09-confidence-semantics.html" rel="next">
+<link href="./ch-07-signal-taxonomy.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-27c261d06b905028a18691de25d09dde.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-07-signal-taxonomy.html">Part II — Signal Taxonomy &amp; Evidence Model</a></li><li class="breadcrumb-item"><a href="./ch-08-evidence-model.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Evidence Object Model</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Blueprint_Extraction</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part 0 — Preface &amp; Contracts</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-01-why-extraction-is-difficult.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Why Extraction Is Hard: Repositories Are Facts, Blueprints Are Interpretations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-02-deliverables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Deliverables of This Volume</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-03-boundaries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Scope and Boundaries of This Volume</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part I — Extraction as Evidence-Driven Engineering</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-04-what-we-extract.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">What We Extract: Blueprint Kernel and Views</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-05-repo-not-system.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Repo ≠ System: The Missing Layers</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-06-hypothesis-workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hypothesis Workflow</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part II — Signal Taxonomy &amp; Evidence Model</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-07-signal-taxonomy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Signal Taxonomy: Where Structure Leaks Out</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-08-evidence-model.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Evidence Object Model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-09-confidence-semantics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Confidence Semantics</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part III — Ontology Mapping: From Repo to System Graph</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-10-mapping-principles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Mapping Principles and Canonicalization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-11-component-discovery.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Component Discovery</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-12-interface-contract-extraction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Interface and Contract Extraction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-13-data-model-ownership.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Data Model and Ownership Extraction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-14-workflow-control-plane.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Workflow and Control-Plane Extraction</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part IV — Blueprint Draft Generation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-15-kernel-slot-filling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Kernel Slot Filling Rules</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-16-views-generation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Views Generation (Projections)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-17-blueprint-pack-output.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Blueprint Pack Output Standard</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part V — Validation, Review, and Quality Gates</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-18-validation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Validation: Schema and Semantics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-19-review-protocol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Review Protocol (Human-in-the-Loop)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-20-quality-metrics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Extraction Quality Metrics</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part VI — Operating Blueprint Mining at Scale</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-21-mining-pipeline-operations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Mining Pipeline Operations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-22-normalization-deduplication.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Normalization and Deduplication</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-23-blueprints-to-patterns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">From Blueprints to Patterns</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Capstone — Blueprint Extraction Spec v0.1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-24-blueprint-extraction-spec.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Blueprint Extraction Specification v0.1</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-a-signal-taxonomy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Appendix A — Signal Taxonomy v0.1</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-b-evidence-schema.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Appendix B — Evidence Object Schema v0.1</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-c-confidence-semantics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix C — Confidence Semantics Spec v0.1</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-d-mapping-template.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Appendix D — Ontology Mapping Rules Template</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-e-report-template.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Appendix E — Extraction Report Template</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-f-extraction-cases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Appendix F — Five Complete Extraction Cases (with Evidence Trace)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-g-eml-scorecard.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Appendix G — Extraction Maturity Level (EML) Score Sheet</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#why-evidence-matters" id="toc-why-evidence-matters" class="nav-link active" data-scroll-target="#why-evidence-matters"><span class="header-section-number">10.1</span> Why Evidence Matters</a></li>
+  <li><a href="#evidence-object-overview" id="toc-evidence-object-overview" class="nav-link" data-scroll-target="#evidence-object-overview"><span class="header-section-number">10.2</span> Evidence Object Overview</a></li>
+  <li><a href="#core-evidence-schema" id="toc-core-evidence-schema" class="nav-link" data-scroll-target="#core-evidence-schema"><span class="header-section-number">10.3</span> Core Evidence Schema</a>
+  <ul class="collapse">
+  <li><a href="#id" id="toc-id" class="nav-link" data-scroll-target="#id"><span class="header-section-number">10.3.1</span> id</a></li>
+  <li><a href="#source" id="toc-source" class="nav-link" data-scroll-target="#source"><span class="header-section-number">10.3.2</span> source</a></li>
+  <li><a href="#location" id="toc-location" class="nav-link" data-scroll-target="#location"><span class="header-section-number">10.3.3</span> location</a></li>
+  <li><a href="#excerpt" id="toc-excerpt" class="nav-link" data-scroll-target="#excerpt"><span class="header-section-number">10.3.4</span> excerpt</a></li>
+  <li><a href="#artifact_type" id="toc-artifact_type" class="nav-link" data-scroll-target="#artifact_type"><span class="header-section-number">10.3.5</span> artifact_type</a></li>
+  <li><a href="#signal_category" id="toc-signal_category" class="nav-link" data-scroll-target="#signal_category"><span class="header-section-number">10.3.6</span> signal_category</a></li>
+  <li><a href="#strength" id="toc-strength" class="nav-link" data-scroll-target="#strength"><span class="header-section-number">10.3.7</span> strength</a></li>
+  <li><a href="#confidence_implication" id="toc-confidence_implication" class="nav-link" data-scroll-target="#confidence_implication"><span class="header-section-number">10.3.8</span> confidence_implication</a></li>
+  <li><a href="#created_by" id="toc-created_by" class="nav-link" data-scroll-target="#created_by"><span class="header-section-number">10.3.9</span> created_by</a></li>
+  <li><a href="#related_entities" id="toc-related_entities" class="nav-link" data-scroll-target="#related_entities"><span class="header-section-number">10.3.10</span> related_entities</a></li>
+  </ul></li>
+  <li><a href="#evidence-aggregation" id="toc-evidence-aggregation" class="nav-link" data-scroll-target="#evidence-aggregation"><span class="header-section-number">10.4</span> Evidence Aggregation</a></li>
+  <li><a href="#evidence-conflict-resolution" id="toc-evidence-conflict-resolution" class="nav-link" data-scroll-target="#evidence-conflict-resolution"><span class="header-section-number">10.5</span> Evidence Conflict Resolution</a></li>
+  <li><a href="#evidence-bundle" id="toc-evidence-bundle" class="nav-link" data-scroll-target="#evidence-bundle"><span class="header-section-number">10.6</span> Evidence Bundle</a></li>
+  <li><a href="#evidence-quality-assessment" id="toc-evidence-quality-assessment" class="nav-link" data-scroll-target="#evidence-quality-assessment"><span class="header-section-number">10.7</span> Evidence Quality Assessment</a></li>
+  <li><a href="#evidence-and-confidence-relationship" id="toc-evidence-and-confidence-relationship" class="nav-link" data-scroll-target="#evidence-and-confidence-relationship"><span class="header-section-number">10.8</span> Evidence and Confidence Relationship</a></li>
+  <li><a href="#evidence-as-extraction-foundation" id="toc-evidence-as-extraction-foundation" class="nav-link" data-scroll-target="#evidence-as-extraction-foundation"><span class="header-section-number">10.9</span> Evidence as Extraction Foundation</a></li>
+  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">10.10</span> Chapter Summary</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-07-signal-taxonomy.html">Part II — Signal Taxonomy &amp; Evidence Model</a></li><li class="breadcrumb-item"><a href="./ch-08-evidence-model.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Evidence Object Model</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Evidence Object Model</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Blueprint extraction relies on a fundamental discipline: <strong>architectural claims must be grounded in traceable evidence</strong>. This discipline is not optional—it is the foundation upon which reliable extraction rests.</p>
+<p>Repositories contain large volumes of artifacts, but extraction must isolate the specific fragments that justify architectural interpretations. These fragments are formalized as <strong>evidence objects</strong>.</p>
+<p>An evidence object represents a <strong>structured reference to a repository artifact</strong> that supports a particular architectural inference. The Evidence Object Model defines how these artifacts are represented, aggregated, and packaged for auditability.</p>
+<p>Without a structured evidence model, blueprint extraction would rely on implicit assumptions, opaque decisions, and unverified claims. With it, extraction becomes a verifiable engineering discipline where every architectural element can be traced back to its source.</p>
+<hr>
+<section id="why-evidence-matters" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="why-evidence-matters"><span class="header-section-number">10.1</span> Why Evidence Matters</h2>
+<p>Evidence is the bridge between repository artifacts and architectural understanding. Without evidence, extraction produces speculation. With evidence, extraction produces verifiable architectural knowledge.</p>
+<p><strong>The evidence requirement:</strong></p>
+<p><strong>Every extracted architectural element must be supported by traceable evidence.</strong></p>
+<p>This principle is absolute. An extracted component, interface, workflow, or data entity must reference concrete repository artifacts that justify its existence, structure, and relationships.</p>
+<p><strong>What evidence provides:</strong></p>
+<ol type="1">
+<li><strong>Traceability</strong>: Reviewers can locate and inspect the artifacts supporting each claim</li>
+<li><strong>Verifiability</strong>: Claims can be validated against original source materials</li>
+<li><strong>Debuggability</strong>: Errors can be traced to specific evidence or interpretation errors</li>
+<li><strong>Reproducibility</strong>: The same evidence produces consistent results across runs</li>
+<li><strong>Auditability</strong>: Extraction decisions can be reviewed and challenged</li>
+</ol>
+<p><strong>Without evidence:</strong></p>
+<p>Architectural claims become: - <strong>Speculative</strong>: Based on intuition rather than observation - <strong>Unverifiable</strong>: Cannot be validated or challenged - <strong>Unreliable</strong>: Prone to errors and misinterpretations - <strong>Irreproducible</strong>: Different extractions produce different results - <strong>Unmaintainable</strong>: Cannot be updated or corrected systematically</p>
+<p><strong>With evidence:</strong></p>
+<p>Architectural claims become: - <strong>Grounded</strong>: Based on observable artifacts - <strong>Verifiable</strong>: Can be inspected and validated - <strong>Reliable</strong>: Supported by traceable artifacts - <strong>Reproducible</strong>: Consistent across extractions - <strong>Maintainable</strong>: Can be corrected and improved systematically</p>
+<p>Evidence therefore transforms extraction from heuristic inference into <strong>evidence-driven engineering</strong>.</p>
+<hr>
+</section>
+<section id="evidence-object-overview" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="evidence-object-overview"><span class="header-section-number">10.2</span> Evidence Object Overview</h2>
+<p>An evidence object represents a <strong>specific fragment of a repository artifact</strong> that supports a hypothesis about system structure. Evidence objects are attached to architectural entities such as components, interfaces, workflows, data entities, capabilities, and constraints.</p>
+<p><strong>Evidence object characteristics:</strong></p>
+<ul>
+<li><strong>Specific</strong>: Evidence points to precise locations within artifacts</li>
+<li><strong>Traceable</strong>: Evidence can be followed back to original sources</li>
+<li><strong>Fragmentary</strong>: Evidence captures relevant portions, not entire artifacts</li>
+<li><strong>Typed</strong>: Evidence is classified by artifact type and signal category</li>
+<li><strong>Weighted</strong>: Evidence includes strength indicators</li>
+</ul>
+<p><strong>Evidence relationships:</strong></p>
+<ul>
+<li><strong>One-to-many</strong>: A single evidence object may support multiple architectural elements</li>
+<li><strong>Many-to-one</strong>: Multiple evidence objects may support a single architectural element</li>
+<li><strong>Conflicting</strong>: Evidence objects may contradict each other</li>
+<li><strong>Complementary</strong>: Evidence objects may support different aspects of the same element</li>
+</ul>
+<p><strong>Evidence lifecycle:</strong></p>
+<p>Evidence objects progress through the extraction pipeline:</p>
+<pre><code>Detection → Collection → Classification → Aggregation → Validation → Review</code></pre>
+<ol type="1">
+<li><strong>Detection</strong>: Artifacts are identified as potential evidence</li>
+<li><strong>Collection</strong>: Relevant fragments are extracted from artifacts</li>
+<li><strong>Classification</strong>: Evidence is typed and categorized</li>
+<li><strong>Aggregation</strong>: Multiple evidence objects are grouped</li>
+<li><strong>Validation</strong>: Evidence is checked for conflicts and consistency</li>
+<li><strong>Review</strong>: Evidence is validated by human reviewers</li>
+</ol>
+<hr>
+</section>
+<section id="core-evidence-schema" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="core-evidence-schema"><span class="header-section-number">10.3</span> Core Evidence Schema</h2>
+<p>The Evidence Object Model v0.1 defines the canonical structure for representing traceable architectural evidence. This schema ensures consistency across extraction systems and enables automated processing.</p>
+<p><strong>Minimal evidence object representation:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">evidence</span><span class="kw">:</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">id</span><span class="kw">:</span><span class="at"> &lt;unique-evidence-identifier&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">source</span><span class="kw">:</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">repo</span><span class="kw">:</span><span class="at"> &lt;repository-identifier&gt;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">file</span><span class="kw">:</span><span class="at"> &lt;file-path&gt;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">revision</span><span class="kw">:</span><span class="at"> &lt;commit-or-tag&gt;</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">branch</span><span class="kw">:</span><span class="at"> &lt;branch-name&gt;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">location</span><span class="kw">:</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> &lt;line-range | json-path | object-path&gt;</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">value</span><span class="kw">:</span><span class="at"> &lt;location-reference&gt;</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu">  excerpt</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    &lt;artifact-fragment&gt;</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">artifact_type</span><span class="kw">:</span><span class="at"> &lt;code | config | schema | deploy | doc | test&gt;</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="fu">  signal_category</span><span class="kw">: </span><span class="at">&lt;structure | dependency | entrypoint | config | deploy </span><span class="ch">|</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>                    docs | test | observability | security&gt;</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">strength</span><span class="kw">:</span><span class="at"> &lt;strong | moderate | weak&gt;</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">confidence_implication</span><span class="kw">:</span><span class="at"> &lt;observed | inferred | unknown&gt;</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">created_by</span><span class="kw">:</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">extractor</span><span class="kw">:</span><span class="at"> &lt;tool-or-pipeline-id&gt;</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">version</span><span class="kw">:</span><span class="at"> &lt;extractor-version&gt;</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">timestamp</span><span class="kw">:</span><span class="at"> &lt;iso8601&gt;</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">related_entities</span><span class="kw">:</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;entity-id&gt;</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;entity-id&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Field explanations:</strong></p>
+<section id="id" class="level3" data-number="10.3.1">
+<h3 data-number="10.3.1" class="anchored" data-anchor-id="id"><span class="header-section-number">10.3.1</span> id</h3>
+<p>A unique identifier for the evidence object. Evidence identifiers should remain stable within a blueprint pack to support traceability and cross-referencing. IDs typically follow a pattern such as <code>evidence-{hash}</code> or <code>evidence-{counter}</code>.</p>
+</section>
+<section id="source" class="level3" data-number="10.3.2">
+<h3 data-number="10.3.2" class="anchored" data-anchor-id="source"><span class="header-section-number">10.3.2</span> source</h3>
+<p>The source field identifies the repository artifact from which the evidence originates:</p>
+<ul>
+<li><strong>repo</strong>: Repository identifier (URL, name, or hash)</li>
+<li><strong>file</strong>: File path within the repository</li>
+<li><strong>revision</strong>: Git commit hash, tag, or other version identifier</li>
+<li><strong>branch</strong>: Branch name (if different from default)</li>
+</ul>
+<p>This information ensures that reviewers can locate the exact artifact used during extraction, even as repositories evolve.</p>
+</section>
+<section id="location" class="level3" data-number="10.3.3">
+<h3 data-number="10.3.3" class="anchored" data-anchor-id="location"><span class="header-section-number">10.3.3</span> location</h3>
+<p>The location field specifies the <strong>exact position within the artifact</strong>. Depending on the artifact type, this may include:</p>
+<ul>
+<li><strong>line-range</strong>: For code and text files (e.g., <code>lines 42-58</code>)</li>
+<li><strong>json-path</strong>: For JSON/YAML configuration (e.g., <code>$.services.api.port</code>)</li>
+<li><strong>object-path</strong>: For structured documents (e.g., <code>services.api.host</code>)</li>
+</ul>
+<p>Precise location references enable automated tools to retrieve the same evidence fragment during audits and enable reviewers to quickly locate relevant sections.</p>
+</section>
+<section id="excerpt" class="level3" data-number="10.3.4">
+<h3 data-number="10.3.4" class="anchored" data-anchor-id="excerpt"><span class="header-section-number">10.3.4</span> excerpt</h3>
+<p>The excerpt field contains the <strong>relevant fragment of the artifact</strong>. Providing the excerpt improves review efficiency because reviewers can immediately inspect the relevant content without navigating the entire file.</p>
+<p><strong>Excerpt guidelines:</strong></p>
+<ul>
+<li><strong>Minimal</strong>: Include only the relevant portion</li>
+<li><strong>Contextual</strong>: Include sufficient surrounding context for understanding</li>
+<li><strong>Clean</strong>: Remove irrelevant whitespace or comments</li>
+<li><strong>Complete</strong>: Ensure the excerpt is syntactically complete</li>
+</ul>
+<p><strong>Example excerpts:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Excerpt from route definition</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">@app.post</span>(<span class="st">"/payments"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> create_payment(request: PaymentRequest):</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Process payment</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {<span class="st">"payment_id"</span>: payment.<span class="bu">id</span>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Excerpt from configuration</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">services</span><span class="kw">:</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">api</span><span class="kw">:</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">host</span><span class="kw">:</span><span class="at"> api.example.com</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">port</span><span class="kw">:</span><span class="at"> </span><span class="dv">8000</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="artifact_type" class="level3" data-number="10.3.5">
+<h3 data-number="10.3.5" class="anchored" data-anchor-id="artifact_type"><span class="header-section-number">10.3.5</span> artifact_type</h3>
+<p>This field classifies the artifact that produced the evidence:</p>
+<ul>
+<li><strong>code</strong>: Source code files (.py, .js, .go, .java, etc.)</li>
+<li><strong>config</strong>: Configuration files (.yaml, .json, .env, .ini, etc.)</li>
+<li><strong>schema</strong>: Schema definitions (DDL, migrations, OpenAPI, etc.)</li>
+<li><strong>deploy</strong>: Deployment artifacts (Dockerfile, k8s manifests, Terraform, etc.)</li>
+<li><strong>doc</strong>: Documentation files (.md, .rst, .txt, etc.)</li>
+<li><strong>test</strong>: Test files (test_<em>.py, </em>_test.go, etc.)</li>
+</ul>
+<p>Artifact classification helps extraction systems evaluate the reliability of the evidence. For example, schema definitions often provide stronger architectural signals than documentation.</p>
+</section>
+<section id="signal_category" class="level3" data-number="10.3.6">
+<h3 data-number="10.3.6" class="anchored" data-anchor-id="signal_category"><span class="header-section-number">10.3.6</span> signal_category</h3>
+<p>This field records the signal taxonomy category that produced the evidence:</p>
+<ul>
+<li><strong>structure</strong>: Repository organization signals</li>
+<li><strong>dependency</strong>: Dependency declaration signals</li>
+<li><strong>entrypoint</strong>: Application entrypoint signals</li>
+<li><strong>config</strong>: Configuration signals</li>
+<li><strong>deploy</strong>: Deployment signals</li>
+<li><strong>docs</strong>: Documentation signals</li>
+<li><strong>test</strong>: Test suite signals</li>
+<li><strong>observability</strong>: Monitoring and instrumentation signals</li>
+<li><strong>security</strong>: Security mechanism signals</li>
+</ul>
+<p>Signal categories allow the extraction pipeline to trace architectural interpretations back to their originating signal class.</p>
+</section>
+<section id="strength" class="level3" data-number="10.3.7">
+<h3 data-number="10.3.7" class="anchored" data-anchor-id="strength"><span class="header-section-number">10.3.7</span> strength</h3>
+<p>Evidence strength estimates how directly the artifact supports an architectural interpretation:</p>
+<ul>
+<li><strong>strong</strong>: Artifacts that explicitly encode architectural structure</li>
+<li><strong>moderate</strong>: Artifacts that strongly suggest architecture but do not explicitly define it</li>
+<li><strong>weak</strong>: Artifacts that provide indirect hints about system structure</li>
+</ul>
+<p><strong>Strength examples:</strong></p>
+<p><strong>Strong evidence:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Schema migration explicitly defining data structure</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>CREATE TABLE payments (</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">id</span> SERIAL PRIMARY KEY,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    amount DECIMAL(<span class="dv">10</span>,<span class="dv">2</span>) NOT NULL,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    status VARCHAR(<span class="dv">50</span>) NOT NULL</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Moderate evidence:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="er">//</span> <span class="er">Configuration</span> <span class="er">suggesting</span> <span class="er">service</span> <span class="er">dependency</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"dependencies"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"payment_service"</span><span class="fu">:</span> <span class="st">"http://payments:8000"</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Weak evidence:</strong></p>
+<pre><code># Directory name suggesting component boundary
+workers/</code></pre>
+<p>Strength classification contributes to <strong>confidence evaluation</strong> during extraction.</p>
+</section>
+<section id="confidence_implication" class="level3" data-number="10.3.8">
+<h3 data-number="10.3.8" class="anchored" data-anchor-id="confidence_implication"><span class="header-section-number">10.3.8</span> confidence_implication</h3>
+<p>This field indicates the confidence level that should be assigned to architectural elements based on this evidence:</p>
+<ul>
+<li><strong>observed</strong>: Strong evidence supports high confidence</li>
+<li><strong>inferred</strong>: Moderate evidence suggests moderate confidence</li>
+<li><strong>unknown</strong>: Weak evidence may result in unknown or low confidence</li>
+</ul>
+<p>This field provides guidance for confidence calculation rather than mandating specific confidence levels.</p>
+</section>
+<section id="created_by" class="level3" data-number="10.3.9">
+<h3 data-number="10.3.9" class="anchored" data-anchor-id="created_by"><span class="header-section-number">10.3.9</span> created_by</h3>
+<p>The created_by section records metadata about the extraction process that generated the evidence:</p>
+<ul>
+<li><strong>extractor</strong>: Tool or pipeline identifier (e.g., “blueprint-extractor-v1.2”)</li>
+<li><strong>version</strong>: Extractor version for reproducibility</li>
+<li><strong>timestamp</strong>: ISO8601 timestamp of extraction</li>
+</ul>
+<p>This metadata ensures that evidence objects remain traceable to the pipeline that produced them.</p>
+</section>
+<section id="related_entities" class="level3" data-number="10.3.10">
+<h3 data-number="10.3.10" class="anchored" data-anchor-id="related_entities"><span class="header-section-number">10.3.10</span> related_entities</h3>
+<p>This field lists architectural entities that this evidence supports. This linkage enables:</p>
+<ul>
+<li><strong>Evidence lookup</strong>: Finding all evidence supporting a specific entity</li>
+<li><strong>Impact analysis</strong>: Understanding which entities would be affected if evidence changes</li>
+<li><strong>Validation</strong>: Ensuring all entities have supporting evidence</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="evidence-aggregation" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="evidence-aggregation"><span class="header-section-number">10.4</span> Evidence Aggregation</h2>
+<p>A single architectural element is rarely supported by a single artifact. Instead, architectural interpretation typically emerges from <strong>multiple independent signals</strong>.</p>
+<p><strong>Aggregation patterns:</strong></p>
+<p><strong>Worker component evidence aggregation:</strong></p>
+<p>A worker component might be supported by:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Evidence 1: Directory structure</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">evidence</span><span class="kw">:</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">id</span><span class="kw">:</span><span class="at"> evidence-001</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">source</span><span class="kw">:</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">file</span><span class="kw">:</span><span class="at"> workers/</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">artifact_type</span><span class="kw">:</span><span class="at"> code</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">signal_category</span><span class="kw">:</span><span class="at"> structure</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">strength</span><span class="kw">:</span><span class="at"> moderate</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Evidence 2: Queue dependency</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="fu">evidence</span><span class="kw">:</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">id</span><span class="kw">:</span><span class="at"> evidence-002</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">source</span><span class="kw">:</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">file</span><span class="kw">:</span><span class="at"> requirements.txt</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">location</span><span class="kw">:</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> json-path</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">value</span><span class="kw">:</span><span class="at"> $.dependencies.celery</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">excerpt</span><span class="kw">:</span><span class="at"> </span><span class="st">"celery==5.3.0"</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">artifact_type</span><span class="kw">:</span><span class="at"> config</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">signal_category</span><span class="kw">:</span><span class="at"> dependency</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">strength</span><span class="kw">:</span><span class="at"> strong</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Evidence 3: Worker implementation</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="fu">evidence</span><span class="kw">:</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">id</span><span class="kw">:</span><span class="at"> evidence-003</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">source</span><span class="kw">:</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">file</span><span class="kw">:</span><span class="at"> workers/processor.py</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">location</span><span class="kw">:</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> line-range</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">value</span><span class="kw">:</span><span class="at"> lines 1-45</span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="fu">  excerpt</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>    from celery import Celery</span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>    app = Celery('tasks')</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>    @app.task</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>    def process_payment(payment_id):</span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>        # Process payment</span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>        pass</span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">artifact_type</span><span class="kw">:</span><span class="at"> code</span></span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">signal_category</span><span class="kw">:</span><span class="at"> entrypoint</span></span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">strength</span><span class="kw">:</span><span class="at"> strong</span></span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Evidence 4: Deployment configuration</span></span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a><span class="fu">evidence</span><span class="kw">:</span></span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">id</span><span class="kw">:</span><span class="at"> evidence-004</span></span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">source</span><span class="kw">:</span></span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">file</span><span class="kw">:</span><span class="at"> docker-compose.yml</span></span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">location</span><span class="kw">:</span></span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> json-path</span></span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">value</span><span class="kw">:</span><span class="at"> $.services.worker</span></span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a><span class="fu">  excerpt</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a>    services:</span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>      worker:</span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>        image: myapp/worker:latest</span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>        command: celery -A workers worker</span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">artifact_type</span><span class="kw">:</span><span class="at"> deploy</span></span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">signal_category</span><span class="kw">:</span><span class="at"> deploy</span></span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">strength</span><span class="kw">:</span><span class="at"> strong</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Aggregation purposes:</strong></p>
+<ol type="1">
+<li><strong>Increased confidence</strong>: Multiple consistent signals strengthen confidence in the interpretation</li>
+<li><strong>Improved auditability</strong>: The complete evidence basis for each element is visible to reviewers</li>
+<li><strong>Robustness</strong>: If one evidence source is incorrect or misleading, other sources may compensate</li>
+<li><strong>Validation</strong>: Cross-validation across multiple evidence sources improves reliability</li>
+</ol>
+<p><strong>Aggregation confidence calculation:</strong></p>
+<p>Confidence can be calculated from aggregated evidence:</p>
+<pre><code>base_confidence = strength(weakest_evidence)
+confidence_boost = log(count(evidence))
+conflict_penalty = number_of_conflicts
+final_confidence = base_confidence + confidence_boost - conflict_penalty</code></pre>
+<p>This formula ensures that: - Weak evidence limits maximum confidence - More evidence increases confidence (diminishing returns) - Conflicts reduce confidence</p>
+<hr>
+</section>
+<section id="evidence-conflict-resolution" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="evidence-conflict-resolution"><span class="header-section-number">10.5</span> Evidence Conflict Resolution</h2>
+<p>Repositories may contain <strong>conflicting signals</strong>. Conflicts arise when different artifacts suggest inconsistent architectural interpretations.</p>
+<p><strong>Conflict sources:</strong></p>
+<ol type="1">
+<li><strong>Outdated documentation</strong>: Documentation describes components that no longer exist</li>
+<li><strong>Legacy configuration</strong>: Configuration files reference deprecated services</li>
+<li><strong>Evolutionary drift</strong>: Architecture has evolved but artifacts haven’t been updated</li>
+<li><strong>Ambiguous naming</strong>: Names suggest structures that differ from actual implementation</li>
+</ol>
+<p><strong>Conflict examples:</strong></p>
+<p><strong>Documentation vs.&nbsp;implementation conflict:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Documentation (outdated)</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">evidence</span><span class="kw">:</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">id</span><span class="kw">:</span><span class="at"> evidence-001</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">source</span><span class="kw">:</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">file</span><span class="kw">:</span><span class="at"> README.md</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">excerpt</span><span class="kw">:</span><span class="at"> </span><span class="st">"The payment service is deployed as a standalone microservice"</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">artifact_type</span><span class="kw">:</span><span class="at"> doc</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">signal_category</span><span class="kw">:</span><span class="at"> docs</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">strength</span><span class="kw">:</span><span class="at"> moderate</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Implementation (current reality)</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="fu">evidence</span><span class="kw">:</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">id</span><span class="kw">:</span><span class="at"> evidence-002</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">source</span><span class="kw">:</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">file</span><span class="kw">:</span><span class="at"> main.py</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="fu">  excerpt</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    @app.post("/payments")</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    def create_payment(request):</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>        # Payment processing inline with API</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>        pass</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">artifact_type</span><span class="kw">:</span><span class="at"> code</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">signal_category</span><span class="kw">:</span><span class="at"> code</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">strength</span><span class="kw">:</span><span class="at"> strong</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Configuration vs.&nbsp;code conflict:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Configuration (legacy)</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">evidence</span><span class="kw">:</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">id</span><span class="kw">:</span><span class="at"> evidence-003</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">source</span><span class="kw">:</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">file</span><span class="kw">:</span><span class="at"> config.yml</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">  excerpt</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    queue_url: redis://legacy-queue:6379</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">artifact_type</span><span class="kw">:</span><span class="at"> config</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">strength</span><span class="kw">:</span><span class="at"> moderate</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Code (current)</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="fu">evidence</span><span class="kw">:</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">id</span><span class="kw">:</span><span class="at"> evidence-004</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">source</span><span class="kw">:</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">file</span><span class="kw">:</span><span class="at"> workers.py</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">excerpt</span><span class="kw">:</span><span class="at"> </span><span class="st">"queue = Connection('redis://new-queue:6379')"</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">artifact_type</span><span class="kw">:</span><span class="at"> code</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">strength</span><span class="kw">:</span><span class="at"> strong</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Conflict resolution principles:</strong></p>
+<p>Extraction systems must preserve conflicting evidence rather than discard it. Conflict resolution occurs at the <strong>mapping or review stage</strong>, not during evidence collection.</p>
+<p><strong>Preservation strategy:</strong></p>
+<ol type="1">
+<li><strong>Retain all evidence</strong>: Keep conflicting evidence objects in the evidence bundle</li>
+<li><strong>Flag conflicts</strong>: Mark evidence relationships as conflicting</li>
+<li><strong>Assign confidence</strong>: Lower confidence for interpretations based on conflicting evidence</li>
+<li><strong>Require review</strong>: Flag conflicts for human review and resolution</li>
+</ol>
+<p><strong>Resolution approaches:</strong></p>
+<ul>
+<li><strong>Timestamp-based</strong>: Prefer newer evidence over older evidence</li>
+<li><strong>Strength-based</strong>: Prefer stronger evidence over weaker evidence</li>
+<li><strong>Consensus-based</strong>: Prefer interpretations supported by multiple consistent sources</li>
+<li><strong>Manual resolution</strong>: Require human review for unresolvable conflicts</li>
+</ul>
+<p><strong>Conflict representation:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">evidence_conflict</span><span class="kw">:</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">conflict_id</span><span class="kw">:</span><span class="at"> conflict-001</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">conflicting_evidence</span><span class="kw">:</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> evidence-001</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> evidence-002</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">resolution</span><span class="kw">:</span><span class="at"> pending</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">confidence_implication</span><span class="kw">:</span><span class="at"> reduced</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This explicit conflict representation ensures that architectural interpretation remains transparent and reviewable.</p>
+<hr>
+</section>
+<section id="evidence-bundle" class="level2" data-number="10.6">
+<h2 data-number="10.6" class="anchored" data-anchor-id="evidence-bundle"><span class="header-section-number">10.6</span> Evidence Bundle</h2>
+<p>To maintain auditability, all evidence objects generated during extraction are grouped into an <strong>evidence bundle</strong>. The bundle serves as the audit trail for the extraction process.</p>
+<p><strong>Evidence bundle contents:</strong></p>
+<p>An evidence bundle contains:</p>
+<ul>
+<li><strong>Evidence index</strong>: Complete catalog of all evidence objects</li>
+<li><strong>Evidence objects</strong>: All structured evidence representations</li>
+<li><strong>Evidence excerpts</strong>: Artifact fragments for quick inspection</li>
+<li><strong>Evidence relationships</strong>: Links between evidence and architectural entities</li>
+<li><strong>Conflict registry</strong>: Record of identified evidence conflicts</li>
+</ul>
+<p><strong>Bundle directory structure:</strong></p>
+<pre><code>blueprint-pack/
+├── evidence/
+│   ├── index.yaml              # Evidence catalog and relationships
+│   ├── evidence-001.yaml       # Individual evidence objects
+│   ├── evidence-002.yaml
+│   ├── ...
+│   └── excerpts/               # Artifact fragments
+│       ├── evidence-001.txt
+│       ├── evidence-002.txt
+│       └── ...</code></pre>
+<p><strong>Evidence index example:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">evidence_index</span><span class="kw">:</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">total_evidence</span><span class="kw">:</span><span class="at"> </span><span class="dv">42</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">by_type</span><span class="kw">:</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">code</span><span class="kw">:</span><span class="at"> </span><span class="dv">15</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">config</span><span class="kw">:</span><span class="at"> </span><span class="dv">12</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">schema</span><span class="kw">:</span><span class="at"> </span><span class="dv">8</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">deploy</span><span class="kw">:</span><span class="at"> </span><span class="dv">4</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">doc</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">by_strength</span><span class="kw">:</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">strong</span><span class="kw">:</span><span class="at"> </span><span class="dv">18</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">moderate</span><span class="kw">:</span><span class="at"> </span><span class="dv">16</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">weak</span><span class="kw">:</span><span class="at"> </span><span class="dv">8</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">conflicts</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">evidence_objects</span><span class="kw">:</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">id</span><span class="kw">:</span><span class="at"> evidence-001</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> code</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">strength</span><span class="kw">:</span><span class="at"> strong</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">supports</span><span class="kw">:</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> component.worker</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> interface.queue</span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">id</span><span class="kw">:</span><span class="at"> evidence-002</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> config</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">strength</span><span class="kw">:</span><span class="at"> moderate</span></span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">supports</span><span class="kw">:</span></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> component.worker</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Bundle purposes:</strong></p>
+<p>The evidence bundle functions as the <strong>audit trail</strong> for blueprint extraction:</p>
+<ol type="1">
+<li><strong>Traceability</strong>: Every architectural element references evidence in the bundle</li>
+<li><strong>Verification</strong>: Reviewers can verify claims by inspecting the bundle</li>
+<li><strong>Debugging</strong>: Errors can be traced to specific evidence or interpretation</li>
+<li><strong>Reproducibility</strong>: The same evidence produces consistent results</li>
+<li><strong>Evolution</strong>: Blueprints can be updated as evidence changes</li>
+</ol>
+<p><strong>Bundle in review:</strong></p>
+<p>During human review, the evidence bundle enables reviewers to:</p>
+<ul>
+<li><strong>Inspect</strong>: View all evidence supporting each architectural element</li>
+<li><strong>Validate</strong>: Verify that evidence supports the claimed interpretation</li>
+<li><strong>Challenge</strong>: Question or reject interpretations based on weak evidence</li>
+<li><strong>Correct</strong>: Update interpretations when evidence is misinterpreted</li>
+<li><strong>Add</strong>: Supplement evidence from external sources</li>
+</ul>
+<hr>
+</section>
+<section id="evidence-quality-assessment" class="level2" data-number="10.7">
+<h2 data-number="10.7" class="anchored" data-anchor-id="evidence-quality-assessment"><span class="header-section-number">10.7</span> Evidence Quality Assessment</h2>
+<p>Not all evidence is equally valuable. Evidence quality assessment helps extraction systems prioritize evidence and calculate confidence.</p>
+<p><strong>Quality dimensions:</strong></p>
+<p><strong>1. Strength</strong></p>
+<p>How directly the artifact expresses architectural structure:</p>
+<ul>
+<li><strong>Strong</strong>: Explicit definitions (schemas, routes, workflows)</li>
+<li><strong>Moderate</strong>: Strong suggestions (dependencies, configuration)</li>
+<li><strong>Weak</strong>: Indirect hints (naming, structure)</li>
+</ul>
+<p><strong>2. Freshness</strong></p>
+<p>How current the evidence is relative to the repository state:</p>
+<ul>
+<li><strong>Fresh</strong>: Recently modified, aligns with current code</li>
+<li><strong>Stale</strong>: Outdated, conflicts with current implementation</li>
+<li><strong>Unknown</strong>: Modification timestamp unavailable</li>
+</ul>
+<p><strong>3. Consistency</strong></p>
+<p>How well evidence aligns with other evidence sources:</p>
+<ul>
+<li><strong>Consistent</strong>: Aligns with multiple other sources</li>
+<li><strong>Conflicting</strong>: Contradicts other evidence</li>
+<li><strong>Unique</strong>: No corroborating evidence</li>
+</ul>
+<p><strong>4. Specificity</strong></p>
+<p>How precisely the evidence identifies architectural elements:</p>
+<ul>
+<li><strong>Specific</strong>: Uniquely identifies a single element</li>
+<li><strong>Ambiguous</strong>: Could apply to multiple elements</li>
+<li><strong>General</strong>: Provides broad guidance only</li>
+</ul>
+<p><strong>Quality scoring:</strong></p>
+<p>Evidence quality can be calculated as:</p>
+<pre><code>quality_score = (strength_weight * strength) +
+                (freshness_weight * freshness) +
+                (consistency_weight * consistency) +
+                (specificity_weight * specificity)</code></pre>
+<p>Where each dimension is scored 0-1 and weights sum to 1.0.</p>
+<p><strong>Quality applications:</strong></p>
+<ul>
+<li><strong>Confidence calculation</strong>: Higher quality evidence increases confidence</li>
+<li><strong>Review prioritization</strong>: Low-quality evidence requires more careful review</li>
+<li><strong>Evidence ranking</strong>: High-quality evidence should be prioritized in extraction</li>
+<li><strong>Conflict resolution</strong>: Higher-quality evidence should win conflicts</li>
+</ul>
+<hr>
+</section>
+<section id="evidence-and-confidence-relationship" class="level2" data-number="10.8">
+<h2 data-number="10.8" class="anchored" data-anchor-id="evidence-and-confidence-relationship"><span class="header-section-number">10.8</span> Evidence and Confidence Relationship</h2>
+<p>Evidence and confidence are closely related. Confidence represents the degree of certainty that an extracted element accurately reflects system architecture, and confidence is derived from evidence.</p>
+<p><strong>Confidence from evidence:</strong></p>
+<p><strong>Observed confidence</strong> (high):</p>
+<ul>
+<li>Supported by strong evidence (schemas, routes, workflows)</li>
+<li>Multiple consistent evidence sources</li>
+<li>No conflicting evidence</li>
+<li>Specific, unambiguous interpretation</li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Strong, consistent, specific evidence</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">evidence</span><span class="kw">:</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">type</span><span class="kw">:</span><span class="at"> schema</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">strength</span><span class="kw">:</span><span class="at"> strong</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">excerpt</span><span class="kw">:</span><span class="at"> </span><span class="st">"CREATE TABLE payments (...)"</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">type</span><span class="kw">:</span><span class="at"> code</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">strength</span><span class="kw">:</span><span class="at"> strong</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">excerpt</span><span class="kw">:</span><span class="at"> </span><span class="st">"class Payment(db.Model): ..."</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">type</span><span class="kw">:</span><span class="at"> test</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">strength</span><span class="kw">:</span><span class="at"> moderate</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">excerpt</span><span class="kw">:</span><span class="at"> </span><span class="st">"def test_create_payment(): ..."</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="fu">confidence</span><span class="kw">:</span><span class="at"> observed</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Inferred confidence</strong> (medium):</p>
+<ul>
+<li>Supported by moderate evidence (dependencies, configuration)</li>
+<li>Some evidence consistency</li>
+<li>Possible conflicting interpretations</li>
+<li>Partially specific interpretation</li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Moderate, somewhat consistent, partially specific evidence</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">evidence</span><span class="kw">:</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">type</span><span class="kw">:</span><span class="at"> dependency</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">strength</span><span class="kw">:</span><span class="at"> moderate</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">excerpt</span><span class="kw">:</span><span class="at"> </span><span class="st">"celery==5.3.0"</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">type</span><span class="kw">:</span><span class="at"> structure</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">strength</span><span class="kw">:</span><span class="at"> weak</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">excerpt</span><span class="kw">:</span><span class="at"> </span><span class="st">"workers/"</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="fu">confidence</span><span class="kw">:</span><span class="at"> inferred</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Unknown confidence</strong> (low):</p>
+<ul>
+<li>Weak or insufficient evidence</li>
+<li>Conflicting evidence sources</li>
+<li>Ambiguous or non-specific interpretation</li>
+<li>Evidence primarily from documentation</li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Weak, potentially conflicting, ambiguous evidence</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">evidence</span><span class="kw">:</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">type</span><span class="kw">:</span><span class="at"> doc</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">strength</span><span class="kw">:</span><span class="at"> weak</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">excerpt</span><span class="kw">:</span><span class="at"> </span><span class="st">"Payment service processes transactions"</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="fu">confidence</span><span class="kw">:</span><span class="at"> unknown</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Confidence calculation formula:</strong></p>
+<pre><code>base_confidence = strength(primary_evidence)
+evidence_boost = log(count(consistent_evidence))
+conflict_penalty = number_of_conflicts * conflict_weight
+quality_multiplier = quality_score / max_quality
+
+final_confidence = (base_confidence + evidence_boost - conflict_penalty) *
+                    quality_multiplier</code></pre>
+<p>This formula ensures that confidence reflects: - Evidence strength - Evidence quantity (with diminishing returns) - Evidence conflicts - Evidence quality</p>
+<hr>
+</section>
+<section id="evidence-as-extraction-foundation" class="level2" data-number="10.9">
+<h2 data-number="10.9" class="anchored" data-anchor-id="evidence-as-extraction-foundation"><span class="header-section-number">10.9</span> Evidence as Extraction Foundation</h2>
+<p>The Evidence Object Model provides the structural foundation for blueprint extraction. Without it, extraction would lack:</p>
+<ul>
+<li><strong>Verifiability</strong>: Claims could not be validated</li>
+<li><strong>Auditability</strong>: Decisions could not be traced</li>
+<li><strong>Reproducibility</strong>: Results would vary between runs</li>
+<li><strong>Debuggability</strong>: Errors could not be located</li>
+<li><strong>Reliability</strong>: Blueprints would accumulate speculation</li>
+</ul>
+<p><strong>With the Evidence Object Model, extraction becomes:</strong></p>
+<p><strong>Evidence-driven:</strong></p>
+<ul>
+<li>Signals initiate hypotheses</li>
+<li>Evidence validates or refutes hypotheses</li>
+<li>Mappings translate evidence into ontology structures</li>
+<li>Blueprints assemble validated structures</li>
+</ul>
+<p><strong>Auditable:</strong></p>
+<ul>
+<li>Every claim references evidence</li>
+<li>Every evidence references artifacts</li>
+<li>Every artifact is locatable</li>
+<li>Every decision is traceable</li>
+</ul>
+<p><strong>Improvable:</strong></p>
+<ul>
+<li>Evidence quality can be measured</li>
+<li>Evidence collection can be optimized</li>
+<li>Evidence interpretation can be refined</li>
+<li>Evidence conflicts can be resolved</li>
+</ul>
+<p><strong>Scalable:</strong></p>
+<ul>
+<li>Evidence is structured for machine processing</li>
+<li>Evidence bundles can be versioned and diffed</li>
+<li>Evidence quality can be automated</li>
+<li>Evidence review can be prioritized</li>
+</ul>
+<p>The Evidence Object Model therefore transforms blueprint extraction from heuristic inference into a <strong>verifiable architecture reconstruction process</strong>.</p>
+<hr>
+</section>
+<section id="chapter-summary" class="level2" data-number="10.10">
+<h2 data-number="10.10" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">10.10</span> Chapter Summary</h2>
+<ul>
+<li>Evidence is the foundation of reliable extraction—every claim must be traceable</li>
+<li>Evidence objects represent structured references to repository artifacts</li>
+<li>The evidence schema includes: id, source, location, excerpt, type, category, strength, and metadata</li>
+<li>Evidence aggregation combines multiple signals to strengthen interpretations</li>
+<li>Evidence conflicts must be preserved and resolved systematically</li>
+<li>Evidence bundles provide the audit trail for extraction processes</li>
+<li>Evidence quality is assessed through strength, freshness, consistency, and specificity</li>
+<li>Confidence is derived from evidence through calculation</li>
+<li>Observed confidence comes from strong, consistent, specific evidence</li>
+<li>Inferred confidence comes from moderate evidence</li>
+<li>Unknown confidence results from weak or insufficient evidence</li>
+<li>The Evidence Object Model enables verifiable, auditable, reproducible extraction</li>
+<li>Evidence-driven extraction is the foundation of reliable architectural reconstruction</li>
+</ul>
+<p><strong>Next Chapter</strong>: Chapter 9 introduces Confidence Semantics—the formal framework for representing uncertainty in extracted architectures. Confidence semantics ensures that extraction produces honest, auditable representations rather than overconfident speculations.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./ch-07-signal-taxonomy.html" class="pagination-link" aria-label="Signal Taxonomy: Where Structure Leaks Out">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Signal Taxonomy: Where Structure Leaks Out</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./ch-09-confidence-semantics.html" class="pagination-link" aria-label="Confidence Semantics">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Confidence Semantics</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

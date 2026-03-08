@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>6&nbsp; What We Extract: Blueprint Kernel and Views – Blueprint_Extraction</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./ch-05-repo-not-system.html" rel="next">
+<link href="./ch-03-boundaries.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-27c261d06b905028a18691de25d09dde.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-04-what-we-extract.html">Part I — Extraction as Evidence-Driven Engineering</a></li><li class="breadcrumb-item"><a href="./ch-04-what-we-extract.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">What We Extract: Blueprint Kernel and Views</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Blueprint_Extraction</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part 0 — Preface &amp; Contracts</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-01-why-extraction-is-difficult.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Why Extraction Is Hard: Repositories Are Facts, Blueprints Are Interpretations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-02-deliverables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Deliverables of This Volume</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-03-boundaries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Scope and Boundaries of This Volume</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part I — Extraction as Evidence-Driven Engineering</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-04-what-we-extract.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">What We Extract: Blueprint Kernel and Views</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-05-repo-not-system.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Repo ≠ System: The Missing Layers</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-06-hypothesis-workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hypothesis Workflow</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part II — Signal Taxonomy &amp; Evidence Model</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-07-signal-taxonomy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Signal Taxonomy: Where Structure Leaks Out</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-08-evidence-model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Evidence Object Model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-09-confidence-semantics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Confidence Semantics</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part III — Ontology Mapping: From Repo to System Graph</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-10-mapping-principles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Mapping Principles and Canonicalization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-11-component-discovery.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Component Discovery</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-12-interface-contract-extraction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Interface and Contract Extraction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-13-data-model-ownership.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Data Model and Ownership Extraction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-14-workflow-control-plane.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Workflow and Control-Plane Extraction</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part IV — Blueprint Draft Generation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-15-kernel-slot-filling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Kernel Slot Filling Rules</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-16-views-generation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Views Generation (Projections)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-17-blueprint-pack-output.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Blueprint Pack Output Standard</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part V — Validation, Review, and Quality Gates</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-18-validation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Validation: Schema and Semantics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-19-review-protocol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Review Protocol (Human-in-the-Loop)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-20-quality-metrics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Extraction Quality Metrics</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part VI — Operating Blueprint Mining at Scale</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-21-mining-pipeline-operations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Mining Pipeline Operations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-22-normalization-deduplication.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Normalization and Deduplication</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-23-blueprints-to-patterns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">From Blueprints to Patterns</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Capstone — Blueprint Extraction Spec v0.1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-24-blueprint-extraction-spec.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Blueprint Extraction Specification v0.1</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-a-signal-taxonomy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Appendix A — Signal Taxonomy v0.1</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-b-evidence-schema.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Appendix B — Evidence Object Schema v0.1</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-c-confidence-semantics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix C — Confidence Semantics Spec v0.1</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-d-mapping-template.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Appendix D — Ontology Mapping Rules Template</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-e-report-template.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Appendix E — Extraction Report Template</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-f-extraction-cases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Appendix F — Five Complete Extraction Cases (with Evidence Trace)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-g-eml-scorecard.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Appendix G — Extraction Maturity Level (EML) Score Sheet</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#the-blueprint-kernel-as-the-extraction-target" id="toc-the-blueprint-kernel-as-the-extraction-target" class="nav-link active" data-scroll-target="#the-blueprint-kernel-as-the-extraction-target"><span class="header-section-number">6.1</span> The Blueprint Kernel as the Extraction Target</a></li>
+  <li><a href="#kernel-slots-in-detail" id="toc-kernel-slots-in-detail" class="nav-link" data-scroll-target="#kernel-slots-in-detail"><span class="header-section-number">6.2</span> Kernel Slots in Detail</a>
+  <ul class="collapse">
+  <li><a href="#goal" id="toc-goal" class="nav-link" data-scroll-target="#goal"><span class="header-section-number">6.2.1</span> Goal</a></li>
+  <li><a href="#capabilities" id="toc-capabilities" class="nav-link" data-scroll-target="#capabilities"><span class="header-section-number">6.2.2</span> Capabilities</a></li>
+  <li><a href="#components" id="toc-components" class="nav-link" data-scroll-target="#components"><span class="header-section-number">6.2.3</span> Components</a></li>
+  <li><a href="#interfaces" id="toc-interfaces" class="nav-link" data-scroll-target="#interfaces"><span class="header-section-number">6.2.4</span> Interfaces</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="header-section-number">6.2.5</span> Data</a></li>
+  <li><a href="#workflows" id="toc-workflows" class="nav-link" data-scroll-target="#workflows"><span class="header-section-number">6.2.6</span> Workflows</a></li>
+  </ul></li>
+  <li><a href="#kernel-slots-as-extraction-objectives" id="toc-kernel-slots-as-extraction-objectives" class="nav-link" data-scroll-target="#kernel-slots-as-extraction-objectives"><span class="header-section-number">6.3</span> Kernel Slots as Extraction Objectives</a></li>
+  <li><a href="#the-evidence-traceability-principle" id="toc-the-evidence-traceability-principle" class="nav-link" data-scroll-target="#the-evidence-traceability-principle"><span class="header-section-number">6.4</span> The Evidence Traceability Principle</a></li>
+  <li><a href="#blueprint-views-as-projections" id="toc-blueprint-views-as-projections" class="nav-link" data-scroll-target="#blueprint-views-as-projections"><span class="header-section-number">6.5</span> Blueprint Views as Projections</a></li>
+  <li><a href="#kernel-first-extraction" id="toc-kernel-first-extraction" class="nav-link" data-scroll-target="#kernel-first-extraction"><span class="header-section-number">6.6</span> Kernel-First Extraction</a></li>
+  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">6.7</span> Chapter Summary</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-04-what-we-extract.html">Part I — Extraction as Evidence-Driven Engineering</a></li><li class="breadcrumb-item"><a href="./ch-04-what-we-extract.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">What We Extract: Blueprint Kernel and Views</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">What We Extract: Blueprint Kernel and Views</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Blueprint extraction does not attempt to reconstruct every detail of a system implementation. Doing so would be computationally expensive, architecturally noisy, and analytically unnecessary. Extraction operates at a higher level of abstraction.</p>
+<p>Instead, the objective is to recover the <strong>architectural structure of the system</strong> in a stable, canonical, and computable form. This structure captures what the system <em>is</em>—its essential organization and design—rather than how it is implemented.</p>
+<p>The extracted structure is represented through two layers:</p>
+<ol type="1">
+<li><strong>The Blueprint Kernel</strong>: The minimal architectural representation of a system</li>
+<li><strong>Blueprint Views</strong>: Different projections of the kernel for different analytical purposes</li>
+</ol>
+<p>The Kernel defines the canonical, complete architectural model. Views provide specialized perspectives on that model. This separation ensures a single source of architectural truth while enabling diverse analytical applications.</p>
+<p>Extraction therefore targets the <strong>Kernel as the primary artifact</strong>. Views are not extracted independently; they are generated from the kernel through deterministic projection rules.</p>
+<hr>
+<section id="the-blueprint-kernel-as-the-extraction-target" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="the-blueprint-kernel-as-the-extraction-target"><span class="header-section-number">6.1</span> The Blueprint Kernel as the Extraction Target</h2>
+<p>The Blueprint Kernel defines the <strong>minimal set of structural elements required to represent a system architecture</strong>. It is designed to be:</p>
+<ul>
+<li><strong>Minimal</strong>: Contains only essential architectural information</li>
+<li><strong>Canonical</strong>: Represents the authoritative architectural model</li>
+<li><strong>Stable</strong>: Changes only when actual architecture changes</li>
+<li><strong>Language-independent</strong>: Abstracts away implementation details</li>
+<li><strong>Computable</strong>: Can be processed by automated tools and algorithms</li>
+</ul>
+<p>The Kernel consists of six mandatory slots:</p>
+<pre><code>Goal
+Capabilities
+Components
+Interfaces
+Data
+Workflows</code></pre>
+<p>Each slot represents a distinct, non-overlapping dimension of system structure. Together, they form a <strong>structural skeleton</strong> that captures the essential architecture of any system.</p>
+<p><strong>The six kernel slots:</strong></p>
+<p><strong>Goal</strong> describes the problem space the system addresses and the value it provides. It answers: <em>What is this system for?</em></p>
+<p><strong>Capabilities</strong> define the functional abilities the system provides to users or other systems. They answer: <em>What can this system do?</em></p>
+<p><strong>Components</strong> represent the structural units responsible for implementing capabilities. They answer: <em>What are the building blocks of this system?</em></p>
+<p><strong>Interfaces</strong> describe how components or external actors interact with the system. They answer: <em>How is this system accessed?</em></p>
+<p><strong>Data</strong> represents the persistent information owned or managed by the system. It answers: <em>What information does this system maintain?</em></p>
+<p><strong>Workflows</strong> describe the control flow through which components coordinate behavior. They answer: <em>How does execution flow through this system?</em></p>
+<p>These six slots provide comprehensive coverage of system architecture while remaining abstract enough to apply across diverse systems—from simple CLI tools to complex distributed systems.</p>
+<p><strong>The kernel as a structural skeleton:</strong></p>
+<p>The six slots form a structural skeleton that supports multiple architectural analyses:</p>
+<ul>
+<li><strong>Component analysis</strong>: Examining components and their relationships</li>
+<li><strong>Interface analysis</strong>: Understanding interaction surfaces and contracts</li>
+<li><strong>Data analysis</strong>: Mapping data ownership and flow</li>
+<li><strong>Workflow analysis</strong>: Understanding execution coordination</li>
+<li><strong>Capability analysis</strong>: Mapping functional abilities to structure</li>
+<li><strong>Evolution analysis</strong>: Tracking how architecture changes over time</li>
+</ul>
+<p>The kernel provides a stable representation that is independent of specific programming languages, frameworks, or deployment environments. This stability is essential for building blueprint datasets that remain valid as underlying technologies evolve.</p>
+<hr>
+</section>
+<section id="kernel-slots-in-detail" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="kernel-slots-in-detail"><span class="header-section-number">6.2</span> Kernel Slots in Detail</h2>
+<p>Each kernel slot has a specific definition, extraction target, and evidence requirements. Understanding these details is essential for designing extraction systems and interpreting blueprints.</p>
+<section id="goal" class="level3" data-number="6.2.1">
+<h3 data-number="6.2.1" class="anchored" data-anchor-id="goal"><span class="header-section-number">6.2.1</span> Goal</h3>
+<p><strong>Definition</strong>: The high-level problem the system addresses and the value proposition it delivers.</p>
+<p><strong>Extraction targets</strong>: Repository artifacts that describe system purpose, including: - Repository README files and descriptions - Project documentation and design documents - Issue tracker descriptions and mission statements - Marketing materials or product descriptions - Source code comments expressing architectural intent</p>
+<p><strong>Evidence characteristics</strong>: Goal is often the most abstract kernel slot. Evidence may be: - Explicit: Direct statements of purpose in documentation - Inferred: Derived from aggregated capabilities and interfaces - Partial: Goal may be reconstructed indirectly from behavior</p>
+<p><strong>Confidence implications</strong>: Goal often requires interpretation and synthesis, so confidence is typically moderate to low. Unknown goals are common when documentation is absent.</p>
+<hr>
+</section>
+<section id="capabilities" class="level3" data-number="6.2.2">
+<h3 data-number="6.2.2" class="anchored" data-anchor-id="capabilities"><span class="header-section-number">6.2.2</span> Capabilities</h3>
+<p><strong>Definition</strong>: The functional abilities the system provides to users or other systems.</p>
+<p><strong>Extraction targets</strong>: Artifacts that reveal what the system can do: - API endpoints and route definitions - CLI commands and subcommands - Event handlers and message consumers - Workflow steps and pipeline tasks - Test cases describing expected behavior</p>
+<p><strong>Evidence characteristics</strong>: Capabilities are often strongly evidenced by: - Explicit route or command definitions - Interface specifications (OpenAPI, protobuf, etc.) - Workflow definitions describing operations - Documentation of system functions</p>
+<p><strong>Confidence implications</strong>: Capabilities directly visible through interfaces often have high confidence. Capabilities inferred from indirect behavior have moderate confidence.</p>
+<hr>
+</section>
+<section id="components" class="level3" data-number="6.2.3">
+<h3 data-number="6.2.3" class="anchored" data-anchor-id="components"><span class="header-section-number">6.2.3</span> Components</h3>
+<p><strong>Definition</strong>: The structural units of responsibility that implement capabilities.</p>
+<p><strong>Extraction targets</strong>: Artifacts that reveal structural decomposition: - Service boundaries and module organization - Worker processes and background tasks - Scheduler or orchestrator components - Plugin or extension systems - Microservice or container boundaries</p>
+<p><strong>Evidence characteristics</strong>: Component evidence varies in strength: - Strong: Explicit service boundaries, deployment manifests - Moderate: Directory structure suggesting decomposition - Weak: Naming conventions or module organization</p>
+<p><strong>Confidence implications</strong>: Explicit component boundaries (services, containers) have high confidence. Inferred components from directory structure have moderate confidence.</p>
+<hr>
+</section>
+<section id="interfaces" class="level3" data-number="6.2.4">
+<h3 data-number="6.2.4" class="anchored" data-anchor-id="interfaces"><span class="header-section-number">6.2.4</span> Interfaces</h3>
+<p><strong>Definition</strong>: The interaction surfaces through which capabilities are accessed.</p>
+<p><strong>Extraction targets</strong>: Artifacts defining interaction mechanisms: - HTTP route definitions and API specifications - Event topics and message schemas - CLI command definitions and argument parsers - RPC service definitions and protocol buffers - WebSocket or streaming endpoints</p>
+<p><strong>Evidence characteristics</strong>: Interfaces typically have strong evidence: - Explicit: Route definitions, API specifications - Documented: Interface documentation or contract files - Tested: Integration tests verifying interface behavior</p>
+<p><strong>Confidence implications</strong>: Interfaces with explicit definitions and documentation have high confidence. Inferred interfaces from code patterns have moderate confidence.</p>
+<hr>
+</section>
+<section id="data" class="level3" data-number="6.2.5">
+<h3 data-number="6.2.5" class="anchored" data-anchor-id="data"><span class="header-section-number">6.2.5</span> Data</h3>
+<p><strong>Definition</strong>: The persistent information owned, maintained, or transformed by the system.</p>
+<p><strong>Extraction targets</strong>: Artifacts revealing data structures: - Database migration files and schema definitions - ORM model definitions and data classes - Document collection schemas and validation rules - Cache structures and key-value stores - Data lake or object storage schemas</p>
+<p><strong>Evidence characteristics</strong>: Data evidence is typically strong: - Explicit: Migration files, schema definitions - Structural: ORM models reflecting database structure - Operational: Storage configuration and deployment specs</p>
+<p><strong>Confidence implications</strong>: Explicit schema definitions have high confidence. Inferred data entities from access patterns have moderate confidence.</p>
+<hr>
+</section>
+<section id="workflows" class="level3" data-number="6.2.6">
+<h3 data-number="6.2.6" class="anchored" data-anchor-id="workflows"><span class="header-section-number">6.2.6</span> Workflows</h3>
+<p><strong>Definition</strong>: The execution sequences through which components coordinate to realize capabilities.</p>
+<p><strong>Extraction targets</strong>: Artifacts describing execution coordination: - DAG definitions and workflow specifications - Pipeline configurations and orchestration scripts - Scheduler configurations and cron jobs - Event flow definitions and processing pipelines - State machine definitions</p>
+<p><strong>Evidence characteristics</strong>: Workflow evidence varies: - Strong: Explicit DAG specifications, workflow engines - Moderate: Scheduler configurations, cron jobs - Weak: Event patterns inferred from code structure</p>
+<p><strong>Confidence implications</strong>: Explicit workflow definitions have high confidence. Inferred workflows from code organization have moderate confidence.</p>
+<hr>
+</section>
+</section>
+<section id="kernel-slots-as-extraction-objectives" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="kernel-slots-as-extraction-objectives"><span class="header-section-number">6.3</span> Kernel Slots as Extraction Objectives</h2>
+<p>During extraction, each kernel slot becomes an explicit <strong>target of inference</strong>. The extraction pipeline systematically attempts to populate each slot with evidence-backed elements.</p>
+<p><strong>The extraction process for each slot:</strong></p>
+<ol type="1">
+<li><strong>Signal detection</strong>: Identify repository artifacts that may correspond to the slot</li>
+<li><strong>Hypothesis formation</strong>: Formulate provisional interpretations in terms of the slot</li>
+<li><strong>Evidence collection</strong>: Gather concrete artifacts supporting or refuting each hypothesis</li>
+<li><strong>Ontology mapping</strong>: Map validated evidence to canonical entities for the slot</li>
+<li><strong>Slot population</strong>: Assemble mapped entities into the kernel slot</li>
+</ol>
+<p><strong>Slot-specific extraction patterns:</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 30%">
+<col style="width: 25%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Kernel Slot</th>
+<th>Primary Signal Sources</th>
+<th>Typical Evidence</th>
+<th>Common Ambiguities</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Goal</td>
+<td>Documentation, descriptions, README</td>
+<td>Explicit statements, indirect inference</td>
+<td>Abstract, multi-faceted, often undocumented</td>
+</tr>
+<tr class="even">
+<td>Capabilities</td>
+<td>Routes, commands, workflows, tests</td>
+<td>Explicit definitions, test cases</td>
+<td>Implicit capabilities, undocumented features</td>
+</tr>
+<tr class="odd">
+<td>Components</td>
+<td>Services, workers, plugins, modules</td>
+<td>Deployment manifests, directory structure</td>
+<td>Logical vs.&nbsp;deployable boundaries</td>
+</tr>
+<tr class="even">
+<td>Interfaces</td>
+<td>Routes, topics, commands, RPC</td>
+<td>Route definitions, API specs</td>
+<td>Internal vs.&nbsp;external interfaces</td>
+</tr>
+<tr class="odd">
+<td>Data</td>
+<td>Migrations, schemas, ORM models</td>
+<td>Schema files, migration history</td>
+<td>Transient vs.&nbsp;persistent data</td>
+</tr>
+<tr class="even">
+<td>Workflows</td>
+<td>DAGs, pipelines, schedulers</td>
+<td>Workflow specs, cron configs</td>
+<td>Ad-hoc vs.&nbsp;formalized workflows</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Handling incomplete extraction:</strong></p>
+<p>Not all slots can always be fully reconstructed from repository artifacts. The extraction process allows:</p>
+<ul>
+<li><strong>Partial completion</strong>: Some elements of a slot are populated, others remain unknown</li>
+<li><strong>Explicit unknowns</strong>: Slots or fields marked as “unknown” when evidence is insufficient</li>
+<li><strong>Confidence annotations</strong>: Low-confidence elements marked appropriately for review</li>
+</ul>
+<p>This honest representation of uncertainty prevents blueprints from accumulating unsupported assumptions.</p>
+<hr>
+</section>
+<section id="the-evidence-traceability-principle" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="the-evidence-traceability-principle"><span class="header-section-number">6.4</span> The Evidence Traceability Principle</h2>
+<p>A central, non-negotiable rule governs kernel extraction:</p>
+<p><strong>Every extracted field must be traceable to repository evidence.</strong></p>
+<p>This principle is the foundation of reliable extraction. It prevents architectural claims from becoming speculative interpretations and ensures that blueprints remain auditable, reproducible, and debuggable.</p>
+<p><strong>What the principle requires:</strong></p>
+<p>Each element that fills a kernel slot must reference one or more evidence objects that originate from concrete repository artifacts:</p>
+<ul>
+<li><strong>Source files</strong>: Code implementing component behavior or interface handlers</li>
+<li><strong>Configuration files</strong>: Files defining services, routing, or dependencies</li>
+<li><strong>Dependency manifests</strong>: Files declaring required libraries or frameworks</li>
+<li><strong>Schema definitions</strong>: Files defining data structures and constraints</li>
+<li><strong>Workflow specifications</strong>: Files describing execution coordination</li>
+<li><strong>Documentation fragments</strong>: Text describing system intent or design</li>
+</ul>
+<p><strong>Evidence object structure:</strong></p>
+<p>Each evidence object captures: - <strong>Source</strong>: The repository artifact (file path, URL, or location) - <strong>Location</strong>: The exact position within the artifact - <strong>Excerpt</strong>: The relevant content fragment - <strong>Type</strong>: The artifact classification (code, config, schema, deploy, documentation) - <strong>Strength</strong>: How directly the artifact supports the interpretation</p>
+<p><strong>The traceability payoff:</strong></p>
+<p>Evidence traceability ensures that blueprint elements remain:</p>
+<ul>
+<li><strong>Auditable</strong>: Reviewers can verify claims by inspecting source artifacts</li>
+<li><strong>Reproducible</strong>: The same extraction process yields consistent results</li>
+<li><strong>Debuggable</strong>: Errors can be traced to specific evidence or mapping decisions</li>
+<li><strong>Evolvable</strong>: Blueprints can be updated as repositories change</li>
+<li><strong>Verifiable</strong>: Independent systems can validate extraction results</li>
+</ul>
+<p><strong>Handling insufficient evidence:</strong></p>
+<p>When insufficient evidence exists to populate a kernel slot, the extraction process must:</p>
+<ol type="1">
+<li><strong>Mark the field as unknown</strong> rather than filling it with speculation</li>
+<li><strong>Document why evidence is insufficient</strong> in the extraction report</li>
+<li><strong>Flag the field for potential human review</strong> if it corresponds to a critical architectural element</li>
+</ol>
+<p>This rule maintains the integrity of blueprint datasets and enables reliable architectural analysis. Blueprints with honest unknown representations are more valuable than blueprints filled with confident but incorrect assumptions.</p>
+<hr>
+</section>
+<section id="blueprint-views-as-projections" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="blueprint-views-as-projections"><span class="header-section-number">6.5</span> Blueprint Views as Projections</h2>
+<p>While the Kernel represents the canonical blueprint structure, different stakeholders require different perspectives on the system. A single architectural model cannot simultaneously optimize for all analytical and operational needs.</p>
+<p>Blueprint views provide these specialized perspectives. A view is a <strong>projection of the kernel structure</strong> that emphasizes specific architectural aspects while omitting or de-emphasizing others.</p>
+<p><strong>Key characteristics of views:</strong></p>
+<ul>
+<li><strong>Derived</strong>: Views are generated from the kernel, not extracted independently</li>
+<li><strong>Deterministic</strong>: The same kernel always produces the same view</li>
+<li><strong>Perspective-specific</strong>: Each view serves a particular analytical or operational purpose</li>
+<li><strong>Lossy</strong>: Views may omit or summarize kernel information for clarity</li>
+<li><strong>Reproducible</strong>: Views can be regenerated deterministically from the kernel</li>
+</ul>
+<p><strong>The extraction process and views:</strong></p>
+<p>The extraction pipeline does not attempt to extract views independently. Instead:</p>
+<ol type="1">
+<li>The pipeline extracts and populates the kernel slots</li>
+<li>Once the kernel is validated, view projections are generated through defined rules</li>
+<li>Views are stored alongside the kernel in the blueprint pack</li>
+</ol>
+<p>This <strong>kernel-first strategy</strong> ensures that: - All views are consistent with a single architectural model - Changes to the kernel propagate correctly to all views - New views can be added without re-extraction - Views can be generated on-demand as needed</p>
+<p><strong>Common blueprint views:</strong></p>
+<p><strong>The Spec View</strong> focuses on system behavior and externally visible contracts. It emphasizes: - System goal and purpose - Exposed capabilities and their descriptions - Interface contracts and specifications - Functional requirements and constraints</p>
+<p><strong>The Architecture View</strong> emphasizes structural relationships between architectural elements. It highlights: - Component composition and boundaries - Interface connections and dependencies - Data ownership and flow - Workflow coordination and control</p>
+<p><strong>The Ops View</strong> focuses on deployment topology and operational execution. It captures: - Deployment units and packaging - Runtime dependencies and services - Operational workflows (build, deploy, monitor) - Observability and monitoring instrumentation</p>
+<p><strong>The Security/Trust View</strong> focuses on security boundaries and trust relationships. It reveals: - Trust boundaries between components - Authentication and authorization mechanisms - Sensitive data access paths - Security-relevant interfaces and policies</p>
+<p>Each view reorganizes the same underlying kernel information to serve different analytical contexts—design review, operational planning, security assessment, or architectural comparison.</p>
+<hr>
+</section>
+<section id="kernel-first-extraction" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="kernel-first-extraction"><span class="header-section-number">6.6</span> Kernel-First Extraction</h2>
+<p>Because views are projections, the extraction pipeline adopts a <strong>kernel-first strategy</strong>. This strategy has important implications for the extraction process and system design.</p>
+<p><strong>The kernel-first extraction sequence:</strong></p>
+<ol type="1">
+<li><strong>Reconstruct the kernel slots</strong>:
+<ul>
+<li>Goal</li>
+<li>Capabilities</li>
+<li>Components</li>
+<li>Interfaces</li>
+<li>Data</li>
+<li>Workflows</li>
+</ul></li>
+<li><strong>Validate the kernel</strong>:
+<ul>
+<li>Check structural completeness</li>
+<li>Verify reference integrity</li>
+<li>Assess confidence levels</li>
+<li>Detect anomalies</li>
+</ul></li>
+<li><strong>Generate view projections</strong>:
+<ul>
+<li>Apply projection rules to create each view</li>
+<li>Validate view-specific constraints</li>
+<li>Package views with the kernel</li>
+</ul></li>
+<li><strong>Package the blueprint pack</strong>:
+<ul>
+<li>Assemble kernel, views, evidence, and reports</li>
+<li>Generate diff-friendly serialization</li>
+<li>Prepare for review and distribution</li>
+</ul></li>
+</ol>
+<p><strong>Benefits of kernel-first extraction:</strong></p>
+<p><strong>Structural consistency</strong>: Since all views derive from a single kernel, they remain mutually consistent. Changes to the kernel propagate correctly to all views.</p>
+<p><strong>Evidence efficiency</strong>: Evidence is collected once for the kernel and reused across multiple views, avoiding redundant extraction effort.</p>
+<p><strong>Adaptability</strong>: New analytical views can be added by defining new projection rules without re-extracting repositories.</p>
+<p><strong>Maintainability</strong>: When extraction methodology improves, only kernel extraction needs updating—view projections regenerate automatically.</p>
+<p><strong>Traceability</strong>: Evidence traceability is maintained through the kernel; views inherit this traceability through their derivation from kernel elements.</p>
+<p><strong>The kernel as canonical truth:</strong></p>
+<p>The Kernel functions as the <strong>canonical representation of system architecture</strong>. Views act as interpretive lenses derived from that structure. This separation of concerns ensures:</p>
+<ul>
+<li>A single source of architectural truth</li>
+<li>Multiple analytical perspectives without inconsistency</li>
+<li>Efficient update and evolution of the architectural model</li>
+<li>Clear boundaries between extraction and analysis</li>
+</ul>
+<p>The kernel-first strategy is therefore not merely a convenience but a fundamental architectural principle of blueprint extraction.</p>
+<hr>
+</section>
+<section id="chapter-summary" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">6.7</span> Chapter Summary</h2>
+<ul>
+<li>Blueprint extraction targets architectural structure, not implementation details</li>
+<li>The extracted structure has two layers: the Blueprint Kernel (canonical) and Blueprint Views (projections)</li>
+<li>The Kernel consists of six slots: Goal, Capabilities, Components, Interfaces, Data, and Workflows</li>
+<li>Each slot represents a distinct dimension of system architecture with specific extraction targets</li>
+<li>The evidence traceability principle requires every extracted field to reference concrete repository artifacts</li>
+<li>Insufficient evidence results in explicit unknowns rather than speculative assumptions</li>
+<li>Views are projections generated from the kernel, not extracted independently</li>
+<li>Kernel-first extraction ensures structural consistency, evidence efficiency, and adaptability</li>
+<li>The Kernel is the canonical source of architectural truth; views provide specialized analytical perspectives</li>
+</ul>
+<p><strong>Next Chapter</strong>: Chapter 5 explores the fundamental distinction between repositories and systems, examining the missing layers (runtime, operations, constraints) that exist outside repositories and how extraction handles these gaps.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./ch-03-boundaries.html" class="pagination-link" aria-label="Scope and Boundaries of This Volume">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Scope and Boundaries of This Volume</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./ch-05-repo-not-system.html" class="pagination-link" aria-label="Repo ≠ System: The Missing Layers">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Repo ≠ System: The Missing Layers</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

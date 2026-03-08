@@ -1,0 +1,1830 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>9&nbsp; Signal Taxonomy: Where Structure Leaks Out – Blueprint_Extraction</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./ch-08-evidence-model.html" rel="next">
+<link href="./ch-06-hypothesis-workflow.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-27c261d06b905028a18691de25d09dde.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-07-signal-taxonomy.html">Part II — Signal Taxonomy &amp; Evidence Model</a></li><li class="breadcrumb-item"><a href="./ch-07-signal-taxonomy.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Signal Taxonomy: Where Structure Leaks Out</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Blueprint_Extraction</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part 0 — Preface &amp; Contracts</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-01-why-extraction-is-difficult.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Why Extraction Is Hard: Repositories Are Facts, Blueprints Are Interpretations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-02-deliverables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Deliverables of This Volume</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-03-boundaries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Scope and Boundaries of This Volume</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part I — Extraction as Evidence-Driven Engineering</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-04-what-we-extract.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">What We Extract: Blueprint Kernel and Views</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-05-repo-not-system.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Repo ≠ System: The Missing Layers</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-06-hypothesis-workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hypothesis Workflow</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part II — Signal Taxonomy &amp; Evidence Model</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-07-signal-taxonomy.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Signal Taxonomy: Where Structure Leaks Out</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-08-evidence-model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Evidence Object Model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-09-confidence-semantics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Confidence Semantics</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part III — Ontology Mapping: From Repo to System Graph</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-10-mapping-principles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Mapping Principles and Canonicalization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-11-component-discovery.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Component Discovery</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-12-interface-contract-extraction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Interface and Contract Extraction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-13-data-model-ownership.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Data Model and Ownership Extraction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-14-workflow-control-plane.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Workflow and Control-Plane Extraction</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part IV — Blueprint Draft Generation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-15-kernel-slot-filling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Kernel Slot Filling Rules</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-16-views-generation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Views Generation (Projections)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-17-blueprint-pack-output.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Blueprint Pack Output Standard</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part V — Validation, Review, and Quality Gates</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-18-validation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Validation: Schema and Semantics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-19-review-protocol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Review Protocol (Human-in-the-Loop)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-20-quality-metrics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Extraction Quality Metrics</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part VI — Operating Blueprint Mining at Scale</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-21-mining-pipeline-operations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Mining Pipeline Operations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-22-normalization-deduplication.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Normalization and Deduplication</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-23-blueprints-to-patterns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">From Blueprints to Patterns</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Capstone — Blueprint Extraction Spec v0.1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-24-blueprint-extraction-spec.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Blueprint Extraction Specification v0.1</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-a-signal-taxonomy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Appendix A — Signal Taxonomy v0.1</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-b-evidence-schema.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Appendix B — Evidence Object Schema v0.1</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-c-confidence-semantics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix C — Confidence Semantics Spec v0.1</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-d-mapping-template.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Appendix D — Ontology Mapping Rules Template</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-e-report-template.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Appendix E — Extraction Report Template</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-f-extraction-cases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Appendix F — Five Complete Extraction Cases (with Evidence Trace)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-g-eml-scorecard.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Appendix G — Extraction Maturity Level (EML) Score Sheet</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#what-signals-are" id="toc-what-signals-are" class="nav-link active" data-scroll-target="#what-signals-are"><span class="header-section-number">9.1</span> What Signals Are</a></li>
+  <li><a href="#signal-object-structure" id="toc-signal-object-structure" class="nav-link" data-scroll-target="#signal-object-structure"><span class="header-section-number">9.2</span> Signal Object Structure</a></li>
+  <li><a href="#signal-taxonomy-overview" id="toc-signal-taxonomy-overview" class="nav-link" data-scroll-target="#signal-taxonomy-overview"><span class="header-section-number">9.3</span> Signal Taxonomy Overview</a></li>
+  <li><a href="#repository-structure-signals" id="toc-repository-structure-signals" class="nav-link" data-scroll-target="#repository-structure-signals"><span class="header-section-number">9.4</span> Repository Structure Signals</a></li>
+  <li><a href="#dependency-signals" id="toc-dependency-signals" class="nav-link" data-scroll-target="#dependency-signals"><span class="header-section-number">9.5</span> Dependency Signals</a></li>
+  <li><a href="#entrypoint-signals" id="toc-entrypoint-signals" class="nav-link" data-scroll-target="#entrypoint-signals"><span class="header-section-number">9.6</span> Entrypoint Signals</a></li>
+  <li><a href="#configuration-signals" id="toc-configuration-signals" class="nav-link" data-scroll-target="#configuration-signals"><span class="header-section-number">9.7</span> Configuration Signals</a></li>
+  <li><a href="#deployment-signals" id="toc-deployment-signals" class="nav-link" data-scroll-target="#deployment-signals"><span class="header-section-number">9.8</span> Deployment Signals</a></li>
+  <li><a href="#documentation-signals" id="toc-documentation-signals" class="nav-link" data-scroll-target="#documentation-signals"><span class="header-section-number">9.9</span> Documentation Signals</a></li>
+  <li><a href="#test-signals" id="toc-test-signals" class="nav-link" data-scroll-target="#test-signals"><span class="header-section-number">9.10</span> Test Signals</a></li>
+  <li><a href="#observability-signals" id="toc-observability-signals" class="nav-link" data-scroll-target="#observability-signals"><span class="header-section-number">9.11</span> Observability Signals</a></li>
+  <li><a href="#security-signals" id="toc-security-signals" class="nav-link" data-scroll-target="#security-signals"><span class="header-section-number">9.12</span> Security Signals</a></li>
+  <li><a href="#issue-and-pull-request-signals-optional" id="toc-issue-and-pull-request-signals-optional" class="nav-link" data-scroll-target="#issue-and-pull-request-signals-optional"><span class="header-section-number">9.13</span> Issue and Pull Request Signals (Optional)</a></li>
+  <li><a href="#signal-categories-summary" id="toc-signal-categories-summary" class="nav-link" data-scroll-target="#signal-categories-summary"><span class="header-section-number">9.14</span> Signal Categories Summary</a></li>
+  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">9.15</span> Chapter Summary</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-07-signal-taxonomy.html">Part II — Signal Taxonomy &amp; Evidence Model</a></li><li class="breadcrumb-item"><a href="./ch-07-signal-taxonomy.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Signal Taxonomy: Where Structure Leaks Out</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Signal Taxonomy: Where Structure Leaks Out</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Repositories rarely declare system architecture explicitly. Instead, architectural structure becomes visible through <strong>indirect traces left by implementation artifacts</strong>. These traces are referred to as <strong>signals</strong>.</p>
+<p>A signal is any observable artifact within or around a repository that indicates the possible existence of architectural structure. Signals do not directly define architecture; rather, they reveal where structural information <strong>leaks into implementation artifacts</strong>.</p>
+<p>Blueprint extraction therefore begins with identifying and classifying these signals. To ensure consistent extraction across repositories, signals are organized into a <strong>signal taxonomy</strong> that groups them by their source and architectural implication.</p>
+<p>This taxonomy provides the foundation for systematic signal detection, hypothesis formation, and evidence collection across diverse repositories and technology stacks.</p>
+<hr>
+<section id="what-signals-are" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="what-signals-are"><span class="header-section-number">9.1</span> What Signals Are</h2>
+<p>Signals are the <strong>first observable layer</strong> in the blueprint extraction pipeline. They represent the raw observations that initiate the entire extraction process.</p>
+<p><strong>Signal characteristics:</strong></p>
+<ul>
+<li><strong>Observable</strong>: Signals can be detected through automated scanning of repository artifacts</li>
+<li><strong>Indirect</strong>: Signals do not directly encode architecture—they hint at structure</li>
+<li><strong>Weak</strong>: No single signal is sufficient to determine architectural structure</li>
+<li><strong>Ambiguous</strong>: The same signal may support multiple architectural interpretations</li>
+<li><strong>Diverse</strong>: Signals originate from many types of repository artifacts</li>
+</ul>
+<p><strong>What signals are not:</strong></p>
+<ul>
+<li><strong>Not architecture</strong>: Signals are indicators of architecture, not architecture itself</li>
+<li><strong>Not evidence</strong>: Signals trigger hypothesis formation; evidence validates those hypotheses</li>
+<li><strong>Not definitions</strong>: Signals suggest what might exist; evidence confirms what does exist</li>
+<li><strong>Not complete</strong>: No single signal provides sufficient information for extraction</li>
+</ul>
+<p><strong>The signal lifecycle:</strong></p>
+<p>Signals progress through a defined lifecycle within the extraction pipeline:</p>
+<pre><code>Detection → Classification → Hypothesis Formation → Evidence Collection → Mapping</code></pre>
+<ol type="1">
+<li><strong>Detection</strong>: Scanning repositories identifies observable artifacts</li>
+<li><strong>Classification</strong>: Taxonomy categorizes signals by source and type</li>
+<li><strong>Hypothesis formation</strong>: Signals trigger provisional architectural interpretations</li>
+<li><strong>Evidence collection</strong>: Concrete artifacts support or refute hypotheses</li>
+<li><strong>Mapping</strong>: Validated hypotheses map to ontology entities</li>
+</ol>
+<p>This lifecycle ensures that signals serve as starting points rather than final conclusions.</p>
+<hr>
+</section>
+<section id="signal-object-structure" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="signal-object-structure"><span class="header-section-number">9.2</span> Signal Object Structure</h2>
+<p>Each detected signal should be represented using a minimal structured schema. This standardization enables automated processing, systematic classification, and traceability throughout the extraction pipeline.</p>
+<p><strong>Signal object schema:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">signal</span><span class="kw">:</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">id</span><span class="kw">:</span><span class="at"> &lt;unique-signal-identifier&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> &lt;signal-category&gt;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">source</span><span class="kw">:</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">repo</span><span class="kw">:</span><span class="at"> &lt;repository-identifier&gt;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">file</span><span class="kw">:</span><span class="at"> &lt;file-path&gt;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">revision</span><span class="kw">:</span><span class="at"> &lt;commit-or-tag&gt;</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">location</span><span class="kw">:</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> &lt;line-range | json-path | object-path&gt;</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">value</span><span class="kw">:</span><span class="at"> &lt;location-reference&gt;</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">  excerpt</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    &lt;artifact-fragment&gt;</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">confidence_hint</span><span class="kw">:</span><span class="at"> &lt;optional-signal-weight&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Field explanations:</strong></p>
+<ul>
+<li><strong>id</strong>: Unique identifier for tracking the signal through the pipeline</li>
+<li><strong>category</strong>: Taxonomy classification (structure, dependency, entrypoint, etc.)</li>
+<li><strong>source</strong>: Repository and file where the signal originates</li>
+<li><strong>location</strong>: Precise position within the artifact for traceability</li>
+<li><strong>excerpt</strong>: Relevant fragment of the artifact for quick inspection</li>
+<li><strong>confidence_hint</strong>: Optional weight indicating signal strength</li>
+</ul>
+<p><strong>Why structured signals matter:</strong></p>
+<p>Structured signal representation enables:</p>
+<ul>
+<li><strong>Automated processing</strong>: Pipelines can programmatically classify and route signals</li>
+<li><strong>Traceability</strong>: Signals can be tracked from detection to final blueprint</li>
+<li><strong>Auditability</strong>: Reviewers can inspect the original artifacts behind each signal</li>
+<li><strong>Quality control</strong>: Signal classification can be validated and corrected</li>
+<li><strong>Machine processing</strong>: Signals can feed into machine learning or pattern matching</li>
+</ul>
+<hr>
+</section>
+<section id="signal-taxonomy-overview" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="signal-taxonomy-overview"><span class="header-section-number">9.3</span> Signal Taxonomy Overview</h2>
+<p>Signal Taxonomy v0.1 defines the baseline categories required for blueprint extraction. The taxonomy is designed to be:</p>
+<ul>
+<li><strong>Comprehensive</strong>: Covers major sources of architectural leakage</li>
+<li><strong>Non-overlapping</strong>: Each category represents a distinct signal source</li>
+<li><strong>Language-agnostic</strong>: Applies across diverse technology stacks</li>
+<li><strong>Extensible</strong>: New categories can be added as signal sources evolve</li>
+</ul>
+<p><strong>Taxonomy categories:</strong></p>
+<pre><code>structure      - Repository organization and layout
+dependency     - Library and framework dependencies
+entrypoint     - Application initialization and execution
+config         - Configuration and settings
+deploy         - Deployment and infrastructure definitions
+docs           - Documentation and design documents
+test           - Test suites and test artifacts
+observability  - Monitoring, logging, and instrumentation
+security       - Security mechanisms and access control
+issue-pr       - Repository collaboration artifacts (optional)</code></pre>
+<p>Each category represents a distinct way in which architectural structure may appear within repository artifacts. Together, these signals form the <strong>foundation layer of blueprint extraction</strong>.</p>
+<hr>
+</section>
+<section id="repository-structure-signals" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="repository-structure-signals"><span class="header-section-number">9.4</span> Repository Structure Signals</h2>
+<p>Repository structure often reveals implicit architectural segmentation. How developers organize code provides clues about how they conceptualize the system’s architecture.</p>
+<p><strong>What structure signals indicate:</strong></p>
+<ul>
+<li><strong>Component boundaries</strong>: How the system is decomposed into structural units</li>
+<li><strong>Subsystem organization</strong>: How related functionality is grouped</li>
+<li><strong>Modular structure</strong>: How concerns are separated and organized</li>
+<li><strong>Architectural intent</strong>: How developers think about the system’s organization</li>
+</ul>
+<p><strong>Common structure signals:</strong></p>
+<p><strong>Directory hierarchies</strong>:</p>
+<pre><code>services/          # Suggests service-based decomposition
+workers/           # Suggests background processing components
+pipelines/         # Suggests workflow orchestration
+plugins/           # Suggests extensibility mechanisms
+internal/          # Suggests internal vs. external code
+api/               # Suggests API surface separation
+shared/            # Suggests shared utilities or libraries</code></pre>
+<p><strong>Module boundaries</strong>:</p>
+<pre><code>auth/              # Authentication subsystem
+payment/           # Payment processing subsystem
+notification/      # Notification subsystem
+core/              # Core business logic
+utils/             # Utility functions</code></pre>
+<p><strong>Build and packaging</strong>:</p>
+<pre><code>src/               # Source code separation
+dist/              # Distribution artifacts
+lib/               # Library code
+bin/               # Executable binaries</code></pre>
+<p><strong>Architectural implications:</strong></p>
+<p>Structure signals are typically <strong>weak signals</strong> because:</p>
+<ul>
+<li>Directory organization may reflect development convenience rather than architectural boundaries</li>
+<li>Different teams use different naming conventions</li>
+<li>Structure may evolve without corresponding architectural changes</li>
+<li>Mono-repositories may contain multiple systems within one structure</li>
+</ul>
+<p>Structure signals therefore require additional evidence before strong architectural claims can be made. They serve as initial indicators that guide hypothesis formation and evidence collection.</p>
+<hr>
+</section>
+<section id="dependency-signals" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="dependency-signals"><span class="header-section-number">9.5</span> Dependency Signals</h2>
+<p>Dependency manifests reveal the libraries, frameworks, and infrastructure systems used by a project. Dependencies often expose architectural capabilities and technology choices.</p>
+<p><strong>What dependency signals indicate:</strong></p>
+<ul>
+<li><strong>System capabilities</strong>: What functional abilities the system likely provides</li>
+<li><strong>Technology roles</strong>: What types of components the system includes</li>
+<li><strong>Integration patterns</strong>: How the system connects to external services</li>
+<li><strong>Architecture patterns</strong>: What architectural paradigms the system follows</li>
+</ul>
+<p><strong>Common dependency signals:</strong></p>
+<p><strong>Web frameworks</strong> (suggest API interfaces):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="er">//</span> <span class="er">package.json</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"dependencies"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"express"</span><span class="fu">:</span> <span class="st">"^4.18.0"</span><span class="fu">,</span>           <span class="er">//</span> <span class="er">HTTP</span> <span class="er">server</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"fastify"</span><span class="fu">:</span> <span class="st">"^4.0.0"</span><span class="fu">,</span>            <span class="er">//</span> <span class="er">High-performance</span> <span class="er">HTTP</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"django"</span><span class="fu">:</span> <span class="st">"^4.0.0"</span><span class="fu">,</span>             <span class="er">//</span> <span class="er">Web</span> <span class="er">framework</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"flask"</span><span class="fu">:</span> <span class="st">"^3.0.0"</span>              <span class="er">//</span> <span class="er">Micro</span> <span class="er">web</span> <span class="er">framework</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Queue systems</strong> (suggest asynchronous workers):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># requirements.txt</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>celery<span class="op">==</span><span class="fl">5.3.0</span>                      <span class="co"># Distributed task queue</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>kafka<span class="op">-</span>python<span class="op">==</span><span class="fl">2.0.0</span>                <span class="co"># Apache Kafka client</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>pika<span class="op">==</span><span class="fl">1.3.0</span>                        <span class="co"># RabbitMQ client</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>redis<span class="op">==</span><span class="fl">4.5.0</span>                       <span class="co"># Redis client</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Workflow engines</strong> (suggest orchestration components):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- pom.xml --&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">dependencies</span>&gt;</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">dependency</span>&gt;</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">groupId</span>&gt;org.apache.airflow&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">artifactId</span>&gt;airflow-core&lt;/<span class="kw">artifactId</span>&gt;     <span class="co">&lt;!-- Workflow orchestration --&gt;</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">dependency</span>&gt;</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">dependency</span>&gt;</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">groupId</span>&gt;org.camunda&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">artifactId</span>&gt;camunda-engine&lt;/<span class="kw">artifactId</span>&gt;   <span class="co">&lt;!-- BPMN workflow --&gt;</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">dependency</span>&gt;</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">dependencies</span>&gt;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Database drivers</strong> (suggest data persistence):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode go code-with-copy"><code class="sourceCode go"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">// go.mod</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>require <span class="op">(</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  github<span class="op">.</span>com<span class="op">/</span>lib<span class="op">/</span>pq v1<span class="fl">.10</span><span class="er">.0</span>        <span class="co">// PostgreSQL driver</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  github<span class="op">.</span>com<span class="op">/</span><span class="cf">go</span><span class="op">-</span>redis<span class="op">/</span>redis v8<span class="fl">.0</span><span class="er">.0</span>  <span class="co">// Redis client</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  github<span class="op">.</span>com<span class="op">/</span>mongodb<span class="op">/</span>mongo<span class="op">-</span>driver v1<span class="fl">.8</span><span class="er">.0</span>  <span class="co">// MongoDB driver</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Architectural inference patterns:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Dependency Type</th>
+<th>Likely Architectural Element</th>
+<th>Confidence</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Web framework</td>
+<td>API service / Interface</td>
+<td>High</td>
+</tr>
+<tr class="even">
+<td>Queue library</td>
+<td>Worker component / Event interface</td>
+<td>High</td>
+</tr>
+<tr class="odd">
+<td>Workflow engine</td>
+<td>Workflow / Scheduler</td>
+<td>High</td>
+</tr>
+<tr class="even">
+<td>Database driver</td>
+<td>Data entity / Persistence</td>
+<td>High</td>
+</tr>
+<tr class="odd">
+<td>ORM</td>
+<td>Data model / Schema</td>
+<td>High</td>
+</tr>
+<tr class="even">
+<td>Caching library</td>
+<td>Performance optimization</td>
+<td>Medium</td>
+</tr>
+<tr class="odd">
+<td>Monitoring SDK</td>
+<td>Observability integration</td>
+<td>Medium</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Limitations of dependency inference:</strong></p>
+<p>Dependency signals provide strong hints but have limitations:</p>
+<ul>
+<li><strong>Unused dependencies</strong>: Dependencies may be declared but not used</li>
+<li><strong>Optional dependencies</strong>: Dependencies may be used only in specific configurations</li>
+<li><strong>Transitive dependencies</strong>: Indirect dependencies may not reflect architectural choices</li>
+<li><strong>Framework bloat</strong>: Large frameworks may include unused capabilities</li>
+</ul>
+<p>Dependency signals therefore work best when combined with other evidence sources such as code usage patterns, configuration files, and runtime behavior.</p>
+<hr>
+</section>
+<section id="entrypoint-signals" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="entrypoint-signals"><span class="header-section-number">9.6</span> Entrypoint Signals</h2>
+<p>Entrypoints reveal where system execution begins. They often provide the strongest indicators of component roles and architectural boundaries.</p>
+<p><strong>What entrypoint signals indicate:</strong></p>
+<ul>
+<li><strong>Component types</strong>: What kinds of components the system includes</li>
+<li><strong>Execution roles</strong>: How different parts of the system are used</li>
+<li><strong>Interface mechanisms</strong>: How the system is invoked or accessed</li>
+<li><strong>Startup behavior</strong>: How the system initializes and configures itself</li>
+</ul>
+<p><strong>Common entrypoint signals:</strong></p>
+<p><strong>API server entrypoints</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># main.py</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastapi <span class="im">import</span> FastAPI</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> FastAPI()</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="at">@app.get</span>(<span class="st">"/"</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> read_root():</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {<span class="st">"hello"</span>: <span class="st">"world"</span>}</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> uvicorn</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    uvicorn.run(app, host<span class="op">=</span><span class="st">"0.0.0.0"</span>, port<span class="op">=</span><span class="dv">8000</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>CLI entrypoints</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode go code-with-copy"><code class="sourceCode go"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">// cmd/root.go</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span> cmd</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="st">"github.com/spf13/cobra"</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> rootCmd <span class="op">=</span> <span class="op">&amp;</span>cobra<span class="op">.</span>Command<span class="op">{</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    Use<span class="op">:</span>   <span class="st">"myapp"</span><span class="op">,</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    Short<span class="op">:</span> <span class="st">"My application does useful things"</span><span class="op">,</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    Run<span class="op">:</span> <span class="kw">func</span><span class="op">(</span>cmd <span class="op">*</span>cobra<span class="op">.</span>Command<span class="op">,</span> args <span class="op">[]</span><span class="dt">string</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>        <span class="co">// CLI execution logic</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">},</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="kw">func</span> Execute<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> err <span class="op">:=</span> rootCmd<span class="op">.</span>Execute<span class="op">();</span> err <span class="op">!=</span> <span class="ot">nil</span> <span class="op">{</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>        os<span class="op">.</span>Exit<span class="op">(</span><span class="dv">1</span><span class="op">)</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Worker entrypoints</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode typescript code-with-copy"><code class="sourceCode typescript"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">// worker.ts</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { <span class="bu">Worker</span> } <span class="im">from</span> <span class="st">'bullmq'</span><span class="op">;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> worker <span class="op">=</span> <span class="kw">new</span> <span class="bu">Worker</span>(<span class="st">'my-queue'</span><span class="op">,</span> <span class="kw">async</span> (job) <span class="kw">=&gt;</span> {</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Process background job</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`Processing job </span><span class="sc">${</span>job<span class="op">.</span><span class="at">id</span><span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>worker<span class="op">.</span><span class="fu">on</span>(<span class="st">'completed'</span><span class="op">,</span> (job) <span class="kw">=&gt;</span> {</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`Job </span><span class="sc">${</span>job<span class="op">.</span><span class="at">id</span><span class="sc">}</span><span class="vs"> completed`</span>)<span class="op">;</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Scheduler entrypoints</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># scheduler.py</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> apscheduler.schedulers.background <span class="im">import</span> BackgroundScheduler</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>scheduler <span class="op">=</span> BackgroundScheduler()</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="at">@scheduler.scheduled_job</span>(<span class="st">'cron'</span>, hour<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cleanup_job():</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Run cleanup task at midnight</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>scheduler.start()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Entrypoint archetypes:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Entrypoint Pattern</th>
+<th>Component Type</th>
+<th>Interface Type</th>
+<th>Confidence</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>HTTP server initialization</td>
+<td>API Service</td>
+<td>HTTP API</td>
+<td>High</td>
+</tr>
+<tr class="even">
+<td>CLI command registration</td>
+<td>CLI Tool</td>
+<td>CLI Interface</td>
+<td>High</td>
+</tr>
+<tr class="odd">
+<td>Worker bootstrap</td>
+<td>Background Worker</td>
+<td>Event/Queue</td>
+<td>High</td>
+</tr>
+<tr class="even">
+<td>Scheduler configuration</td>
+<td>Orchestrator</td>
+<td>Temporal</td>
+<td>High</td>
+</tr>
+<tr class="odd">
+<td>Plugin loader</td>
+<td>Plugin System</td>
+<td>Extension</td>
+<td>Medium</td>
+</tr>
+<tr class="even">
+<td>Batch job entrypoint</td>
+<td>Batch Processor</td>
+<td>Scheduled</td>
+<td>Medium</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Why entrypoints are strong signals:</strong></p>
+<p>Entrypoints typically provide <strong>strong indicators of component roles</strong> because:</p>
+<ul>
+<li>They explicitly define execution semantics</li>
+<li>They often include framework-specific metadata</li>
+<li>They are typically well-documented</li>
+<li>They represent intentional architectural decisions</li>
+</ul>
+<p>Entrypoint signals therefore serve as reliable anchors for component identification and interface extraction.</p>
+<hr>
+</section>
+<section id="configuration-signals" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="configuration-signals"><span class="header-section-number">9.7</span> Configuration Signals</h2>
+<p>Configuration files frequently encode structural relationships within the system more clearly than application code. Configuration often exposes operational dependencies, integration endpoints, and system parameters.</p>
+<p><strong>What configuration signals indicate:</strong></p>
+<ul>
+<li><strong>Service dependencies</strong>: What other services the system depends on</li>
+<li><strong>External integrations</strong>: How the system connects to external systems</li>
+<li><strong>Runtime parameters</strong>: What configuration values control behavior</li>
+<li><strong>Environment requirements</strong>: What environments and resources the system needs</li>
+</ul>
+<p><strong>Common configuration signals:</strong></p>
+<p><strong>Service configuration</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># config/services.yaml</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">services</span><span class="kw">:</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">api</span><span class="kw">:</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">host</span><span class="kw">:</span><span class="at"> api.example.com</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">port</span><span class="kw">:</span><span class="at"> </span><span class="dv">8080</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">timeout</span><span class="kw">:</span><span class="at"> 30s</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">database</span><span class="kw">:</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">host</span><span class="kw">:</span><span class="at"> db.example.com</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">port</span><span class="kw">:</span><span class="at"> </span><span class="dv">5432</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">database</span><span class="kw">:</span><span class="at"> myapp</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">cache</span><span class="kw">:</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">host</span><span class="kw">:</span><span class="at"> redis.example.com</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">port</span><span class="kw">:</span><span class="at"> </span><span class="dv">6379</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Routing configuration</strong>:</p>
+<pre class="nginx"><code># nginx.conf
+upstream api_servers {
+    server api1.example.com:8000;
+    server api2.example.com:8000;
+}
+
+server {
+    listen 80;
+    location /api/ {
+        proxy_pass http://api_servers;
+    }
+}</code></pre>
+<p><strong>Environment configuration</strong>:</p>
+<pre><code># .env
+DATABASE_URL=postgresql://user:pass@db.example.com:5432/myapp
+REDIS_URL=redis://redis.example.com:6379
+API_KEY=secret-key-here
+LOG_LEVEL=info</code></pre>
+<p><strong>Integration configuration</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="er">//</span> <span class="er">config/integrations.json</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"integrations"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"stripe"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"api_key"</span><span class="fu">:</span> <span class="st">"${STRIPE_KEY}"</span><span class="fu">,</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"webhook_secret"</span><span class="fu">:</span> <span class="st">"${STRIPE_WEBHOOK_SECRET}"</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">},</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"slack"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"webhook_url"</span><span class="fu">:</span> <span class="st">"${SLACK_WEBHOOK_URL}"</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Configuration signal strength:</strong></p>
+<p>Configuration signals vary in strength:</p>
+<ul>
+<li><strong>Strong</strong>: Service dependencies, external integrations, routing rules</li>
+<li><strong>Moderate</strong>: Runtime parameters, environment variables, feature flags</li>
+<li><strong>Weak</strong>: Logging configuration, debug settings, development options</li>
+</ul>
+<p>Configuration signals provide important clues about <strong>runtime architecture</strong> that may not be visible in source code.</p>
+<hr>
+</section>
+<section id="deployment-signals" class="level2" data-number="9.8">
+<h2 data-number="9.8" class="anchored" data-anchor-id="deployment-signals"><span class="header-section-number">9.8</span> Deployment Signals</h2>
+<p>Deployment artifacts describe how the system is packaged and executed in production environments. These artifacts often reveal service boundaries, deployment units, and infrastructure dependencies.</p>
+<p><strong>What deployment signals indicate:</strong></p>
+<ul>
+<li><strong>Deployable units</strong>: What artifacts are deployed together</li>
+<li><strong>Service boundaries</strong>: Where service separation occurs</li>
+<li><strong>Runtime topology</strong>: How services are deployed and connected</li>
+<li><strong>Infrastructure dependencies</strong>: What infrastructure services are required</li>
+</ul>
+<p><strong>Common deployment signals:</strong></p>
+<p><strong>Container definitions</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode dockerfile code-with-copy"><code class="sourceCode dockerfile"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dockerfile</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> python:3.11-slim</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WORKDIR</span> /app</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="kw">COPY</span> requirements.txt .</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="kw">RUN</span> <span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="kw">COPY</span> . .</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="kw">CMD</span> [<span class="st">"python"</span>, <span class="st">"main.py"</span>]</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="kw">EXPOSE</span> 8000</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Orchestration manifests</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># k8s/deployment.yaml</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apiVersion</span><span class="kw">:</span><span class="at"> apps/v1</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kind</span><span class="kw">:</span><span class="at"> Deployment</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata</span><span class="kw">:</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> api-service</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">spec</span><span class="kw">:</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">replicas</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">selector</span><span class="kw">:</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">matchLabels</span><span class="kw">:</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">app</span><span class="kw">:</span><span class="at"> api</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">template</span><span class="kw">:</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">spec</span><span class="kw">:</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">containers</span><span class="kw">:</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> api</span></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">image</span><span class="kw">:</span><span class="at"> myapp/api:latest</span></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">ports</span><span class="kw">:</span></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="fu">containerPort</span><span class="kw">:</span><span class="at"> </span><span class="dv">8000</span></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">env</span><span class="kw">:</span></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> DATABASE_URL</span></span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">valueFrom</span><span class="kw">:</span></span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">secretKeyRef</span><span class="kw">:</span></span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a><span class="at">              </span><span class="fu">name</span><span class="kw">:</span><span class="at"> db-secrets</span></span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a><span class="at">              </span><span class="fu">key</span><span class="kw">:</span><span class="at"> url</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Infrastructure definitions</strong>:</p>
+<pre class="hcl"><code># main.tf
+resource "aws_ecs_service" "api" {
+  name            = "api-service"
+  cluster         = aws_ecs_cluster.main.id
+  task_definition = aws_ecs_task_definition.api.arn
+  desired_count   = 3
+
+  load_balancer {
+    target_group_arn = aws_lb_target_group.api.arn
+    container_name   = "api"
+    container_port   = 8000
+  }
+}</code></pre>
+<p><strong>CI/CD pipelines</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># .github/workflows/deploy.yml</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Deploy</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">push</span><span class="kw">:</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">branches</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">main</span><span class="kw">]</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">deploy</span><span class="kw">:</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v3</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Deploy to production</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">run</span><span class="kw">:</span><span class="at"> ./deploy.sh production</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Deployment signal implications:</strong></p>
+<p>Deployment signals contribute strongly to the <strong>operations view</strong> of the blueprint. They reveal:</p>
+<ul>
+<li>How services are packaged and deployed</li>
+<li>What infrastructure is required</li>
+<li>How services are scaled and load-balanced</li>
+<li>What deployment automation exists</li>
+</ul>
+<p>Deployment signals often provide the most reliable evidence for identifying true service boundaries, since deployment units typically align with architectural components.</p>
+<hr>
+</section>
+<section id="documentation-signals" class="level2" data-number="9.9">
+<h2 data-number="9.9" class="anchored" data-anchor-id="documentation-signals"><span class="header-section-number">9.9</span> Documentation Signals</h2>
+<p>Documentation artifacts may provide explicit descriptions of system behavior, architecture, or design intent. While documentation may become outdated, it often contains valuable context that helps interpret repository signals.</p>
+<p><strong>What documentation signals indicate:</strong></p>
+<ul>
+<li><strong>System goals</strong>: What the system is designed to accomplish</li>
+<li><strong>Capability descriptions</strong>: What functionality the system provides</li>
+<li><strong>Interface documentation</strong>: How to interact with the system</li>
+<li><strong>Architecture diagrams</strong>: How components are organized and connected</li>
+</ul>
+<p><strong>Common documentation signals:</strong></p>
+<p><strong>README files</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># My Application</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>This application provides payment processing services for e-commerce platforms.</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## Features</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Credit card processing</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Subscription billing</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Payment analytics</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## Quick Start</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> main.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre><code>
+**API documentation**:
+
+```yaml
+# openapi.yaml
+openapi: 3.0.0
+info:
+  title: Payment API
+  version: 1.0.0
+paths:
+  /payments:
+    post:
+      summary: Create a payment
+      responses:
+        '200':
+          description: Payment created</code></pre>
+<p><strong>Architecture documents</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Architecture Overview</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Components</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**API Service**: Handles HTTP requests</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Payment Worker**: Processes payment transactions</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Notification Service**: Sends payment notifications</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Flow</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>API receives payment request</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Payment Worker processes transaction</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Notification Service sends confirmation</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Documentation reliability considerations:</strong></p>
+<p>Documentation signals require careful handling because:</p>
+<ul>
+<li><strong>Outdated content</strong>: Documentation may not reflect current implementation</li>
+<li><strong>Aspirational descriptions</strong>: Documentation may describe intended rather than actual architecture</li>
+<li><strong>Incomplete coverage</strong>: Documentation may cover only parts of the system</li>
+<li><strong>Varying quality</strong>: Documentation quality varies widely across projects</li>
+</ul>
+<p>Documentation should therefore be treated as <strong>supplementary evidence</strong> that requires validation against implementation artifacts. When documentation aligns with code and configuration, it provides strong supporting evidence. When documentation contradicts implementation, it may indicate outdated information or architectural drift.</p>
+<hr>
+</section>
+<section id="test-signals" class="level2" data-number="9.10">
+<h2 data-number="9.10" class="anchored" data-anchor-id="test-signals"><span class="header-section-number">9.10</span> Test Signals</h2>
+<p>Test suites encode implicit knowledge about system behavior. Tests reveal how components interact, which interfaces are exposed, and what functional guarantees the system provides.</p>
+<p><strong>What test signals indicate:</strong></p>
+<ul>
+<li><strong>Interface contracts</strong>: What interfaces exist and their expected behavior</li>
+<li><strong>Component interactions</strong>: How components communicate and coordinate</li>
+<li><strong>System boundaries</strong>: What the system does and doesn’t do</li>
+<li><strong>Functional guarantees</strong>: What behavior the system promises to deliver</li>
+</ul>
+<p><strong>Common test signals:</strong></p>
+<p><strong>API integration tests</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tests/test_api.py</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_create_payment():</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> client.post(<span class="st">"/payments"</span>, json<span class="op">=</span>{</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">"amount"</span>: <span class="dv">100</span>,</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">"currency"</span>: <span class="st">"USD"</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> response.status_code <span class="op">==</span> <span class="dv">200</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> response.json()[<span class="st">"status"</span>] <span class="op">==</span> <span class="st">"pending"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Workflow tests</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tests/test_workflow.py</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_payment_workflow():</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create payment</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    payment <span class="op">=</span> create_payment(amount<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> payment.status <span class="op">==</span> <span class="st">"pending"</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Process payment</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    process_payment(payment.<span class="bu">id</span>)</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>    payment <span class="op">=</span> get_payment(payment.<span class="bu">id</span>)</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> payment.status <span class="op">==</span> <span class="st">"completed"</span></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Send notification</span></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>    notification <span class="op">=</span> get_latest_notification()</span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> notification.payment_id <span class="op">==</span> payment.<span class="bu">id</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Component interaction tests</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tests/test_integration.py</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_worker_processes_queue():</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add job to queue</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    queue.enqueue(<span class="st">"process_payment"</span>, payment_id<span class="op">=</span><span class="dv">123</span>)</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Wait for worker to process</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    time.sleep(<span class="dv">2</span>)</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Verify payment was processed</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>    payment <span class="op">=</span> get_payment(<span class="dv">123</span>)</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> payment.status <span class="op">==</span> <span class="st">"completed"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Test signal advantages:</strong></p>
+<p>Test signals provide unique advantages for extraction:</p>
+<ul>
+<li><strong>Behavioral validation</strong>: Tests validate actual behavior, not just intended behavior</li>
+<li><strong>Interface contracts</strong>: Tests often document interface expectations explicitly</li>
+<li><strong>Integration patterns</strong>: Tests reveal how components interact in practice</li>
+<li><strong>Edge cases</strong>: Tests often cover edge cases that reveal system boundaries</li>
+</ul>
+<p>Tests can also help validate whether extracted interfaces correspond to actual system behavior, providing a form of <strong>behavioral evidence</strong> that complements structural evidence from code and configuration.</p>
+<hr>
+</section>
+<section id="observability-signals" class="level2" data-number="9.11">
+<h2 data-number="9.11" class="anchored" data-anchor-id="observability-signals"><span class="header-section-number">9.11</span> Observability Signals</h2>
+<p>Observability instrumentation reveals operational monitoring mechanisms. These signals indicate how the system is monitored, what metrics are collected, and how operational health is assessed.</p>
+<p><strong>What observability signals indicate:</strong></p>
+<ul>
+<li><strong>Monitoring boundaries</strong>: What parts of the system are monitored</li>
+<li><strong>Operational health indicators</strong>: What metrics and health checks exist</li>
+<li><strong>Runtime instrumentation</strong>: What observability is built into the code</li>
+<li><strong>Alerting mechanisms</strong>: What events trigger alerts and notifications</li>
+</ul>
+<p><strong>Common observability signals:</strong></p>
+<p><strong>Metrics configuration</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># prometheus.yml</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">scrape_configs</span><span class="kw">:</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">job_name</span><span class="kw">:</span><span class="at"> </span><span class="st">'api'</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">static_configs</span><span class="kw">:</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">targets</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'localhost:8000'</span><span class="kw">]</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">metrics_path</span><span class="kw">:</span><span class="at"> </span><span class="st">'/metrics'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Logging configuration</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># logging.py</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logging</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>logging.basicConfig(</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    level<span class="op">=</span>logging.INFO,</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">format</span><span class="op">=</span><span class="st">'</span><span class="sc">%(asctime)s</span><span class="st"> - </span><span class="sc">%(name)s</span><span class="st"> - </span><span class="sc">%(levelname)s</span><span class="st"> - </span><span class="sc">%(message)s</span><span class="st">'</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>logger <span class="op">=</span> logging.getLogger(<span class="va">__name__</span>)</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>logger.info(<span class="st">"API started"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Tracing instrumentation</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tracing.py</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> opentelemetry <span class="im">import</span> trace</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>tracer <span class="op">=</span> trace.get_tracer(<span class="va">__name__</span>)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> process_payment(payment_id):</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> tracer.start_as_current_span(<span class="st">"process_payment"</span>):</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Process payment</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">pass</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Alerting configuration</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># alerts.yml</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">groups</span><span class="kw">:</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> api_alerts</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">rules</span><span class="kw">:</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">alert</span><span class="kw">:</span><span class="at"> HighErrorRate</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">expr</span><span class="kw">:</span><span class="at"> rate(errors[5m]) &gt; 0.1</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">annotations</span><span class="kw">:</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">summary</span><span class="kw">:</span><span class="at"> </span><span class="st">"High error rate detected"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Observability signal contributions:</strong></p>
+<p>Observability signals contribute to the <strong>operations view</strong> of the blueprint by revealing:</p>
+<ul>
+<li>What operational monitoring exists</li>
+<li>How system health is assessed</li>
+<li>What events are tracked and logged</li>
+<li>How failures are detected and alerted</li>
+</ul>
+<p>While observability signals don’t directly define architecture, they provide valuable context about operational concerns and monitoring boundaries that inform architectural understanding.</p>
+<hr>
+</section>
+<section id="security-signals" class="level2" data-number="9.12">
+<h2 data-number="9.12" class="anchored" data-anchor-id="security-signals"><span class="header-section-number">9.12</span> Security Signals</h2>
+<p>Security mechanisms often appear through middleware, libraries, or configuration. These signals reveal how the system manages authentication, authorization, and security boundaries.</p>
+<p><strong>What security signals indicate:</strong></p>
+<ul>
+<li><strong>Trust boundaries</strong>: Where security boundaries exist between components</li>
+<li><strong>Authentication mechanisms</strong>: How users and services are authenticated</li>
+<li><strong>Authorization policies</strong>: What access control rules exist</li>
+<li><strong>Sensitive data access</strong>: Where sensitive data is accessed and protected</li>
+</ul>
+<p><strong>Common security signals:</strong></p>
+<p><strong>Authentication middleware</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># auth.py</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastapi <span class="im">import</span> Depends, HTTPException</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastapi.security <span class="im">import</span> HTTPBearer</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>security <span class="op">=</span> HTTPBearer()</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> verify_token(token: <span class="bu">str</span> <span class="op">=</span> Depends(security)):</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Verify JWT token</span></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> is_valid_token(token.credentials):</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> HTTPException(status_code<span class="op">=</span><span class="dv">401</span>, detail<span class="op">=</span><span class="st">"Invalid token"</span>)</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> get_user_from_token(token.credentials)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Authorization policies</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># policies.yaml</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">policies</span><span class="kw">:</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">payment_processing</span><span class="kw">:</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">allow</span><span class="kw">:</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">role</span><span class="kw">:</span><span class="at"> payment_processor</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">deny</span><span class="kw">:</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">role</span><span class="kw">:</span><span class="at"> guest</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Secret management</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># secrets.py</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> vault <span class="im">import</span> Client</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>vault <span class="op">=</span> Client(url<span class="op">=</span>os.environ[<span class="st">"VAULT_ADDR"</span>])</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_database_password():</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> vault.read_secret(<span class="st">"database/password"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Security middleware</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># middleware.py</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastapi <span class="im">import</span> FastAPI</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> FastAPI()</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="at">@app.middleware</span>(<span class="st">"http"</span>)</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> security_headers(request, call_next):</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> <span class="cf">await</span> call_next(request)</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>    response.headers[<span class="st">"X-Content-Type-Options"</span>] <span class="op">=</span> <span class="st">"nosniff"</span></span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>    response.headers[<span class="st">"X-Frame-Options"</span>] <span class="op">=</span> <span class="st">"DENY"</span></span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> response</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Security signal implications:</strong></p>
+<p>Security signals support the <strong>security/trust view</strong> of the blueprint by revealing:</p>
+<ul>
+<li>Where trust boundaries exist between components</li>
+<li>How authentication and authorization are implemented</li>
+<li>What sensitive data access paths exist</li>
+<li>What security-relevant interfaces exist</li>
+</ul>
+<p>Security signals help identify critical architectural elements that require special consideration during extraction and review.</p>
+<hr>
+</section>
+<section id="issue-and-pull-request-signals-optional" class="level2" data-number="9.13">
+<h2 data-number="9.13" class="anchored" data-anchor-id="issue-and-pull-request-signals-optional"><span class="header-section-number">9.13</span> Issue and Pull Request Signals (Optional)</h2>
+<p>Repository collaboration artifacts may contain architectural information. Issue discussions, pull request descriptions, and commit messages often reference architectural concepts such as service boundaries, system capabilities, or infrastructure changes.</p>
+<p><strong>What issue/PR signals indicate:</strong></p>
+<ul>
+<li><strong>Architecture refactors</strong>: Planned or completed architectural changes</li>
+<li><strong>New components</strong>: Introduction of new services or subsystems</li>
+<li><strong>Interface changes</strong>: Modifications to APIs or interfaces</li>
+<li><strong>Infrastructure modifications</strong>: Changes to deployment or infrastructure</li>
+</ul>
+<p><strong>Example issue signals:</strong></p>
+<pre><code># Issue #123: Split payment service into separate microservice
+
+Currently, payment processing is tightly coupled to the API service.
+This issue proposes extracting it into a separate microservice with:
+- Independent deployment
+- Separate database
+- Event-based communication</code></pre>
+<p><strong>Example PR signals:</strong></p>
+<pre><code># PR #456: Add workflow engine for batch processing
+
+This PR adds Apache Airflow for orchestrating batch jobs:
+- DAG definitions for nightly processing
+- Scheduler configuration
+- Worker setup</code></pre>
+<p><strong>Limitations of issue/PR signals:</strong></p>
+<p>Issue and pull request signals are treated as <strong>optional enrichment sources</strong> rather than primary extraction signals because:</p>
+<ul>
+<li><strong>Unstructured format</strong>: Free-form text is difficult to parse systematically</li>
+<li><strong>Inconsistent content</strong>: Not all issues/PRs contain architectural information</li>
+<li><strong>Temporal mismatch</strong>: Issues may describe plans that were never implemented</li>
+<li><strong>Variable quality</strong>: Quality and relevance vary widely</li>
+</ul>
+<p>When issue/PR signals contain clear architectural information, they can provide valuable context. However, they should be treated as supplementary to primary signals from code, configuration, and documentation.</p>
+<hr>
+</section>
+<section id="signal-categories-summary" class="level2" data-number="9.14">
+<h2 data-number="9.14" class="anchored" data-anchor-id="signal-categories-summary"><span class="header-section-number">9.14</span> Signal Categories Summary</h2>
+<p>Signal Taxonomy v0.1 defines the following categories:</p>
+<pre><code>structure      - Repository organization and component boundaries
+dependency     - Library and framework dependencies indicating capabilities
+entrypoint     - Execution initialization indicating component roles
+config         - Configuration files revealing operational structure
+deploy         - Deployment artifacts defining service boundaries
+docs           - Documentation describing system intent and behavior
+test           - Test suites encoding interface contracts and interactions
+observability  - Monitoring and instrumentation revealing operational concerns
+security       - Security mechanisms indicating trust boundaries
+issue-pr       - Collaboration artifacts providing architectural context (optional)</code></pre>
+<p><strong>Signal strength hierarchy:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Signal Category</th>
+<th>Typical Strength</th>
+<th>Reliability</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Entrypoint</td>
+<td>High</td>
+<td>Very High</td>
+</tr>
+<tr class="even">
+<td>Deployment</td>
+<td>High</td>
+<td>High</td>
+</tr>
+<tr class="odd">
+<td>Dependency</td>
+<td>Medium-High</td>
+<td>High</td>
+</tr>
+<tr class="even">
+<td>Config</td>
+<td>Medium</td>
+<td>Medium</td>
+</tr>
+<tr class="odd">
+<td>Test</td>
+<td>Medium</td>
+<td>High</td>
+</tr>
+<tr class="even">
+<td>Structure</td>
+<td>Low-Medium</td>
+<td>Medium</td>
+</tr>
+<tr class="odd">
+<td>Docs</td>
+<td>Low-Medium</td>
+<td>Low</td>
+</tr>
+<tr class="even">
+<td>Observability</td>
+<td>Low-Medium</td>
+<td>Medium</td>
+</tr>
+<tr class="odd">
+<td>Security</td>
+<td>Medium</td>
+<td>Medium</td>
+</tr>
+<tr class="even">
+<td>Issue-PR</td>
+<td>Low</td>
+<td>Low</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The extraction principle:</strong></p>
+<p>Each category captures a different way in which architectural structure may appear within repository artifacts. Together, these signals form the <strong>foundation layer of blueprint extraction</strong>, providing the raw observations that initiate hypothesis formation and evidence collection.</p>
+<p>No single signal is sufficient for extraction. The power of the taxonomy comes from combining multiple weak signals into coherent architectural hypotheses, then validating those hypotheses through evidence collection and systematic review.</p>
+<hr>
+</section>
+<section id="chapter-summary" class="level2" data-number="9.15">
+<h2 data-number="9.15" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">9.15</span> Chapter Summary</h2>
+<ul>
+<li>Signals are observable artifacts that indicate architectural structure may exist</li>
+<li>Signals are the first layer in the extraction pipeline, triggering hypothesis formation</li>
+<li>Structured signal representation enables automated processing and traceability</li>
+<li>Signal Taxonomy v0.1 defines 10 categories of signal sources</li>
+<li>Repository structure signals reveal component boundaries but are weak</li>
+<li>Dependency signals indicate capabilities and technology choices</li>
+<li>Entrypoint signals provide strong indicators of component roles</li>
+<li>Configuration signals reveal operational structure and dependencies</li>
+<li>Deployment signals define service boundaries and infrastructure needs</li>
+<li>Documentation signals provide architectural context but may be outdated</li>
+<li>Test signals encode interface contracts and behavioral expectations</li>
+<li>Observability signals reveal monitoring and operational concerns</li>
+<li>Security signals indicate trust boundaries and access control</li>
+<li>Issue/PR signals provide optional architectural context</li>
+<li>Signal strength varies by category; entrypoints and deployment are strongest</li>
+<li>Signals alone are insufficient; they must be combined with evidence and validation</li>
+</ul>
+<p><strong>Next Chapter</strong>: Chapter 8 introduces the Evidence Object Model—the structured representation of traceable architectural evidence that supports or refutes hypotheses generated from signals. The evidence model ensures that every architectural claim can be audited back to concrete repository artifacts.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./ch-06-hypothesis-workflow.html" class="pagination-link" aria-label="Hypothesis Workflow">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hypothesis Workflow</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./ch-08-evidence-model.html" class="pagination-link" aria-label="Evidence Object Model">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Evidence Object Model</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
