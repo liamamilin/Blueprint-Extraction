@@ -2,7 +2,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Blueprint_Extraction",
+    "title": "Blueprint Extraction",
     "section": "",
     "text": "1 Preface\nWelcome to Volume 5: Blueprint Extraction — a comprehensive guide to reverse-engineering system blueprints from software repositories.",
     "crumbs": [
@@ -12,7 +12,7 @@
   {
     "objectID": "index.html#about-this-volume",
     "href": "index.html#about-this-volume",
-    "title": "Blueprint_Extraction",
+    "title": "Blueprint Extraction",
     "section": "1.1 About This Volume",
     "text": "1.1 About This Volume\nThis volume presents an evidence-driven engineering methodology for extracting and constructing system blueprints from codebases. We provide a complete pipeline from signal classification and evidence modeling to blueprint generation, covering all aspects of architecture reverse engineering, including component discovery, interface extraction, data model analysis, and workflow identification.",
     "crumbs": [
@@ -22,7 +22,7 @@
   {
     "objectID": "index.html#how-to-read-this-book",
     "href": "index.html#how-to-read-this-book",
-    "title": "Blueprint_Extraction",
+    "title": "Blueprint Extraction",
     "section": "1.2 How to Read This Book",
     "text": "1.2 How to Read This Book\nThis volume is organized into six main parts:\n\nPart 0 establishes the context, contracts, and boundaries of the extraction framework\nPart I introduces the evidence-driven engineering approach and hypothesis workflow\nPart II develops the signal taxonomy and evidence object model (v0.1)\nPart III presents the ontology mapping methodology from repositories to system graphs\nPart IV describes blueprint draft generation through kernel slot filling and view generation\nPart V covers validation, review protocols, and quality gates\nPart VI addresses operating blueprint mining at scale\n\nThe volume concludes with a formal specification and practical appendices containing templates and case studies.",
     "crumbs": [
@@ -32,7 +32,7 @@
   {
     "objectID": "index.html#prerequisites",
     "href": "index.html#prerequisites",
-    "title": "Blueprint_Extraction",
+    "title": "Blueprint Extraction",
     "section": "1.3 Prerequisites",
     "text": "1.3 Prerequisites\nReaders should have: - Basic understanding of software architecture concepts - Experience working with code repositories - Familiarity with system design principles",
     "crumbs": [
@@ -42,7 +42,7 @@
   {
     "objectID": "index.html#conventions-used-in-this-book",
     "href": "index.html#conventions-used-in-this-book",
-    "title": "Blueprint_Extraction",
+    "title": "Blueprint Extraction",
     "section": "1.4 Conventions Used in This Book",
     "text": "1.4 Conventions Used in This Book\n\nCode examples use monospace font\nKey terms are highlighted when first introduced\nConfidence levels are explicitly marked (observed, inferred, unknown)\nEvidence traces follow a standardized format",
     "crumbs": [
@@ -52,7 +52,7 @@
   {
     "objectID": "index.html#feedback-and-contributions",
     "href": "index.html#feedback-and-contributions",
-    "title": "Blueprint_Extraction",
+    "title": "Blueprint Extraction",
     "section": "1.5 Feedback and Contributions",
     "text": "1.5 Feedback and Contributions\nThis is v0.1 of the Blueprint Extraction specification. We welcome feedback and contributions from the community.\n\nVolume 5 — Blueprint Extraction\nLast Updated: March 8, 2026",
     "crumbs": [
