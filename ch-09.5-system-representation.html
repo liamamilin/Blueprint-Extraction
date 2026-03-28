@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Lin Mi">
-<meta name="dcterms.date" content="2026-03-08">
 
-<title>Blueprint Extraction</title>
+<title>12&nbsp; System Representation: Making Systems Observable – Blueprint Extraction</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./intro.html" rel="next">
+<link href="./ch-10-mapping-principles.html" rel="next">
+<link href="./ch-09-confidence-semantics.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -84,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-07-signal-taxonomy.html">Part II — Signal Taxonomy &amp; Evidence Model</a></li><li class="breadcrumb-item"><a href="./ch-09.5-system-representation.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">System Representation: Making Systems Observable</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -113,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span></a>
   </div>
 </li>
@@ -210,7 +209,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch-09.5-system-representation.html" class="sidebar-item-text sidebar-link">
+  <a href="./ch-09.5-system-representation.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">System Representation: Making Systems Observable</span></span></a>
   </div>
 </li>
@@ -436,42 +435,45 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface"><span class="header-section-number">1</span> Preface</a>
+  <li><a href="#the-missing-layer-in-extraction" id="toc-the-missing-layer-in-extraction" class="nav-link active" data-scroll-target="#the-missing-layer-in-extraction"><span class="header-section-number">12.1</span> The Missing Layer in Extraction</a></li>
+  <li><a href="#a-minimal-system-model" id="toc-a-minimal-system-model" class="nav-link" data-scroll-target="#a-minimal-system-model"><span class="header-section-number">12.2</span> A Minimal System Model</a></li>
+  <li><a href="#subsystems-as-transformation-units" id="toc-subsystems-as-transformation-units" class="nav-link" data-scroll-target="#subsystems-as-transformation-units"><span class="header-section-number">12.3</span> Subsystems as Transformation Units</a></li>
+  <li><a href="#interfaces-as-contracts" id="toc-interfaces-as-contracts" class="nav-link" data-scroll-target="#interfaces-as-contracts"><span class="header-section-number">12.4</span> Interfaces as Contracts</a></li>
+  <li><a href="#data-models-as-carriers-of-meaning" id="toc-data-models-as-carriers-of-meaning" class="nav-link" data-scroll-target="#data-models-as-carriers-of-meaning"><span class="header-section-number">12.5</span> Data Models as Carriers of Meaning</a></li>
+  <li><a href="#transformations-as-observable-processes" id="toc-transformations-as-observable-processes" class="nav-link" data-scroll-target="#transformations-as-observable-processes"><span class="header-section-number">12.6</span> Transformations as Observable Processes</a></li>
+  <li><a href="#flows-as-composition" id="toc-flows-as-composition" class="nav-link" data-scroll-target="#flows-as-composition"><span class="header-section-number">12.7</span> Flows as Composition</a></li>
+  <li><a href="#making-a-system-observable" id="toc-making-a-system-observable" class="nav-link" data-scroll-target="#making-a-system-observable"><span class="header-section-number">12.8</span> Making a System Observable</a></li>
+  <li><a href="#instrumented-example-data-transformation-trace" id="toc-instrumented-example-data-transformation-trace" class="nav-link" data-scroll-target="#instrumented-example-data-transformation-trace"><span class="header-section-number">12.9</span> Instrumented Example: Data Transformation Trace</a></li>
+  <li><a href="#what-becomes-visible" id="toc-what-becomes-visible" class="nav-link" data-scroll-target="#what-becomes-visible"><span class="header-section-number">12.10</span> What Becomes Visible</a></li>
+  <li><a href="#system-representation-derived" id="toc-system-representation-derived" class="nav-link" data-scroll-target="#system-representation-derived"><span class="header-section-number">12.11</span> System Representation (Derived)</a></li>
+  <li><a href="#llm-assisted-extraction-prompts" id="toc-llm-assisted-extraction-prompts" class="nav-link" data-scroll-target="#llm-assisted-extraction-prompts"><span class="header-section-number">12.12</span> LLM-Assisted Extraction Prompts</a>
   <ul class="collapse">
-  <li><a href="#about-this-volume" id="toc-about-this-volume" class="nav-link" data-scroll-target="#about-this-volume"><span class="header-section-number">1.1</span> About This Volume</a></li>
-  <li><a href="#how-to-read-this-book" id="toc-how-to-read-this-book" class="nav-link" data-scroll-target="#how-to-read-this-book"><span class="header-section-number">1.2</span> How to Read This Book</a></li>
-  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites"><span class="header-section-number">1.3</span> Prerequisites</a></li>
-  <li><a href="#conventions-used-in-this-book" id="toc-conventions-used-in-this-book" class="nav-link" data-scroll-target="#conventions-used-in-this-book"><span class="header-section-number">1.4</span> Conventions Used in This Book</a></li>
-  <li><a href="#feedback-and-contributions" id="toc-feedback-and-contributions" class="nav-link" data-scroll-target="#feedback-and-contributions"><span class="header-section-number">1.5</span> Feedback and Contributions</a></li>
+  <li><a href="#subsystem-extraction-prompt" id="toc-subsystem-extraction-prompt" class="nav-link" data-scroll-target="#subsystem-extraction-prompt"><span class="header-section-number">12.12.1</span> Subsystem Extraction Prompt</a></li>
+  <li><a href="#interface-extraction-prompt" id="toc-interface-extraction-prompt" class="nav-link" data-scroll-target="#interface-extraction-prompt"><span class="header-section-number">12.12.2</span> Interface Extraction Prompt</a></li>
+  <li><a href="#data-model-extraction-prompt" id="toc-data-model-extraction-prompt" class="nav-link" data-scroll-target="#data-model-extraction-prompt"><span class="header-section-number">12.12.3</span> Data Model Extraction Prompt</a></li>
+  <li><a href="#transformation-extraction-prompt" id="toc-transformation-extraction-prompt" class="nav-link" data-scroll-target="#transformation-extraction-prompt"><span class="header-section-number">12.12.4</span> Transformation Extraction Prompt</a></li>
+  <li><a href="#flow-extraction-prompt" id="toc-flow-extraction-prompt" class="nav-link" data-scroll-target="#flow-extraction-prompt"><span class="header-section-number">12.12.5</span> Flow Extraction Prompt</a></li>
+  <li><a href="#observability-prompt-关键" id="toc-observability-prompt-关键" class="nav-link" data-scroll-target="#observability-prompt-关键"><span class="header-section-number">12.12.6</span> Observability Prompt (关键)</a></li>
   </ul></li>
+  <li><a href="#implication" id="toc-implication" class="nav-link" data-scroll-target="#implication"><span class="header-section-number">12.13</span> Implication</a></li>
+  <li><a href="#final-definition" id="toc-final-definition" class="nav-link" data-scroll-target="#final-definition"><span class="header-section-number">12.14</span> Final Definition</a></li>
+  <li><a href="#transition" id="toc-transition" class="nav-link" data-scroll-target="#transition"><span class="header-section-number">12.15</span> Transition</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-07-signal-taxonomy.html">Part II — Signal Taxonomy &amp; Evidence Model</a></li><li class="breadcrumb-item"><a href="./ch-09.5-system-representation.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">System Representation: Making Systems Observable</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Blueprint Extraction</h1>
+<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">System Representation: Making Systems Observable</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Lin Mi </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">March 8, 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -481,49 +483,374 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="preface" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Preface</h1>
-<p>Welcome to <strong>Volume 5: Blueprint Extraction</strong> — a comprehensive guide to reverse-engineering system blueprints from software repositories.</p>
-<section id="about-this-volume" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="about-this-volume"><span class="header-section-number">1.1</span> About This Volume</h2>
-<p>This volume presents an evidence-driven engineering methodology for extracting and constructing system blueprints from codebases. We provide a complete pipeline from signal classification and evidence modeling to blueprint generation, covering all aspects of architecture reverse engineering, including component discovery, interface extraction, data model analysis, and workflow identification.</p>
-</section>
-<section id="how-to-read-this-book" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="how-to-read-this-book"><span class="header-section-number">1.2</span> How to Read This Book</h2>
-<p>This volume is organized into six main parts:</p>
+<section id="the-missing-layer-in-extraction" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="the-missing-layer-in-extraction"><span class="header-section-number">12.1</span> The Missing Layer in Extraction</h2>
+<p>Extraction does not fail because signals are insufficient.</p>
+<p>Extraction fails because the target is undefined.</p>
+<p>A repository is not a system.<br>
+A system is not code.</p>
+<p>A system is a representation.</p>
+<p>If this representation is not made explicit:</p>
 <ul>
-<li><strong>Part 0</strong> establishes the context, contracts, and boundaries of the extraction framework</li>
-<li><strong>Part I</strong> introduces the evidence-driven engineering approach and hypothesis workflow</li>
-<li><strong>Part II</strong> develops the signal taxonomy and evidence object model (v0.1)</li>
-<li><strong>Part III</strong> presents the ontology mapping methodology from repositories to system graphs</li>
-<li><strong>Part IV</strong> describes blueprint draft generation through kernel slot filling and view generation</li>
-<li><strong>Part V</strong> covers validation, review protocols, and quality gates</li>
-<li><strong>Part VI</strong> addresses operating blueprint mining at scale</li>
+<li><p>component boundaries drift</p></li>
+<li><p>interfaces become ambiguous</p></li>
+<li><p>workflows collapse into implementation detail</p></li>
 </ul>
-<p>The volume concludes with a formal specification and practical appendices containing templates and case studies.</p>
-</section>
-<section id="prerequisites" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="prerequisites"><span class="header-section-number">1.3</span> Prerequisites</h2>
-<p>Readers should have: - Basic understanding of software architecture concepts - Experience working with code repositories - Familiarity with system design principles</p>
-</section>
-<section id="conventions-used-in-this-book" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="conventions-used-in-this-book"><span class="header-section-number">1.4</span> Conventions Used in This Book</h2>
+<p>Before ontology mapping, the system must be reconstructed in a form that is:</p>
 <ul>
-<li><strong>Code examples</strong> use monospace font</li>
-<li><strong>Key terms</strong> are highlighted when first introduced</li>
-<li><strong>Confidence levels</strong> are explicitly marked (observed, inferred, unknown)</li>
-<li><strong>Evidence traces</strong> follow a standardized format</li>
+<li><p>observable</p></li>
+<li><p>typed</p></li>
+<li><p>decomposable</p></li>
 </ul>
-</section>
-<section id="feedback-and-contributions" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="feedback-and-contributions"><span class="header-section-number">1.5</span> Feedback and Contributions</h2>
-<p>This is v0.1 of the Blueprint Extraction specification. We welcome feedback and contributions from the community.</p>
 <hr>
-<p><em>Volume 5 — Blueprint Extraction</em><br>
-<em>Last Updated: March 8, 2026</em></p>
-
-
 </section>
+<section id="a-minimal-system-model" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="a-minimal-system-model"><span class="header-section-number">12.2</span> A Minimal System Model</h2>
+<p>A system is defined as:</p>
+<pre><code>System = {
+  Subsystems,
+  Interfaces,
+  Data Models,
+  Transformations,
+  Flows
+}</code></pre>
+<p>This is not conceptual.<br>
+This is operational.</p>
+<p>A system must be representable as:</p>
+<blockquote class="blockquote">
+<p>a directed graph of typed transformations over data</p>
+</blockquote>
+<hr>
+</section>
+<section id="subsystems-as-transformation-units" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="subsystems-as-transformation-units"><span class="header-section-number">12.3</span> Subsystems as Transformation Units</h2>
+<p>A subsystem is not a file or directory.</p>
+<p>A subsystem exists only when a transformation exists.</p>
+<pre><code>Subsystem = (Input, Output, Transformation)</code></pre>
+<p>A valid subsystem must:</p>
+<ul>
+<li><p>consume typed input</p></li>
+<li><p>produce typed output</p></li>
+<li><p>perform a stable transformation</p></li>
+</ul>
+<hr>
+</section>
+<section id="interfaces-as-contracts" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="interfaces-as-contracts"><span class="header-section-number">12.4</span> Interfaces as Contracts</h2>
+<p>Interfaces are not syntax.<br>
+They are contracts.</p>
+<pre><code>{
+  "input_schema": { "text": "string" },
+  "output_schema": { "tokens": ["string"] }
+}</code></pre>
+<p>An interface defines:</p>
+<ul>
+<li><p>what enters</p></li>
+<li><p>what exits</p></li>
+<li><p>what is guaranteed</p></li>
+</ul>
+<hr>
+</section>
+<section id="data-models-as-carriers-of-meaning" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="data-models-as-carriers-of-meaning"><span class="header-section-number">12.5</span> Data Models as Carriers of Meaning</h2>
+<p>Data is not raw.</p>
+<p>Data is structured state.</p>
+<pre><code>text      : str
+tokens    : List[str]
+counts    : Dict[str, int]</code></pre>
+<p>Data models are the only objects that move through the system.</p>
+<hr>
+</section>
+<section id="transformations-as-observable-processes" class="level2" data-number="12.6">
+<h2 data-number="12.6" class="anchored" data-anchor-id="transformations-as-observable-processes"><span class="header-section-number">12.6</span> Transformations as Observable Processes</h2>
+<p>A transformation is defined as:</p>
+<pre><code>output = f(input, state)</code></pre>
+<p>For extraction, this is insufficient.</p>
+<p>We require:</p>
+<blockquote class="blockquote">
+<p>transformations must be observable</p>
+</blockquote>
+<p>Which means:</p>
+<ul>
+<li><p>intermediate states must be visible</p></li>
+<li><p>input/output must be logged</p></li>
+<li><p>execution must be replayable</p></li>
+</ul>
+<hr>
+</section>
+<section id="flows-as-composition" class="level2" data-number="12.7">
+<h2 data-number="12.7" class="anchored" data-anchor-id="flows-as-composition"><span class="header-section-number">12.7</span> Flows as Composition</h2>
+<p>A system is not a set.<br>
+It is a composition.</p>
+<pre><code>A → B → C</code></pre>
+<p>Or:</p>
+<pre><code>output = f3(f2(f1(input)))</code></pre>
+<p>Flow defines:</p>
+<ul>
+<li><p>execution order</p></li>
+<li><p>dependency structure</p></li>
+<li><p>system topology</p></li>
+</ul>
+<hr>
+</section>
+<section id="making-a-system-observable" class="level2" data-number="12.8">
+<h2 data-number="12.8" class="anchored" data-anchor-id="making-a-system-observable"><span class="header-section-number">12.8</span> Making a System Observable</h2>
+<p>We do not understand systems by reading code.</p>
+<p>We understand systems by observing data movement.</p>
+<p>The goal is:</p>
+<blockquote class="blockquote">
+<p>to see how data evolves across transformations</p>
+</blockquote>
+<hr>
+</section>
+<section id="instrumented-example-data-transformation-trace" class="level2" data-number="12.9">
+<h2 data-number="12.9" class="anchored" data-anchor-id="instrumented-example-data-transformation-trace"><span class="header-section-number">12.9</span> Instrumented Example: Data Transformation Trace</h2>
+<p>This example is intentionally minimal.</p>
+<p>Its purpose is to expose:</p>
+<ul>
+<li><p>subsystem boundaries</p></li>
+<li><p>interface contracts</p></li>
+<li><p>transformation steps</p></li>
+<li><p>data evolution</p></li>
+</ul>
+<pre><code>from typing import List, Dict, Any
+
+
+def trace(step: str, input_data: Any, output_data: Any):
+    print(f"\n[TRACE] {step}")
+    print(f"  input  = {input_data}")
+    print(f"  output = {output_data}")
+
+
+class Tokenizer:
+    def run(self, text: str) -&gt; List[str]:
+        tokens = text.lower().split()
+        trace("Tokenizer", text, tokens)
+        return tokens
+
+
+class Counter:
+    def run(self, tokens: List[str]) -&gt; Dict[str, int]:
+        result = {}
+        for t in tokens:
+            result[t] = result.get(t, 0) + 1
+        trace("Counter", tokens, result)
+        return result
+
+
+class Formatter:
+    def run(self, counts: Dict[str, int]) -&gt; str:
+        output = "\n".join(f"{k}: {v}" for k, v in counts.items())
+        trace("Formatter", counts, output)
+        return output
+
+
+class TextAnalysisSystem:
+
+    def __init__(self):
+        self.tokenizer = Tokenizer()
+        self.counter = Counter()
+        self.formatter = Formatter()
+
+    def run(self, text: str) -&gt; str:
+        tokens = self.tokenizer.run(text)
+        counts = self.counter.run(tokens)
+        result = self.formatter.run(counts)
+        return result
+
+
+if __name__ == "__main__":
+    system = TextAnalysisSystem()
+
+    input_text = "AI is the future and AI is powerful"
+
+    result = system.run(input_text)
+
+    print("\n=== FINAL OUTPUT ===")
+    print(result)</code></pre>
+<hr>
+</section>
+<section id="what-becomes-visible" class="level2" data-number="12.10">
+<h2 data-number="12.10" class="anchored" data-anchor-id="what-becomes-visible"><span class="header-section-number">12.10</span> What Becomes Visible</h2>
+<p>Running this system reveals:</p>
+<ul>
+<li><p>each subsystem boundary</p></li>
+<li><p>each input/output transition</p></li>
+<li><p>the exact shape of data at every step</p></li>
+</ul>
+<p>This enables:</p>
+<ul>
+<li><p>reconstruction of system graph</p></li>
+<li><p>validation of interfaces</p></li>
+<li><p>detection of hidden transformations</p></li>
+</ul>
+<hr>
+</section>
+<section id="system-representation-derived" class="level2" data-number="12.11">
+<h2 data-number="12.11" class="anchored" data-anchor-id="system-representation-derived"><span class="header-section-number">12.11</span> System Representation (Derived)</h2>
+<p>From execution, we reconstruct:</p>
+<pre><code>Tokenizer:
+  input  = text
+  output = tokens
+
+Counter:
+  input  = tokens
+  output = counts
+
+Formatter:
+  input  = counts
+  output = formatted_text</code></pre>
+<p>Flow:</p>
+<pre><code>Tokenizer → Counter → Formatter</code></pre>
+<hr>
+</section>
+<section id="llm-assisted-extraction-prompts" class="level2" data-number="12.12">
+<h2 data-number="12.12" class="anchored" data-anchor-id="llm-assisted-extraction-prompts"><span class="header-section-number">12.12</span> LLM-Assisted Extraction Prompts</h2>
+<p>The following prompts are used to reconstruct system representation from code, logs, or repositories.</p>
+<p>They are not generic prompts.<br>
+They enforce structure.</p>
+<hr>
+<section id="subsystem-extraction-prompt" class="level3" data-number="12.12.1">
+<h3 data-number="12.12.1" class="anchored" data-anchor-id="subsystem-extraction-prompt"><span class="header-section-number">12.12.1</span> Subsystem Extraction Prompt</h3>
+<pre><code>You are given code or execution traces.
+
+Identify transformation units (subsystems).
+
+A subsystem must:
+- consume input
+- produce output
+- perform a distinct transformation
+
+Return a list of subsystems:
+
+For each subsystem:
+- name
+- input (type + meaning)
+- output (type + meaning)
+- responsibility (what transformation it performs)
+
+Do not describe files or classes.
+Only identify transformation boundaries.</code></pre>
+<hr>
+</section>
+<section id="interface-extraction-prompt" class="level3" data-number="12.12.2">
+<h3 data-number="12.12.2" class="anchored" data-anchor-id="interface-extraction-prompt"><span class="header-section-number">12.12.2</span> Interface Extraction Prompt</h3>
+<pre><code>Given a list of subsystems and their transformations:
+
+Infer the interfaces between them.
+
+For each interface:
+- source subsystem
+- target subsystem
+- data passed
+- input_schema
+- output_schema
+
+Schemas must be typed and explicit.
+
+Do not use vague descriptions like "data" or "result".</code></pre>
+<hr>
+</section>
+<section id="data-model-extraction-prompt" class="level3" data-number="12.12.3">
+<h3 data-number="12.12.3" class="anchored" data-anchor-id="data-model-extraction-prompt"><span class="header-section-number">12.12.3</span> Data Model Extraction Prompt</h3>
+<pre><code>Analyze the system and list all data models.
+
+For each data model:
+- name
+- type (primitive / structured)
+- fields (if structured)
+- where it is created
+- where it is consumed
+
+Only include data that flows between subsystems.
+Ignore local temporary variables unless they cross boundaries.</code></pre>
+<hr>
+</section>
+<section id="transformation-extraction-prompt" class="level3" data-number="12.12.4">
+<h3 data-number="12.12.4" class="anchored" data-anchor-id="transformation-extraction-prompt"><span class="header-section-number">12.12.4</span> Transformation Extraction Prompt</h3>
+<pre><code>For each subsystem:
+
+Describe the transformation as:
+
+output = f(input, state)
+
+Include:
+- input → output mapping
+- key logic steps
+- whether transformation is deterministic or stateful
+
+Focus on how data changes, not how code is written.</code></pre>
+<hr>
+</section>
+<section id="flow-extraction-prompt" class="level3" data-number="12.12.5">
+<h3 data-number="12.12.5" class="anchored" data-anchor-id="flow-extraction-prompt"><span class="header-section-number">12.12.5</span> Flow Extraction Prompt</h3>
+<pre><code>Given subsystems and interfaces:
+
+Construct the system flow.
+
+Return:
+- ordered execution chain
+- dependencies between subsystems
+- whether flow is linear, branching, or cyclic
+
+Output as a directed graph description.</code></pre>
+<hr>
+</section>
+<section id="observability-prompt-关键" class="level3" data-number="12.12.6">
+<h3 data-number="12.12.6" class="anchored" data-anchor-id="observability-prompt-关键"><span class="header-section-number">12.12.6</span> Observability Prompt (关键)</h3>
+<pre><code>Given execution logs or traces:
+
+Reconstruct the system step-by-step.
+
+For each step:
+- subsystem name
+- input data
+- output data
+
+Then infer:
+- hidden transformations
+- mismatched interfaces
+- implicit assumptions
+
+Your goal is to make the system fully observable.</code></pre>
+<hr>
+</section>
+</section>
+<section id="implication" class="level2" data-number="12.13">
+<h2 data-number="12.13" class="anchored" data-anchor-id="implication"><span class="header-section-number">12.13</span> Implication</h2>
+<p>Extraction is not parsing.</p>
+<p>Extraction is reconstruction.</p>
+<p>A system is not discovered in code.</p>
+<p>It is reconstructed from:</p>
+<ul>
+<li><p>transformations</p></li>
+<li><p>data movement</p></li>
+<li><p>observable behavior</p></li>
+</ul>
+<hr>
+</section>
+<section id="final-definition" class="level2" data-number="12.14">
+<h2 data-number="12.14" class="anchored" data-anchor-id="final-definition"><span class="header-section-number">12.14</span> Final Definition</h2>
+<p>A system is:</p>
+<blockquote class="blockquote">
+<p>a directed graph of observable, typed transformations over data,<br>
+where each node consumes input, produces output,<br>
+and participates in a traceable flow.</p>
+</blockquote>
+<hr>
+</section>
+<section id="transition" class="level2" data-number="12.15">
+<h2 data-number="12.15" class="anchored" data-anchor-id="transition"><span class="header-section-number">12.15</span> Transition</h2>
+<p>With system representation made explicit:</p>
+<ul>
+<li><p>ambiguity becomes measurable</p></li>
+<li><p>mapping becomes grounded</p></li>
+<li><p>blueprint generation becomes stable</p></li>
+</ul>
+<p>We can now proceed to ontology mapping,<br>
+where structure becomes computable.</p>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -929,10 +1256,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./ch-09-confidence-semantics.html" class="pagination-link" aria-label="Confidence Semantics">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Confidence Semantics</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intro.html" class="pagination-link" aria-label="Introduction">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./ch-10-mapping-principles.html" class="pagination-link" aria-label="Mapping Principles and Canonicalization">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Mapping Principles and Canonicalization</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -3290,5 +3290,181 @@
     "crumbs": [
       "<span class='chapter-number'>34</span>  <span class='chapter-title'>Summary</span>"
     ]
+  },
+  {
+    "objectID": "ch-09.5-system-representation.html",
+    "href": "ch-09.5-system-representation.html",
+    "title": "12  System Representation: Making Systems Observable",
+    "section": "",
+    "text": "12.1 The Missing Layer in Extraction\nExtraction does not fail because signals are insufficient.\nExtraction fails because the target is undefined.\nA repository is not a system.\nA system is not code.\nA system is a representation.\nIf this representation is not made explicit:\nBefore ontology mapping, the system must be reconstructed in a form that is:",
+    "crumbs": [
+      "Part II — Signal Taxonomy & Evidence Model",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>System Representation: Making Systems Observable</span>"
+    ]
+  },
+  {
+    "objectID": "ch-09.5-system-representation.html#the-missing-layer-in-extraction",
+    "href": "ch-09.5-system-representation.html#the-missing-layer-in-extraction",
+    "title": "12  System Representation: Making Systems Observable",
+    "section": "",
+    "text": "component boundaries drift\ninterfaces become ambiguous\nworkflows collapse into implementation detail\n\n\n\nobservable\ntyped\ndecomposable",
+    "crumbs": [
+      "Part II — Signal Taxonomy & Evidence Model",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>System Representation: Making Systems Observable</span>"
+    ]
+  },
+  {
+    "objectID": "ch-09.5-system-representation.html#a-minimal-system-model",
+    "href": "ch-09.5-system-representation.html#a-minimal-system-model",
+    "title": "12  System Representation: Making Systems Observable",
+    "section": "12.2 A Minimal System Model",
+    "text": "12.2 A Minimal System Model\nA system is defined as:\nSystem = {\n  Subsystems,\n  Interfaces,\n  Data Models,\n  Transformations,\n  Flows\n}\nThis is not conceptual.\nThis is operational.\nA system must be representable as:\n\na directed graph of typed transformations over data",
+    "crumbs": [
+      "Part II — Signal Taxonomy & Evidence Model",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>System Representation: Making Systems Observable</span>"
+    ]
+  },
+  {
+    "objectID": "ch-09.5-system-representation.html#subsystems-as-transformation-units",
+    "href": "ch-09.5-system-representation.html#subsystems-as-transformation-units",
+    "title": "12  System Representation: Making Systems Observable",
+    "section": "12.3 Subsystems as Transformation Units",
+    "text": "12.3 Subsystems as Transformation Units\nA subsystem is not a file or directory.\nA subsystem exists only when a transformation exists.\nSubsystem = (Input, Output, Transformation)\nA valid subsystem must:\n\nconsume typed input\nproduce typed output\nperform a stable transformation",
+    "crumbs": [
+      "Part II — Signal Taxonomy & Evidence Model",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>System Representation: Making Systems Observable</span>"
+    ]
+  },
+  {
+    "objectID": "ch-09.5-system-representation.html#interfaces-as-contracts",
+    "href": "ch-09.5-system-representation.html#interfaces-as-contracts",
+    "title": "12  System Representation: Making Systems Observable",
+    "section": "12.4 Interfaces as Contracts",
+    "text": "12.4 Interfaces as Contracts\nInterfaces are not syntax.\nThey are contracts.\n{\n  \"input_schema\": { \"text\": \"string\" },\n  \"output_schema\": { \"tokens\": [\"string\"] }\n}\nAn interface defines:\n\nwhat enters\nwhat exits\nwhat is guaranteed",
+    "crumbs": [
+      "Part II — Signal Taxonomy & Evidence Model",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>System Representation: Making Systems Observable</span>"
+    ]
+  },
+  {
+    "objectID": "ch-09.5-system-representation.html#data-models-as-carriers-of-meaning",
+    "href": "ch-09.5-system-representation.html#data-models-as-carriers-of-meaning",
+    "title": "12  System Representation: Making Systems Observable",
+    "section": "12.5 Data Models as Carriers of Meaning",
+    "text": "12.5 Data Models as Carriers of Meaning\nData is not raw.\nData is structured state.\ntext      : str\ntokens    : List[str]\ncounts    : Dict[str, int]\nData models are the only objects that move through the system.",
+    "crumbs": [
+      "Part II — Signal Taxonomy & Evidence Model",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>System Representation: Making Systems Observable</span>"
+    ]
+  },
+  {
+    "objectID": "ch-09.5-system-representation.html#transformations-as-observable-processes",
+    "href": "ch-09.5-system-representation.html#transformations-as-observable-processes",
+    "title": "12  System Representation: Making Systems Observable",
+    "section": "12.6 Transformations as Observable Processes",
+    "text": "12.6 Transformations as Observable Processes\nA transformation is defined as:\noutput = f(input, state)\nFor extraction, this is insufficient.\nWe require:\n\ntransformations must be observable\n\nWhich means:\n\nintermediate states must be visible\ninput/output must be logged\nexecution must be replayable",
+    "crumbs": [
+      "Part II — Signal Taxonomy & Evidence Model",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>System Representation: Making Systems Observable</span>"
+    ]
+  },
+  {
+    "objectID": "ch-09.5-system-representation.html#flows-as-composition",
+    "href": "ch-09.5-system-representation.html#flows-as-composition",
+    "title": "12  System Representation: Making Systems Observable",
+    "section": "12.7 Flows as Composition",
+    "text": "12.7 Flows as Composition\nA system is not a set.\nIt is a composition.\nA → B → C\nOr:\noutput = f3(f2(f1(input)))\nFlow defines:\n\nexecution order\ndependency structure\nsystem topology",
+    "crumbs": [
+      "Part II — Signal Taxonomy & Evidence Model",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>System Representation: Making Systems Observable</span>"
+    ]
+  },
+  {
+    "objectID": "ch-09.5-system-representation.html#making-a-system-observable",
+    "href": "ch-09.5-system-representation.html#making-a-system-observable",
+    "title": "12  System Representation: Making Systems Observable",
+    "section": "12.8 Making a System Observable",
+    "text": "12.8 Making a System Observable\nWe do not understand systems by reading code.\nWe understand systems by observing data movement.\nThe goal is:\n\nto see how data evolves across transformations",
+    "crumbs": [
+      "Part II — Signal Taxonomy & Evidence Model",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>System Representation: Making Systems Observable</span>"
+    ]
+  },
+  {
+    "objectID": "ch-09.5-system-representation.html#instrumented-example-data-transformation-trace",
+    "href": "ch-09.5-system-representation.html#instrumented-example-data-transformation-trace",
+    "title": "12  System Representation: Making Systems Observable",
+    "section": "12.9 Instrumented Example: Data Transformation Trace",
+    "text": "12.9 Instrumented Example: Data Transformation Trace\nThis example is intentionally minimal.\nIts purpose is to expose:\n\nsubsystem boundaries\ninterface contracts\ntransformation steps\ndata evolution\n\nfrom typing import List, Dict, Any\n\n\ndef trace(step: str, input_data: Any, output_data: Any):\n    print(f\"\\n[TRACE] {step}\")\n    print(f\"  input  = {input_data}\")\n    print(f\"  output = {output_data}\")\n\n\nclass Tokenizer:\n    def run(self, text: str) -&gt; List[str]:\n        tokens = text.lower().split()\n        trace(\"Tokenizer\", text, tokens)\n        return tokens\n\n\nclass Counter:\n    def run(self, tokens: List[str]) -&gt; Dict[str, int]:\n        result = {}\n        for t in tokens:\n            result[t] = result.get(t, 0) + 1\n        trace(\"Counter\", tokens, result)\n        return result\n\n\nclass Formatter:\n    def run(self, counts: Dict[str, int]) -&gt; str:\n        output = \"\\n\".join(f\"{k}: {v}\" for k, v in counts.items())\n        trace(\"Formatter\", counts, output)\n        return output\n\n\nclass TextAnalysisSystem:\n\n    def __init__(self):\n        self.tokenizer = Tokenizer()\n        self.counter = Counter()\n        self.formatter = Formatter()\n\n    def run(self, text: str) -&gt; str:\n        tokens = self.tokenizer.run(text)\n        counts = self.counter.run(tokens)\n        result = self.formatter.run(counts)\n        return result\n\n\nif __name__ == \"__main__\":\n    system = TextAnalysisSystem()\n\n    input_text = \"AI is the future and AI is powerful\"\n\n    result = system.run(input_text)\n\n    print(\"\\n=== FINAL OUTPUT ===\")\n    print(result)",
+    "crumbs": [
+      "Part II — Signal Taxonomy & Evidence Model",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>System Representation: Making Systems Observable</span>"
+    ]
+  },
+  {
+    "objectID": "ch-09.5-system-representation.html#what-becomes-visible",
+    "href": "ch-09.5-system-representation.html#what-becomes-visible",
+    "title": "12  System Representation: Making Systems Observable",
+    "section": "12.10 What Becomes Visible",
+    "text": "12.10 What Becomes Visible\nRunning this system reveals:\n\neach subsystem boundary\neach input/output transition\nthe exact shape of data at every step\n\nThis enables:\n\nreconstruction of system graph\nvalidation of interfaces\ndetection of hidden transformations",
+    "crumbs": [
+      "Part II — Signal Taxonomy & Evidence Model",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>System Representation: Making Systems Observable</span>"
+    ]
+  },
+  {
+    "objectID": "ch-09.5-system-representation.html#system-representation-derived",
+    "href": "ch-09.5-system-representation.html#system-representation-derived",
+    "title": "12  System Representation: Making Systems Observable",
+    "section": "12.11 System Representation (Derived)",
+    "text": "12.11 System Representation (Derived)\nFrom execution, we reconstruct:\nTokenizer:\n  input  = text\n  output = tokens\n\nCounter:\n  input  = tokens\n  output = counts\n\nFormatter:\n  input  = counts\n  output = formatted_text\nFlow:\nTokenizer → Counter → Formatter",
+    "crumbs": [
+      "Part II — Signal Taxonomy & Evidence Model",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>System Representation: Making Systems Observable</span>"
+    ]
+  },
+  {
+    "objectID": "ch-09.5-system-representation.html#llm-assisted-extraction-prompts",
+    "href": "ch-09.5-system-representation.html#llm-assisted-extraction-prompts",
+    "title": "12  System Representation: Making Systems Observable",
+    "section": "12.12 LLM-Assisted Extraction Prompts",
+    "text": "12.12 LLM-Assisted Extraction Prompts\nThe following prompts are used to reconstruct system representation from code, logs, or repositories.\nThey are not generic prompts.\nThey enforce structure.\n\n\n12.12.1 Subsystem Extraction Prompt\nYou are given code or execution traces.\n\nIdentify transformation units (subsystems).\n\nA subsystem must:\n- consume input\n- produce output\n- perform a distinct transformation\n\nReturn a list of subsystems:\n\nFor each subsystem:\n- name\n- input (type + meaning)\n- output (type + meaning)\n- responsibility (what transformation it performs)\n\nDo not describe files or classes.\nOnly identify transformation boundaries.\n\n\n\n12.12.2 Interface Extraction Prompt\nGiven a list of subsystems and their transformations:\n\nInfer the interfaces between them.\n\nFor each interface:\n- source subsystem\n- target subsystem\n- data passed\n- input_schema\n- output_schema\n\nSchemas must be typed and explicit.\n\nDo not use vague descriptions like \"data\" or \"result\".\n\n\n\n12.12.3 Data Model Extraction Prompt\nAnalyze the system and list all data models.\n\nFor each data model:\n- name\n- type (primitive / structured)\n- fields (if structured)\n- where it is created\n- where it is consumed\n\nOnly include data that flows between subsystems.\nIgnore local temporary variables unless they cross boundaries.\n\n\n\n12.12.4 Transformation Extraction Prompt\nFor each subsystem:\n\nDescribe the transformation as:\n\noutput = f(input, state)\n\nInclude:\n- input → output mapping\n- key logic steps\n- whether transformation is deterministic or stateful\n\nFocus on how data changes, not how code is written.\n\n\n\n12.12.5 Flow Extraction Prompt\nGiven subsystems and interfaces:\n\nConstruct the system flow.\n\nReturn:\n- ordered execution chain\n- dependencies between subsystems\n- whether flow is linear, branching, or cyclic\n\nOutput as a directed graph description.\n\n\n\n12.12.6 Observability Prompt (关键)\nGiven execution logs or traces:\n\nReconstruct the system step-by-step.\n\nFor each step:\n- subsystem name\n- input data\n- output data\n\nThen infer:\n- hidden transformations\n- mismatched interfaces\n- implicit assumptions\n\nYour goal is to make the system fully observable.",
+    "crumbs": [
+      "Part II — Signal Taxonomy & Evidence Model",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>System Representation: Making Systems Observable</span>"
+    ]
+  },
+  {
+    "objectID": "ch-09.5-system-representation.html#implication",
+    "href": "ch-09.5-system-representation.html#implication",
+    "title": "12  System Representation: Making Systems Observable",
+    "section": "12.13 Implication",
+    "text": "12.13 Implication\nExtraction is not parsing.\nExtraction is reconstruction.\nA system is not discovered in code.\nIt is reconstructed from:\n\ntransformations\ndata movement\nobservable behavior",
+    "crumbs": [
+      "Part II — Signal Taxonomy & Evidence Model",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>System Representation: Making Systems Observable</span>"
+    ]
+  },
+  {
+    "objectID": "ch-09.5-system-representation.html#final-definition",
+    "href": "ch-09.5-system-representation.html#final-definition",
+    "title": "12  System Representation: Making Systems Observable",
+    "section": "12.14 Final Definition",
+    "text": "12.14 Final Definition\nA system is:\n\na directed graph of observable, typed transformations over data,\nwhere each node consumes input, produces output,\nand participates in a traceable flow.",
+    "crumbs": [
+      "Part II — Signal Taxonomy & Evidence Model",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>System Representation: Making Systems Observable</span>"
+    ]
+  },
+  {
+    "objectID": "ch-09.5-system-representation.html#transition",
+    "href": "ch-09.5-system-representation.html#transition",
+    "title": "12  System Representation: Making Systems Observable",
+    "section": "12.15 Transition",
+    "text": "12.15 Transition\nWith system representation made explicit:\n\nambiguity becomes measurable\nmapping becomes grounded\nblueprint generation becomes stable\n\nWe can now proceed to ontology mapping,\nwhere structure becomes computable.",
+    "crumbs": [
+      "Part II — Signal Taxonomy & Evidence Model",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>System Representation: Making Systems Observable</span>"
+    ]
   }
 ]
