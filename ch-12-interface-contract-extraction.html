@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>14&nbsp; Interface and Contract Extraction – Blueprint_Extraction</title>
+<title>15&nbsp; Interface and Contract Extraction – Blueprint Extraction</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -69,15 +72,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./ch-11-component-discovery.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-27c261d06b905028a18691de25d09dde.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -118,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-10-mapping-principles.html">Part III — Ontology Mapping: From Repo to System Graph</a></li><li class="breadcrumb-item"><a href="./ch-12-interface-contract-extraction.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Interface and Contract Extraction</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-10-mapping-principles.html">Part III — Ontology Mapping: From Repo to System Graph</a></li><li class="breadcrumb-item"><a href="./ch-12-interface-contract-extraction.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Interface and Contract Extraction</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -131,11 +133,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Blueprint_Extraction</a> 
+      <a href="./">Blueprint Extraction</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -242,6 +242,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Confidence Semantics</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-09.5-system-representation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">System Representation: Making Systems Observable</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -256,31 +262,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-10-mapping-principles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Mapping Principles and Canonicalization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Mapping Principles and Canonicalization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-11-component-discovery.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Component Discovery</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Component Discovery</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-12-interface-contract-extraction.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Interface and Contract Extraction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Interface and Contract Extraction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-13-data-model-ownership.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Data Model and Ownership Extraction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Data Model and Ownership Extraction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-14-workflow-control-plane.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Workflow and Control-Plane Extraction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Workflow and Control-Plane Extraction</span></span></a>
   </div>
 </li>
       </ul>
@@ -297,19 +303,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-15-kernel-slot-filling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Kernel Slot Filling Rules</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Kernel Slot Filling Rules</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-16-views-generation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Views Generation (Projections)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Views Generation (Projections)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-17-blueprint-pack-output.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Blueprint Pack Output Standard</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Blueprint Pack Output Standard</span></span></a>
   </div>
 </li>
       </ul>
@@ -326,19 +332,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-18-validation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Validation: Schema and Semantics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Validation: Schema and Semantics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-19-review-protocol.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Review Protocol (Human-in-the-Loop)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Review Protocol (Human-in-the-Loop)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-20-quality-metrics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Extraction Quality Metrics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Extraction Quality Metrics</span></span></a>
   </div>
 </li>
       </ul>
@@ -355,19 +361,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-21-mining-pipeline-operations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Mining Pipeline Operations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Mining Pipeline Operations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-22-normalization-deduplication.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Normalization and Deduplication</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Normalization and Deduplication</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-23-blueprints-to-patterns.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">From Blueprints to Patterns</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">From Blueprints to Patterns</span></span></a>
   </div>
 </li>
       </ul>
@@ -384,7 +390,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-24-blueprint-extraction-spec.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Blueprint Extraction Specification v0.1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Blueprint Extraction Specification v0.1</span></span></a>
   </div>
 </li>
       </ul>
@@ -401,43 +407,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-a-signal-taxonomy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Appendix A — Signal Taxonomy v0.1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Appendix A — Signal Taxonomy v0.1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-b-evidence-schema.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Appendix B — Evidence Object Schema v0.1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix B — Evidence Object Schema v0.1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-c-confidence-semantics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix C — Confidence Semantics Spec v0.1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Appendix C — Confidence Semantics Spec v0.1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-d-mapping-template.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Appendix D — Ontology Mapping Rules Template</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Appendix D — Ontology Mapping Rules Template</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-e-report-template.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Appendix E — Extraction Report Template</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Appendix E — Extraction Report Template</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-f-extraction-cases.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Appendix F — Five Complete Extraction Cases (with Evidence Trace)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Appendix F — Five Complete Extraction Cases (with Evidence Trace)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-g-eml-scorecard.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Appendix G — Extraction Maturity Level (EML) Score Sheet</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Appendix G — Extraction Maturity Level (EML) Score Sheet</span></span></a>
   </div>
 </li>
       </ul>
@@ -445,7 +451,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -464,22 +470,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#what-is-an-interface" id="toc-what-is-an-interface" class="nav-link active" data-scroll-target="#what-is-an-interface"><span class="header-section-number">14.1</span> What Is an Interface?</a></li>
-  <li><a href="#api-interface-extraction" id="toc-api-interface-extraction" class="nav-link" data-scroll-target="#api-interface-extraction"><span class="header-section-number">14.2</span> API Interface Extraction</a></li>
-  <li><a href="#event-interface-extraction" id="toc-event-interface-extraction" class="nav-link" data-scroll-target="#event-interface-extraction"><span class="header-section-number">14.3</span> Event Interface Extraction</a></li>
-  <li><a href="#cli-interface-extraction" id="toc-cli-interface-extraction" class="nav-link" data-scroll-target="#cli-interface-extraction"><span class="header-section-number">14.4</span> CLI Interface Extraction</a></li>
-  <li><a href="#contract-reconstruction" id="toc-contract-reconstruction" class="nav-link" data-scroll-target="#contract-reconstruction"><span class="header-section-number">14.5</span> Contract Reconstruction</a></li>
-  <li><a href="#interface-graph-construction" id="toc-interface-graph-construction" class="nav-link" data-scroll-target="#interface-graph-construction"><span class="header-section-number">14.6</span> Interface Graph Construction</a></li>
-  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">14.7</span> Chapter Summary</a></li>
+  <li><a href="#what-is-an-interface" id="toc-what-is-an-interface" class="nav-link active" data-scroll-target="#what-is-an-interface"><span class="header-section-number">15.1</span> What Is an Interface?</a></li>
+  <li><a href="#api-interface-extraction" id="toc-api-interface-extraction" class="nav-link" data-scroll-target="#api-interface-extraction"><span class="header-section-number">15.2</span> API Interface Extraction</a></li>
+  <li><a href="#event-interface-extraction" id="toc-event-interface-extraction" class="nav-link" data-scroll-target="#event-interface-extraction"><span class="header-section-number">15.3</span> Event Interface Extraction</a></li>
+  <li><a href="#cli-interface-extraction" id="toc-cli-interface-extraction" class="nav-link" data-scroll-target="#cli-interface-extraction"><span class="header-section-number">15.4</span> CLI Interface Extraction</a></li>
+  <li><a href="#contract-reconstruction" id="toc-contract-reconstruction" class="nav-link" data-scroll-target="#contract-reconstruction"><span class="header-section-number">15.5</span> Contract Reconstruction</a></li>
+  <li><a href="#interface-graph-construction" id="toc-interface-graph-construction" class="nav-link" data-scroll-target="#interface-graph-construction"><span class="header-section-number">15.6</span> Interface Graph Construction</a></li>
+  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">15.7</span> Chapter Summary</a>
+  <ul class="collapse">
+  <li><a href="#knowledge-to-retain" id="toc-knowledge-to-retain" class="nav-link" data-scroll-target="#knowledge-to-retain"><span class="header-section-number">15.7.1</span> Knowledge to Retain</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-10-mapping-principles.html">Part III — Ontology Mapping: From Repo to System Graph</a></li><li class="breadcrumb-item"><a href="./ch-12-interface-contract-extraction.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Interface and Contract Extraction</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-10-mapping-principles.html">Part III — Ontology Mapping: From Repo to System Graph</a></li><li class="breadcrumb-item"><a href="./ch-12-interface-contract-extraction.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Interface and Contract Extraction</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Interface and Contract Extraction</span></h1>
+<h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Interface and Contract Extraction</span></h1>
 </div>
 
 
@@ -506,8 +515,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>What constraints govern these interactions</li>
 </ul>
 <hr>
-<section id="what-is-an-interface" class="level2" data-number="14.1">
-<h2 data-number="14.1" class="anchored" data-anchor-id="what-is-an-interface"><span class="header-section-number">14.1</span> What Is an Interface?</h2>
+<section id="what-is-an-interface" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="what-is-an-interface"><span class="header-section-number">15.1</span> What Is an Interface?</h2>
 <p>An interface is a <strong>well-defined interaction surface</strong> that specifies how capabilities are invoked or accessed. Interfaces define the contract between providers and consumers of functionality.</p>
 <p><strong>Interface characteristics:</strong></p>
 <p><strong>1. Interaction surface:</strong></p>
@@ -573,8 +582,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">examples</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">gRPC services</span><span class="kw">,</span><span class="at"> Thrift interfaces</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="api-interface-extraction" class="level2" data-number="14.2">
-<h2 data-number="14.2" class="anchored" data-anchor-id="api-interface-extraction"><span class="header-section-number">14.2</span> API Interface Extraction</h2>
+<section id="api-interface-extraction" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="api-interface-extraction"><span class="header-section-number">15.2</span> API Interface Extraction</h2>
 <p>API interfaces are the most common form of system interface. They are typically implemented through web frameworks that define route handlers and request processing logic.</p>
 <p><strong>API interface signals:</strong></p>
 <p><strong>1. Route declarations within web frameworks:</strong></p>
@@ -861,36 +870,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-61"><a href="#cb11-61" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">evidence_refs</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">evidence</span><span class="dv">-005</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>4. RPC service definitions:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode protobuf code-with-copy"><code class="sourceCode protobuf"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">// payment.proto</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>syntax = <span class="st">"proto3"</span>;</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>syntax <span class="op">=</span> <span class="st">"proto3"</span>;</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span> payment;</span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>service PaymentService {</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  rpc CreatePayment (PaymentRequest) returns (PaymentResponse);</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  rpc GetPayment (PaymentId) returns (PaymentResponse);</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  rpc RefundPayment (RefundRequest) returns (PaymentResponse);</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="kw">service</span> PaymentService {</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">rpc</span> CreatePayment (PaymentRequest) <span class="kw">returns</span> (PaymentResponse);</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">rpc</span> GetPayment (PaymentId) <span class="kw">returns</span> (PaymentResponse);</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">rpc</span> RefundPayment (RefundRequest) <span class="kw">returns</span> (PaymentResponse);</span>
 <span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="kw">message</span> PaymentRequest {</span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> amount = <span class="dv">1</span>;</span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">string</span> currency = <span class="dv">2</span>;</span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">string</span> payment_method = <span class="dv">3</span>;</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> amount <span class="op">=</span> <span class="dv">1</span>;</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">string</span> currency <span class="op">=</span> <span class="dv">2</span>;</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">string</span> payment_method <span class="op">=</span> <span class="dv">3</span>;</span>
 <span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="kw">message</span> PaymentId {</span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>  <span class="dt">string</span> id = <span class="dv">1</span>;</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>  <span class="dt">string</span> id <span class="op">=</span> <span class="dv">1</span>;</span>
 <span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a><span class="kw">message</span> RefundRequest {</span>
-<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>  <span class="dt">string</span> payment_id = <span class="dv">1</span>;</span>
-<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> amount = <span class="dv">2</span>;</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>  <span class="dt">string</span> payment_id <span class="op">=</span> <span class="dv">1</span>;</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> amount <span class="op">=</span> <span class="dv">2</span>;</span>
 <span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a><span class="kw">message</span> PaymentResponse {</span>
-<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>  <span class="dt">string</span> payment_id = <span class="dv">1</span>;</span>
-<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>  <span class="dt">string</span> status = <span class="dv">2</span>;</span>
-<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> amount = <span class="dv">3</span>;</span>
-<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>  <span class="dt">string</span> created_at = <span class="dv">4</span>;</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>  <span class="dt">string</span> payment_id <span class="op">=</span> <span class="dv">1</span>;</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>  <span class="dt">string</span> status <span class="op">=</span> <span class="dv">2</span>;</span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> amount <span class="op">=</span> <span class="dv">3</span>;</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>  <span class="dt">string</span> created_at <span class="op">=</span> <span class="dv">4</span>;</span>
 <span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">extracted_interface</span><span class="kw">:</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">id</span><span class="kw">:</span><span class="at"> interface.payment_api</span></span>
@@ -955,8 +964,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">confidence</span><span class="kw">:</span><span class="at"> 0.85-0.98</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="event-interface-extraction" class="level2" data-number="14.3">
-<h2 data-number="14.3" class="anchored" data-anchor-id="event-interface-extraction"><span class="header-section-number">14.3</span> Event Interface Extraction</h2>
+<section id="event-interface-extraction" class="level2" data-number="15.3">
+<h2 data-number="15.3" class="anchored" data-anchor-id="event-interface-extraction"><span class="header-section-number">15.3</span> Event Interface Extraction</h2>
 <p>Many modern systems rely on asynchronous communication through event streams or messaging infrastructure. Event interfaces expose the system through <strong>topics, queues, or event schemas</strong> that allow components or external systems to publish and consume events.</p>
 <p><strong>Event interface signals:</strong></p>
 <p><strong>1. Message topic definitions:</strong></p>
@@ -1251,8 +1260,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">confidence</span><span class="kw">:</span><span class="at"> 0.80-0.92</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="cli-interface-extraction" class="level2" data-number="14.4">
-<h2 data-number="14.4" class="anchored" data-anchor-id="cli-interface-extraction"><span class="header-section-number">14.4</span> CLI Interface Extraction</h2>
+<section id="cli-interface-extraction" class="level2" data-number="15.4">
+<h2 data-number="15.4" class="anchored" data-anchor-id="cli-interface-extraction"><span class="header-section-number">15.4</span> CLI Interface Extraction</h2>
 <p>Command-line interfaces represent another common form of interaction surface. Many systems expose operational capabilities through command-line tools that orchestrate tasks, manage workflows, or interact with system services.</p>
 <p><strong>CLI interface signals:</strong></p>
 <p><strong>1. Command registration logic:</strong></p>
@@ -1573,8 +1582,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb32-30"><a href="#cb32-30" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">confidence</span><span class="kw">:</span><span class="at"> 0.80-0.90</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="contract-reconstruction" class="level2" data-number="14.5">
-<h2 data-number="14.5" class="anchored" data-anchor-id="contract-reconstruction"><span class="header-section-number">14.5</span> Contract Reconstruction</h2>
+<section id="contract-reconstruction" class="level2" data-number="15.5">
+<h2 data-number="15.5" class="anchored" data-anchor-id="contract-reconstruction"><span class="header-section-number">15.5</span> Contract Reconstruction</h2>
 <p>Interfaces alone describe interaction entrypoints. Contracts define the <strong>rules governing those interactions</strong>. Contract extraction attempts to reconstruct information such as request structures, response formats, validation rules, and error handling.</p>
 <p><strong>Contract extraction elements:</strong></p>
 <p><strong>1. Request and response structures:</strong></p>
@@ -1897,8 +1906,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">notes</span><span class="kw">:</span><span class="at"> </span><span class="st">"Contract inferred from code usage patterns"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="interface-graph-construction" class="level2" data-number="14.6">
-<h2 data-number="14.6" class="anchored" data-anchor-id="interface-graph-construction"><span class="header-section-number">14.6</span> Interface Graph Construction</h2>
+<section id="interface-graph-construction" class="level2" data-number="15.6">
+<h2 data-number="15.6" class="anchored" data-anchor-id="interface-graph-construction"><span class="header-section-number">15.6</span> Interface Graph Construction</h2>
 <p>Once interfaces and contracts are identified, extraction constructs the <strong>interface graph</strong>. The interface graph represents relationships between components and their interaction surfaces.</p>
 <p><strong>Interface graph structure:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb45"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">interface_graph</span><span class="kw">:</span></span>
@@ -2022,8 +2031,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb46-38"><a href="#cb46-38" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">consumers</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">notification_service</span><span class="kw">,</span><span class="at"> analytics_service</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="chapter-summary" class="level2" data-number="14.7">
-<h2 data-number="14.7" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">14.7</span> Chapter Summary</h2>
+<section id="chapter-summary" class="level2" data-number="15.7">
+<h2 data-number="15.7" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">15.7</span> Chapter Summary</h2>
 <ul>
 <li>Interfaces are well-defined interaction surfaces that specify how capabilities are accessed</li>
 <li>Interfaces define contracts between providers and consumers, including request formats, response structures, and protocols</li>
@@ -2037,9 +2046,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Interface graph analysis reveals external vs.&nbsp;internal interfaces, type distribution, component relationships, and critical interfaces</li>
 <li>Interfaces and contracts together represent the system’s communication layer</li>
 </ul>
+<section id="knowledge-to-retain" class="level3" data-number="15.7.1">
+<h3 data-number="15.7.1" class="anchored" data-anchor-id="knowledge-to-retain"><span class="header-section-number">15.7.1</span> Knowledge to Retain</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Core Concept</th>
+<th>Must Remember</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Four interface types</strong></td>
+<td><strong>API</strong> (synchronous request-response, HTTP/RPC), <strong>Event</strong> (async messaging, pub/sub), <strong>CLI</strong> (command-line, stdin/stdout), <strong>RPC</strong> (remote procedure call, binary protocols). Every system has at least one of these.</td>
+</tr>
+<tr class="even">
+<td><strong>Interface = Contract</strong></td>
+<td>An interface is not code — it is a <em>contract</em> defining request format, response structure, protocol, and error semantics. The contract, not the implementation, is what matters architecturally.</td>
+</tr>
+<tr class="odd">
+<td><strong>Extraction sources</strong></td>
+<td>API → route handlers, OpenAPI specs. Event → topic defs, consumer code. CLI → command registration, arg parsers. Each type requires different signal detection.</td>
+</tr>
+<tr class="even">
+<td><strong>Interface graph</strong></td>
+<td>The interface graph maps which components expose which interfaces and which interfaces consume which capabilities. This graph reveals the system’s <em>communication architecture</em>.</td>
+</tr>
+<tr class="odd">
+<td><strong>Partial contracts</strong></td>
+<td>Not all interfaces have complete contracts. When contracts are implicit (e.g., undocumented API endpoints), document what is known and flag gaps for review. A partial contract is acceptable; a guessed contract is not.</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Next Chapter</strong>: Chapter 13 introduces Data Model and Ownership Extraction—identifying persistent data structures, determining which components control them, and detecting potential consistency risks. This chapter covers ORM signals, migration files, storage type identification, and ownership inference.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -2446,12 +2492,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./ch-11-component-discovery.html" class="pagination-link" aria-label="Component Discovery">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Component Discovery</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Component Discovery</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./ch-13-data-model-ownership.html" class="pagination-link" aria-label="Data Model and Ownership Extraction">
-        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Data Model and Ownership Extraction</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Data Model and Ownership Extraction</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

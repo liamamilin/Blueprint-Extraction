@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>21&nbsp; Review Protocol (Human-in-the-Loop) – Blueprint_Extraction</title>
+<title>22&nbsp; Review Protocol (Human-in-the-Loop) – Blueprint Extraction</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -69,15 +72,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./ch-18-validation.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-27c261d06b905028a18691de25d09dde.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -118,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-18-validation.html">Part V — Validation, Review, and Quality Gates</a></li><li class="breadcrumb-item"><a href="./ch-19-review-protocol.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Review Protocol (Human-in-the-Loop)</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-18-validation.html">Part V — Validation, Review, and Quality Gates</a></li><li class="breadcrumb-item"><a href="./ch-19-review-protocol.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Review Protocol (Human-in-the-Loop)</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -131,11 +133,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Blueprint_Extraction</a> 
+      <a href="./">Blueprint Extraction</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -242,6 +242,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Confidence Semantics</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-09.5-system-representation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">System Representation: Making Systems Observable</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -256,31 +262,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-10-mapping-principles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Mapping Principles and Canonicalization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Mapping Principles and Canonicalization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-11-component-discovery.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Component Discovery</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Component Discovery</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-12-interface-contract-extraction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Interface and Contract Extraction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Interface and Contract Extraction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-13-data-model-ownership.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Data Model and Ownership Extraction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Data Model and Ownership Extraction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-14-workflow-control-plane.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Workflow and Control-Plane Extraction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Workflow and Control-Plane Extraction</span></span></a>
   </div>
 </li>
       </ul>
@@ -297,19 +303,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-15-kernel-slot-filling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Kernel Slot Filling Rules</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Kernel Slot Filling Rules</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-16-views-generation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Views Generation (Projections)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Views Generation (Projections)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-17-blueprint-pack-output.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Blueprint Pack Output Standard</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Blueprint Pack Output Standard</span></span></a>
   </div>
 </li>
       </ul>
@@ -326,19 +332,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-18-validation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Validation: Schema and Semantics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Validation: Schema and Semantics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-19-review-protocol.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Review Protocol (Human-in-the-Loop)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Review Protocol (Human-in-the-Loop)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-20-quality-metrics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Extraction Quality Metrics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Extraction Quality Metrics</span></span></a>
   </div>
 </li>
       </ul>
@@ -355,19 +361,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-21-mining-pipeline-operations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Mining Pipeline Operations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Mining Pipeline Operations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-22-normalization-deduplication.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Normalization and Deduplication</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Normalization and Deduplication</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-23-blueprints-to-patterns.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">From Blueprints to Patterns</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">From Blueprints to Patterns</span></span></a>
   </div>
 </li>
       </ul>
@@ -384,7 +390,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-24-blueprint-extraction-spec.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Blueprint Extraction Specification v0.1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Blueprint Extraction Specification v0.1</span></span></a>
   </div>
 </li>
       </ul>
@@ -401,43 +407,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-a-signal-taxonomy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Appendix A — Signal Taxonomy v0.1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Appendix A — Signal Taxonomy v0.1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-b-evidence-schema.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Appendix B — Evidence Object Schema v0.1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix B — Evidence Object Schema v0.1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-c-confidence-semantics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix C — Confidence Semantics Spec v0.1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Appendix C — Confidence Semantics Spec v0.1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-d-mapping-template.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Appendix D — Ontology Mapping Rules Template</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Appendix D — Ontology Mapping Rules Template</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-e-report-template.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Appendix E — Extraction Report Template</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Appendix E — Extraction Report Template</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-f-extraction-cases.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Appendix F — Five Complete Extraction Cases (with Evidence Trace)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Appendix F — Five Complete Extraction Cases (with Evidence Trace)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-g-eml-scorecard.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Appendix G — Extraction Maturity Level (EML) Score Sheet</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Appendix G — Extraction Maturity Level (EML) Score Sheet</span></span></a>
   </div>
 </li>
       </ul>
@@ -445,7 +451,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -464,22 +470,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#why-human-review-matters" id="toc-why-human-review-matters" class="nav-link active" data-scroll-target="#why-human-review-matters"><span class="header-section-number">21.1</span> Why Human Review Matters</a></li>
-  <li><a href="#slot-oriented-review-checklist" id="toc-slot-oriented-review-checklist" class="nav-link" data-scroll-target="#slot-oriented-review-checklist"><span class="header-section-number">21.2</span> Slot-Oriented Review Checklist</a></li>
-  <li><a href="#priority-based-review" id="toc-priority-based-review" class="nav-link" data-scroll-target="#priority-based-review"><span class="header-section-number">21.3</span> Priority-Based Review</a></li>
-  <li><a href="#decision-logging" id="toc-decision-logging" class="nav-link" data-scroll-target="#decision-logging"><span class="header-section-number">21.4</span> Decision Logging</a></li>
-  <li><a href="#blueprint-maturity-gates" id="toc-blueprint-maturity-gates" class="nav-link" data-scroll-target="#blueprint-maturity-gates"><span class="header-section-number">21.5</span> Blueprint Maturity Gates</a></li>
-  <li><a href="#human-review-as-part-of-the-pipeline" id="toc-human-review-as-part-of-the-pipeline" class="nav-link" data-scroll-target="#human-review-as-part-of-the-pipeline"><span class="header-section-number">21.6</span> Human Review as Part of the Pipeline</a></li>
-  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">21.7</span> Chapter Summary</a></li>
+  <li><a href="#why-human-review-matters" id="toc-why-human-review-matters" class="nav-link active" data-scroll-target="#why-human-review-matters"><span class="header-section-number">22.1</span> Why Human Review Matters</a></li>
+  <li><a href="#slot-oriented-review-checklist" id="toc-slot-oriented-review-checklist" class="nav-link" data-scroll-target="#slot-oriented-review-checklist"><span class="header-section-number">22.2</span> Slot-Oriented Review Checklist</a></li>
+  <li><a href="#priority-based-review" id="toc-priority-based-review" class="nav-link" data-scroll-target="#priority-based-review"><span class="header-section-number">22.3</span> Priority-Based Review</a></li>
+  <li><a href="#decision-logging" id="toc-decision-logging" class="nav-link" data-scroll-target="#decision-logging"><span class="header-section-number">22.4</span> Decision Logging</a></li>
+  <li><a href="#blueprint-maturity-gates" id="toc-blueprint-maturity-gates" class="nav-link" data-scroll-target="#blueprint-maturity-gates"><span class="header-section-number">22.5</span> Blueprint Maturity Gates</a></li>
+  <li><a href="#human-review-as-part-of-the-pipeline" id="toc-human-review-as-part-of-the-pipeline" class="nav-link" data-scroll-target="#human-review-as-part-of-the-pipeline"><span class="header-section-number">22.6</span> Human Review as Part of the Pipeline</a></li>
+  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">22.7</span> Chapter Summary</a>
+  <ul class="collapse">
+  <li><a href="#knowledge-to-retain" id="toc-knowledge-to-retain" class="nav-link" data-scroll-target="#knowledge-to-retain"><span class="header-section-number">22.7.1</span> Knowledge to Retain</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-18-validation.html">Part V — Validation, Review, and Quality Gates</a></li><li class="breadcrumb-item"><a href="./ch-19-review-protocol.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Review Protocol (Human-in-the-Loop)</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-18-validation.html">Part V — Validation, Review, and Quality Gates</a></li><li class="breadcrumb-item"><a href="./ch-19-review-protocol.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Review Protocol (Human-in-the-Loop)</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Review Protocol (Human-in-the-Loop)</span></h1>
+<h1 class="title"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Review Protocol (Human-in-the-Loop)</span></h1>
 </div>
 
 
@@ -500,8 +509,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The review protocol defines how extracted blueprints are examined, corrected, and approved before they become part of a blueprint repository. Rather than treating review as an informal step, the protocol formalizes: what must be reviewed, how review is performed, how decisions are recorded, and when a blueprint becomes usable.</p>
 <p>Review integrates human judgment into the extraction pipeline without abandoning automation. Automation performs signal detection, evidence aggregation, and structural reconstruction. Human reviewers validate interpretations, resolve ambiguities, and refine architectural representations.</p>
 <hr>
-<section id="why-human-review-matters" class="level2" data-number="21.1">
-<h2 data-number="21.1" class="anchored" data-anchor-id="why-human-review-matters"><span class="header-section-number">21.1</span> Why Human Review Matters</h2>
+<section id="why-human-review-matters" class="level2" data-number="22.1">
+<h2 data-number="22.1" class="anchored" data-anchor-id="why-human-review-matters"><span class="header-section-number">22.1</span> Why Human Review Matters</h2>
 <p>Automated extraction is powerful but has inherent limitations. Human review addresses these limitations by bringing contextual understanding, domain expertise, and architectural judgment to the extraction process.</p>
 <p><strong>Automated extraction limitations:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">automated_limitations</span><span class="kw">:</span></span>
@@ -572,8 +581,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">"Best of both worlds"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="slot-oriented-review-checklist" class="level2" data-number="21.2">
-<h2 data-number="21.2" class="anchored" data-anchor-id="slot-oriented-review-checklist"><span class="header-section-number">21.2</span> Slot-Oriented Review Checklist</h2>
+<section id="slot-oriented-review-checklist" class="level2" data-number="22.2">
+<h2 data-number="22.2" class="anchored" data-anchor-id="slot-oriented-review-checklist"><span class="header-section-number">22.2</span> Slot-Oriented Review Checklist</h2>
 <p>Review is organized according to the <strong>Blueprint Kernel slots</strong>. This slot-oriented structure allows reviewers to inspect architectural elements systematically rather than scanning the entire blueprint in an unstructured way.</p>
 <p><strong>Review checklist structure:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">review_checklist</span><span class="kw">:</span></span>
@@ -818,8 +827,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">control_plane_ownership_is_correct</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="priority-based-review" class="level2" data-number="21.3">
-<h2 data-number="21.3" class="anchored" data-anchor-id="priority-based-review"><span class="header-section-number">21.3</span> Priority-Based Review</h2>
+<section id="priority-based-review" class="level2" data-number="22.3">
+<h2 data-number="22.3" class="anchored" data-anchor-id="priority-based-review"><span class="header-section-number">22.3</span> Priority-Based Review</h2>
 <p>In large-scale extraction pipelines, not every field requires the same level of review. The review protocol therefore prioritizes fields according to <strong>confidence and architectural impact</strong>. This ensures that human attention is focused where it matters most.</p>
 <p><strong>Priority matrix:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">priority_matrix</span><span class="kw">:</span></span>
@@ -965,8 +974,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">"Scalable to large blueprint datasets"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="decision-logging" class="level2" data-number="21.4">
-<h2 data-number="21.4" class="anchored" data-anchor-id="decision-logging"><span class="header-section-number">21.4</span> Decision Logging</h2>
+<section id="decision-logging" class="level2" data-number="22.4">
+<h2 data-number="22.4" class="anchored" data-anchor-id="decision-logging"><span class="header-section-number">22.4</span> Decision Logging</h2>
 <p>Every significant modification made during review should be recorded. The review protocol therefore requires maintaining a <strong>decision log</strong>, typically expressed in the form of architecture decision records (ADR).</p>
 <p><strong>ADR structure:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">adr_structure</span><span class="kw">:</span></span>
@@ -1104,8 +1113,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">impact</span><span class="kw">:</span><span class="at"> </span><span class="st">"Required for some domains"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="blueprint-maturity-gates" class="level2" data-number="21.5">
-<h2 data-number="21.5" class="anchored" data-anchor-id="blueprint-maturity-gates"><span class="header-section-number">21.5</span> Blueprint Maturity Gates</h2>
+<section id="blueprint-maturity-gates" class="level2" data-number="22.5">
+<h2 data-number="22.5" class="anchored" data-anchor-id="blueprint-maturity-gates"><span class="header-section-number">22.5</span> Blueprint Maturity Gates</h2>
 <p>After review, blueprints progress through a series of <strong>maturity states</strong>. These states define the level of reliability associated with the extracted architecture. Maturity gates provide governance for blueprint repositories, ensuring that high-quality architectural representations can be distinguished from preliminary extraction results.</p>
 <p><strong>Maturity state definitions:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">maturity_states</span><span class="kw">:</span></span>
@@ -1237,8 +1246,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb19-50"><a href="#cb19-50" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">"Plan for comprehensive review to reach reference level"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="human-review-as-part-of-the-pipeline" class="level2" data-number="21.6">
-<h2 data-number="21.6" class="anchored" data-anchor-id="human-review-as-part-of-the-pipeline"><span class="header-section-number">21.6</span> Human Review as Part of the Pipeline</h2>
+<section id="human-review-as-part-of-the-pipeline" class="level2" data-number="22.6">
+<h2 data-number="22.6" class="anchored" data-anchor-id="human-review-as-part-of-the-pipeline"><span class="header-section-number">22.6</span> Human Review as Part of the Pipeline</h2>
 <p>The review protocol integrates human judgment into the extraction pipeline without abandoning automation. This hybrid approach preserves both <strong>scalability and architectural accuracy</strong>.</p>
 <p><strong>Pipeline integration:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pipeline_integration</span><span class="kw">:</span></span>
@@ -1326,8 +1335,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">outcome</span><span class="kw">:</span><span class="at"> </span><span class="st">"Trusted architectural knowledge"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="chapter-summary" class="level2" data-number="21.7">
-<h2 data-number="21.7" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">21.7</span> Chapter Summary</h2>
+<section id="chapter-summary" class="level2" data-number="22.7">
+<h2 data-number="22.7" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">22.7</span> Chapter Summary</h2>
 <ul>
 <li>Human review is an explicit stage in extraction pipeline, not an optional add-on</li>
 <li>Review addresses automated extraction limitations: context, domain expertise, implicit conventions, edge cases, tradeoffs</li>
@@ -1345,9 +1354,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Review integrates human judgment with automation, preserving scalability and accuracy</li>
 <li>Hybrid approach produces trusted, high-quality architectural knowledge</li>
 </ul>
+<section id="knowledge-to-retain" class="level3" data-number="22.7.1">
+<h3 data-number="22.7.1" class="anchored" data-anchor-id="knowledge-to-retain"><span class="header-section-number">22.7.1</span> Knowledge to Retain</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Core Concept</th>
+<th>Must Remember</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Human review is mandatory</strong></td>
+<td>Human review is an <em>explicit, non-optional pipeline stage</em>. Automation handles signals, evidence, and structural reconstruction — but humans validate interpretations, resolve ambiguities, and refine accuracy. The pipeline is human-in-the-loop by design.</td>
+</tr>
+<tr class="even">
+<td><strong>Priority matrix for efficiency</strong></td>
+<td>Review effort is allocated by <code>Confidence × Impact = Priority</code>. Low-confidence + Critical-impact = <strong>MANDATORY</strong> review. High-confidence + Non-critical = spot check only. This matrix ensures human attention goes where it matters most.</td>
+</tr>
+<tr class="odd">
+<td><strong>ADR format for decisions</strong></td>
+<td>Every review decision is recorded as an <strong>Architecture Decision Record</strong> with: context (what was reviewed), decision (what was decided), rationale (why), consequences (impact). ADRs provide transparency, traceability, and a learning history.</td>
+</tr>
+<tr class="even">
+<td><strong>Three maturity gates</strong></td>
+<td><strong>Draft</strong> (passed validation, not reviewed — for internal use, confidence ≥ 0.0). <strong>Usable</strong> (passed initial review — for analysis, confidence &gt; 0.70). <strong>Reference</strong> (fully reviewed and verified — for pattern libraries, confidence &gt; 0.85). A blueprint progresses through these gates.</td>
+</tr>
+<tr class="odd">
+<td><strong>Slot-oriented checklist</strong></td>
+<td>Review follows a systematic checklist covering all six kernel slots: Goal (does it match the real purpose?), Capabilities (complete and accurate?), Components (correct boundaries?), Interfaces (all interaction surfaces captured?), Data (ownership correct?), Workflows (coordination correct?). Leave no slot unchecked.</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Next Chapter</strong>: Chapter 20 introduces Extraction Quality Metrics—the framework for evaluating extraction quality through coverage, correctness, consistency, evidence ratio, and Extraction Maturity Levels (EML). This chapter provides measurable indicators for tracking extraction effectiveness and blueprint dataset quality.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1754,12 +1800,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./ch-18-validation.html" class="pagination-link" aria-label="Validation: Schema and Semantics">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Validation: Schema and Semantics</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Validation: Schema and Semantics</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./ch-20-quality-metrics.html" class="pagination-link" aria-label="Extraction Quality Metrics">
-        <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Extraction Quality Metrics</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Extraction Quality Metrics</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

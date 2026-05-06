@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>22&nbsp; Extraction Quality Metrics – Blueprint_Extraction</title>
+<title>23&nbsp; Extraction Quality Metrics – Blueprint Extraction</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -69,15 +72,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./ch-19-review-protocol.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-27c261d06b905028a18691de25d09dde.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -118,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-18-validation.html">Part V — Validation, Review, and Quality Gates</a></li><li class="breadcrumb-item"><a href="./ch-20-quality-metrics.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Extraction Quality Metrics</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-18-validation.html">Part V — Validation, Review, and Quality Gates</a></li><li class="breadcrumb-item"><a href="./ch-20-quality-metrics.html"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Extraction Quality Metrics</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -131,11 +133,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Blueprint_Extraction</a> 
+      <a href="./">Blueprint Extraction</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -242,6 +242,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Confidence Semantics</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-09.5-system-representation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">System Representation: Making Systems Observable</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -256,31 +262,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-10-mapping-principles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Mapping Principles and Canonicalization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Mapping Principles and Canonicalization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-11-component-discovery.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Component Discovery</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Component Discovery</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-12-interface-contract-extraction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Interface and Contract Extraction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Interface and Contract Extraction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-13-data-model-ownership.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Data Model and Ownership Extraction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Data Model and Ownership Extraction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-14-workflow-control-plane.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Workflow and Control-Plane Extraction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Workflow and Control-Plane Extraction</span></span></a>
   </div>
 </li>
       </ul>
@@ -297,19 +303,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-15-kernel-slot-filling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Kernel Slot Filling Rules</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Kernel Slot Filling Rules</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-16-views-generation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Views Generation (Projections)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Views Generation (Projections)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-17-blueprint-pack-output.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Blueprint Pack Output Standard</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Blueprint Pack Output Standard</span></span></a>
   </div>
 </li>
       </ul>
@@ -326,19 +332,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-18-validation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Validation: Schema and Semantics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Validation: Schema and Semantics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-19-review-protocol.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Review Protocol (Human-in-the-Loop)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Review Protocol (Human-in-the-Loop)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-20-quality-metrics.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Extraction Quality Metrics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Extraction Quality Metrics</span></span></a>
   </div>
 </li>
       </ul>
@@ -355,19 +361,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-21-mining-pipeline-operations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Mining Pipeline Operations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Mining Pipeline Operations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-22-normalization-deduplication.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Normalization and Deduplication</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Normalization and Deduplication</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-23-blueprints-to-patterns.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">From Blueprints to Patterns</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">From Blueprints to Patterns</span></span></a>
   </div>
 </li>
       </ul>
@@ -384,7 +390,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-24-blueprint-extraction-spec.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Blueprint Extraction Specification v0.1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Blueprint Extraction Specification v0.1</span></span></a>
   </div>
 </li>
       </ul>
@@ -401,43 +407,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-a-signal-taxonomy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Appendix A — Signal Taxonomy v0.1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Appendix A — Signal Taxonomy v0.1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-b-evidence-schema.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Appendix B — Evidence Object Schema v0.1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix B — Evidence Object Schema v0.1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-c-confidence-semantics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix C — Confidence Semantics Spec v0.1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Appendix C — Confidence Semantics Spec v0.1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-d-mapping-template.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Appendix D — Ontology Mapping Rules Template</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Appendix D — Ontology Mapping Rules Template</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-e-report-template.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Appendix E — Extraction Report Template</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Appendix E — Extraction Report Template</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-f-extraction-cases.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Appendix F — Five Complete Extraction Cases (with Evidence Trace)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Appendix F — Five Complete Extraction Cases (with Evidence Trace)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-g-eml-scorecard.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Appendix G — Extraction Maturity Level (EML) Score Sheet</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Appendix G — Extraction Maturity Level (EML) Score Sheet</span></span></a>
   </div>
 </li>
       </ul>
@@ -445,7 +451,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -464,23 +470,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#coverage" id="toc-coverage" class="nav-link active" data-scroll-target="#coverage"><span class="header-section-number">22.1</span> Coverage</a></li>
-  <li><a href="#correctness" id="toc-correctness" class="nav-link" data-scroll-target="#correctness"><span class="header-section-number">22.2</span> Correctness</a></li>
-  <li><a href="#consistency" id="toc-consistency" class="nav-link" data-scroll-target="#consistency"><span class="header-section-number">22.3</span> Consistency</a></li>
-  <li><a href="#evidence-ratio" id="toc-evidence-ratio" class="nav-link" data-scroll-target="#evidence-ratio"><span class="header-section-number">22.4</span> Evidence Ratio</a></li>
-  <li><a href="#extraction-maturity-levels" id="toc-extraction-maturity-levels" class="nav-link" data-scroll-target="#extraction-maturity-levels"><span class="header-section-number">22.5</span> Extraction Maturity Levels</a></li>
-  <li><a href="#metrics-as-operational-feedback" id="toc-metrics-as-operational-feedback" class="nav-link" data-scroll-target="#metrics-as-operational-feedback"><span class="header-section-number">22.6</span> Metrics as Operational Feedback</a></li>
-  <li><a href="#dataset-level-quality-metrics" id="toc-dataset-level-quality-metrics" class="nav-link" data-scroll-target="#dataset-level-quality-metrics"><span class="header-section-number">22.7</span> Dataset-Level Quality Metrics</a></li>
-  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">22.8</span> Chapter Summary</a></li>
+  <li><a href="#coverage" id="toc-coverage" class="nav-link active" data-scroll-target="#coverage"><span class="header-section-number">23.1</span> Coverage</a></li>
+  <li><a href="#correctness" id="toc-correctness" class="nav-link" data-scroll-target="#correctness"><span class="header-section-number">23.2</span> Correctness</a></li>
+  <li><a href="#consistency" id="toc-consistency" class="nav-link" data-scroll-target="#consistency"><span class="header-section-number">23.3</span> Consistency</a></li>
+  <li><a href="#evidence-ratio" id="toc-evidence-ratio" class="nav-link" data-scroll-target="#evidence-ratio"><span class="header-section-number">23.4</span> Evidence Ratio</a></li>
+  <li><a href="#extraction-maturity-levels" id="toc-extraction-maturity-levels" class="nav-link" data-scroll-target="#extraction-maturity-levels"><span class="header-section-number">23.5</span> Extraction Maturity Levels</a></li>
+  <li><a href="#metrics-as-operational-feedback" id="toc-metrics-as-operational-feedback" class="nav-link" data-scroll-target="#metrics-as-operational-feedback"><span class="header-section-number">23.6</span> Metrics as Operational Feedback</a></li>
+  <li><a href="#dataset-level-quality-metrics" id="toc-dataset-level-quality-metrics" class="nav-link" data-scroll-target="#dataset-level-quality-metrics"><span class="header-section-number">23.7</span> Dataset-Level Quality Metrics</a></li>
+  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">23.8</span> Chapter Summary</a>
+  <ul class="collapse">
+  <li><a href="#knowledge-to-retain" id="toc-knowledge-to-retain" class="nav-link" data-scroll-target="#knowledge-to-retain"><span class="header-section-number">23.8.1</span> Knowledge to Retain</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-18-validation.html">Part V — Validation, Review, and Quality Gates</a></li><li class="breadcrumb-item"><a href="./ch-20-quality-metrics.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Extraction Quality Metrics</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-18-validation.html">Part V — Validation, Review, and Quality Gates</a></li><li class="breadcrumb-item"><a href="./ch-20-quality-metrics.html"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Extraction Quality Metrics</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Extraction Quality Metrics</span></h1>
+<h1 class="title"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Extraction Quality Metrics</span></h1>
 </div>
 
 
@@ -501,8 +510,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Quality metrics allow extraction pipelines to be monitored, compared, and improved over time. They also make it possible to assess the reliability of individual blueprints or entire blueprint datasets. This section defines several key metrics used to evaluate extraction quality.</p>
 <p>Quality metrics serve multiple purposes: they enable systematic quality assessment, support pipeline optimization, provide dataset-level insights, and establish standards for extraction excellence.</p>
 <hr>
-<section id="coverage" class="level2" data-number="22.1">
-<h2 data-number="22.1" class="anchored" data-anchor-id="coverage"><span class="header-section-number">22.1</span> Coverage</h2>
+<section id="coverage" class="level2" data-number="23.1">
+<h2 data-number="23.1" class="anchored" data-anchor-id="coverage"><span class="header-section-number">23.1</span> Coverage</h2>
 <p>Coverage measures how much of the system architecture has been successfully reconstructed. Because blueprint extraction targets the Blueprint Kernel, coverage is typically evaluated at the level of kernel slots.</p>
 <p><strong>Coverage calculation by kernel slot:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coverage_by_slot</span><span class="kw">:</span></span>
@@ -648,8 +657,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">action</span><span class="kw">:</span><span class="at"> </span><span class="st">"Requires investigation"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="correctness" class="level2" data-number="22.2">
-<h2 data-number="22.2" class="anchored" data-anchor-id="correctness"><span class="header-section-number">22.2</span> Correctness</h2>
+<section id="correctness" class="level2" data-number="23.2">
+<h2 data-number="23.2" class="anchored" data-anchor-id="correctness"><span class="header-section-number">23.2</span> Correctness</h2>
 <p>Correctness measures whether the extracted architecture accurately reflects the system. Because correctness cannot always be determined automatically, evaluation typically relies on <strong>sampling-based audits</strong>.</p>
 <p><strong>Correctness audit methodology:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">correctness_audit</span><span class="kw">:</span></span>
@@ -814,8 +823,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Fix relationship inference"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="consistency" class="level2" data-number="22.3">
-<h2 data-number="22.3" class="anchored" data-anchor-id="consistency"><span class="header-section-number">22.3</span> Consistency</h2>
+<section id="consistency" class="level2" data-number="23.3">
+<h2 data-number="23.3" class="anchored" data-anchor-id="consistency"><span class="header-section-number">23.3</span> Consistency</h2>
 <p>Consistency measures whether the extracted blueprint is internally coherent. Even if individual elements are correct, inconsistencies between architectural slots may indicate structural errors.</p>
 <p><strong>Consistency checks:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">consistency_checks</span><span class="kw">:</span></span>
@@ -972,8 +981,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Structure requires major revision"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="evidence-ratio" class="level2" data-number="22.4">
-<h2 data-number="22.4" class="anchored" data-anchor-id="evidence-ratio"><span class="header-section-number">22.4</span> Evidence Ratio</h2>
+<section id="evidence-ratio" class="level2" data-number="23.4">
+<h2 data-number="23.4" class="anchored" data-anchor-id="evidence-ratio"><span class="header-section-number">23.4</span> Evidence Ratio</h2>
 <p>The <strong>evidence ratio</strong> measures the proportion of blueprint elements that are supported by traceable repository evidence. This metric captures the degree to which architectural interpretations can be traced back to concrete artifacts.</p>
 <p><strong>Evidence ratio calculation:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">evidence_ratio</span><span class="kw">:</span></span>
@@ -1085,8 +1094,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">interpretation</span><span class="kw">:</span><span class="at"> </span><span class="st">"Conflicts preserved for review, not auto-resolved"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="extraction-maturity-levels" class="level2" data-number="22.5">
-<h2 data-number="22.5" class="anchored" data-anchor-id="extraction-maturity-levels"><span class="header-section-number">22.5</span> Extraction Maturity Levels</h2>
+<section id="extraction-maturity-levels" class="level2" data-number="23.5">
+<h2 data-number="23.5" class="anchored" data-anchor-id="extraction-maturity-levels"><span class="header-section-number">23.5</span> Extraction Maturity Levels</h2>
 <p>To summarize extraction quality in an operationally meaningful way, this framework defines <strong>Extraction Maturity Levels (EML)</strong>. These levels represent increasing levels of extraction reliability and completeness.</p>
 <p><strong>EML definitions:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">extraction_maturity_levels</span><span class="kw">:</span></span>
@@ -1269,8 +1278,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb15-40"><a href="#cb15-40" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">action</span><span class="kw">:</span><span class="at"> </span><span class="st">"Blueprint ready for production use"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="metrics-as-operational-feedback" class="level2" data-number="22.6">
-<h2 data-number="22.6" class="anchored" data-anchor-id="metrics-as-operational-feedback"><span class="header-section-number">22.6</span> Metrics as Operational Feedback</h2>
+<section id="metrics-as-operational-feedback" class="level2" data-number="23.6">
+<h2 data-number="23.6" class="anchored" data-anchor-id="metrics-as-operational-feedback"><span class="header-section-number">23.6</span> Metrics as Operational Feedback</h2>
 <p>Extraction quality metrics serve as feedback mechanisms for the blueprint mining process. Coverage highlights missing architectural reconstruction. Correctness audits identify mapping errors. Consistency checks reveal structural anomalies. Evidence ratios measure traceability. Extraction maturity levels summarize overall reliability.</p>
 <p><strong>Metrics as feedback mechanisms:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metrics_as_feedback</span><span class="kw">:</span></span>
@@ -1367,8 +1376,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb17-40"><a href="#cb17-40" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"Ready for production use"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="dataset-level-quality-metrics" class="level2" data-number="22.7">
-<h2 data-number="22.7" class="anchored" data-anchor-id="dataset-level-quality-metrics"><span class="header-section-number">22.7</span> Dataset-Level Quality Metrics</h2>
+<section id="dataset-level-quality-metrics" class="level2" data-number="23.7">
+<h2 data-number="23.7" class="anchored" data-anchor-id="dataset-level-quality-metrics"><span class="header-section-number">23.7</span> Dataset-Level Quality Metrics</h2>
 <p>Confidence annotations also support <strong>dataset-level quality analysis</strong>. Metrics derived from confidence values provide insights into overall extraction quality and identify areas where extraction methods require improvement.</p>
 <p><strong>Dataset metrics example:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dataset_quality_metrics</span><span class="kw">:</span></span>
@@ -1479,8 +1488,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">EML_4</span><span class="kw">:</span><span class="at"> 10%"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="chapter-summary" class="level2" data-number="22.8">
-<h2 data-number="22.8" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">22.8</span> Chapter Summary</h2>
+<section id="chapter-summary" class="level2" data-number="23.8">
+<h2 data-number="23.8" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">23.8</span> Chapter Summary</h2>
 <ul>
 <li>Quality metrics enable systematic evaluation of extraction results</li>
 <li>Coverage measures how much of system architecture has been reconstructed, typically evaluated at kernel slot level</li>
@@ -1495,9 +1504,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Quality targets define benchmarks for production, high-quality, and acceptable blueprint datasets</li>
 <li>Together, these metrics transform extraction into a measurable engineering discipline enabling continuous improvement</li>
 </ul>
+<section id="knowledge-to-retain" class="level3" data-number="23.8.1">
+<h3 data-number="23.8.1" class="anchored" data-anchor-id="knowledge-to-retain"><span class="header-section-number">23.8.1</span> Knowledge to Retain</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Core Concept</th>
+<th>Must Remember</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Four primary metrics</strong></td>
+<td>(1) <strong>Coverage</strong> — how much of the architecture was reconstructed (per kernel slot). (2) <strong>Correctness</strong> — accuracy measured by sampling-based human audits. (3) <strong>Consistency</strong> — internal coherence via triangular checks. (4) <strong>Evidence Ratio</strong> — proportion of elements with traceable evidence. Track all four — each reveals a different quality dimension.</td>
+</tr>
+<tr class="even">
+<td><strong>EML is the single quality label</strong></td>
+<td>Extraction Maturity Levels 0-4: <strong>EML 0</strong> (no extraction) → <strong>EML 1</strong> (partial signals) → <strong>EML 2</strong> (partial kernel) → <strong>EML 3</strong> (evidence-backed draft — usable) → <strong>EML 4</strong> (reviewed and validated — reference). A single EML conveys more quality information than any individual metric.</td>
+</tr>
+<tr class="odd">
+<td><strong>Coverage by slot</strong></td>
+<td>Coverage varies by slot complexity: <strong>Data</strong> (typically highest — explicit schemas), <strong>Capabilities/Interfaces</strong> (medium — observable from code), <strong>Goal/Components/Workflows</strong> (lowest — require inference and synthesis). Track coverage per slot to identify extraction bottlenecks.</td>
+</tr>
+<tr class="even">
+<td><strong>Correctness requires human audit</strong></td>
+<td>Correctness cannot be measured automatically. It requires <strong>sampling-based human review</strong>: select a representative sample of blueprint elements, verify them against the source repository, and extrapolate the error rate. Target: correctness &gt; 0.80 for production use.</td>
+</tr>
+<tr class="odd">
+<td><strong>Dataset quality targets</strong></td>
+<td><strong>Acceptable</strong>: Coverage &gt; 50%, Avg Confidence &gt; 0.65, Evidence Ratio &gt; 0.75. <strong>Production</strong>: Coverage &gt; 60%, Avg Confidence &gt; 0.75, Evidence Ratio &gt; 0.85, EML 3+ for 80%. <strong>High Quality</strong>: Coverage &gt; 70%, Avg Confidence &gt; 0.85, Evidence Ratio &gt; 0.95, EML 4 for 60%. Know which target your dataset needs to meet.</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Next Chapter</strong>: Chapter 21 begins Part VI by introducing Mining Pipeline Operations—the framework for operating blueprint extraction at scale. This chapter covers repository discovery and filtering, cheap pass and deep pass strategies for cost control, and incremental extraction for version-aware blueprint evolution.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1904,12 +1950,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./ch-19-review-protocol.html" class="pagination-link" aria-label="Review Protocol (Human-in-the-Loop)">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Review Protocol (Human-in-the-Loop)</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Review Protocol (Human-in-the-Loop)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./ch-21-mining-pipeline-operations.html" class="pagination-link" aria-label="Mining Pipeline Operations">
-        <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Mining Pipeline Operations</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Mining Pipeline Operations</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

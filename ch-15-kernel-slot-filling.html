@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>17&nbsp; Kernel Slot Filling Rules – Blueprint_Extraction</title>
+<title>18&nbsp; Kernel Slot Filling Rules – Blueprint Extraction</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -69,15 +72,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./ch-14-workflow-control-plane.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-27c261d06b905028a18691de25d09dde.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -118,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-15-kernel-slot-filling.html">Part IV — Blueprint Draft Generation</a></li><li class="breadcrumb-item"><a href="./ch-15-kernel-slot-filling.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Kernel Slot Filling Rules</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-15-kernel-slot-filling.html">Part IV — Blueprint Draft Generation</a></li><li class="breadcrumb-item"><a href="./ch-15-kernel-slot-filling.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Kernel Slot Filling Rules</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -131,11 +133,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Blueprint_Extraction</a> 
+      <a href="./">Blueprint Extraction</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -242,6 +242,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Confidence Semantics</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-09.5-system-representation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">System Representation: Making Systems Observable</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -256,31 +262,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-10-mapping-principles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Mapping Principles and Canonicalization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Mapping Principles and Canonicalization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-11-component-discovery.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Component Discovery</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Component Discovery</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-12-interface-contract-extraction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Interface and Contract Extraction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Interface and Contract Extraction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-13-data-model-ownership.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Data Model and Ownership Extraction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Data Model and Ownership Extraction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-14-workflow-control-plane.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Workflow and Control-Plane Extraction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Workflow and Control-Plane Extraction</span></span></a>
   </div>
 </li>
       </ul>
@@ -297,19 +303,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-15-kernel-slot-filling.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Kernel Slot Filling Rules</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Kernel Slot Filling Rules</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-16-views-generation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Views Generation (Projections)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Views Generation (Projections)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-17-blueprint-pack-output.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Blueprint Pack Output Standard</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Blueprint Pack Output Standard</span></span></a>
   </div>
 </li>
       </ul>
@@ -326,19 +332,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-18-validation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Validation: Schema and Semantics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Validation: Schema and Semantics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-19-review-protocol.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Review Protocol (Human-in-the-Loop)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Review Protocol (Human-in-the-Loop)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-20-quality-metrics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Extraction Quality Metrics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Extraction Quality Metrics</span></span></a>
   </div>
 </li>
       </ul>
@@ -355,19 +361,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-21-mining-pipeline-operations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Mining Pipeline Operations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Mining Pipeline Operations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-22-normalization-deduplication.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Normalization and Deduplication</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Normalization and Deduplication</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-23-blueprints-to-patterns.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">From Blueprints to Patterns</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">From Blueprints to Patterns</span></span></a>
   </div>
 </li>
       </ul>
@@ -384,7 +390,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-24-blueprint-extraction-spec.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Blueprint Extraction Specification v0.1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Blueprint Extraction Specification v0.1</span></span></a>
   </div>
 </li>
       </ul>
@@ -401,43 +407,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-a-signal-taxonomy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Appendix A — Signal Taxonomy v0.1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Appendix A — Signal Taxonomy v0.1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-b-evidence-schema.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Appendix B — Evidence Object Schema v0.1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix B — Evidence Object Schema v0.1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-c-confidence-semantics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix C — Confidence Semantics Spec v0.1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Appendix C — Confidence Semantics Spec v0.1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-d-mapping-template.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Appendix D — Ontology Mapping Rules Template</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Appendix D — Ontology Mapping Rules Template</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-e-report-template.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Appendix E — Extraction Report Template</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Appendix E — Extraction Report Template</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-f-extraction-cases.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Appendix F — Five Complete Extraction Cases (with Evidence Trace)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Appendix F — Five Complete Extraction Cases (with Evidence Trace)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-g-eml-scorecard.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Appendix G — Extraction Maturity Level (EML) Score Sheet</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Appendix G — Extraction Maturity Level (EML) Score Sheet</span></span></a>
   </div>
 </li>
       </ul>
@@ -445,7 +451,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -464,21 +470,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-six-core-kernel-slots" id="toc-the-six-core-kernel-slots" class="nav-link active" data-scroll-target="#the-six-core-kernel-slots"><span class="header-section-number">17.1</span> The Six Core Kernel Slots</a></li>
-  <li><a href="#evidence-requirements-for-slot-population" id="toc-evidence-requirements-for-slot-population" class="nav-link" data-scroll-target="#evidence-requirements-for-slot-population"><span class="header-section-number">17.2</span> Evidence Requirements for Slot Population</a></li>
-  <li><a href="#optional-constraint-slot" id="toc-optional-constraint-slot" class="nav-link" data-scroll-target="#optional-constraint-slot"><span class="header-section-number">17.3</span> Optional Constraint Slot</a></li>
-  <li><a href="#triangular-consistency-checks" id="toc-triangular-consistency-checks" class="nav-link" data-scroll-target="#triangular-consistency-checks"><span class="header-section-number">17.4</span> Triangular Consistency Checks</a></li>
-  <li><a href="#kernel-completion" id="toc-kernel-completion" class="nav-link" data-scroll-target="#kernel-completion"><span class="header-section-number">17.5</span> Kernel Completion</a></li>
-  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">17.6</span> Chapter Summary</a></li>
+  <li><a href="#the-six-core-kernel-slots" id="toc-the-six-core-kernel-slots" class="nav-link active" data-scroll-target="#the-six-core-kernel-slots"><span class="header-section-number">18.1</span> The Six Core Kernel Slots</a></li>
+  <li><a href="#evidence-requirements-for-slot-population" id="toc-evidence-requirements-for-slot-population" class="nav-link" data-scroll-target="#evidence-requirements-for-slot-population"><span class="header-section-number">18.2</span> Evidence Requirements for Slot Population</a></li>
+  <li><a href="#optional-constraint-slot" id="toc-optional-constraint-slot" class="nav-link" data-scroll-target="#optional-constraint-slot"><span class="header-section-number">18.3</span> Optional Constraint Slot</a></li>
+  <li><a href="#triangular-consistency-checks" id="toc-triangular-consistency-checks" class="nav-link" data-scroll-target="#triangular-consistency-checks"><span class="header-section-number">18.4</span> Triangular Consistency Checks</a></li>
+  <li><a href="#kernel-completion" id="toc-kernel-completion" class="nav-link" data-scroll-target="#kernel-completion"><span class="header-section-number">18.5</span> Kernel Completion</a></li>
+  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">18.6</span> Chapter Summary</a>
+  <ul class="collapse">
+  <li><a href="#knowledge-to-retain" id="toc-knowledge-to-retain" class="nav-link" data-scroll-target="#knowledge-to-retain"><span class="header-section-number">18.6.1</span> Knowledge to Retain</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-15-kernel-slot-filling.html">Part IV — Blueprint Draft Generation</a></li><li class="breadcrumb-item"><a href="./ch-15-kernel-slot-filling.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Kernel Slot Filling Rules</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-15-kernel-slot-filling.html">Part IV — Blueprint Draft Generation</a></li><li class="breadcrumb-item"><a href="./ch-15-kernel-slot-filling.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Kernel Slot Filling Rules</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Kernel Slot Filling Rules</span></h1>
+<h1 class="title"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Kernel Slot Filling Rules</span></h1>
 </div>
 
 
@@ -499,8 +508,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Kernel slot filling is therefore governed by <strong>explicit rules</strong> that determine how extracted information maps into the six canonical slots. These rules ensure that blueprint drafts remain structurally coherent, evidence-backed, and comparable across repositories.</p>
 <p>The kernel represents the <strong>canonical architecture representation</strong> from which different blueprint views can be generated. Kernel slot filling is therefore a critical discipline that transforms extracted entities into a coherent architectural skeleton.</p>
 <hr>
-<section id="the-six-core-kernel-slots" class="level2" data-number="17.1">
-<h2 data-number="17.1" class="anchored" data-anchor-id="the-six-core-kernel-slots"><span class="header-section-number">17.1</span> The Six Core Kernel Slots</h2>
+<section id="the-six-core-kernel-slots" class="level2" data-number="18.1">
+<h2 data-number="18.1" class="anchored" data-anchor-id="the-six-core-kernel-slots"><span class="header-section-number">18.1</span> The Six Core Kernel Slots</h2>
 <p>The kernel consists of six mandatory slots. Each slot captures a distinct dimension of system architecture. Understanding these slots is essential for effective kernel slot filling.</p>
 <p><strong>Kernel slot overview:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kernel_slots</span><span class="kw">:</span></span>
@@ -576,8 +585,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">strength</span><span class="kw">:</span><span class="at"> </span><span class="st">"Strong architectural indicator"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="evidence-requirements-for-slot-population" class="level2" data-number="17.2">
-<h2 data-number="17.2" class="anchored" data-anchor-id="evidence-requirements-for-slot-population"><span class="header-section-number">17.2</span> Evidence Requirements for Slot Population</h2>
+<section id="evidence-requirements-for-slot-population" class="level2" data-number="18.2">
+<h2 data-number="18.2" class="anchored" data-anchor-id="evidence-requirements-for-slot-population"><span class="header-section-number">18.2</span> Evidence Requirements for Slot Population</h2>
 <p>Each kernel slot must be populated using <strong>traceable evidence</strong>. This rule ensures that kernel structures remain evidence-driven rather than speculative.</p>
 <p><strong>Evidence requirements by slot:</strong></p>
 <p><strong>Goal slot evidence:</strong></p>
@@ -850,8 +859,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> Unknown status when evidence insufficient</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="optional-constraint-slot" class="level2" data-number="17.3">
-<h2 data-number="17.3" class="anchored" data-anchor-id="optional-constraint-slot"><span class="header-section-number">17.3</span> Optional Constraint Slot</h2>
+<section id="optional-constraint-slot" class="level2" data-number="18.3">
+<h2 data-number="18.3" class="anchored" data-anchor-id="optional-constraint-slot"><span class="header-section-number">18.3</span> Optional Constraint Slot</h2>
 <p>In addition to the six mandatory slots, blueprints may include a <strong>Constraint slot</strong>. Constraints describe limitations or guarantees affecting the architecture.</p>
 <p><strong>Constraint examples:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">constraint_slot</span><span class="kw">:</span></span>
@@ -972,8 +981,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">status</span><span class="kw">:</span><span class="at"> inferred</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="triangular-consistency-checks" class="level2" data-number="17.4">
-<h2 data-number="17.4" class="anchored" data-anchor-id="triangular-consistency-checks"><span class="header-section-number">17.4</span> Triangular Consistency Checks</h2>
+<section id="triangular-consistency-checks" class="level2" data-number="18.4">
+<h2 data-number="18.4" class="anchored" data-anchor-id="triangular-consistency-checks"><span class="header-section-number">18.4</span> Triangular Consistency Checks</h2>
 <p>Kernel slot filling must maintain <strong>structural consistency</strong> across slots. A particularly important consistency relationship exists between capabilities, interfaces, and workflows.</p>
 <p><strong>The capability-interface-workflow triangle:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">consistency_triangle</span><span class="kw">:</span></span>
@@ -1140,8 +1149,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">poor</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt; 0.7"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="kernel-completion" class="level2" data-number="17.5">
-<h2 data-number="17.5" class="anchored" data-anchor-id="kernel-completion"><span class="header-section-number">17.5</span> Kernel Completion</h2>
+<section id="kernel-completion" class="level2" data-number="18.5">
+<h2 data-number="18.5" class="anchored" data-anchor-id="kernel-completion"><span class="header-section-number">18.5</span> Kernel Completion</h2>
 <p>After slot filling and consistency validation, the blueprint kernel becomes a <strong>coherent architectural representation</strong>. At this stage, the kernel contains the complete set of mandatory slots and optionally the constraint slot.</p>
 <p><strong>Completed kernel example:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">blueprint_kernel</span><span class="kw">:</span></span>
@@ -1322,8 +1331,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">confidence_metrics</span><span class="kw">:</span><span class="at"> ✓</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="chapter-summary" class="level2" data-number="17.6">
-<h2 data-number="17.6" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">17.6</span> Chapter Summary</h2>
+<section id="chapter-summary" class="level2" data-number="18.6">
+<h2 data-number="18.6" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">18.6</span> Chapter Summary</h2>
 <ul>
 <li>Blueprint Kernel is the minimal structural representation of system architecture</li>
 <li>Kernel consists of six mandatory slots: Goal, Capabilities, Components, Interfaces, Data, Workflows</li>
@@ -1343,9 +1352,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Quality metrics measure slot completion, confidence levels, and consistency scores</li>
 <li>Completed kernel serves as canonical representation for blueprint view generation</li>
 </ul>
+<section id="knowledge-to-retain" class="level3" data-number="18.6.1">
+<h3 data-number="18.6.1" class="anchored" data-anchor-id="knowledge-to-retain"><span class="header-section-number">18.6.1</span> Knowledge to Retain</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Core Concept</th>
+<th>Must Remember</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Six mandatory slots + 1 optional</strong></td>
+<td><strong>Goal</strong>, <strong>Capabilities</strong>, <strong>Components</strong>, <strong>Interfaces</strong>, <strong>Data</strong>, <strong>Workflows</strong> — plus optional <strong>Constraint</strong> slot. These form the complete architectural skeleton. Every extraction must populate all six.</td>
+</tr>
+<tr class="even">
+<td><strong>Slot complexity varies</strong></td>
+<td><strong>Data</strong> (low) — explicitly defined in schemas. <strong>Capabilities/Interfaces</strong> (medium) — observable from code. <strong>Components/Workflows</strong> (high) — require inference and boundary detection. Allocate extraction effort accordingly.</td>
+</tr>
+<tr class="odd">
+<td><strong>Triangular consistency</strong></td>
+<td>Each capability <strong>must have</strong> both an interface (for access) and a workflow (for realization). This capability ↔︎ interface ↔︎ workflow triangle is the most important consistency check in the kernel.</td>
+</tr>
+<tr class="even">
+<td><strong>Evidence drives slot population</strong></td>
+<td>No slot is filled without evidence. Each slot entry references evidence objects. If evidence is insufficient, the slot is marked as unknown — never speculative.</td>
+</tr>
+<tr class="odd">
+<td><strong>Constraint slot — optional but critical</strong></td>
+<td>The Constraint slot captures performance SLOs, security policies, and compliance rules. These are often the hardest to extract (inconsistent, incomplete, ambiguous) but most valuable for architectural understanding.</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Next Chapter</strong>: Chapter 16 introduces Views Generation—how to project the canonical kernel into different analytical perspectives. This chapter covers the product view (user-visible functionality), architecture view (structural relationships), operations view (runtime topology), and security/trust view (boundaries and access control).</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1752,12 +1798,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./ch-14-workflow-control-plane.html" class="pagination-link" aria-label="Workflow and Control-Plane Extraction">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Workflow and Control-Plane Extraction</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Workflow and Control-Plane Extraction</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./ch-16-views-generation.html" class="pagination-link" aria-label="Views Generation (Projections)">
-        <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Views Generation (Projections)</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Views Generation (Projections)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

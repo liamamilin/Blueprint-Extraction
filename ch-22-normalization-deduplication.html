@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>24&nbsp; Normalization and Deduplication – Blueprint_Extraction</title>
+<title>25&nbsp; Normalization and Deduplication – Blueprint Extraction</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -69,15 +72,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./ch-21-mining-pipeline-operations.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-27c261d06b905028a18691de25d09dde.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -118,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-21-mining-pipeline-operations.html">Part VI — Operating Blueprint Mining at Scale</a></li><li class="breadcrumb-item"><a href="./ch-22-normalization-deduplication.html"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Normalization and Deduplication</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-21-mining-pipeline-operations.html">Part VI — Operating Blueprint Mining at Scale</a></li><li class="breadcrumb-item"><a href="./ch-22-normalization-deduplication.html"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Normalization and Deduplication</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -131,11 +133,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Blueprint_Extraction</a> 
+      <a href="./">Blueprint Extraction</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -242,6 +242,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Confidence Semantics</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-09.5-system-representation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">System Representation: Making Systems Observable</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -256,31 +262,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-10-mapping-principles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Mapping Principles and Canonicalization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Mapping Principles and Canonicalization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-11-component-discovery.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Component Discovery</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Component Discovery</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-12-interface-contract-extraction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Interface and Contract Extraction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Interface and Contract Extraction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-13-data-model-ownership.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Data Model and Ownership Extraction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Data Model and Ownership Extraction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-14-workflow-control-plane.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Workflow and Control-Plane Extraction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Workflow and Control-Plane Extraction</span></span></a>
   </div>
 </li>
       </ul>
@@ -297,19 +303,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-15-kernel-slot-filling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Kernel Slot Filling Rules</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Kernel Slot Filling Rules</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-16-views-generation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Views Generation (Projections)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Views Generation (Projections)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-17-blueprint-pack-output.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Blueprint Pack Output Standard</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Blueprint Pack Output Standard</span></span></a>
   </div>
 </li>
       </ul>
@@ -326,19 +332,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-18-validation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Validation: Schema and Semantics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Validation: Schema and Semantics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-19-review-protocol.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Review Protocol (Human-in-the-Loop)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Review Protocol (Human-in-the-Loop)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-20-quality-metrics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Extraction Quality Metrics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Extraction Quality Metrics</span></span></a>
   </div>
 </li>
       </ul>
@@ -355,19 +361,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-21-mining-pipeline-operations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Mining Pipeline Operations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Mining Pipeline Operations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-22-normalization-deduplication.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Normalization and Deduplication</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Normalization and Deduplication</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-23-blueprints-to-patterns.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">From Blueprints to Patterns</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">From Blueprints to Patterns</span></span></a>
   </div>
 </li>
       </ul>
@@ -384,7 +390,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-24-blueprint-extraction-spec.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Blueprint Extraction Specification v0.1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Blueprint Extraction Specification v0.1</span></span></a>
   </div>
 </li>
       </ul>
@@ -401,43 +407,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-a-signal-taxonomy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Appendix A — Signal Taxonomy v0.1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Appendix A — Signal Taxonomy v0.1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-b-evidence-schema.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Appendix B — Evidence Object Schema v0.1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix B — Evidence Object Schema v0.1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-c-confidence-semantics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix C — Confidence Semantics Spec v0.1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Appendix C — Confidence Semantics Spec v0.1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-d-mapping-template.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Appendix D — Ontology Mapping Rules Template</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Appendix D — Ontology Mapping Rules Template</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-e-report-template.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Appendix E — Extraction Report Template</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Appendix E — Extraction Report Template</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-f-extraction-cases.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Appendix F — Five Complete Extraction Cases (with Evidence Trace)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Appendix F — Five Complete Extraction Cases (with Evidence Trace)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-g-eml-scorecard.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Appendix G — Extraction Maturity Level (EML) Score Sheet</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Appendix G — Extraction Maturity Level (EML) Score Sheet</span></span></a>
   </div>
 </li>
       </ul>
@@ -445,7 +451,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -464,21 +470,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#blueprint-families" id="toc-blueprint-families" class="nav-link active" data-scroll-target="#blueprint-families"><span class="header-section-number">24.1</span> Blueprint Families</a></li>
-  <li><a href="#variant-normalization" id="toc-variant-normalization" class="nav-link" data-scroll-target="#variant-normalization"><span class="header-section-number">24.2</span> Variant Normalization</a></li>
-  <li><a href="#duplicate-detection" id="toc-duplicate-detection" class="nav-link" data-scroll-target="#duplicate-detection"><span class="header-section-number">24.3</span> Duplicate Detection</a></li>
-  <li><a href="#canonical-representation" id="toc-canonical-representation" class="nav-link" data-scroll-target="#canonical-representation"><span class="header-section-number">24.4</span> Canonical Representation</a></li>
-  <li><a href="#normalization-and-deduplication-pipeline" id="toc-normalization-and-deduplication-pipeline" class="nav-link" data-scroll-target="#normalization-and-deduplication-pipeline"><span class="header-section-number">24.5</span> Normalization and Deduplication Pipeline</a></li>
-  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">24.6</span> Chapter Summary</a></li>
+  <li><a href="#blueprint-families" id="toc-blueprint-families" class="nav-link active" data-scroll-target="#blueprint-families"><span class="header-section-number">25.1</span> Blueprint Families</a></li>
+  <li><a href="#variant-normalization" id="toc-variant-normalization" class="nav-link" data-scroll-target="#variant-normalization"><span class="header-section-number">25.2</span> Variant Normalization</a></li>
+  <li><a href="#duplicate-detection" id="toc-duplicate-detection" class="nav-link" data-scroll-target="#duplicate-detection"><span class="header-section-number">25.3</span> Duplicate Detection</a></li>
+  <li><a href="#canonical-representation" id="toc-canonical-representation" class="nav-link" data-scroll-target="#canonical-representation"><span class="header-section-number">25.4</span> Canonical Representation</a></li>
+  <li><a href="#normalization-and-deduplication-pipeline" id="toc-normalization-and-deduplication-pipeline" class="nav-link" data-scroll-target="#normalization-and-deduplication-pipeline"><span class="header-section-number">25.5</span> Normalization and Deduplication Pipeline</a></li>
+  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">25.6</span> Chapter Summary</a>
+  <ul class="collapse">
+  <li><a href="#knowledge-to-retain" id="toc-knowledge-to-retain" class="nav-link" data-scroll-target="#knowledge-to-retain"><span class="header-section-number">25.6.1</span> Knowledge to Retain</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-21-mining-pipeline-operations.html">Part VI — Operating Blueprint Mining at Scale</a></li><li class="breadcrumb-item"><a href="./ch-22-normalization-deduplication.html"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Normalization and Deduplication</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-21-mining-pipeline-operations.html">Part VI — Operating Blueprint Mining at Scale</a></li><li class="breadcrumb-item"><a href="./ch-22-normalization-deduplication.html"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Normalization and Deduplication</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Normalization and Deduplication</span></h1>
+<h1 class="title"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Normalization and Deduplication</span></h1>
 </div>
 
 
@@ -498,8 +507,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>As the mining pipeline extracts blueprints from thousands of repositories, it inevitably encounters <strong>similar architectures</strong>. Different organizations may implement payment services, user authentication, or data pipelines in similar ways. These similarities provide valuable insights into architectural patterns, but they also create redundancy in blueprint datasets.</p>
 <p>This chapter defines the <strong>normalization and deduplication framework</strong> for managing blueprint similarity. The framework identifies blueprint families, normalizes variations, detects duplicates, and creates canonical representations that support pattern discovery.</p>
 <hr>
-<section id="blueprint-families" class="level2" data-number="24.1">
-<h2 data-number="24.1" class="anchored" data-anchor-id="blueprint-families"><span class="header-section-number">24.1</span> Blueprint Families</h2>
+<section id="blueprint-families" class="level2" data-number="25.1">
+<h2 data-number="25.1" class="anchored" data-anchor-id="blueprint-families"><span class="header-section-number">25.1</span> Blueprint Families</h2>
 <p>Architectural similarity emerges from common problems, constraints, and conventions. A <strong>blueprint family</strong> represents a group of blueprints that share fundamental architectural structure while differing in specific implementation details.</p>
 <p><strong>Family characteristics:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">blueprint_families</span><span class="kw">:</span></span>
@@ -723,8 +732,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">"Data Pipeline"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="variant-normalization" class="level2" data-number="24.2">
-<h2 data-number="24.2" class="anchored" data-anchor-id="variant-normalization"><span class="header-section-number">24.2</span> Variant Normalization</h2>
+<section id="variant-normalization" class="level2" data-number="25.2">
+<h2 data-number="25.2" class="anchored" data-anchor-id="variant-normalization"><span class="header-section-number">25.2</span> Variant Normalization</h2>
 <p>Blueprints within a family exhibit <strong>variation</strong> due to technology choices, team conventions, and specific requirements. Variant normalization reduces these variations to canonical forms that highlight the shared architectural structure while preserving meaningful differences.</p>
 <p><strong>Normalization strategies:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">normalization_strategies</span><span class="kw">:</span></span>
@@ -895,8 +904,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Human validation of templates"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="duplicate-detection" class="level2" data-number="24.3">
-<h2 data-number="24.3" class="anchored" data-anchor-id="duplicate-detection"><span class="header-section-number">24.3</span> Duplicate Detection</h2>
+<section id="duplicate-detection" class="level2" data-number="25.3">
+<h2 data-number="25.3" class="anchored" data-anchor-id="duplicate-detection"><span class="header-section-number">25.3</span> Duplicate Detection</h2>
 <p>Similar repositories or repeated extractions can produce <strong>duplicate blueprints</strong> within the dataset. Duplicate detection identifies these duplicates to maintain dataset quality and efficiency.</p>
 <p><strong>Duplicate sources:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">duplicate_sources</span><span class="kw">:</span></span>
@@ -1029,8 +1038,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">"Mark clone relationship in metadata"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="canonical-representation" class="level2" data-number="24.4">
-<h2 data-number="24.4" class="anchored" data-anchor-id="canonical-representation"><span class="header-section-number">24.4</span> Canonical Representation</h2>
+<section id="canonical-representation" class="level2" data-number="25.4">
+<h2 data-number="25.4" class="anchored" data-anchor-id="canonical-representation"><span class="header-section-number">25.4</span> Canonical Representation</h2>
 <p>For each blueprint family, the pipeline generates a <strong>canonical representation</strong>—a normalized template that captures the shared architectural structure. Canonical representations serve as the basis for pattern discovery and architectural analysis.</p>
 <p><strong>Canonical template structure:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">canonical_template</span><span class="kw">:</span></span>
@@ -1181,8 +1190,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">impact</span><span class="kw">:</span><span class="at"> </span><span class="st">"Faster development"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="normalization-and-deduplication-pipeline" class="level2" data-number="24.5">
-<h2 data-number="24.5" class="anchored" data-anchor-id="normalization-and-deduplication-pipeline"><span class="header-section-number">24.5</span> Normalization and Deduplication Pipeline</h2>
+<section id="normalization-and-deduplication-pipeline" class="level2" data-number="25.5">
+<h2 data-number="25.5" class="anchored" data-anchor-id="normalization-and-deduplication-pipeline"><span class="header-section-number">25.5</span> Normalization and Deduplication Pipeline</h2>
 <p>The normalization and deduplication pipeline operates after extraction to organize blueprints into families, normalize variants, detect duplicates, and generate canonical representations.</p>
 <p><strong>Pipeline workflow:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">normalization_deduplication_pipeline</span><span class="kw">:</span></span>
@@ -1278,8 +1287,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">variation_coverage</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.8</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="chapter-summary" class="level2" data-number="24.6">
-<h2 data-number="24.6" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">24.6</span> Chapter Summary</h2>
+<section id="chapter-summary" class="level2" data-number="25.6">
+<h2 data-number="25.6" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">25.6</span> Chapter Summary</h2>
 <ul>
 <li>Blueprint families represent groups of blueprints with shared fundamental architectural structure</li>
 <li>Family identification uses structural similarity (kernel structure), functional similarity (capability overlap), and domain similarity criteria</li>
@@ -1296,9 +1305,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Pipeline workflow: family identification → normalization → duplicate detection → canonical generation → dataset organization → quality metrics</li>
 <li>Quality metrics include family coverage (&gt;0.7), template confidence (&gt;0.85), duplicate rate (&lt;0.1), and variation coverage (&gt;0.8)</li>
 </ul>
+<section id="knowledge-to-retain" class="level3" data-number="25.6.1">
+<h3 data-number="25.6.1" class="anchored" data-anchor-id="knowledge-to-retain"><span class="header-section-number">25.6.1</span> Knowledge to Retain</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Core Concept</th>
+<th>Must Remember</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Blueprint families</strong></td>
+<td>A blueprint family is a group of blueprints sharing fundamental architectural structure. Family identification uses three criteria: structural similarity (kernel), functional similarity (capabilities), and domain similarity (problem space).</td>
+</tr>
+<tr class="even">
+<td><strong>Three normalization types</strong></td>
+<td>(1) <strong>Technology abstraction</strong> — FastAPI → web_framework, PostgreSQL → relational_database. (2) <strong>Naming normalization</strong> — payment_service → api_service. (3) <strong>Capability normalization</strong> — create_payment → create_entity. These make blueprints comparable across implementations.</td>
+</tr>
+<tr class="odd">
+<td><strong>Duplicate detection levels</strong></td>
+<td><strong>Exact duplicates</strong> (100% match) — same repo extracted twice. <strong>Near duplicates</strong> (&gt;95%) — same architecture, minor naming differences. <strong>Architectural clones</strong> (&gt;90%) — same structure, different technologies. Each level requires different handling.</td>
+</tr>
+<tr class="even">
+<td><strong>Canonical templates</strong></td>
+<td>For each family, generate a canonical template: the minimal kernel structure that all family members share, plus documented variation points. Templates make patterns explicit and discoverable.</td>
+</tr>
+<tr class="odd">
+<td><strong>From noise to signal</strong></td>
+<td>Normalization and deduplication transform a raw collection of blueprints into a clean, organized dataset where genuine patterns emerge and redundant information is minimized. Without this step, blueprint datasets are just noise.</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Next Chapter</strong>: Chapter 23 introduces From Blueprints to Patterns—the framework for discovering architectural patterns from blueprint datasets. This chapter covers pattern extraction, pattern clustering, pattern signatures, and pattern libraries for reusable architectural knowledge.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1705,12 +1751,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./ch-21-mining-pipeline-operations.html" class="pagination-link" aria-label="Mining Pipeline Operations">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Mining Pipeline Operations</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Mining Pipeline Operations</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./ch-23-blueprints-to-patterns.html" class="pagination-link" aria-label="From Blueprints to Patterns">
-        <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">From Blueprints to Patterns</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">From Blueprints to Patterns</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

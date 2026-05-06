@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>15&nbsp; Data Model and Ownership Extraction – Blueprint_Extraction</title>
+<title>16&nbsp; Data Model and Ownership Extraction – Blueprint Extraction</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -69,15 +72,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./ch-12-interface-contract-extraction.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-27c261d06b905028a18691de25d09dde.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -118,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-10-mapping-principles.html">Part III — Ontology Mapping: From Repo to System Graph</a></li><li class="breadcrumb-item"><a href="./ch-13-data-model-ownership.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Data Model and Ownership Extraction</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-10-mapping-principles.html">Part III — Ontology Mapping: From Repo to System Graph</a></li><li class="breadcrumb-item"><a href="./ch-13-data-model-ownership.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Data Model and Ownership Extraction</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -131,11 +133,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Blueprint_Extraction</a> 
+      <a href="./">Blueprint Extraction</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -242,6 +242,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Confidence Semantics</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-09.5-system-representation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">System Representation: Making Systems Observable</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -256,31 +262,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-10-mapping-principles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Mapping Principles and Canonicalization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Mapping Principles and Canonicalization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-11-component-discovery.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Component Discovery</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Component Discovery</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-12-interface-contract-extraction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Interface and Contract Extraction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Interface and Contract Extraction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-13-data-model-ownership.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Data Model and Ownership Extraction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Data Model and Ownership Extraction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-14-workflow-control-plane.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Workflow and Control-Plane Extraction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Workflow and Control-Plane Extraction</span></span></a>
   </div>
 </li>
       </ul>
@@ -297,19 +303,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-15-kernel-slot-filling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Kernel Slot Filling Rules</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Kernel Slot Filling Rules</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-16-views-generation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Views Generation (Projections)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Views Generation (Projections)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-17-blueprint-pack-output.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Blueprint Pack Output Standard</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Blueprint Pack Output Standard</span></span></a>
   </div>
 </li>
       </ul>
@@ -326,19 +332,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-18-validation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Validation: Schema and Semantics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Validation: Schema and Semantics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-19-review-protocol.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Review Protocol (Human-in-the-Loop)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Review Protocol (Human-in-the-Loop)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-20-quality-metrics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Extraction Quality Metrics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Extraction Quality Metrics</span></span></a>
   </div>
 </li>
       </ul>
@@ -355,19 +361,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-21-mining-pipeline-operations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Mining Pipeline Operations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Mining Pipeline Operations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-22-normalization-deduplication.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Normalization and Deduplication</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Normalization and Deduplication</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-23-blueprints-to-patterns.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">From Blueprints to Patterns</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">From Blueprints to Patterns</span></span></a>
   </div>
 </li>
       </ul>
@@ -384,7 +390,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-24-blueprint-extraction-spec.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Blueprint Extraction Specification v0.1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Blueprint Extraction Specification v0.1</span></span></a>
   </div>
 </li>
       </ul>
@@ -401,43 +407,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-a-signal-taxonomy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Appendix A — Signal Taxonomy v0.1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Appendix A — Signal Taxonomy v0.1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-b-evidence-schema.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Appendix B — Evidence Object Schema v0.1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix B — Evidence Object Schema v0.1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-c-confidence-semantics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix C — Confidence Semantics Spec v0.1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Appendix C — Confidence Semantics Spec v0.1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-d-mapping-template.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Appendix D — Ontology Mapping Rules Template</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Appendix D — Ontology Mapping Rules Template</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-e-report-template.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Appendix E — Extraction Report Template</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Appendix E — Extraction Report Template</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-f-extraction-cases.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Appendix F — Five Complete Extraction Cases (with Evidence Trace)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Appendix F — Five Complete Extraction Cases (with Evidence Trace)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-g-eml-scorecard.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Appendix G — Extraction Maturity Level (EML) Score Sheet</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Appendix G — Extraction Maturity Level (EML) Score Sheet</span></span></a>
   </div>
 </li>
       </ul>
@@ -445,7 +451,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -464,23 +470,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#why-data-matters-in-architecture" id="toc-why-data-matters-in-architecture" class="nav-link active" data-scroll-target="#why-data-matters-in-architecture"><span class="header-section-number">15.1</span> Why Data Matters in Architecture</a></li>
-  <li><a href="#data-entity-extraction" id="toc-data-entity-extraction" class="nav-link" data-scroll-target="#data-entity-extraction"><span class="header-section-number">15.2</span> Data Entity Extraction</a></li>
-  <li><a href="#storage-type-identification" id="toc-storage-type-identification" class="nav-link" data-scroll-target="#storage-type-identification"><span class="header-section-number">15.3</span> Storage Type Identification</a></li>
-  <li><a href="#data-lifecycle-signals" id="toc-data-lifecycle-signals" class="nav-link" data-scroll-target="#data-lifecycle-signals"><span class="header-section-number">15.4</span> Data Lifecycle Signals</a></li>
-  <li><a href="#ownership-inference" id="toc-ownership-inference" class="nav-link" data-scroll-target="#ownership-inference"><span class="header-section-number">15.5</span> Ownership Inference</a></li>
-  <li><a href="#detecting-consistency-risks" id="toc-detecting-consistency-risks" class="nav-link" data-scroll-target="#detecting-consistency-risks"><span class="header-section-number">15.6</span> Detecting Consistency Risks</a></li>
-  <li><a href="#output-data-entities-and-ownership-map" id="toc-output-data-entities-and-ownership-map" class="nav-link" data-scroll-target="#output-data-entities-and-ownership-map"><span class="header-section-number">15.7</span> Output: Data Entities and Ownership Map</a></li>
-  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">15.8</span> Chapter Summary</a></li>
+  <li><a href="#why-data-matters-in-architecture" id="toc-why-data-matters-in-architecture" class="nav-link active" data-scroll-target="#why-data-matters-in-architecture"><span class="header-section-number">16.1</span> Why Data Matters in Architecture</a></li>
+  <li><a href="#data-entity-extraction" id="toc-data-entity-extraction" class="nav-link" data-scroll-target="#data-entity-extraction"><span class="header-section-number">16.2</span> Data Entity Extraction</a></li>
+  <li><a href="#storage-type-identification" id="toc-storage-type-identification" class="nav-link" data-scroll-target="#storage-type-identification"><span class="header-section-number">16.3</span> Storage Type Identification</a></li>
+  <li><a href="#data-lifecycle-signals" id="toc-data-lifecycle-signals" class="nav-link" data-scroll-target="#data-lifecycle-signals"><span class="header-section-number">16.4</span> Data Lifecycle Signals</a></li>
+  <li><a href="#ownership-inference" id="toc-ownership-inference" class="nav-link" data-scroll-target="#ownership-inference"><span class="header-section-number">16.5</span> Ownership Inference</a></li>
+  <li><a href="#detecting-consistency-risks" id="toc-detecting-consistency-risks" class="nav-link" data-scroll-target="#detecting-consistency-risks"><span class="header-section-number">16.6</span> Detecting Consistency Risks</a></li>
+  <li><a href="#output-data-entities-and-ownership-map" id="toc-output-data-entities-and-ownership-map" class="nav-link" data-scroll-target="#output-data-entities-and-ownership-map"><span class="header-section-number">16.7</span> Output: Data Entities and Ownership Map</a></li>
+  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">16.8</span> Chapter Summary</a>
+  <ul class="collapse">
+  <li><a href="#knowledge-to-retain" id="toc-knowledge-to-retain" class="nav-link" data-scroll-target="#knowledge-to-retain"><span class="header-section-number">16.8.1</span> Knowledge to Retain</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-10-mapping-principles.html">Part III — Ontology Mapping: From Repo to System Graph</a></li><li class="breadcrumb-item"><a href="./ch-13-data-model-ownership.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Data Model and Ownership Extraction</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-10-mapping-principles.html">Part III — Ontology Mapping: From Repo to System Graph</a></li><li class="breadcrumb-item"><a href="./ch-13-data-model-ownership.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Data Model and Ownership Extraction</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Data Model and Ownership Extraction</span></h1>
+<h1 class="title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Data Model and Ownership Extraction</span></h1>
 </div>
 
 
@@ -501,8 +510,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The goal of this stage is to reconstruct <strong>data entities and their ownership relationships</strong> from repository artifacts. This involves identifying persistent data structures, determining which components control them, and detecting potential consistency risks within the system.</p>
 <p>The output consists of <strong>data entities</strong> and an <strong>ownership map</strong> describing how components interact with persistent data. Together, these artifacts represent the data layer of the blueprint.</p>
 <hr>
-<section id="why-data-matters-in-architecture" class="level2" data-number="15.1">
-<h2 data-number="15.1" class="anchored" data-anchor-id="why-data-matters-in-architecture"><span class="header-section-number">15.1</span> Why Data Matters in Architecture</h2>
+<section id="why-data-matters-in-architecture" class="level2" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="why-data-matters-in-architecture"><span class="header-section-number">16.1</span> Why Data Matters in Architecture</h2>
 <p>Data is the foundation upon which system capabilities are built. Understanding data structure and ownership is essential for architectural understanding because data:</p>
 <p><strong>1. Represents system state:</strong></p>
 <p>Data entities capture the persistent state that the system maintains over time. Understanding what data exists and how it’s structured reveals what the system is designed to track and manage.</p>
@@ -556,8 +565,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">coordination</span><span class="kw">:</span><span class="at"> synchronous queries</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="data-entity-extraction" class="level2" data-number="15.2">
-<h2 data-number="15.2" class="anchored" data-anchor-id="data-entity-extraction"><span class="header-section-number">15.2</span> Data Entity Extraction</h2>
+<section id="data-entity-extraction" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="data-entity-extraction"><span class="header-section-number">16.2</span> Data Entity Extraction</h2>
 <p>Data entity extraction identifies persistent data structures from repository artifacts. These entities represent tables, collections, documents, or other storage structures that hold system state.</p>
 <p><strong>Data entity signals:</strong></p>
 <p><strong>1. ORM model definitions:</strong></p>
@@ -960,8 +969,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">confidence</span><span class="kw">:</span><span class="at"> 0.90-0.98</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="storage-type-identification" class="level2" data-number="15.3">
-<h2 data-number="15.3" class="anchored" data-anchor-id="storage-type-identification"><span class="header-section-number">15.3</span> Storage Type Identification</h2>
+<section id="storage-type-identification" class="level2" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="storage-type-identification"><span class="header-section-number">16.3</span> Storage Type Identification</h2>
 <p>Different systems employ different storage technologies depending on their operational requirements. Extraction therefore attempts to identify the <strong>type of storage systems</strong> used by the repository.</p>
 <p><strong>Storage type signals:</strong></p>
 <p><strong>1. Relational databases:</strong></p>
@@ -1126,8 +1135,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb24-60"><a href="#cb24-60" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> Event analytics</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="data-lifecycle-signals" class="level2" data-number="15.4">
-<h2 data-number="15.4" class="anchored" data-anchor-id="data-lifecycle-signals"><span class="header-section-number">15.4</span> Data Lifecycle Signals</h2>
+<section id="data-lifecycle-signals" class="level2" data-number="16.4">
+<h2 data-number="16.4" class="anchored" data-anchor-id="data-lifecycle-signals"><span class="header-section-number">16.4</span> Data Lifecycle Signals</h2>
 <p>Data artifacts can also reveal information about the <strong>lifecycle of stored information</strong>. Lifecycle signals indicate how data evolves over time, including creation, transformation, and deletion processes.</p>
 <p><strong>Lifecycle signal types:</strong></p>
 <p><strong>1. Migration histories:</strong></p>
@@ -1251,8 +1260,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">"Cost management (storage costs)"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="ownership-inference" class="level2" data-number="15.5">
-<h2 data-number="15.5" class="anchored" data-anchor-id="ownership-inference"><span class="header-section-number">15.5</span> Ownership Inference</h2>
+<section id="ownership-inference" class="level2" data-number="16.5">
+<h2 data-number="16.5" class="anchored" data-anchor-id="ownership-inference"><span class="header-section-number">16.5</span> Ownership Inference</h2>
 <p>Once data entities are identified, extraction must determine which components <strong>own or control those entities</strong>. Ownership refers to the component responsible for maintaining the authoritative state of a data entity.</p>
 <p><strong>Ownership signal types:</strong></p>
 <p><strong>1. Data access layers associated with specific services:</strong></p>
@@ -1417,8 +1426,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb43-27"><a href="#cb43-27" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">confidence</span><span class="kw">:</span><span class="at"> 0.0-0.35</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="detecting-consistency-risks" class="level2" data-number="15.6">
-<h2 data-number="15.6" class="anchored" data-anchor-id="detecting-consistency-risks"><span class="header-section-number">15.6</span> Detecting Consistency Risks</h2>
+<section id="detecting-consistency-risks" class="level2" data-number="16.6">
+<h2 data-number="16.6" class="anchored" data-anchor-id="detecting-consistency-risks"><span class="header-section-number">16.6</span> Detecting Consistency Risks</h2>
 <p>Repository artifacts can also reveal potential <strong>data consistency risks</strong>. One common risk is the presence of <strong>multiple writers</strong> to the same data entity. When multiple components write to the same storage resource, coordination mechanisms are required to maintain consistency.</p>
 <p><strong>Consistency risk signals:</strong></p>
 <p><strong>1. Multiple services referencing the same schema:</strong></p>
@@ -1587,8 +1596,8 @@ analytics_service/
 <span id="cb52-31"><a href="#cb52-31" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Monitor replication lag"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="output-data-entities-and-ownership-map" class="level2" data-number="15.7">
-<h2 data-number="15.7" class="anchored" data-anchor-id="output-data-entities-and-ownership-map"><span class="header-section-number">15.7</span> Output: Data Entities and Ownership Map</h2>
+<section id="output-data-entities-and-ownership-map" class="level2" data-number="16.7">
+<h2 data-number="16.7" class="anchored" data-anchor-id="output-data-entities-and-ownership-map"><span class="header-section-number">16.7</span> Output: Data Entities and Ownership Map</h2>
 <p>The final output of this stage consists of two artifacts: <strong>data entities</strong> and an <strong>ownership map</strong>.</p>
 <p><strong>Data entities output:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb53"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data_entities</span><span class="kw">:</span></span>
@@ -1807,8 +1816,8 @@ analytics_service/
 <span id="cb54-113"><a href="#cb54-113" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">average_ownership_confidence</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.89</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="chapter-summary" class="level2" data-number="15.8">
-<h2 data-number="15.8" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">15.8</span> Chapter Summary</h2>
+<section id="chapter-summary" class="level2" data-number="16.8">
+<h2 data-number="16.8" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">16.8</span> Chapter Summary</h2>
 <ul>
 <li>Data is a stable structural element that often persists across system evolution</li>
 <li>Data extraction identifies persistent data structures and ownership relationships</li>
@@ -1822,9 +1831,46 @@ analytics_service/
 <li>Data entities and ownership relationships form the data layer of the blueprint</li>
 <li>Understanding data ownership reveals component boundaries, architectural constraints, and integration points</li>
 </ul>
+<section id="knowledge-to-retain" class="level3" data-number="16.8.1">
+<h3 data-number="16.8.1" class="anchored" data-anchor-id="knowledge-to-retain"><span class="header-section-number">16.8.1</span> Knowledge to Retain</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Core Concept</th>
+<th>Must Remember</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Data stability</strong></td>
+<td>Data is the <em>most stable</em> architectural element. Components and interfaces change frequently; data models persist. Getting data right provides an anchor for the entire blueprint.</td>
+</tr>
+<tr class="even">
+<td><strong>Ownership defines boundaries</strong></td>
+<td>A component that <em>owns</em> a data entity is responsible for its lifecycle. Ownership is inferred from: migration location, write operations, and data access layer ownership. Ownership = architectural boundary.</td>
+</tr>
+<tr class="odd">
+<td><strong>Consistency risks</strong></td>
+<td>Three patterns signal architectural risk: (1) <strong>multiple writers</strong> to the same entity, (2) <strong>shared access layers</strong> across components, (3) <strong>cross-database transactions</strong>. Each indicates potential coupling or coordination problems.</td>
+</tr>
+<tr class="even">
+<td><strong>Storage type ≠ entity type</strong></td>
+<td>A “table” might be relational (PostgreSQL), a “collection” document (MongoDB), or a “bucket” object (S3). Distinguish the <em>entity</em> (what the data represents) from the <em>storage technology</em> (how it’s persisted).</td>
+</tr>
+<tr class="odd">
+<td><strong>Output: entities + ownership map</strong></td>
+<td>Data extraction produces two artifacts: (1) <strong>Data Entities</strong> — schema, relationships, lifecycle. (2) <strong>Ownership Map</strong> — which component owns/reads/writes each entity, plus detected consistency risks.</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Next Chapter</strong>: Chapter 14 introduces Workflow and Control-Plane Extraction—identifying coordination mechanisms that orchestrate how work flows across the architecture. This chapter covers workflow signals, scheduler and trigger mechanisms, state stores, execution semantics, and control-plane identification.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -2231,12 +2277,12 @@ analytics_service/
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./ch-12-interface-contract-extraction.html" class="pagination-link" aria-label="Interface and Contract Extraction">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Interface and Contract Extraction</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Interface and Contract Extraction</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./ch-14-workflow-control-plane.html" class="pagination-link" aria-label="Workflow and Control-Plane Extraction">
-        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Workflow and Control-Plane Extraction</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Workflow and Control-Plane Extraction</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

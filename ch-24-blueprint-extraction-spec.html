@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>26&nbsp; Blueprint Extraction Specification v0.1 – Blueprint_Extraction</title>
+<title>27&nbsp; Blueprint Extraction Specification v0.1 – Blueprint Extraction</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -69,15 +72,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./ch-23-blueprints-to-patterns.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-27c261d06b905028a18691de25d09dde.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -118,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-24-blueprint-extraction-spec.html">Capstone — Blueprint Extraction Spec v0.1</a></li><li class="breadcrumb-item"><a href="./ch-24-blueprint-extraction-spec.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Blueprint Extraction Specification v0.1</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-24-blueprint-extraction-spec.html">Capstone — Blueprint Extraction Spec v0.1</a></li><li class="breadcrumb-item"><a href="./ch-24-blueprint-extraction-spec.html"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Blueprint Extraction Specification v0.1</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -131,11 +133,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Blueprint_Extraction</a> 
+      <a href="./">Blueprint Extraction</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -242,6 +242,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Confidence Semantics</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-09.5-system-representation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">System Representation: Making Systems Observable</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -256,31 +262,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-10-mapping-principles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Mapping Principles and Canonicalization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Mapping Principles and Canonicalization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-11-component-discovery.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Component Discovery</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Component Discovery</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-12-interface-contract-extraction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Interface and Contract Extraction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Interface and Contract Extraction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-13-data-model-ownership.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Data Model and Ownership Extraction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Data Model and Ownership Extraction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-14-workflow-control-plane.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Workflow and Control-Plane Extraction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Workflow and Control-Plane Extraction</span></span></a>
   </div>
 </li>
       </ul>
@@ -297,19 +303,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-15-kernel-slot-filling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Kernel Slot Filling Rules</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Kernel Slot Filling Rules</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-16-views-generation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Views Generation (Projections)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Views Generation (Projections)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-17-blueprint-pack-output.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Blueprint Pack Output Standard</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Blueprint Pack Output Standard</span></span></a>
   </div>
 </li>
       </ul>
@@ -326,19 +332,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-18-validation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Validation: Schema and Semantics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Validation: Schema and Semantics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-19-review-protocol.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Review Protocol (Human-in-the-Loop)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Review Protocol (Human-in-the-Loop)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-20-quality-metrics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Extraction Quality Metrics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Extraction Quality Metrics</span></span></a>
   </div>
 </li>
       </ul>
@@ -355,19 +361,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-21-mining-pipeline-operations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Mining Pipeline Operations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Mining Pipeline Operations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-22-normalization-deduplication.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Normalization and Deduplication</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Normalization and Deduplication</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-23-blueprints-to-patterns.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">From Blueprints to Patterns</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">From Blueprints to Patterns</span></span></a>
   </div>
 </li>
       </ul>
@@ -384,7 +390,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-24-blueprint-extraction-spec.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Blueprint Extraction Specification v0.1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Blueprint Extraction Specification v0.1</span></span></a>
   </div>
 </li>
       </ul>
@@ -401,43 +407,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-a-signal-taxonomy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Appendix A — Signal Taxonomy v0.1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Appendix A — Signal Taxonomy v0.1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-b-evidence-schema.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Appendix B — Evidence Object Schema v0.1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix B — Evidence Object Schema v0.1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-c-confidence-semantics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix C — Confidence Semantics Spec v0.1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Appendix C — Confidence Semantics Spec v0.1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-d-mapping-template.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Appendix D — Ontology Mapping Rules Template</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Appendix D — Ontology Mapping Rules Template</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-e-report-template.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Appendix E — Extraction Report Template</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Appendix E — Extraction Report Template</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-f-extraction-cases.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Appendix F — Five Complete Extraction Cases (with Evidence Trace)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Appendix F — Five Complete Extraction Cases (with Evidence Trace)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-g-eml-scorecard.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Appendix G — Extraction Maturity Level (EML) Score Sheet</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Appendix G — Extraction Maturity Level (EML) Score Sheet</span></span></a>
   </div>
 </li>
       </ul>
@@ -445,7 +451,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -464,43 +470,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#terminology" id="toc-terminology" class="nav-link active" data-scroll-target="#terminology"><span class="header-section-number">26.1</span> Terminology</a></li>
-  <li><a href="#data-structures" id="toc-data-structures" class="nav-link" data-scroll-target="#data-structures"><span class="header-section-number">26.2</span> Data Structures</a>
+  <li><a href="#terminology" id="toc-terminology" class="nav-link active" data-scroll-target="#terminology"><span class="header-section-number">27.1</span> Terminology</a></li>
+  <li><a href="#data-structures" id="toc-data-structures" class="nav-link" data-scroll-target="#data-structures"><span class="header-section-number">27.2</span> Data Structures</a>
   <ul class="collapse">
-  <li><a href="#blueprint-kernel" id="toc-blueprint-kernel" class="nav-link" data-scroll-target="#blueprint-kernel"><span class="header-section-number">26.2.1</span> Blueprint Kernel</a></li>
-  <li><a href="#evidence-object" id="toc-evidence-object" class="nav-link" data-scroll-target="#evidence-object"><span class="header-section-number">26.2.2</span> Evidence Object</a></li>
-  <li><a href="#blueprint-pack" id="toc-blueprint-pack" class="nav-link" data-scroll-target="#blueprint-pack"><span class="header-section-number">26.2.3</span> Blueprint Pack</a></li>
+  <li><a href="#blueprint-kernel" id="toc-blueprint-kernel" class="nav-link" data-scroll-target="#blueprint-kernel"><span class="header-section-number">27.2.1</span> Blueprint Kernel</a></li>
+  <li><a href="#evidence-object" id="toc-evidence-object" class="nav-link" data-scroll-target="#evidence-object"><span class="header-section-number">27.2.2</span> Evidence Object</a></li>
+  <li><a href="#blueprint-pack" id="toc-blueprint-pack" class="nav-link" data-scroll-target="#blueprint-pack"><span class="header-section-number">27.2.3</span> Blueprint Pack</a></li>
   </ul></li>
-  <li><a href="#extraction-methodology" id="toc-extraction-methodology" class="nav-link" data-scroll-target="#extraction-methodology"><span class="header-section-number">26.3</span> Extraction Methodology</a>
+  <li><a href="#extraction-methodology" id="toc-extraction-methodology" class="nav-link" data-scroll-target="#extraction-methodology"><span class="header-section-number">27.3</span> Extraction Methodology</a>
   <ul class="collapse">
-  <li><a href="#extraction-pipeline" id="toc-extraction-pipeline" class="nav-link" data-scroll-target="#extraction-pipeline"><span class="header-section-number">26.3.1</span> Extraction Pipeline</a></li>
-  <li><a href="#quality-gates" id="toc-quality-gates" class="nav-link" data-scroll-target="#quality-gates"><span class="header-section-number">26.3.2</span> Quality Gates</a></li>
-  <li><a href="#confidence-calculation" id="toc-confidence-calculation" class="nav-link" data-scroll-target="#confidence-calculation"><span class="header-section-number">26.3.3</span> Confidence Calculation</a></li>
+  <li><a href="#extraction-pipeline" id="toc-extraction-pipeline" class="nav-link" data-scroll-target="#extraction-pipeline"><span class="header-section-number">27.3.1</span> Extraction Pipeline</a></li>
+  <li><a href="#quality-gates" id="toc-quality-gates" class="nav-link" data-scroll-target="#quality-gates"><span class="header-section-number">27.3.2</span> Quality Gates</a></li>
+  <li><a href="#confidence-calculation" id="toc-confidence-calculation" class="nav-link" data-scroll-target="#confidence-calculation"><span class="header-section-number">27.3.3</span> Confidence Calculation</a></li>
   </ul></li>
-  <li><a href="#quality-standards" id="toc-quality-standards" class="nav-link" data-scroll-target="#quality-standards"><span class="header-section-number">26.4</span> Quality Standards</a>
+  <li><a href="#quality-standards" id="toc-quality-standards" class="nav-link" data-scroll-target="#quality-standards"><span class="header-section-number">27.4</span> Quality Standards</a>
   <ul class="collapse">
-  <li><a href="#blueprint-quality-metrics" id="toc-blueprint-quality-metrics" class="nav-link" data-scroll-target="#blueprint-quality-metrics"><span class="header-section-number">26.4.1</span> Blueprint Quality Metrics</a></li>
-  <li><a href="#extraction-maturity-levels-eml" id="toc-extraction-maturity-levels-eml" class="nav-link" data-scroll-target="#extraction-maturity-levels-eml"><span class="header-section-number">26.4.2</span> Extraction Maturity Levels (EML)</a></li>
-  <li><a href="#dataset-quality-targets" id="toc-dataset-quality-targets" class="nav-link" data-scroll-target="#dataset-quality-targets"><span class="header-section-number">26.4.3</span> Dataset Quality Targets</a></li>
+  <li><a href="#blueprint-quality-metrics" id="toc-blueprint-quality-metrics" class="nav-link" data-scroll-target="#blueprint-quality-metrics"><span class="header-section-number">27.4.1</span> Blueprint Quality Metrics</a></li>
+  <li><a href="#extraction-maturity-levels-eml" id="toc-extraction-maturity-levels-eml" class="nav-link" data-scroll-target="#extraction-maturity-levels-eml"><span class="header-section-number">27.4.2</span> Extraction Maturity Levels (EML)</a></li>
+  <li><a href="#dataset-quality-targets" id="toc-dataset-quality-targets" class="nav-link" data-scroll-target="#dataset-quality-targets"><span class="header-section-number">27.4.3</span> Dataset Quality Targets</a></li>
   </ul></li>
-  <li><a href="#operational-procedures" id="toc-operational-procedures" class="nav-link" data-scroll-target="#operational-procedures"><span class="header-section-number">26.5</span> Operational Procedures</a>
+  <li><a href="#operational-procedures" id="toc-operational-procedures" class="nav-link" data-scroll-target="#operational-procedures"><span class="header-section-number">27.5</span> Operational Procedures</a>
   <ul class="collapse">
-  <li><a href="#repository-filtering" id="toc-repository-filtering" class="nav-link" data-scroll-target="#repository-filtering"><span class="header-section-number">26.5.1</span> Repository Filtering</a></li>
-  <li><a href="#two-pass-extraction" id="toc-two-pass-extraction" class="nav-link" data-scroll-target="#two-pass-extraction"><span class="header-section-number">26.5.2</span> Two-Pass Extraction</a></li>
-  <li><a href="#incremental-extraction" id="toc-incremental-extraction" class="nav-link" data-scroll-target="#incremental-extraction"><span class="header-section-number">26.5.3</span> Incremental Extraction</a></li>
-  <li><a href="#normalization-and-deduplication" id="toc-normalization-and-deduplication" class="nav-link" data-scroll-target="#normalization-and-deduplication"><span class="header-section-number">26.5.4</span> Normalization and Deduplication</a></li>
+  <li><a href="#repository-filtering" id="toc-repository-filtering" class="nav-link" data-scroll-target="#repository-filtering"><span class="header-section-number">27.5.1</span> Repository Filtering</a></li>
+  <li><a href="#two-pass-extraction" id="toc-two-pass-extraction" class="nav-link" data-scroll-target="#two-pass-extraction"><span class="header-section-number">27.5.2</span> Two-Pass Extraction</a></li>
+  <li><a href="#incremental-extraction" id="toc-incremental-extraction" class="nav-link" data-scroll-target="#incremental-extraction"><span class="header-section-number">27.5.3</span> Incremental Extraction</a></li>
+  <li><a href="#normalization-and-deduplication" id="toc-normalization-and-deduplication" class="nav-link" data-scroll-target="#normalization-and-deduplication"><span class="header-section-number">27.5.4</span> Normalization and Deduplication</a></li>
   </ul></li>
-  <li><a href="#specification-versioning" id="toc-specification-versioning" class="nav-link" data-scroll-target="#specification-versioning"><span class="header-section-number">26.6</span> Specification Versioning</a></li>
-  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">26.7</span> Chapter Summary</a></li>
+  <li><a href="#specification-versioning" id="toc-specification-versioning" class="nav-link" data-scroll-target="#specification-versioning"><span class="header-section-number">27.6</span> Specification Versioning</a></li>
+  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">27.7</span> Chapter Summary</a>
+  <ul class="collapse">
+  <li><a href="#knowledge-to-retain" id="toc-knowledge-to-retain" class="nav-link" data-scroll-target="#knowledge-to-retain"><span class="header-section-number">27.7.1</span> Knowledge to Retain</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-24-blueprint-extraction-spec.html">Capstone — Blueprint Extraction Spec v0.1</a></li><li class="breadcrumb-item"><a href="./ch-24-blueprint-extraction-spec.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Blueprint Extraction Specification v0.1</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-24-blueprint-extraction-spec.html">Capstone — Blueprint Extraction Spec v0.1</a></li><li class="breadcrumb-item"><a href="./ch-24-blueprint-extraction-spec.html"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Blueprint Extraction Specification v0.1</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Blueprint Extraction Specification v0.1</span></h1>
+<h1 class="title"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Blueprint Extraction Specification v0.1</span></h1>
 </div>
 
 
@@ -520,8 +529,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This chapter serves as the <strong>formal specification</strong> for the Blueprint Extraction framework. It consolidates the methodology, data structures, and operational procedures defined throughout this volume into a single authoritative reference. The specification provides the foundation for implementing extraction pipelines, building extraction tools, and ensuring consistency across extraction operations.</p>
 <p>The specification is organized into sections covering: terminology, data structures, extraction methodology, quality standards, and operational procedures. Each section provides precise definitions and constraints to guide implementation.</p>
 <hr>
-<section id="terminology" class="level2" data-number="26.1">
-<h2 data-number="26.1" class="anchored" data-anchor-id="terminology"><span class="header-section-number">26.1</span> Terminology</h2>
+<section id="terminology" class="level2" data-number="27.1">
+<h2 data-number="27.1" class="anchored" data-anchor-id="terminology"><span class="header-section-number">27.1</span> Terminology</h2>
 <p><strong>Terms and definitions:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">terminology</span><span class="kw">:</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">blueprint</span><span class="kw">:</span></span>
@@ -570,10 +579,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">synonym</span><span class="kw">:</span><span class="at"> </span><span class="st">"EML"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="data-structures" class="level2" data-number="26.2">
-<h2 data-number="26.2" class="anchored" data-anchor-id="data-structures"><span class="header-section-number">26.2</span> Data Structures</h2>
-<section id="blueprint-kernel" class="level3" data-number="26.2.1">
-<h3 data-number="26.2.1" class="anchored" data-anchor-id="blueprint-kernel"><span class="header-section-number">26.2.1</span> Blueprint Kernel</h3>
+<section id="data-structures" class="level2" data-number="27.2">
+<h2 data-number="27.2" class="anchored" data-anchor-id="data-structures"><span class="header-section-number">27.2</span> Data Structures</h2>
+<section id="blueprint-kernel" class="level3" data-number="27.2.1">
+<h3 data-number="27.2.1" class="anchored" data-anchor-id="blueprint-kernel"><span class="header-section-number">27.2.1</span> Blueprint Kernel</h3>
 <p><strong>Kernel schema:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">blueprint_kernel</span><span class="kw">:</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">$schema</span><span class="kw">:</span><span class="at"> </span><span class="st">"https://spec.blueprintextraction.org/v0.1/kernel.schema.json"</span></span>
@@ -659,8 +668,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">performance_requirements</span><span class="kw">:</span><span class="at"> array(object) (optional)</span></span>
 <span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">security_requirements</span><span class="kw">:</span><span class="at"> array(object) (optional)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="evidence-object" class="level3" data-number="26.2.2">
-<h3 data-number="26.2.2" class="anchored" data-anchor-id="evidence-object"><span class="header-section-number">26.2.2</span> Evidence Object</h3>
+<section id="evidence-object" class="level3" data-number="27.2.2">
+<h3 data-number="27.2.2" class="anchored" data-anchor-id="evidence-object"><span class="header-section-number">27.2.2</span> Evidence Object</h3>
 <p><strong>Evidence schema:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">evidence_object</span><span class="kw">:</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">$schema</span><span class="kw">:</span><span class="at"> </span><span class="st">"https://spec.blueprintextraction.org/v0.1/evidence.schema.json"</span></span>
@@ -681,8 +690,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">extraction_method</span><span class="kw">:</span><span class="at"> string (required)</span></span>
 <span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">extraction_date</span><span class="kw">:</span><span class="at"> timestamp (required)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="blueprint-pack" class="level3" data-number="26.2.3">
-<h3 data-number="26.2.3" class="anchored" data-anchor-id="blueprint-pack"><span class="header-section-number">26.2.3</span> Blueprint Pack</h3>
+<section id="blueprint-pack" class="level3" data-number="27.2.3">
+<h3 data-number="27.2.3" class="anchored" data-anchor-id="blueprint-pack"><span class="header-section-number">27.2.3</span> Blueprint Pack</h3>
 <p><strong>Pack structure:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">blueprint_pack</span><span class="kw">:</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">structure</span><span class="kw">:</span></span>
@@ -728,10 +737,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 </section>
-<section id="extraction-methodology" class="level2" data-number="26.3">
-<h2 data-number="26.3" class="anchored" data-anchor-id="extraction-methodology"><span class="header-section-number">26.3</span> Extraction Methodology</h2>
-<section id="extraction-pipeline" class="level3" data-number="26.3.1">
-<h3 data-number="26.3.1" class="anchored" data-anchor-id="extraction-pipeline"><span class="header-section-number">26.3.1</span> Extraction Pipeline</h3>
+<section id="extraction-methodology" class="level2" data-number="27.3">
+<h2 data-number="27.3" class="anchored" data-anchor-id="extraction-methodology"><span class="header-section-number">27.3</span> Extraction Methodology</h2>
+<section id="extraction-pipeline" class="level3" data-number="27.3.1">
+<h3 data-number="27.3.1" class="anchored" data-anchor-id="extraction-pipeline"><span class="header-section-number">27.3.1</span> Extraction Pipeline</h3>
 <p><strong>Pipeline stages:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">extraction_pipeline</span><span class="kw">:</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">stage_1_signal_detection</span><span class="kw">:</span></span>
@@ -820,8 +829,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Maturity assessment"</span></span>
 <span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">quality_requirement</span><span class="kw">:</span><span class="at"> </span><span class="st">"EML &gt;= 3 for production use"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="quality-gates" class="level3" data-number="26.3.2">
-<h3 data-number="26.3.2" class="anchored" data-anchor-id="quality-gates"><span class="header-section-number">26.3.2</span> Quality Gates</h3>
+<section id="quality-gates" class="level3" data-number="27.3.2">
+<h3 data-number="27.3.2" class="anchored" data-anchor-id="quality-gates"><span class="header-section-number">27.3.2</span> Quality Gates</h3>
 <p><strong>Gate definitions:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quality_gates</span><span class="kw">:</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">gate_1_signal_detection</span><span class="kw">:</span></span>
@@ -862,8 +871,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">EML_4</span><span class="kw">:</span><span class="at"> Reviewed and validated</span></span>
 <span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">action</span><span class="kw">:</span><span class="at"> </span><span class="st">"EML &lt; 3 requires additional review"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="confidence-calculation" class="level3" data-number="26.3.3">
-<h3 data-number="26.3.3" class="anchored" data-anchor-id="confidence-calculation"><span class="header-section-number">26.3.3</span> Confidence Calculation</h3>
+<section id="confidence-calculation" class="level3" data-number="27.3.3">
+<h3 data-number="27.3.3" class="anchored" data-anchor-id="confidence-calculation"><span class="header-section-number">27.3.3</span> Confidence Calculation</h3>
 <p><strong>Confidence derivation:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confidence_calculation</span><span class="kw">:</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">observed</span><span class="kw">:</span></span>
@@ -926,10 +935,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 </section>
-<section id="quality-standards" class="level2" data-number="26.4">
-<h2 data-number="26.4" class="anchored" data-anchor-id="quality-standards"><span class="header-section-number">26.4</span> Quality Standards</h2>
-<section id="blueprint-quality-metrics" class="level3" data-number="26.4.1">
-<h3 data-number="26.4.1" class="anchored" data-anchor-id="blueprint-quality-metrics"><span class="header-section-number">26.4.1</span> Blueprint Quality Metrics</h3>
+<section id="quality-standards" class="level2" data-number="27.4">
+<h2 data-number="27.4" class="anchored" data-anchor-id="quality-standards"><span class="header-section-number">27.4</span> Quality Standards</h2>
+<section id="blueprint-quality-metrics" class="level3" data-number="27.4.1">
+<h3 data-number="27.4.1" class="anchored" data-anchor-id="blueprint-quality-metrics"><span class="header-section-number">27.4.1</span> Blueprint Quality Metrics</h3>
 <p><strong>Metric definitions:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quality_metrics</span><span class="kw">:</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">coverage</span><span class="kw">:</span></span>
@@ -972,8 +981,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a><span class="at">        (evidence_ratio * 0.25)</span></span>
 <span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a><span class="at">      )</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="extraction-maturity-levels-eml" class="level3" data-number="26.4.2">
-<h3 data-number="26.4.2" class="anchored" data-anchor-id="extraction-maturity-levels-eml"><span class="header-section-number">26.4.2</span> Extraction Maturity Levels (EML)</h3>
+<section id="extraction-maturity-levels-eml" class="level3" data-number="27.4.2">
+<h3 data-number="27.4.2" class="anchored" data-anchor-id="extraction-maturity-levels-eml"><span class="header-section-number">27.4.2</span> Extraction Maturity Levels (EML)</h3>
 <p><strong>Level definitions:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">extraction_maturity_levels</span><span class="kw">:</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">EML_0</span><span class="kw">:</span></span>
@@ -1026,8 +1035,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">usage</span><span class="kw">:</span><span class="at"> </span><span class="st">"Pattern libraries, canonical examples"</span></span>
 <span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">confidence</span><span class="kw">:</span><span class="at"> </span><span class="st">"Very high (&gt; 0.85)"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="dataset-quality-targets" class="level3" data-number="26.4.3">
-<h3 data-number="26.4.3" class="anchored" data-anchor-id="dataset-quality-targets"><span class="header-section-number">26.4.3</span> Dataset Quality Targets</h3>
+<section id="dataset-quality-targets" class="level3" data-number="27.4.3">
+<h3 data-number="27.4.3" class="anchored" data-anchor-id="dataset-quality-targets"><span class="header-section-number">27.4.3</span> Dataset Quality Targets</h3>
 <p><strong>Target specifications:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dataset_quality_targets</span><span class="kw">:</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">production_dataset</span><span class="kw">:</span></span>
@@ -1069,10 +1078,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 </section>
-<section id="operational-procedures" class="level2" data-number="26.5">
-<h2 data-number="26.5" class="anchored" data-anchor-id="operational-procedures"><span class="header-section-number">26.5</span> Operational Procedures</h2>
-<section id="repository-filtering" class="level3" data-number="26.5.1">
-<h3 data-number="26.5.1" class="anchored" data-anchor-id="repository-filtering"><span class="header-section-number">26.5.1</span> Repository Filtering</h3>
+<section id="operational-procedures" class="level2" data-number="27.5">
+<h2 data-number="27.5" class="anchored" data-anchor-id="operational-procedures"><span class="header-section-number">27.5</span> Operational Procedures</h2>
+<section id="repository-filtering" class="level3" data-number="27.5.1">
+<h3 data-number="27.5.1" class="anchored" data-anchor-id="repository-filtering"><span class="header-section-number">27.5.1</span> Repository Filtering</h3>
 <p><strong>Filter criteria:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">repository_filtering</span><span class="kw">:</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">quality_filters</span><span class="kw">:</span></span>
@@ -1134,8 +1143,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-58"><a href="#cb11-58" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"pom.xml"</span></span>
 <span id="cb11-59"><a href="#cb11-59" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"build.gradle"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="two-pass-extraction" class="level3" data-number="26.5.2">
-<h3 data-number="26.5.2" class="anchored" data-anchor-id="two-pass-extraction"><span class="header-section-number">26.5.2</span> Two-Pass Extraction</h3>
+<section id="two-pass-extraction" class="level3" data-number="27.5.2">
+<h3 data-number="27.5.2" class="anchored" data-anchor-id="two-pass-extraction"><span class="header-section-number">27.5.2</span> Two-Pass Extraction</h3>
 <p><strong>Pass specifications:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">two_pass_extraction</span><span class="kw">:</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">cheap_pass</span><span class="kw">:</span></span>
@@ -1188,8 +1197,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">eml_level</span><span class="kw">:</span><span class="at"> </span><span class="st">"&gt;= EML_3"</span></span>
 <span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">quality_score</span><span class="kw">:</span><span class="at"> </span><span class="st">"&gt; 0.8"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="incremental-extraction" class="level3" data-number="26.5.3">
-<h3 data-number="26.5.3" class="anchored" data-anchor-id="incremental-extraction"><span class="header-section-number">26.5.3</span> Incremental Extraction</h3>
+<section id="incremental-extraction" class="level3" data-number="27.5.3">
+<h3 data-number="27.5.3" class="anchored" data-anchor-id="incremental-extraction"><span class="header-section-number">27.5.3</span> Incremental Extraction</h3>
 <p><strong>Update process:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">incremental_extraction</span><span class="kw">:</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">change_detection</span><span class="kw">:</span></span>
@@ -1233,8 +1242,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">time_reduction</span><span class="kw">:</span><span class="at"> </span><span class="st">"70-90%"</span></span>
 <span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">cost_reduction</span><span class="kw">:</span><span class="at"> </span><span class="st">"80-95%"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="normalization-and-deduplication" class="level3" data-number="26.5.4">
-<h3 data-number="26.5.4" class="anchored" data-anchor-id="normalization-and-deduplication"><span class="header-section-number">26.5.4</span> Normalization and Deduplication</h3>
+<section id="normalization-and-deduplication" class="level3" data-number="27.5.4">
+<h3 data-number="27.5.4" class="anchored" data-anchor-id="normalization-and-deduplication"><span class="header-section-number">27.5.4</span> Normalization and Deduplication</h3>
 <p><strong>Processing steps:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">normalization_deduplication</span><span class="kw">:</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">family_identification</span><span class="kw">:</span></span>
@@ -1266,8 +1275,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 </section>
-<section id="specification-versioning" class="level2" data-number="26.6">
-<h2 data-number="26.6" class="anchored" data-anchor-id="specification-versioning"><span class="header-section-number">26.6</span> Specification Versioning</h2>
+<section id="specification-versioning" class="level2" data-number="27.6">
+<h2 data-number="27.6" class="anchored" data-anchor-id="specification-versioning"><span class="header-section-number">27.6</span> Specification Versioning</h2>
 <p><strong>Version control:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">specification_versioning</span><span class="kw">:</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">current_version</span><span class="kw">:</span><span class="at"> </span><span class="st">"v0.1"</span></span>
@@ -1302,8 +1311,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">migration_path</span><span class="kw">:</span><span class="at"> </span><span class="st">"Migration guides provided for MAJOR versions"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="chapter-summary" class="level2" data-number="26.7">
-<h2 data-number="26.7" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">26.7</span> Chapter Summary</h2>
+<section id="chapter-summary" class="level2" data-number="27.7">
+<h2 data-number="27.7" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">27.7</span> Chapter Summary</h2>
 <ul>
 <li>Blueprint Extraction Specification v0.1 provides formal definition for extraction framework</li>
 <li>Terminology defines core concepts: blueprint, kernel, view, signal, evidence, confidence, ontology mapping, blueprint pack, EML</li>
@@ -1319,10 +1328,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Specification uses semantic versioning (v0.1 initial), with roadmap for v0.2 and v1.0</li>
 <li>This specification serves as authoritative reference for implementing extraction pipelines and tools</li>
 </ul>
+<section id="knowledge-to-retain" class="level3" data-number="27.7.1">
+<h3 data-number="27.7.1" class="anchored" data-anchor-id="knowledge-to-retain"><span class="header-section-number">27.7.1</span> Knowledge to Retain</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Core Concept</th>
+<th>Must Remember</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Specification coverage</strong></td>
+<td>The spec covers: (1) <strong>Terminology</strong> — 9 core concepts with precise definitions. (2) <strong>Data Structures</strong> — Kernel, Evidence, Pack schemas. (3) <strong>Methodology</strong> — 8-stage pipeline. (4) <strong>Quality</strong> — metrics, gates, EML. (5) <strong>Operations</strong> — filtering, two-pass, incremental extraction.</td>
+</tr>
+<tr class="even">
+<td><strong>Quality gate thresholds</strong></td>
+<td>Minimums for production: signal detection completeness &gt; 0.8, evidence ratio &gt; 0.8, kernel completeness &gt; 0.8, validation = PASSED, EML ≥ 3. Blueprints below these thresholds should not be trusted for critical analysis.</td>
+</tr>
+<tr class="odd">
+<td><strong>EML is the ultimate quality label</strong></td>
+<td>EML 0-4 is the single most informative quality indicator: EML 0 = nothing, EML 1 = signals only, EML 2 = partial kernel, EML 3 = evidence-backed draft (usable), EML 4 = reviewed and validated (reference-grade).</td>
+</tr>
+<tr class="even">
+<td><strong>Confidence weights</strong></td>
+<td>The standard confidence formula: Strength (40%) + Count (30%) + Consistency (20%) + Pattern (10%). These weights are part of the formal specification — deviations must be documented.</td>
+</tr>
+<tr class="odd">
+<td><strong>v0.1 → v1.0 roadmap</strong></td>
+<td>This specification is v0.1 (initial). v0.2 will add enhanced pattern discovery and multi-language support. v1.0 will be production-ready with complete tooling. Versioning follows semantic versioning with backward compatibility within MINOR versions.</td>
+</tr>
+</tbody>
+</table>
 <p><strong>End of Blueprint Extraction Volume 5</strong></p>
 <p>This specification concludes the comprehensive presentation of the Blueprint Extraction framework. The methodology defined in this volume provides a systematic, evidence-driven approach to reconstructing system architectures from repositories. From signal detection through pattern discovery, the framework enables scalable extraction, rigorous validation, and systematic analysis of architectural knowledge.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1729,12 +1775,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./ch-23-blueprints-to-patterns.html" class="pagination-link" aria-label="From Blueprints to Patterns">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">From Blueprints to Patterns</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">From Blueprints to Patterns</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./appendix-a-signal-taxonomy.html" class="pagination-link" aria-label="Appendix A — Signal Taxonomy v0.1">
-        <span class="nav-page-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Appendix A — Signal Taxonomy v0.1</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Appendix A — Signal Taxonomy v0.1</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

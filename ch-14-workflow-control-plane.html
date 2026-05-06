@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>16&nbsp; Workflow and Control-Plane Extraction – Blueprint_Extraction</title>
+<title>17&nbsp; Workflow and Control-Plane Extraction – Blueprint Extraction</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -69,15 +72,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./ch-13-data-model-ownership.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-27c261d06b905028a18691de25d09dde.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -118,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-10-mapping-principles.html">Part III — Ontology Mapping: From Repo to System Graph</a></li><li class="breadcrumb-item"><a href="./ch-14-workflow-control-plane.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Workflow and Control-Plane Extraction</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-10-mapping-principles.html">Part III — Ontology Mapping: From Repo to System Graph</a></li><li class="breadcrumb-item"><a href="./ch-14-workflow-control-plane.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Workflow and Control-Plane Extraction</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -131,11 +133,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Blueprint_Extraction</a> 
+      <a href="./">Blueprint Extraction</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -242,6 +242,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Confidence Semantics</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-09.5-system-representation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">System Representation: Making Systems Observable</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -256,31 +262,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-10-mapping-principles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Mapping Principles and Canonicalization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Mapping Principles and Canonicalization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-11-component-discovery.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Component Discovery</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Component Discovery</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-12-interface-contract-extraction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Interface and Contract Extraction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Interface and Contract Extraction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-13-data-model-ownership.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Data Model and Ownership Extraction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Data Model and Ownership Extraction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-14-workflow-control-plane.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Workflow and Control-Plane Extraction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Workflow and Control-Plane Extraction</span></span></a>
   </div>
 </li>
       </ul>
@@ -297,19 +303,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-15-kernel-slot-filling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Kernel Slot Filling Rules</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Kernel Slot Filling Rules</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-16-views-generation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Views Generation (Projections)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Views Generation (Projections)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-17-blueprint-pack-output.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Blueprint Pack Output Standard</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Blueprint Pack Output Standard</span></span></a>
   </div>
 </li>
       </ul>
@@ -326,19 +332,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-18-validation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Validation: Schema and Semantics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Validation: Schema and Semantics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-19-review-protocol.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Review Protocol (Human-in-the-Loop)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Review Protocol (Human-in-the-Loop)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-20-quality-metrics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Extraction Quality Metrics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Extraction Quality Metrics</span></span></a>
   </div>
 </li>
       </ul>
@@ -355,19 +361,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-21-mining-pipeline-operations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Mining Pipeline Operations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Mining Pipeline Operations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-22-normalization-deduplication.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Normalization and Deduplication</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Normalization and Deduplication</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-23-blueprints-to-patterns.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">From Blueprints to Patterns</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">From Blueprints to Patterns</span></span></a>
   </div>
 </li>
       </ul>
@@ -384,7 +390,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-24-blueprint-extraction-spec.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Blueprint Extraction Specification v0.1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Blueprint Extraction Specification v0.1</span></span></a>
   </div>
 </li>
       </ul>
@@ -401,43 +407,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-a-signal-taxonomy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Appendix A — Signal Taxonomy v0.1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Appendix A — Signal Taxonomy v0.1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-b-evidence-schema.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Appendix B — Evidence Object Schema v0.1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix B — Evidence Object Schema v0.1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-c-confidence-semantics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix C — Confidence Semantics Spec v0.1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Appendix C — Confidence Semantics Spec v0.1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-d-mapping-template.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Appendix D — Ontology Mapping Rules Template</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Appendix D — Ontology Mapping Rules Template</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-e-report-template.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Appendix E — Extraction Report Template</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Appendix E — Extraction Report Template</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-f-extraction-cases.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Appendix F — Five Complete Extraction Cases (with Evidence Trace)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Appendix F — Five Complete Extraction Cases (with Evidence Trace)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-g-eml-scorecard.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Appendix G — Extraction Maturity Level (EML) Score Sheet</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Appendix G — Extraction Maturity Level (EML) Score Sheet</span></span></a>
   </div>
 </li>
       </ul>
@@ -445,7 +451,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -464,22 +470,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#what-is-a-workflow" id="toc-what-is-a-workflow" class="nav-link active" data-scroll-target="#what-is-a-workflow"><span class="header-section-number">16.1</span> What Is a Workflow?</a></li>
-  <li><a href="#workflow-signals" id="toc-workflow-signals" class="nav-link" data-scroll-target="#workflow-signals"><span class="header-section-number">16.2</span> Workflow Signals</a></li>
-  <li><a href="#scheduler-and-trigger-signals" id="toc-scheduler-and-trigger-signals" class="nav-link" data-scroll-target="#scheduler-and-trigger-signals"><span class="header-section-number">16.3</span> Scheduler and Trigger Signals</a></li>
-  <li><a href="#state-stores-and-execution-semantics" id="toc-state-stores-and-execution-semantics" class="nav-link" data-scroll-target="#state-stores-and-execution-semantics"><span class="header-section-number">16.4</span> State Stores and Execution Semantics</a></li>
-  <li><a href="#control-plane-identification" id="toc-control-plane-identification" class="nav-link" data-scroll-target="#control-plane-identification"><span class="header-section-number">16.5</span> Control-Plane Identification</a></li>
-  <li><a href="#workflow-graph-construction" id="toc-workflow-graph-construction" class="nav-link" data-scroll-target="#workflow-graph-construction"><span class="header-section-number">16.6</span> Workflow Graph Construction</a></li>
-  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">16.7</span> Chapter Summary</a></li>
+  <li><a href="#what-is-a-workflow" id="toc-what-is-a-workflow" class="nav-link active" data-scroll-target="#what-is-a-workflow"><span class="header-section-number">17.1</span> What Is a Workflow?</a></li>
+  <li><a href="#workflow-signals" id="toc-workflow-signals" class="nav-link" data-scroll-target="#workflow-signals"><span class="header-section-number">17.2</span> Workflow Signals</a></li>
+  <li><a href="#scheduler-and-trigger-signals" id="toc-scheduler-and-trigger-signals" class="nav-link" data-scroll-target="#scheduler-and-trigger-signals"><span class="header-section-number">17.3</span> Scheduler and Trigger Signals</a></li>
+  <li><a href="#state-stores-and-execution-semantics" id="toc-state-stores-and-execution-semantics" class="nav-link" data-scroll-target="#state-stores-and-execution-semantics"><span class="header-section-number">17.4</span> State Stores and Execution Semantics</a></li>
+  <li><a href="#control-plane-identification" id="toc-control-plane-identification" class="nav-link" data-scroll-target="#control-plane-identification"><span class="header-section-number">17.5</span> Control-Plane Identification</a></li>
+  <li><a href="#workflow-graph-construction" id="toc-workflow-graph-construction" class="nav-link" data-scroll-target="#workflow-graph-construction"><span class="header-section-number">17.6</span> Workflow Graph Construction</a></li>
+  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">17.7</span> Chapter Summary</a>
+  <ul class="collapse">
+  <li><a href="#knowledge-to-retain" id="toc-knowledge-to-retain" class="nav-link" data-scroll-target="#knowledge-to-retain"><span class="header-section-number">17.7.1</span> Knowledge to Retain</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-10-mapping-principles.html">Part III — Ontology Mapping: From Repo to System Graph</a></li><li class="breadcrumb-item"><a href="./ch-14-workflow-control-plane.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Workflow and Control-Plane Extraction</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-10-mapping-principles.html">Part III — Ontology Mapping: From Repo to System Graph</a></li><li class="breadcrumb-item"><a href="./ch-14-workflow-control-plane.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Workflow and Control-Plane Extraction</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Workflow and Control-Plane Extraction</span></h1>
+<h1 class="title"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Workflow and Control-Plane Extraction</span></h1>
 </div>
 
 
@@ -500,8 +509,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Workflows describe ordered or conditional execution across components, tasks, or services. They often encode the operational logic that determines how capabilities are realized over time. Blueprint extraction therefore reconstructs both the <strong>workflow structures</strong> and the <strong>control-plane mechanisms</strong> that govern execution.</p>
 <p>The result is a representation of the system’s <strong>control flow architecture</strong>, revealing how capabilities are operationalized through orchestrated execution across components and tasks.</p>
 <hr>
-<section id="what-is-a-workflow" class="level2" data-number="16.1">
-<h2 data-number="16.1" class="anchored" data-anchor-id="what-is-a-workflow"><span class="header-section-number">16.1</span> What Is a Workflow?</h2>
+<section id="what-is-a-workflow" class="level2" data-number="17.1">
+<h2 data-number="17.1" class="anchored" data-anchor-id="what-is-a-workflow"><span class="header-section-number">17.1</span> What Is a Workflow?</h2>
 <p>A workflow is a <strong>structured definition of execution order and dependencies</strong> between tasks or operations. Workflows encode the orchestration logic that determines when and how tasks execute.</p>
 <p><strong>Workflow characteristics:</strong></p>
 <p><strong>1. Task coordination:</strong></p>
@@ -611,8 +620,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">examples</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">Event handlers</span><span class="kw">,</span><span class="at"> message consumers</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="workflow-signals" class="level2" data-number="16.2">
-<h2 data-number="16.2" class="anchored" data-anchor-id="workflow-signals"><span class="header-section-number">16.2</span> Workflow Signals</h2>
+<section id="workflow-signals" class="level2" data-number="17.2">
+<h2 data-number="17.2" class="anchored" data-anchor-id="workflow-signals"><span class="header-section-number">17.2</span> Workflow Signals</h2>
 <p>Workflows frequently appear in repositories through artifacts that explicitly describe execution sequences. These signals provide the foundation for workflow extraction.</p>
 <p><strong>Workflow signal types:</strong></p>
 <p><strong>1. Directed acyclic graph (DAG) definitions:</strong></p>
@@ -1017,8 +1026,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">evidence</span><span class="kw">:</span><span class="at"> evidence-005</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="scheduler-and-trigger-signals" class="level2" data-number="16.3">
-<h2 data-number="16.3" class="anchored" data-anchor-id="scheduler-and-trigger-signals"><span class="header-section-number">16.3</span> Scheduler and Trigger Signals</h2>
+<section id="scheduler-and-trigger-signals" class="level2" data-number="17.3">
+<h2 data-number="17.3" class="anchored" data-anchor-id="scheduler-and-trigger-signals"><span class="header-section-number">17.3</span> Scheduler and Trigger Signals</h2>
 <p>Workflow execution is typically initiated by <strong>triggers</strong>. Triggers may originate from time schedules, external events, user commands, or system state transitions.</p>
 <p><strong>Trigger signal types:</strong></p>
 <p><strong>1. Cron scheduling configurations:</strong></p>
@@ -1195,8 +1204,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">evidence</span><span class="kw">:</span><span class="at"> evidence-010</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="state-stores-and-execution-semantics" class="level2" data-number="16.4">
-<h2 data-number="16.4" class="anchored" data-anchor-id="state-stores-and-execution-semantics"><span class="header-section-number">16.4</span> State Stores and Execution Semantics</h2>
+<section id="state-stores-and-execution-semantics" class="level2" data-number="17.4">
+<h2 data-number="17.4" class="anchored" data-anchor-id="state-stores-and-execution-semantics"><span class="header-section-number">17.4</span> State Stores and Execution Semantics</h2>
 <p>Workflow execution frequently depends on <strong>state management mechanisms</strong>. Some orchestration systems maintain explicit state stores that track workflow progress, task status, retries, and failure handling.</p>
 <p><strong>State store signal types:</strong></p>
 <p><strong>1. Metadata databases used by workflow engines:</strong></p>
@@ -1447,8 +1456,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">retry_tracking</span><span class="kw">:</span><span class="at"> retry count and error messages</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="control-plane-identification" class="level2" data-number="16.5">
-<h2 data-number="16.5" class="anchored" data-anchor-id="control-plane-identification"><span class="header-section-number">16.5</span> Control-Plane Identification</h2>
+<section id="control-plane-identification" class="level2" data-number="17.5">
+<h2 data-number="17.5" class="anchored" data-anchor-id="control-plane-identification"><span class="header-section-number">17.5</span> Control-Plane Identification</h2>
 <p>In many systems, a dedicated component manages workflow execution. This component acts as the <strong>control plane</strong>, coordinating task scheduling, dependency resolution, and execution monitoring.</p>
 <p><strong>Control-plane signal types:</strong></p>
 <p><strong>1. Orchestration frameworks:</strong></p>
@@ -1729,8 +1738,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb43-20"><a href="#cb43-20" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">"Control plane location determines where orchestration logic resides"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="workflow-graph-construction" class="level2" data-number="16.6">
-<h2 data-number="16.6" class="anchored" data-anchor-id="workflow-graph-construction"><span class="header-section-number">16.6</span> Workflow Graph Construction</h2>
+<section id="workflow-graph-construction" class="level2" data-number="17.6">
+<h2 data-number="17.6" class="anchored" data-anchor-id="workflow-graph-construction"><span class="header-section-number">17.6</span> Workflow Graph Construction</h2>
 <p>Once workflow signals are identified, the extraction process reconstructs a <strong>workflow graph</strong>. The workflow graph represents tasks and their dependency relationships.</p>
 <p><strong>Workflow graph structure:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb44"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">workflow_graph</span><span class="kw">:</span></span>
@@ -1917,8 +1926,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb45-43"><a href="#cb45-43" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> task.send_notification</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="chapter-summary" class="level2" data-number="16.7">
-<h2 data-number="16.7" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">16.7</span> Chapter Summary</h2>
+<section id="chapter-summary" class="level2" data-number="17.7">
+<h2 data-number="17.7" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">17.7</span> Chapter Summary</h2>
 <ul>
 <li>Workflows define structured execution order and dependencies between tasks</li>
 <li>Workflows encode operational logic for how capabilities are realized over time</li>
@@ -1934,9 +1943,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Workflow graphs reveal component participation, control-plane distribution, and workflow complexity</li>
 <li>Workflows represent the control plane architecture of the system</li>
 </ul>
+<section id="knowledge-to-retain" class="level3" data-number="17.7.1">
+<h3 data-number="17.7.1" class="anchored" data-anchor-id="knowledge-to-retain"><span class="header-section-number">17.7.1</span> Knowledge to Retain</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Core Concept</th>
+<th>Must Remember</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Four workflow types</strong></td>
+<td><strong>Pipeline</strong> (sequential steps), <strong>DAG</strong> (graph with dependencies), <strong>Schedule</strong> (time-triggered), <strong>Event</strong> (reactively triggered). Identify which type(s) the system uses — each reveals different coordination patterns.</td>
+</tr>
+<tr class="even">
+<td><strong>Workflow = how capabilities happen</strong></td>
+<td>While interfaces say <em>what</em> the system can do, workflows say <em>how</em> it does it over time. Workflows reveal the <em>operational logic</em> encoded in the system’s coordination mechanisms.</td>
+</tr>
+<tr class="odd">
+<td><strong>Control plane vs.&nbsp;data plane</strong></td>
+<td>The control plane (orchestrators, schedulers, workflow engines) coordinates execution. The data plane (services, workers) performs the actual work. Distinguishing these is critical for understanding system architecture.</td>
+</tr>
+<tr class="even">
+<td><strong>Triggers and state</strong></td>
+<td>Every workflow has (1) a <strong>trigger</strong> (what starts it) and (2) a <strong>state store</strong> (what tracks progress). Without both, a workflow definition is incomplete. Extract both for each workflow found.</td>
+</tr>
+<tr class="odd">
+<td><strong>Workflow graph</strong></td>
+<td>The workflow graph shows: which tasks execute, in what order, with what dependencies, and which components participate. This graph is the <em>control flow architecture</em> of the system.</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Next Chapter</strong>: Chapter 15 begins Part IV by introducing Kernel Slot Filling Rules—the explicit rules that govern how extracted information maps into the six canonical kernel slots. This chapter covers evidence requirements, the constraint slot, triangular consistency checks, and kernel completion.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -2343,12 +2389,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./ch-13-data-model-ownership.html" class="pagination-link" aria-label="Data Model and Ownership Extraction">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Data Model and Ownership Extraction</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Data Model and Ownership Extraction</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./ch-15-kernel-slot-filling.html" class="pagination-link" aria-label="Kernel Slot Filling Rules">
-        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Kernel Slot Filling Rules</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Kernel Slot Filling Rules</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

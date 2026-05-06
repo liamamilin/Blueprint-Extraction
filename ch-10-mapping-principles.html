@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>12&nbsp; Mapping Principles and Canonicalization – Blueprint_Extraction</title>
+<title>13&nbsp; Mapping Principles and Canonicalization – Blueprint Extraction</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -66,18 +69,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./ch-11-component-discovery.html" rel="next">
-<link href="./ch-09-confidence-semantics.html" rel="prev">
+<link href="./ch-09.5-system-representation.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-27c261d06b905028a18691de25d09dde.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -118,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-10-mapping-principles.html">Part III — Ontology Mapping: From Repo to System Graph</a></li><li class="breadcrumb-item"><a href="./ch-10-mapping-principles.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Mapping Principles and Canonicalization</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-10-mapping-principles.html">Part III — Ontology Mapping: From Repo to System Graph</a></li><li class="breadcrumb-item"><a href="./ch-10-mapping-principles.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Mapping Principles and Canonicalization</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -131,11 +133,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Blueprint_Extraction</a> 
+      <a href="./">Blueprint Extraction</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -242,6 +242,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Confidence Semantics</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch-09.5-system-representation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">System Representation: Making Systems Observable</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -256,31 +262,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-10-mapping-principles.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Mapping Principles and Canonicalization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Mapping Principles and Canonicalization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-11-component-discovery.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Component Discovery</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Component Discovery</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-12-interface-contract-extraction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Interface and Contract Extraction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Interface and Contract Extraction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-13-data-model-ownership.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Data Model and Ownership Extraction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Data Model and Ownership Extraction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-14-workflow-control-plane.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Workflow and Control-Plane Extraction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Workflow and Control-Plane Extraction</span></span></a>
   </div>
 </li>
       </ul>
@@ -297,19 +303,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-15-kernel-slot-filling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Kernel Slot Filling Rules</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Kernel Slot Filling Rules</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-16-views-generation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Views Generation (Projections)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Views Generation (Projections)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-17-blueprint-pack-output.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Blueprint Pack Output Standard</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Blueprint Pack Output Standard</span></span></a>
   </div>
 </li>
       </ul>
@@ -326,19 +332,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-18-validation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Validation: Schema and Semantics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Validation: Schema and Semantics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-19-review-protocol.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Review Protocol (Human-in-the-Loop)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Review Protocol (Human-in-the-Loop)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-20-quality-metrics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Extraction Quality Metrics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Extraction Quality Metrics</span></span></a>
   </div>
 </li>
       </ul>
@@ -355,19 +361,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-21-mining-pipeline-operations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Mining Pipeline Operations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Mining Pipeline Operations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-22-normalization-deduplication.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Normalization and Deduplication</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Normalization and Deduplication</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-23-blueprints-to-patterns.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">From Blueprints to Patterns</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">From Blueprints to Patterns</span></span></a>
   </div>
 </li>
       </ul>
@@ -384,7 +390,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch-24-blueprint-extraction-spec.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Blueprint Extraction Specification v0.1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Blueprint Extraction Specification v0.1</span></span></a>
   </div>
 </li>
       </ul>
@@ -401,43 +407,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-a-signal-taxonomy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Appendix A — Signal Taxonomy v0.1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Appendix A — Signal Taxonomy v0.1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-b-evidence-schema.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Appendix B — Evidence Object Schema v0.1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix B — Evidence Object Schema v0.1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-c-confidence-semantics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Appendix C — Confidence Semantics Spec v0.1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Appendix C — Confidence Semantics Spec v0.1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-d-mapping-template.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Appendix D — Ontology Mapping Rules Template</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Appendix D — Ontology Mapping Rules Template</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-e-report-template.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Appendix E — Extraction Report Template</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Appendix E — Extraction Report Template</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-f-extraction-cases.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Appendix F — Five Complete Extraction Cases (with Evidence Trace)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Appendix F — Five Complete Extraction Cases (with Evidence Trace)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-g-eml-scorecard.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Appendix G — Extraction Maturity Level (EML) Score Sheet</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Appendix G — Extraction Maturity Level (EML) Score Sheet</span></span></a>
   </div>
 </li>
       </ul>
@@ -445,7 +451,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -464,37 +470,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-mapping-challenge" id="toc-the-mapping-challenge" class="nav-link active" data-scroll-target="#the-mapping-challenge"><span class="header-section-number">12.1</span> The Mapping Challenge</a></li>
-  <li><a href="#interpretability-first" id="toc-interpretability-first" class="nav-link" data-scroll-target="#interpretability-first"><span class="header-section-number">12.2</span> Interpretability First</a></li>
-  <li><a href="#naming-canonicalization" id="toc-naming-canonicalization" class="nav-link" data-scroll-target="#naming-canonicalization"><span class="header-section-number">12.3</span> Naming Canonicalization</a></li>
-  <li><a href="#type-canonicalization" id="toc-type-canonicalization" class="nav-link" data-scroll-target="#type-canonicalization"><span class="header-section-number">12.4</span> Type Canonicalization</a></li>
-  <li><a href="#relation-canonicalization" id="toc-relation-canonicalization" class="nav-link" data-scroll-target="#relation-canonicalization"><span class="header-section-number">12.5</span> Relation Canonicalization</a></li>
-  <li><a href="#entity-and-relation-graphs" id="toc-entity-and-relation-graphs" class="nav-link" data-scroll-target="#entity-and-relation-graphs"><span class="header-section-number">12.6</span> Entity and Relation Graphs</a>
+  <li><a href="#the-mapping-challenge" id="toc-the-mapping-challenge" class="nav-link active" data-scroll-target="#the-mapping-challenge"><span class="header-section-number">13.1</span> The Mapping Challenge</a></li>
+  <li><a href="#interpretability-first" id="toc-interpretability-first" class="nav-link" data-scroll-target="#interpretability-first"><span class="header-section-number">13.2</span> Interpretability First</a></li>
+  <li><a href="#naming-canonicalization" id="toc-naming-canonicalization" class="nav-link" data-scroll-target="#naming-canonicalization"><span class="header-section-number">13.3</span> Naming Canonicalization</a></li>
+  <li><a href="#type-canonicalization" id="toc-type-canonicalization" class="nav-link" data-scroll-target="#type-canonicalization"><span class="header-section-number">13.4</span> Type Canonicalization</a></li>
+  <li><a href="#relation-canonicalization" id="toc-relation-canonicalization" class="nav-link" data-scroll-target="#relation-canonicalization"><span class="header-section-number">13.5</span> Relation Canonicalization</a></li>
+  <li><a href="#entity-and-relation-graphs" id="toc-entity-and-relation-graphs" class="nav-link" data-scroll-target="#entity-and-relation-graphs"><span class="header-section-number">13.6</span> Entity and Relation Graphs</a>
   <ul class="collapse">
-  <li><a href="#entity-graph" id="toc-entity-graph" class="nav-link" data-scroll-target="#entity-graph"><span class="header-section-number">12.6.1</span> Entity Graph</a></li>
-  <li><a href="#relation-graph" id="toc-relation-graph" class="nav-link" data-scroll-target="#relation-graph"><span class="header-section-number">12.6.2</span> Relation Graph</a></li>
-  <li><a href="#combined-graph-structure" id="toc-combined-graph-structure" class="nav-link" data-scroll-target="#combined-graph-structure"><span class="header-section-number">12.6.3</span> Combined Graph Structure</a></li>
+  <li><a href="#entity-graph" id="toc-entity-graph" class="nav-link" data-scroll-target="#entity-graph"><span class="header-section-number">13.6.1</span> Entity Graph</a></li>
+  <li><a href="#relation-graph" id="toc-relation-graph" class="nav-link" data-scroll-target="#relation-graph"><span class="header-section-number">13.6.2</span> Relation Graph</a></li>
+  <li><a href="#combined-graph-structure" id="toc-combined-graph-structure" class="nav-link" data-scroll-target="#combined-graph-structure"><span class="header-section-number">13.6.3</span> Combined Graph Structure</a></li>
   </ul></li>
-  <li><a href="#mapping-rules-interface" id="toc-mapping-rules-interface" class="nav-link" data-scroll-target="#mapping-rules-interface"><span class="header-section-number">12.7</span> Mapping Rules Interface</a></li>
-  <li><a href="#mapping-best-practices" id="toc-mapping-best-practices" class="nav-link" data-scroll-target="#mapping-best-practices"><span class="header-section-number">12.8</span> Mapping Best Practices</a>
+  <li><a href="#mapping-rules-interface" id="toc-mapping-rules-interface" class="nav-link" data-scroll-target="#mapping-rules-interface"><span class="header-section-number">13.7</span> Mapping Rules Interface</a></li>
+  <li><a href="#mapping-best-practices" id="toc-mapping-best-practices" class="nav-link" data-scroll-target="#mapping-best-practices"><span class="header-section-number">13.8</span> Mapping Best Practices</a>
   <ul class="collapse">
-  <li><a href="#start-simple-add-complexity-gradually" id="toc-start-simple-add-complexity-gradually" class="nav-link" data-scroll-target="#start-simple-add-complexity-gradually"><span class="header-section-number">12.8.1</span> 1. Start Simple, Add Complexity Gradually</a></li>
-  <li><a href="#document-everything" id="toc-document-everything" class="nav-link" data-scroll-target="#document-everything"><span class="header-section-number">12.8.2</span> 2. Document Everything</a></li>
-  <li><a href="#handle-edge-cases" id="toc-handle-edge-cases" class="nav-link" data-scroll-target="#handle-edge-cases"><span class="header-section-number">12.8.3</span> 3. Handle Edge Cases</a></li>
-  <li><a href="#use-confidence-appropriately" id="toc-use-confidence-appropriately" class="nav-link" data-scroll-target="#use-confidence-appropriately"><span class="header-section-number">12.8.4</span> 4. Use Confidence Appropriately</a></li>
-  <li><a href="#preserve-evidence-traceability" id="toc-preserve-evidence-traceability" class="nav-link" data-scroll-target="#preserve-evidence-traceability"><span class="header-section-number">12.8.5</span> 5. Preserve Evidence Traceability</a></li>
+  <li><a href="#start-simple-add-complexity-gradually" id="toc-start-simple-add-complexity-gradually" class="nav-link" data-scroll-target="#start-simple-add-complexity-gradually"><span class="header-section-number">13.8.1</span> 1. Start Simple, Add Complexity Gradually</a></li>
+  <li><a href="#document-everything" id="toc-document-everything" class="nav-link" data-scroll-target="#document-everything"><span class="header-section-number">13.8.2</span> 2. Document Everything</a></li>
+  <li><a href="#handle-edge-cases" id="toc-handle-edge-cases" class="nav-link" data-scroll-target="#handle-edge-cases"><span class="header-section-number">13.8.3</span> 3. Handle Edge Cases</a></li>
+  <li><a href="#use-confidence-appropriately" id="toc-use-confidence-appropriately" class="nav-link" data-scroll-target="#use-confidence-appropriately"><span class="header-section-number">13.8.4</span> 4. Use Confidence Appropriately</a></li>
+  <li><a href="#preserve-evidence-traceability" id="toc-preserve-evidence-traceability" class="nav-link" data-scroll-target="#preserve-evidence-traceability"><span class="header-section-number">13.8.5</span> 5. Preserve Evidence Traceability</a></li>
   </ul></li>
-  <li><a href="#mapping-as-structural-translation" id="toc-mapping-as-structural-translation" class="nav-link" data-scroll-target="#mapping-as-structural-translation"><span class="header-section-number">12.9</span> Mapping as Structural Translation</a></li>
-  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">12.10</span> Chapter Summary</a></li>
+  <li><a href="#mapping-as-structural-translation" id="toc-mapping-as-structural-translation" class="nav-link" data-scroll-target="#mapping-as-structural-translation"><span class="header-section-number">13.9</span> Mapping as Structural Translation</a></li>
+  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">13.10</span> Chapter Summary</a>
+  <ul class="collapse">
+  <li><a href="#knowledge-to-retain" id="toc-knowledge-to-retain" class="nav-link" data-scroll-target="#knowledge-to-retain"><span class="header-section-number">13.10.1</span> Knowledge to Retain</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-10-mapping-principles.html">Part III — Ontology Mapping: From Repo to System Graph</a></li><li class="breadcrumb-item"><a href="./ch-10-mapping-principles.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Mapping Principles and Canonicalization</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch-10-mapping-principles.html">Part III — Ontology Mapping: From Repo to System Graph</a></li><li class="breadcrumb-item"><a href="./ch-10-mapping-principles.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Mapping Principles and Canonicalization</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Mapping Principles and Canonicalization</span></h1>
+<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Mapping Principles and Canonicalization</span></h1>
 </div>
 
 
@@ -515,8 +524,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This translation process is called <strong>mapping</strong>. Mapping converts repository-derived evidence into the standardized vocabulary defined by the system ontology. The goal is to produce architectural representations that remain <strong>consistent across repositories, languages, and frameworks</strong>.</p>
 <p>Without mapping, extraction would produce repository-specific representations that cannot be compared, analyzed, or aggregated. With mapping, extraction produces canonical representations that enable large-scale architecture datasets, pattern discovery, and architectural intelligence.</p>
 <hr>
-<section id="the-mapping-challenge" class="level2" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="the-mapping-challenge"><span class="header-section-number">12.1</span> The Mapping Challenge</h2>
+<section id="the-mapping-challenge" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="the-mapping-challenge"><span class="header-section-number">13.1</span> The Mapping Challenge</h2>
 <p>Repositories exhibit enormous diversity in how they represent the same architectural concepts. This diversity presents the core mapping challenge: <strong>how to translate diverse implementation representations into consistent architectural entities?</strong></p>
 <p><strong>Diversity examples:</strong></p>
 <p><strong>Same concept, different representations:</strong></p>
@@ -593,8 +602,8 @@ Canonical Ontology Entities</code></pre>
 <p>Where “canonical” means: - <strong>Standardized</strong>: Using consistent terminology and structure - <strong>Technology-agnostic</strong>: Independent of language or framework - <strong>Architectural</strong>: Focused on structure rather than implementation - <strong>Comparable</strong>: Enabling cross-repository analysis</p>
 <hr>
 </section>
-<section id="interpretability-first" class="level2" data-number="12.2">
-<h2 data-number="12.2" class="anchored" data-anchor-id="interpretability-first"><span class="header-section-number">12.2</span> Interpretability First</h2>
+<section id="interpretability-first" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="interpretability-first"><span class="header-section-number">13.2</span> Interpretability First</h2>
 <p>Mapping rules must remain <strong>interpretable</strong>. This is a non-negotiable requirement for reliable extraction systems.</p>
 <p><strong>Why interpretability matters:</strong></p>
 <ol type="1">
@@ -684,8 +693,8 @@ Canonical Ontology Entities</code></pre>
 </ul>
 <hr>
 </section>
-<section id="naming-canonicalization" class="level2" data-number="12.3">
-<h2 data-number="12.3" class="anchored" data-anchor-id="naming-canonicalization"><span class="header-section-number">12.3</span> Naming Canonicalization</h2>
+<section id="naming-canonicalization" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="naming-canonicalization"><span class="header-section-number">13.3</span> Naming Canonicalization</h2>
 <p>Repositories frequently use inconsistent naming conventions. Different projects may refer to the same architectural concept using different terms. Naming canonicalization resolves these inconsistencies by translating repository-specific names into <strong>standardized ontology labels</strong>.</p>
 <p><strong>The naming problem:</strong></p>
 <p><strong>Same concept, different names:</strong></p>
@@ -816,8 +825,8 @@ Canonical Ontology Entities</code></pre>
 <span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">notes</span><span class="kw">:</span><span class="at"> </span><span class="st">"Ambiguous term 'service' without context"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="type-canonicalization" class="level2" data-number="12.4">
-<h2 data-number="12.4" class="anchored" data-anchor-id="type-canonicalization"><span class="header-section-number">12.4</span> Type Canonicalization</h2>
+<section id="type-canonicalization" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="type-canonicalization"><span class="header-section-number">13.4</span> Type Canonicalization</h2>
 <p>Beyond naming differences, repositories may represent similar architectural elements using different technical constructs. Type canonicalization abstracts these variations into <strong>common architectural types</strong> defined in the system ontology.</p>
 <p><strong>The type problem:</strong></p>
 <p><strong>Same architectural role, different implementation:</strong></p>
@@ -942,8 +951,8 @@ Canonical Ontology Entities</code></pre>
 <p>This allows both canonical analysis (what it is architecturally) and implementation-aware analysis (how it’s implemented).</p>
 <hr>
 </section>
-<section id="relation-canonicalization" class="level2" data-number="12.5">
-<h2 data-number="12.5" class="anchored" data-anchor-id="relation-canonicalization"><span class="header-section-number">12.5</span> Relation Canonicalization</h2>
+<section id="relation-canonicalization" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="relation-canonicalization"><span class="header-section-number">13.5</span> Relation Canonicalization</h2>
 <p>Architectural relationships between entities also require normalization. Repositories may express relationships in many forms, including function calls, configuration references, dependency declarations, and event subscriptions.</p>
 <p><strong>The relationship problem:</strong></p>
 <p><strong>Same relationship, different representations:</strong></p>
@@ -1076,11 +1085,11 @@ Canonical Ontology Entities</code></pre>
 </ol>
 <hr>
 </section>
-<section id="entity-and-relation-graphs" class="level2" data-number="12.6">
-<h2 data-number="12.6" class="anchored" data-anchor-id="entity-and-relation-graphs"><span class="header-section-number">12.6</span> Entity and Relation Graphs</h2>
+<section id="entity-and-relation-graphs" class="level2" data-number="13.6">
+<h2 data-number="13.6" class="anchored" data-anchor-id="entity-and-relation-graphs"><span class="header-section-number">13.6</span> Entity and Relation Graphs</h2>
 <p>The result of mapping and canonicalization is a pair of structured graphs: the <strong>entity graph</strong> and the <strong>relation graph</strong>. Together, these graphs form the structural foundation of the blueprint.</p>
-<section id="entity-graph" class="level3" data-number="12.6.1">
-<h3 data-number="12.6.1" class="anchored" data-anchor-id="entity-graph"><span class="header-section-number">12.6.1</span> Entity Graph</h3>
+<section id="entity-graph" class="level3" data-number="13.6.1">
+<h3 data-number="13.6.1" class="anchored" data-anchor-id="entity-graph"><span class="header-section-number">13.6.1</span> Entity Graph</h3>
 <p>The entity graph contains the architectural entities identified during extraction.</p>
 <p><strong>Entity graph structure:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">entity_graph</span><span class="kw">:</span></span>
@@ -1142,8 +1151,8 @@ Canonical Ontology Entities</code></pre>
 <span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">subtypes</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">Functional</span><span class="kw">,</span><span class="at"> Operational</span><span class="kw">]</span></span>
 <span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">fields</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">id</span><span class="kw">,</span><span class="at"> type</span><span class="kw">,</span><span class="at"> description</span><span class="kw">,</span><span class="at"> interfaces</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="relation-graph" class="level3" data-number="12.6.2">
-<h3 data-number="12.6.2" class="anchored" data-anchor-id="relation-graph"><span class="header-section-number">12.6.2</span> Relation Graph</h3>
+<section id="relation-graph" class="level3" data-number="13.6.2">
+<h3 data-number="13.6.2" class="anchored" data-anchor-id="relation-graph"><span class="header-section-number">13.6.2</span> Relation Graph</h3>
 <p>The relation graph represents the relationships between entities.</p>
 <p><strong>Relation graph structure:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">relation_graph</span><span class="kw">:</span></span>
@@ -1203,8 +1212,8 @@ Canonical Ontology Entities</code></pre>
 <span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">direction</span><span class="kw">:</span><span class="at"> workflow → task</span></span>
 <span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">semantics</span><span class="kw">:</span><span class="at"> workflow includes task in execution</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="combined-graph-structure" class="level3" data-number="12.6.3">
-<h3 data-number="12.6.3" class="anchored" data-anchor-id="combined-graph-structure"><span class="header-section-number">12.6.3</span> Combined Graph Structure</h3>
+<section id="combined-graph-structure" class="level3" data-number="13.6.3">
+<h3 data-number="13.6.3" class="anchored" data-anchor-id="combined-graph-structure"><span class="header-section-number">13.6.3</span> Combined Graph Structure</h3>
 <p>The entity and relation graphs together form a complete architectural representation:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">blueprint_graph</span><span class="kw">:</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">entities</span><span class="kw">:</span></span>
@@ -1241,8 +1250,8 @@ Canonical Ontology Entities</code></pre>
 <hr>
 </section>
 </section>
-<section id="mapping-rules-interface" class="level2" data-number="12.7">
-<h2 data-number="12.7" class="anchored" data-anchor-id="mapping-rules-interface"><span class="header-section-number">12.7</span> Mapping Rules Interface</h2>
+<section id="mapping-rules-interface" class="level2" data-number="13.7">
+<h2 data-number="13.7" class="anchored" data-anchor-id="mapping-rules-interface"><span class="header-section-number">13.7</span> Mapping Rules Interface</h2>
 <p>To ensure consistency and interoperability, mapping rules follow a standardized interface. This interface defines how mapping rules are specified, applied, and validated.</p>
 <p><strong>Mapping rule structure:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mapping_rule</span><span class="kw">:</span></span>
@@ -1363,11 +1372,11 @@ Canonical Ontology Entities</code></pre>
 <span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">validation_result</span><span class="kw">:</span><span class="at"> PASSED</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="mapping-best-practices" class="level2" data-number="12.8">
-<h2 data-number="12.8" class="anchored" data-anchor-id="mapping-best-practices"><span class="header-section-number">12.8</span> Mapping Best Practices</h2>
+<section id="mapping-best-practices" class="level2" data-number="13.8">
+<h2 data-number="13.8" class="anchored" data-anchor-id="mapping-best-practices"><span class="header-section-number">13.8</span> Mapping Best Practices</h2>
 <p>Effective mapping follows several best practices that ensure quality, maintainability, and reliability.</p>
-<section id="start-simple-add-complexity-gradually" class="level3" data-number="12.8.1">
-<h3 data-number="12.8.1" class="anchored" data-anchor-id="start-simple-add-complexity-gradually"><span class="header-section-number">12.8.1</span> 1. Start Simple, Add Complexity Gradually</h3>
+<section id="start-simple-add-complexity-gradually" class="level3" data-number="13.8.1">
+<h3 data-number="13.8.1" class="anchored" data-anchor-id="start-simple-add-complexity-gradually"><span class="header-section-number">13.8.1</span> 1. Start Simple, Add Complexity Gradually</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Start with simple rule</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mapping_rule_v1</span><span class="kw">:</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">detection</span><span class="kw">:</span></span>
@@ -1389,8 +1398,8 @@ Canonical Ontology Entities</code></pre>
 <span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">base</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.8</span></span>
 <span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">boost</span><span class="kw">:</span><span class="at"> test_coverage * 0.1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="document-everything" class="level3" data-number="12.8.2">
-<h3 data-number="12.8.2" class="anchored" data-anchor-id="document-everything"><span class="header-section-number">12.8.2</span> 2. Document Everything</h3>
+<section id="document-everything" class="level3" data-number="13.8.2">
+<h3 data-number="13.8.2" class="anchored" data-anchor-id="document-everything"><span class="header-section-number">13.8.2</span> 2. Document Everything</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mapping_rule</span><span class="kw">:</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">documentation</span><span class="kw">:</span></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">purpose</span><span class="kw">:</span><span class="at"> </span><span class="st">"Identify API service components"</span></span>
@@ -1406,8 +1415,8 @@ Canonical Ontology Entities</code></pre>
 <span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> Requires context to distinguish services from modules</span></span>
 <span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">validation_approach</span><span class="kw">:</span><span class="at"> </span><span class="st">"Check for server initialization"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="handle-edge-cases" class="level3" data-number="12.8.3">
-<h3 data-number="12.8.3" class="anchored" data-anchor-id="handle-edge-cases"><span class="header-section-number">12.8.3</span> 3. Handle Edge Cases</h3>
+<section id="handle-edge-cases" class="level3" data-number="13.8.3">
+<h3 data-number="13.8.3" class="anchored" data-anchor-id="handle-edge-cases"><span class="header-section-number">13.8.3</span> 3. Handle Edge Cases</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mapping_rule</span><span class="kw">:</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">edge_case_handling</span><span class="kw">:</span></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">case</span><span class="kw">:</span><span class="at"> </span><span class="st">"static file serving"</span></span>
@@ -1431,8 +1440,8 @@ Canonical Ontology Entities</code></pre>
 <span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>        routes or service-specific configuration.</span>
 <span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">action</span><span class="kw">:</span><span class="at"> require_additional_evidence</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="use-confidence-appropriately" class="level3" data-number="12.8.4">
-<h3 data-number="12.8.4" class="anchored" data-anchor-id="use-confidence-appropriately"><span class="header-section-number">12.8.4</span> 4. Use Confidence Appropriately</h3>
+<section id="use-confidence-appropriately" class="level3" data-number="13.8.4">
+<h3 data-number="13.8.4" class="anchored" data-anchor-id="use-confidence-appropriately"><span class="header-section-number">13.8.4</span> 4. Use Confidence Appropriately</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mapping_rule</span><span class="kw">:</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">confidence_strategy</span><span class="kw">:</span></span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">high_confidence</span><span class="kw">:</span></span>
@@ -1459,8 +1468,8 @@ Canonical Ontology Entities</code></pre>
 <span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> conflicting_evidence</span></span>
 <span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">confidence</span><span class="kw">:</span><span class="at"> 0.0-0.4</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="preserve-evidence-traceability" class="level3" data-number="12.8.5">
-<h3 data-number="12.8.5" class="anchored" data-anchor-id="preserve-evidence-traceability"><span class="header-section-number">12.8.5</span> 5. Preserve Evidence Traceability</h3>
+<section id="preserve-evidence-traceability" class="level3" data-number="13.8.5">
+<h3 data-number="13.8.5" class="anchored" data-anchor-id="preserve-evidence-traceability"><span class="header-section-number">13.8.5</span> 5. Preserve Evidence Traceability</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mapping_rule</span><span class="kw">:</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">evidence_preservation</span><span class="kw">:</span></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">required_evidence_types</span><span class="kw">:</span></span>
@@ -1478,8 +1487,8 @@ Canonical Ontology Entities</code></pre>
 <hr>
 </section>
 </section>
-<section id="mapping-as-structural-translation" class="level2" data-number="12.9">
-<h2 data-number="12.9" class="anchored" data-anchor-id="mapping-as-structural-translation"><span class="header-section-number">12.9</span> Mapping as Structural Translation</h2>
+<section id="mapping-as-structural-translation" class="level2" data-number="13.9">
+<h2 data-number="13.9" class="anchored" data-anchor-id="mapping-as-structural-translation"><span class="header-section-number">13.9</span> Mapping as Structural Translation</h2>
 <p>Mapping and canonicalization transform repository evidence into standardized architectural structures. This translation is essential for producing useful, comparable blueprints.</p>
 <p><strong>Translation process summary:</strong></p>
 <pre><code>Repository Evidence
@@ -1519,8 +1528,8 @@ Canonical Blueprint</code></pre>
 <p>Mapping is therefore the bridge that transforms <strong>implementation-specific observations</strong> into <strong>architecture-independent understanding</strong>.</p>
 <hr>
 </section>
-<section id="chapter-summary" class="level2" data-number="12.10">
-<h2 data-number="12.10" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">12.10</span> Chapter Summary</h2>
+<section id="chapter-summary" class="level2" data-number="13.10">
+<h2 data-number="13.10" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">13.10</span> Chapter Summary</h2>
 <ul>
 <li>Mapping translates repository artifacts into canonical architectural entities and relationships</li>
 <li>The mapping challenge arises from diversity in languages, frameworks, and conventions</li>
@@ -1534,9 +1543,46 @@ Canonical Blueprint</code></pre>
 <li>Mapping transforms implementation-specific observations into architecture-independent understanding</li>
 <li>Canonical graphs enable blueprint population, view generation, and large-scale architecture analysis</li>
 </ul>
+<section id="knowledge-to-retain" class="level3" data-number="13.10.1">
+<h3 data-number="13.10.1" class="anchored" data-anchor-id="knowledge-to-retain"><span class="header-section-number">13.10.1</span> Knowledge to Retain</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Core Concept</th>
+<th>Must Remember</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>The mapping problem</strong></td>
+<td>Same architectural concept is expressed differently across languages and frameworks (e.g., a “worker” is Celery in Python, goroutine in Go, ExecutorService in Java). Mapping resolves this diversity into canonical forms.</td>
+</tr>
+<tr class="even">
+<td><strong>Three types of canonicalization</strong></td>
+<td>(1) <strong>Naming</strong> — standardize entity IDs across repos. (2) <strong>Type</strong> — abstract implementation differences into architectural types (FastAPI → APIInterface). (3) <strong>Relation</strong> — normalize relationships (import, depends_on, requires → <code>depends</code>).</td>
+</tr>
+<tr class="odd">
+<td><strong>Interpretability is non-negotiable</strong></td>
+<td>Every mapping rule must be explainable in plain language. Opaque ML black boxes are unacceptable. Even when ML assists, the final mapping must be expressed through clear, debuggable rules.</td>
+</tr>
+<tr class="even">
+<td><strong>Dual graph output</strong></td>
+<td>Mapping produces two connected structures: <strong>Entity Graph</strong> (nodes: components, interfaces, data, workflows) and <strong>Relation Graph</strong> (edges: exposes, owns, depends, triggers). Together they form the blueprint foundation.</td>
+</tr>
+<tr class="odd">
+<td><strong>Evidence-linked at all times</strong></td>
+<td>Every mapped entity and relation must reference the evidence objects that support it. If you can’t trace a mapped element back to specific evidence, the mapping is invalid.</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Next Chapter</strong>: Chapter 11 begins the detailed extraction methodology with Component Discovery—identifying and classifying the structural units of responsibility within a system. This chapter provides concrete examples and detailed methodology for identifying service, worker, scheduler, and plugin components.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1942,13 +1988,13 @@ Canonical Blueprint</code></pre>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./ch-09-confidence-semantics.html" class="pagination-link" aria-label="Confidence Semantics">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Confidence Semantics</span></span>
+      <a href="./ch-09.5-system-representation.html" class="pagination-link" aria-label="System Representation: Making Systems Observable">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">System Representation: Making Systems Observable</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./ch-11-component-discovery.html" class="pagination-link" aria-label="Component Discovery">
-        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Component Discovery</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Component Discovery</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
