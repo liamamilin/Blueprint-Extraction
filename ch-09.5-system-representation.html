@@ -457,10 +457,7 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#implication" id="toc-implication" class="nav-link" data-scroll-target="#implication"><span class="header-section-number">12.13</span> Implication</a></li>
   <li><a href="#final-definition" id="toc-final-definition" class="nav-link" data-scroll-target="#final-definition"><span class="header-section-number">12.14</span> Final Definition</a></li>
-  <li><a href="#chapter-summary" id="toc-chapter-summary" class="nav-link" data-scroll-target="#chapter-summary"><span class="header-section-number">12.15</span> Chapter Summary</a>
-  <ul class="collapse">
-  <li><a href="#knowledge-to-retain" id="toc-knowledge-to-retain" class="nav-link" data-scroll-target="#knowledge-to-retain"><span class="header-section-number">12.15.1</span> Knowledge to Retain</a></li>
-  </ul></li>
+  <li><a href="#transition" id="toc-transition" class="nav-link" data-scroll-target="#transition"><span class="header-section-number">12.15</span> Transition</a></li>
   </ul>
 </nav>
     </div>
@@ -862,61 +859,18 @@ and participates in a traceable flow.</p>
 </blockquote>
 <hr>
 </section>
-<section id="chapter-summary" class="level2" data-number="12.15">
-<h2 data-number="12.15" class="anchored" data-anchor-id="chapter-summary"><span class="header-section-number">12.15</span> Chapter Summary</h2>
+<section id="transition" class="level2" data-number="12.15">
+<h2 data-number="12.15" class="anchored" data-anchor-id="transition"><span class="header-section-number">12.15</span> Transition</h2>
+<p>With system representation made explicit:</p>
 <ul>
-<li>A system is a representation, not a collection of code files</li>
-<li>Extraction fails when the target (the system) is undefined</li>
-<li>The input to extraction is a project, which is a latent system containing entry points, module boundaries, data flow, execution structure, and configuration</li>
-<li>A system is defined as a directed graph of typed transformations over data</li>
-<li>A subsystem exists only as a transformation unit: Subsystem = (Input, Output, Transformation)</li>
-<li>Interfaces are contracts defining what enters and exits, not syntactic constructs</li>
-<li>Data models are carriers of meaning — structured state that moves through the system</li>
-<li>Transformations must be observable: intermediate states visible, input/output traceable, execution reconstructable</li>
-<li>Flow defines execution order, dependency structure, and system topology</li>
-<li>Extraction is reconstruction — we reconstruct systems from projects, not extract from code</li>
-<li>The fully observable reference system demonstrates what extraction aims to approximate</li>
+<li><p>ambiguity becomes measurable</p></li>
+<li><p>mapping becomes grounded</p></li>
+<li><p>blueprint generation becomes stable</p></li>
 </ul>
-<section id="knowledge-to-retain" class="level3" data-number="12.15.1">
-<h3 data-number="12.15.1" class="anchored" data-anchor-id="knowledge-to-retain"><span class="header-section-number">12.15.1</span> Knowledge to Retain</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Core Concept</th>
-<th>Must Remember</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>System definition</strong></td>
-<td>A system = a directed graph of observable (or inferred), typed transformations over data, where each node consumes input, produces output, and participates in a traceable flow.</td>
-</tr>
-<tr class="even">
-<td><strong>Subsystem formula</strong></td>
-<td>Subsystem = (Input, Output, Transformation). A subsystem exists <em>only</em> when a transformation exists — not because a directory or file exists.</td>
-</tr>
-<tr class="odd">
-<td><strong>Interface = Contract</strong></td>
-<td>Interfaces are not syntax or code. They are contracts defining: <code>input_schema</code>, <code>output_schema</code>, and guarantees. Every interface must define what enters, what exits, and what is guaranteed.</td>
-</tr>
-<tr class="even">
-<td><strong>Extraction is reconstruction</strong></td>
-<td>We do not “extract” systems from code. Code is not a system — it is a project (a <em>latent</em> system). Extraction <em>reconstructs</em> the system representation from project artifacts.</td>
-</tr>
-<tr class="odd">
-<td><strong>Observability is the goal</strong></td>
-<td>The ideal is to see how data evolves across transformations. In practice, this visibility must be <em>inferred</em> from code structure, since runtime observability is rarely available. The reference system shows what complete observability looks like — and what extraction tries to approximate.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Next Chapter</strong>: Chapter 10 begins Part III by introducing Mapping Principles and Canonicalization — the translation of inferred system representations into canonical architectural entities and relationships.</p>
+<p>We now proceed to ontology mapping,<br>
+where inferred systems become structured knowledge.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
